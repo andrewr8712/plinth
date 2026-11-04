@@ -1,0 +1,132 @@
+file: Geinoh Yamashirogumi  Symphonic Suite AKIRA (2016)/01 - 金田　KANEDA.dff
+Last-Modified: 2026-05-27T19:35:11Z
+Time: 191
+duration: 190.676
+file: Geinoh Yamashirogumi  Symphonic Suite AKIRA (2016)/02 - クラウンとの闘い　BATTLE AGAINST CLOWN.dff
+Last-Modified: 2026-05-27T19:35:07Z
+Time: 218
+duration: 217.957
+file: Geinoh Yamashirogumi  Symphonic Suite AKIRA (2016)/03 - ネオ東京上空の風　WINDS OVER THE NEO-TOKYO.dff
+Last-Modified: 2026-05-27T19:34:40Z
+Time: 198
+duration: 197.822
+file: Geinoh Yamashirogumi  Symphonic Suite AKIRA (2016)/04 - 鉄雄　TETSUO.dff
+Last-Modified: 2026-05-27T19:35:09Z
+Time: 618
+duration: 618.066
+file: Geinoh Yamashirogumi  Symphonic Suite AKIRA (2016)/05 - ぬいぐるみのポリフォニー　DOLLS' POLYPHONY.dff
+Last-Modified: 2026-05-27T19:34:59Z
+Time: 178
+duration: 177.807
+file: Geinoh Yamashirogumi  Symphonic Suite AKIRA (2016)/06 - 唱名　SHOHMYOH.dff
+Last-Modified: 2026-05-27T19:35:07Z
+Time: 613
+duration: 613.145
+file: Geinoh Yamashirogumi  Symphonic Suite AKIRA (2016)/07 - ケイと金田の脱出　EXODUS FROM THE UNDERGROUND FORTRESS.dff
+Last-Modified: 2026-05-27T19:35:02Z
+Time: 199
+duration: 199.391
+file: Geinoh Yamashirogumi  Symphonic Suite AKIRA (2016)/08 - 回想　ILLUSION.dff
+Last-Modified: 2026-05-27T19:35:06Z
+Time: 844
+duration: 843.555
+file: Geinoh Yamashirogumi  Symphonic Suite AKIRA (2016)/09 - 変容　MUTATION.dff
+Last-Modified: 2026-05-27T19:34:39Z
+Time: 316
+duration: 315.547
+file: Geinoh Yamashirogumi  Symphonic Suite AKIRA (2016)/10 - 未来　REQUIEM.dff
+Last-Modified: 2026-05-27T19:35:08Z
+Time: 861
+duration: 860.633
+file: Marilyn Manson  The Pale Emperor DSD/A1.Killing Strangers.dff
+Last-Modified: 2026-05-27T15:55:43Z
+Time: 336
+duration: 336.036
+file: Marilyn Manson  The Pale Emperor DSD/A2.Deep Six.dff
+Last-Modified: 2026-05-27T16:31:12Z
+Time: 303
+duration: 303.329
+file: Marilyn Manson  The Pale Emperor DSD/A3.Third Day Of A Seven Day Binge.dff
+Last-Modified: 2026-05-27T16:30:51Z
+Time: 266
+duration: 266.097
+file: Marilyn Manson  The Pale Emperor DSD/B1.The Mephistopheles Of Los Angeles.dff
+Last-Modified: 2026-05-27T16:30:36Z
+Time: 298
+duration: 298.395
+file: Marilyn Manson  The Pale Emperor DSD/B2.Warship My Wreck.dff
+Last-Modified: 2026-05-27T16:30:46Z
+Time: 356
+duration: 356.181
+file: Marilyn Manson  The Pale Emperor DSD/B3.Slave Only Dreams To Be King.dff
+Last-Modified: 2026-05-27T16:30:12Z
+Time: 320
+duration: 319.854
+file: Marilyn Manson  The Pale Emperor DSD/B4.The Devil Beneath My Feet.dff
+Last-Modified: 2026-05-27T16:31:07Z
+Time: 256
+duration: 256.240
+file: Marilyn Manson  The Pale Emperor DSD/C1.Birds Of Hell Awaiting.dff
+Last-Modified: 2026-05-27T16:30:20Z
+Time: 306
+duration: 306.169
+file: Marilyn Manson  The Pale Emperor DSD/C2.Cupid Carries A Gun.dff
+Last-Modified: 2026-05-27T16:31:14Z
+Time: 299
+duration: 299.468
+file: Marilyn Manson  The Pale Emperor DSD/C3.Odds Of Even.dff
+Last-Modified: 2026-05-27T16:31:10Z
+Time: 382
+duration: 382.062
+file: Marilyn Manson  The Pale Emperor DSD/D1.Day 3.dff
+Last-Modified: 2026-05-27T16:31:01Z
+Time: 253
+duration: 252.683
+file: Marilyn Manson  The Pale Emperor DSD/D2.Fated Faithful Fata.dff
+Last-Modified: 2026-05-27T16:30:49Z
+Time: 283
+duration: 283.197
+file: Marilyn Manson  The Pale Emperor DSD/D3.Fall Of The House Of Death.dff
+Last-Modified: 2026-05-27T16:31:06Z
+Time: 276
+duration: 275.684
+file: Supertramp - Breakfast In America (1979) 2013 SHM-SACD-DFF/01 - Gone Hollywood.dff
+Last-Modified: 2026-05-17T14:02:27Z
+Time: 319
+duration: 318.653
+file: Supertramp - Breakfast In America (1979) 2013 SHM-SACD-DFF/02 - The Logical Song.dff
+Last-Modified: 2026-05-17T14:02:21Z
+Time: 249
+duration: 248.893
+file: Supertramp - Breakfast In America (1979) 2013 SHM-SACD-DFF/03 - Goodbye Stranger.dff
+Last-Modified: 2026-05-17T14:02:24Z
+Time: 348
+duration: 348.466
+file: Supertramp - Breakfast In America (1979) 2013 SHM-SACD-DFF/04 - Breakfast In America.dff
+Last-Modified: 2026-05-17T14:02:20Z
+Time: 159
+duration: 159.266
+file: Supertramp - Breakfast In America (1979) 2013 SHM-SACD-DFF/05 - Oh Darling.dff
+Last-Modified: 2026-05-17T14:02:23Z
+Time: 247
+duration: 247.200
+file: Supertramp - Breakfast In America (1979) 2013 SHM-SACD-DFF/06 - Take The Long Way Home.dff
+Last-Modified: 2026-05-17T14:02:26Z
+Time: 308
+duration: 308.040
+file: Supertramp - Breakfast In America (1979) 2013 SHM-SACD-DFF/07 - Lord Is It Mine.dff
+Last-Modified: 2026-05-17T14:02:26Z
+Time: 250
+duration: 249.986
+file: Supertramp - Breakfast In America (1979) 2013 SHM-SACD-DFF/08 - Just Another Nervous Wreck.dff
+Last-Modified: 2026-05-17T14:02:24Z
+Time: 264
+duration: 263.573
+file: Supertramp - Breakfast In America (1979) 2013 SHM-SACD-DFF/09 - Casual Conversations.dff
+Last-Modified: 2026-05-17T14:02:25Z
+Time: 179
+duration: 178.813
+file: Supertramp - Breakfast In America (1979) 2013 SHM-SACD-DFF/10 - Child Of Vision.dff
+Last-Modified: 2026-05-17T14:02:25Z
+Time: 448
+duration: 447.813

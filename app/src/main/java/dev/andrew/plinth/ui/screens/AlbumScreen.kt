@@ -42,7 +42,8 @@ fun AlbumScreen(
                 overflow = TextOverflow.Ellipsis,
             )
             Text(
-                text = "$artist · ${tracks.size} tracks",
+                // Untagged rips have no artist, so the separator must not lead the line.
+                text = listOf(artist, "${tracks.size} tracks").filter { it.isNotBlank() }.joinToString(" · "),
                 color = PlinthColors.Faint,
                 style = MaterialTheme.typography.bodySmall,
             )
@@ -59,7 +60,9 @@ fun AlbumScreen(
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Text(
-                        text = track.trackNo.toString().padStart(2, '0'),
+                        // No Track tag is common on these DFF rips; printing 00 would be a
+                        // fabricated number, so the column stays empty instead.
+                        text = if (track.trackNo > 0) track.trackNo.toString().padStart(2, '0') else "",
                         color = PlinthColors.Faint,
                         style = MaterialTheme.typography.bodySmall,
                         modifier = Modifier.padding(end = 16.dp),

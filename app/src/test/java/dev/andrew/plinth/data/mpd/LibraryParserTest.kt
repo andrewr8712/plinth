@@ -1,5 +1,6 @@
 package dev.andrew.plinth.data.mpd
 
+import dev.andrew.plinth.data.model.AlbumIdentity
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -57,5 +58,27 @@ class LibraryParserTest {
     fun `title falls back to the file name when the tag is missing`() {
         val t = LibraryParser.parse(pairsOf("file: Dir/07 - Track.flac\nTime: 100\nOK\n"))
         assertEquals("07 - Track", t[0].title)
+    }
+
+    /**
+     * The DFF rips in this library carry no tags at all — no Album, AlbumArtist, Artist
+     * or Track. Keying them on those blanks put three unrelated records (AKIRA,
+     * The Pale Emperor DSD, Breakfast In America SACD) in one album. Each folder is its
+     * own record, so the folder name is the album.
+     */
+    @Test
+    fun `untagged folders are separate albums keyed on the folder name`() {
+        val t = LibraryParser.parse(pairsOf(javaClass.getResource("/listallinfo_untagged.txt")!!.readText()))
+        assertEquals(33, t.size)
+        assertEquals(3, t.map { it.albumId }.distinct().size)
+        assertTrue("a blank Album must not survive parsing: ${t.map { it.album }.distinct()}", t.all { it.album.isNotBlank() })
+        assertTrue(
+            "no track may key on blank artist + blank album",
+            t.none { it.albumId == AlbumIdentity.key("", "", "", it.channels) },
+        )
+        val akira = t.filter { it.path.startsWith("Geinoh") }
+        assertEquals(10, akira.size)
+        assertEquals(setOf("Geinoh Yamashirogumi  Symphonic Suite AKIRA (2016)"), akira.map { it.album }.toSet())
+        assertEquals(1, akira.map { it.albumId }.distinct().size)
     }
 }

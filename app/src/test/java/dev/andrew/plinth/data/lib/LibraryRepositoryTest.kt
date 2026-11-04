@@ -121,4 +121,26 @@ class LibraryRepositoryTest {
         assertEquals(2, repo.search("mezzanine").first().size)
         assertEquals(3, repo.search("massive").first().size + repo.search("someone").first().size)
     }
+
+    /** The live bug: three untagged records opened as one 33-track album with a blank header. */
+    @Test
+    fun `untagged folders stay separate all the way into the album table`() = runBlocking {
+        repo.replaceAll(fixture("listallinfo_untagged.txt"))
+        assertEquals(33, repo.trackCount())
+
+        val albums = repo.albums().first()
+        assertEquals(3, albums.size)
+        assertTrue("album titles must never be blank: ${albums.map { it.title }}", albums.all { it.title.isNotBlank() })
+        assertEquals(33, albums.sumOf { it.trackCount })
+
+        val akira = albums.first { it.title.contains("AKIRA") }
+        assertEquals(10, akira.trackCount)
+        val tracks = repo.albumTracks(akira.id).first()
+        assertEquals(10, tracks.size)
+        assertEquals(1, tracks.map { it.albumId }.toSet().size)
+        assertTrue(
+            "album detail must not leak another record's rows",
+            tracks.all { it.path == "Geinoh Yamashirogumi  Symphonic Suite AKIRA (2016)" },
+        )
+    }
 }
