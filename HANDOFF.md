@@ -13,10 +13,16 @@ Volumio. `README.md` covers building, testing and installing.
 
 ## Status
 
-- **M1 (MPD protocol), M2 (library and art) and M3 (surfaces) are complete. M4
-  (meter, service, offline states — plan tasks 16–19) is not started.**
-- 78 unit tests pass, and 12 instrumented tests pass on a tablet
-  (`NowPlayingExpandedTest` 2, `PhoneSurfacesTest` 3, `LibrarySurfacesTest` 7).
+- **M1 (MPD protocol), M2 (library and art) and M3 (surfaces) are complete. M4 is
+  half done: the loudness envelope and the meter are built (tasks 16–17), the
+  background policy exists without the service that consumes it (task 18), and the
+  failure states are not started (task 19).**
+- 93 unit tests pass, and 15 instrumented tests pass on a tablet
+  (`NowPlayingExpandedTest` 2, `PhoneSurfacesTest` 3, `LibrarySurfacesTest` 7,
+  `VuMeterTest` 3). Eight Python tests cover the scanner.
+- The meter is verified reading a real envelope on the tablet. The one thing not
+  verified is the bars moving: that needs playback, which is started by ear, not by
+  a test.
 - The debug APK runs on both the reference tablet and phone.
 - **M3's last work is on `feat/task-15-screens`, branched from
   `build/phase-1`, and is not merged.** `master` holds the state before the
@@ -122,15 +128,21 @@ dedupe should paper over.
 
 ### M4 — meter, service, offline states (plan tasks 16–19)
 
-- **VU meter.** A precomputed 5 Hz stereo RMS envelope (about 14 MB for 264
-  hours), indexed as `(elapsed − L)` with `L` at 120 ms for PCM and 240 ms for
-  DoP, adjustable ±500 ms. Tablet and Medium windows only, never the phone sheet.
-  `QueueBand` already reserves the 152 dp band and draws the meter at rest.
-- **Playback service.** A `mediaPlayback` foreground service while playing,
-  keep-screen-on while charging, infinite reconnect backoff, and a 60-second grace
-  period after pause or stop.
-- **Failure states.** The eleven states in `mockups/states.tpl.html` are designed
-  but not implemented.
+- **Loudness envelope — done.** `tools/vu-scan/vu_scan.py` writes the file
+  (1,837 tracks, 7.7 MB for this library); import it under Output → Loudness data.
+  It keys records by MPD's URI, so the 187 tracks whose database paths are stale
+  SMB 8.3 names have no level — see `tools/vu-scan/README.md`.
+- **Meter — done.** Two bars with a live dBFS header in the band, 30 ms attack and
+  350 ms release, per-format offset adjustable under Output. Medium has it too; the
+  phone does not.
+- **Playback service — policy only.** `BackgroundPolicy` decides when the app should
+  hold a connection (playing, a one-minute grace after pause, or charging with the
+  stay-awake setting). The `mediaPlayback` service, its MediaStyle notification and
+  the keep-screen-on flag are not written: a foreground service that misses its
+  `startForeground` call crashes on launch, and there was no device on `adb` while
+  that task was in scope.
+- **Failure states — not started.** The eleven states in `mockups/states.tpl.html`
+  are designed but not implemented.
 
 ## Pitfalls
 
@@ -155,6 +167,15 @@ dedupe should paper over.
   rather than paging at 8 KB. `ACK [50@0]` means "no art" and is cached as a
   negative for seven days; any other error is not evidence of anything and must
   not be cached.
+- **A frame loop in a composable hangs every instrumented test.** `withFrameNanos`
+  keeps Compose permanently busy, so the test rule times out on idling with
+  `ComposeNotIdleException` — a failure that looks like an infinite recomposition
+  because it is one. Use `withInfiniteAnimationFrameNanos` for animation loops; the
+  test clock ignores it.
+- **A latency offset makes position negative at the start of a track.** Subtracting
+  120 ms from `elapsed = 0` and rejecting negative positions turned "paused at 0:00"
+  into "no level data". The lookup floors at the first frame; only a position past
+  the end is unknown.
 - **A missing tag must not become a printed value.** Untagged rows carry
   `trackNo = 0` and a blank artist; render nothing, or omit the separator, rather
   than printing `00` and a dangling `·`.
@@ -175,4 +196,5 @@ dedupe should paper over.
 1,965 rows from `listallinfo` · 1,866 tracks cached · 139 albums, matching the 139
 album identities · 42 album artists, blank ones excluded · 91 folders ·
 `listallinfo` is 865 KB, 90 ms over the socket and 809 ms to parse cold · a cover
-is 301,900 bytes at 1280² and about 60 ms warm.
+is 301,900 bytes at 1280² and about 60 ms warm · the loudness envelope is
+7,703,779 bytes for 1,837 tracks and covers 1,679 of the 1,866 cached tracks.
