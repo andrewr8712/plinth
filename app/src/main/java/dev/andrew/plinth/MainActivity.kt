@@ -12,6 +12,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -22,6 +23,8 @@ import dev.andrew.plinth.ui.layout.SurfaceSize
 import dev.andrew.plinth.ui.layout.rememberSurfaceSize
 import dev.andrew.plinth.ui.theme.PlinthColors
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import dev.andrew.plinth.ui.screens.MiniPlayer
+import dev.andrew.plinth.ui.screens.NowPlayingSheet
 import dev.andrew.plinth.ui.screens.NowPlayingScreen
 import dev.andrew.plinth.ui.theme.PlinthTheme
 import dev.andrew.plinth.ui.vm.PlayerViewModel
@@ -58,12 +61,27 @@ private val destinations = listOf(
 fun AppRoot(container: AppContainer) {
     val surface = rememberSurfaceSize()
     val nav = rememberNavController()
+    val vm: PlayerViewModel = androidx.lifecycle.viewmodel.compose.viewModel(
+        factory = PlayerViewModelFactory(container),
+    )
+    val ui by vm.ui.collectAsStateWithLifecycle()
+    val queue by vm.queue.collectAsStateWithLifecycle()
+    val art by vm.art.collectAsStateWithLifecycle()
+    var sheetOpen by androidx.compose.runtime.remember { androidx.compose.runtime.mutableStateOf(false) }
 
     Scaffold(
         containerColor = PlinthColors.Base,
         bottomBar = {
             if (surface == SurfaceSize.Compact) {
-                PlinthBottomBar(nav)
+                androidx.compose.foundation.layout.Column {
+                    MiniPlayer(
+                        ui = ui,
+                        art = art,
+                        onOpen = { sheetOpen = true },
+                        onPlayPause = vm::playPause,
+                    )
+                    PlinthBottomBar(nav)
+                }
             }
         },
     ) { insets ->
@@ -73,12 +91,6 @@ fun AppRoot(container: AppContainer) {
             modifier = Modifier.padding(insets),
         ) {
             composable("now") {
-                val vm: PlayerViewModel = androidx.lifecycle.viewmodel.compose.viewModel(
-                    factory = PlayerViewModelFactory(container),
-                )
-                val ui by vm.ui.collectAsStateWithLifecycle()
-                val queue by vm.queue.collectAsStateWithLifecycle()
-                val art by vm.art.collectAsStateWithLifecycle()
                 NowPlayingScreen(
                     size = surface,
                     ui = ui,
@@ -97,6 +109,18 @@ fun AppRoot(container: AppContainer) {
             composable("output") { Placeholder("Output") }
             composable("connection") { Placeholder("Connection") }
         }
+    }
+    if (sheetOpen) {
+        NowPlayingSheet(
+            ui = ui,
+            queue = queue,
+            art = art,
+            onDismiss = { sheetOpen = false },
+            onPlayPause = vm::playPause,
+            onPrev = vm::previous,
+            onNext = vm::next,
+            onSeek = vm::seek,
+        )
     }
 }
 
