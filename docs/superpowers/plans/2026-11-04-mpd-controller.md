@@ -28,6 +28,17 @@
 - Loudness envelope: 5 Hz, `u8 rms_l, u8 rms_r, u8 peak` dBFS-mapped, keyed by MPD URI.
 - Unit tests run on the JVM with a local `FakeMpdServer`; UI tests run instrumented on a device (`connectedDebugAndroidTest`).
 
+## Milestones
+
+| Milestone | Tasks | Ends with |
+|---|---|---|
+| M1 — socket and state | 1–5 ✅ | A connection that survives the streamer going away; transport verified against a fake MPD |
+| M2 — library and art | 6–9 | 1,965 tracks browseable by album, artist and folder, with covers; queue editable |
+| M3 — the surface | 10–15 | The designed tablet now-playing surface and the phone surfaces, on the device |
+| M4 — meter and polish | 16–19 | Meter fed by the loudness envelope; runs in the background; every failure state |
+
+Four, not six: art (one task) and the meter (two) were too thin to end a milestone on.
+
 ## Review Focus
 
 1. **Binary payload containing `\nOK\n`** — art bytes may contain the terminator sequence mid-stream; a substring check truncates the JPEG. Pinned in Task 2 (transport) and Task 9 (art).

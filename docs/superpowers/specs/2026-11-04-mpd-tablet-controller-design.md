@@ -467,20 +467,24 @@ Still open:
 
 ## 8. Build order
 
-1. **M1 — socket and state.** Connect, `status`/`currentsong`/`outputs`, transport
-   controls, idle loop, reconnect. Verified against the real device.
-2. **M2 — library.** `listallinfo` → SQLite; album/artist/track/folder browsing;
-   local search; queue add/remove/reorder.
-3. **M3 — art.** Lazy fetch, chunk loop, disk cache, placeholders, timeouts.
-4. **M4 — the surface.** Tablet layout A, phone layout, signal strip, progress,
-   band, theming.
-5. **M5 — meter.** Generator tool, format, import, ballistics, fallback state.
-6. **M6 — polish.** MediaSession notification, playlists, offline states,
-   final motion and type.
+Four milestones. Each ends with something running on the tablet at `10.0.0.219`,
+not a mock; the task ranges below are authoritative and match the plan.
 
-Each milestone ends on the real device at `10.0.0.219`, not a mock.
+1. **M1 — socket and state** (tasks 1–5, complete). Connect, `status`/`currentsong`/
+   `outputs`, transport controls, idle loop, reconnect. Transport is verified against
+   a fake MPD server rather than the streamer itself: driving the real one means
+   sound in the room, and that check belongs to whoever is listening.
+2. **M2 — library and art** (tasks 6–9). `listallinfo` → SQLite, album identity,
+   album/artist/folder browsing, local search, queue add/remove/reorder, then covers:
+   lazy fetch with a raised chunk cap, disk cache, negative cache, placeholders.
+3. **M3 — the surface** (tasks 10–15). Settings, shell and theme, the tablet
+   now-playing arrangement, signal strip and verdict, phone surfaces and the sheet,
+   library screens.
+4. **M4 — meter and polish** (tasks 16–19). Loudness envelope and the meter, the
+   playback service and notification, and every offline and failure state.
 
----
+Art was its own milestone (one task) and the meter was its own (two tasks); both were
+too thin to end on, so they joined the milestone that consumes them.
 
 ## 9. How we'll know it worked
 
