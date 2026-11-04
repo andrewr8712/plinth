@@ -25,6 +25,7 @@ import dev.andrew.plinth.ui.theme.PlinthColors
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dev.andrew.plinth.ui.screens.MiniPlayer
 import dev.andrew.plinth.ui.screens.NowPlayingSheet
+import dev.andrew.plinth.ui.screens.LibraryScreen
 import dev.andrew.plinth.ui.screens.NowPlayingScreen
 import dev.andrew.plinth.ui.theme.PlinthTheme
 import dev.andrew.plinth.ui.vm.PlayerViewModel
@@ -100,9 +101,15 @@ fun AppRoot(container: AppContainer) {
                     onPrev = vm::previous,
                     onNext = vm::next,
                     onSeek = vm::seek,
+                    onOpenLibrary = { nav.navigate("library") },
+                    onOpenQueue = { nav.navigate("queue") },
                 )
             }
-            composable("library") { Placeholder("Library") }
+            composable("library") {
+                val albums by vm.albums.collectAsStateWithLifecycle()
+                val syncing by vm.syncingLibrary.collectAsStateWithLifecycle()
+                LibraryScreen(size = surface, albums = albums, syncing = syncing)
+            }
             composable("album/{id}") { Placeholder("Album") }
             composable("queue") { Placeholder("Queue") }
             composable("search") { Placeholder("Search") }

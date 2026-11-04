@@ -13,6 +13,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
@@ -50,6 +51,15 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
     private val _queue = MutableStateFlow<List<dev.andrew.plinth.data.model.QueueItem>>(emptyList())
     val queue: StateFlow<List<dev.andrew.plinth.data.model.QueueItem>> = _queue.asStateFlow()
 
+    private var librarySynced = false
+
+    private val _syncingLibrary = MutableStateFlow(false)
+    val syncingLibrary: StateFlow<Boolean> = _syncingLibrary.asStateFlow()
+
+    /** Straight from Room, so the grid draws from the cache rather than the network. */
+    val albums: StateFlow<List<dev.andrew.plinth.data.model.Album>> = container.library.albums()
+        .stateIn(viewModelScope, kotlinx.coroutines.flow.SharingStarted.Eagerly, emptyList())
+
     private val _art = MutableStateFlow<dev.andrew.plinth.data.art.ArtRepository?>(null)
     val art: StateFlow<dev.andrew.plinth.data.art.ArtRepository?> = _art.asStateFlow()
 
@@ -71,6 +81,17 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
                 if (state is ConnectionState.Up) {
                     _art.value = runCatching { conn.withClient { container.artFor(it) } }.getOrNull()
                     lastOutput = runCatching { conn.withClient { it.outputs().firstOrNull() } }.getOrNull()
+                    if (!librarySynced) {
+                        librarySynced = true
+                        viewModelScope.launch {
+                            _syncingLibrary.value = true
+                            runCatching {
+                                val tracks = conn.withClient { it.listAllInfo() }
+                                if (tracks.isNotEmpty()) container.library.replaceAll(tracks)
+                            }
+                            _syncingLibrary.value = false
+                        }
+                    }
                 } else {
                     _art.value = null
                 }

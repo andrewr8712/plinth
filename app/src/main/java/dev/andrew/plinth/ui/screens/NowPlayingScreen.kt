@@ -1,6 +1,7 @@
 package dev.andrew.plinth.ui.screens
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -59,6 +60,7 @@ fun NowPlayingScreen(
     onSeek: (Double) -> Unit = {},
     onQueueItem: (Int) -> Unit = {},
     onOpenQueue: () -> Unit = {},
+    onOpenLibrary: () -> Unit = {},
 ) {
     Box(Modifier.fillMaxSize().background(PlinthColors.Base)) {
         if (size == SurfaceSize.Medium) {
@@ -71,11 +73,12 @@ fun NowPlayingScreen(
                     .padding(start = INSET, end = INSET, top = INSET, bottom = BAND + 16.dp),
             ) {
                 Row {
+                    // the tablet has no chrome, so the cover is the library's door
                     Artwork(
                         albumId = ui.albumId,
                         firstTrackUri = ui.uri,
                         art = art,
-                        modifier = Modifier.size(COVER),
+                        modifier = Modifier.size(COVER).clickable { onOpenLibrary() },
                     )
                     Spacer(Modifier.width(40.dp))
                     TrackColumn(ui, size, onPlayPause, onPrev, onNext, onSeek)
