@@ -239,8 +239,8 @@ One `NowPlaying` composable, three arrangements by window width:
 
 | Width | Arrangement |
 |---|---|
-| `< 600 dp` (phone) | Browse-first. Library list/grid, mini player pinned above the tab bar, tapping it opens a full-height now-playing sheet with the meter and signal strip. |
-| `600–840 dp` (tablet in split-screen, phone landscape) | Now playing with the art shrunk and the queue rail collapsed to a bottom strip; library reachable from the top bar. |
+| `< 600 dp` (phone) | Browse-first. Library list/grid, mini player pinned above the tab bar; tapping it opens a full-height sheet inset 12 dp (so the library shows behind it), a 44 dp chevron to close, the signal strip, three-control transport and an **Up next · N** row. **No meter** — the phone is the control surface; the tablet is the instrument. |
+| `600–840 dp` (tablet in split-screen, phone landscape) | **Stacked spine.** Cover fills the width at 400 dp, type steps down one (44 display), strip/progress/transport in one column, band keeps queue + meter. Same components as the tablet, one column instead of three. |
 | `≥ 840 dp` (tablet) | **One spine, one band.** 420 dp cover on the left; a 584 dp column (title, artist, position, signal strip, full-width progress, centred three-control transport) whose bottom edge is pinned to the cover's; a 132 dp band across the foot holding *up next* at the start and the level meter at the end. Blurred art wash behind. |
 
 Components shared across widths so there is one behaviour, not three:
