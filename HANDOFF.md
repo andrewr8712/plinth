@@ -51,7 +51,7 @@ Album: The Pale Emperor (Deluxe Edition)
 AlbumArtist: Marilyn Manson
 ```
 
-The Guilty Gear tracks carry **no `Album` tag** (that is why the header is blank).
+The Guilty Gear tracks carry **no `Album` tag** (that is why the header is blank), and **every row on the screen shows track number `00`** — so these tracks have no usable `Track`/`Disc` tags either; the Manson ones carry vinyl-style numbering in the title instead (`A1.`, `A2.`, `B1.`). The same merged album opens from more than one grid tile, so it is one bucket, not a bad row.
 
 **Already tried, did not fix it.** `LibraryParser.kt:42` now falls back to the folder name when `Album` is blank:
 
@@ -67,6 +67,7 @@ That is committed. Note it deliberately relaxes the spec's "folder name is never
 2. The album row's `id` (from the album table, used by the route `album/{id}`) and `track.albumId` may be computed by two different paths that disagree — `AlbumIdentity.key(...)` in the parser versus whatever `replaceAll` writes into the album table.
 3. `AlbumIdentity.dedupe()` may reassign or share an id across groups.
 4. `AlbumIdentity.key(albumArtist, artist, album, channels)` may be ignoring `album` in some branch (e.g. a blank-album early return).
+5. **Most likely, given the `00` track numbers:** these rows are the *untagged* ones, and the id is derived from `(disc, trackNo)` somewhere rather than from text tags — every one of them has `disc=0, trackNo=0`. Check whether `replaceAll` or the album query groups by disc/track instead of album id. Also check whether the Guilty Gear files sit loose in the library root: `folderName()` returns blank for a URI with no directory, so the fallback would produce a blank album even after the fix, and blank would join anything else that is blank.
 
 **Fastest way in:** write a failing unit test in `AlbumIdentityTest` with a two-block fixture — one track with blank `Album`, one with a real `Album` — asserting the two keys differ. Then a second test at the `LibraryRepository` level asserting `albumTracks(idA)` does not return the `idB` track. `app/src/test/resources/` already holds real `listallinfo` blocks copied from the device (`listallinfo_{manson_dupes,mellon_collie,raven,sacd}.txt`) and `LibraryParserTest` shows the fixture pattern. The bug will fall out at one of those two levels.
 
