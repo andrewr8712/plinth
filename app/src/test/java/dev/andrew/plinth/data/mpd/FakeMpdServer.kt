@@ -17,7 +17,7 @@ import kotlin.concurrent.thread
 class FakeMpdServer : Closeable {
 
     private val server = ServerSocket(0)
-    private val handlers = Collections.synchronizedMap(LinkedHashMap<String, (String) -> String>())
+    private val handlers = Collections.synchronizedMap(LinkedHashMap<String, (String) -> String?>())
     private val last = AtomicReference<String?>(null)
 
     @Volatile
@@ -40,7 +40,7 @@ class FakeMpdServer : Closeable {
         return this
     }
 
-    fun onCommand(prefix: String, handler: (String) -> String) {
+    fun onCommand(prefix: String, handler: (String) -> String?) {
         handlers[prefix] = handler
     }
 
@@ -55,7 +55,13 @@ class FakeMpdServer : Closeable {
                 last.set(line)
                 if (stall) continue
                 val handler = handlers.entries.firstOrNull { line.startsWith(it.key) }?.value
-                out.write((handler?.invoke(line) ?: "OK\n").toByteArray())
+                if (handler == null) {
+                    out.write("OK\n".toByteArray())
+                    out.flush()
+                    continue
+                }
+                val response = handler(line) ?: continue // null = never answers (idle)
+                out.write(response.toByteArray())
                 out.flush()
             }
         }

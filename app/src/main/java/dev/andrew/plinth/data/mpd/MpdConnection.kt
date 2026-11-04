@@ -1,6 +1,7 @@
 package dev.andrew.plinth.data.mpd
 
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -39,6 +40,9 @@ class MpdConnection(
     private var socket: MpdSocket? = null
 
     @Volatile
+    private var idleSocket: MpdSocket? = null
+
+    @Volatile
     private var client: MpdClient? = null
 
     @Volatile
@@ -47,18 +51,27 @@ class MpdConnection(
 
     val isUp: Boolean get() = _state.value is ConnectionState.Up
 
-    /** Runs forever: connect → idle → on any failure, back off and start again. */
+    /**
+     * Runs forever: connect → idle → on any failure, back off and start again.
+     *
+     * Two sockets, deliberately: MPD forbids commands on a connection parked in
+     * `idle`, so the command connection must be a separate one or every transport
+     * press would wait for someone else to change the song.
+     */
     suspend fun run() {
         while (currentCoroutineContext().isActive) {
             try {
-                val s = socketFactory()
-                s.connect(host, port)
-                socket = s
-                client = MpdClient(s)
+                val cmd = socketFactory()
+                cmd.connect(host, port)
+                val idleSock = socketFactory()
+                idleSock.connect(host, port)
+                socket = cmd
+                idleSocket = idleSock
+                client = MpdClient(cmd)
                 failures = 0
                 _state.value = ConnectionState.Up
 
-                val idle = idleFactory(s)
+                val idle = idleFactory(idleSock)
                 while (currentCoroutineContext().isActive) {
                     idle.awaitChange()
                     // Task 5 keeps the link warm; the repositories subscribe in M6.
@@ -68,6 +81,7 @@ class MpdConnection(
                 throw c
             } catch (t: Throwable) {
                 closeQuietly()
+                if (!currentCoroutineContext().isActive) break
                 failures++
                 _state.value = if (failures >= UNREACHABLE_AFTER) {
                     ConnectionState.Unavailable(t.message ?: t::class.simpleName ?: "unreachable")
@@ -79,6 +93,9 @@ class MpdConnection(
         }
     }
 
+    /** Tears the link down. Closing the sockets is what frees a parked idle read. */
+    fun close() = closeQuietly()
+
     suspend fun <T> withClient(block: suspend (MpdClient) -> T): T {
         val c = client ?: throw MpdException.Disconnected("not connected")
         return block(c)
@@ -86,7 +103,9 @@ class MpdConnection(
 
     private fun closeQuietly() {
         socket?.close()
+        idleSocket?.close()
         socket = null
+        idleSocket = null
         client = null
     }
 

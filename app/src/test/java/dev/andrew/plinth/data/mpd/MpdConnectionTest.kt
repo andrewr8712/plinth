@@ -1,19 +1,36 @@
 package dev.andrew.plinth.data.mpd
 
+import dev.andrew.plinth.data.model.PlaybackState
 import kotlinx.coroutines.CancellationException
-import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.cancelAndJoin
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withTimeout
+import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
+import org.junit.Before
 import org.junit.Test
 import java.io.IOException
 
 class MpdConnectionTest {
 
+    private lateinit var server: FakeMpdServer
+
+    @Before
+    fun setUp() {
+        server = FakeMpdServer().start()
+    }
+
+    @After
+    fun tearDown() {
+        server.close()
+    }
+
     @Test
     fun `failure climbs from options to unreachable`() = runBlocking {
-        val seen = mutableListOf<ConnectionState>()
         var naps = 0
         val conn = MpdConnection(
             host = "127.0.0.1",
@@ -26,8 +43,29 @@ class MpdConnectionTest {
         )
         val job = launch { conn.run() }
         job.join()
-        seen += conn.state.value
-        assertTrue("expected Unavailable, saw $seen", seen.last() is ConnectionState.Unavailable)
+        assertTrue("expected Unavailable, saw ${conn.state.value}", conn.state.value is ConnectionState.Unavailable)
+    }
+
+    @Test(timeout = 20_000)
+    fun `commands still work while the idle connection is parked`() {
+        // idle never answers: that is what a parked idle connection looks like
+        server.onCommand("idle") { null }
+        server.onCommand("status") { "state: stop\nplaylist: 4\nOK\n" }
+
+        val conn = MpdConnection(host = "127.0.0.1", port = server.port)
+        runBlocking {
+            // cancelled inside the block: runBlocking joins children before it returns
+            val job = launch(Dispatchers.IO) { conn.run() }
+            try {
+                withTimeout(5_000) { conn.state.first { it is ConnectionState.Up } }
+                val st = withTimeout(2_000) { conn.withClient { it.status() } }
+                assertEquals(PlaybackState.Stop, st.state)
+                assertEquals(4, st.queueVersion)
+            } finally {
+                conn.close()
+                job.cancelAndJoin()
+            }
+        }
     }
 
     @Test
