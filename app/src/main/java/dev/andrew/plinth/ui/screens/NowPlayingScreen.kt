@@ -188,6 +188,8 @@ private fun CompactNowPlaying(
         )
         Spacer(Modifier.height(6.dp))
         Text(ui.artist, color = PlinthColors.Muted, style = MaterialTheme.typography.bodyLarge)
+        Spacer(Modifier.height(12.dp))
+        ui.strip?.let { SignalStrip(it) }
         Spacer(Modifier.height(16.dp))
         ProgressHairline(ui.elapsed, ui.duration, onSeek)
         Spacer(Modifier.height(8.dp))

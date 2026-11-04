@@ -36,7 +36,9 @@ fun Artwork(
 ) {
     var bitmap by remember(albumId) { mutableStateOf<ImageBitmap?>(null) }
 
-    LaunchedEffect(albumId, firstTrackUri) {
+    // `art` is in the key on purpose: it arrives once the connection is up, and a
+    // key that ignored it would leave the cover blank forever on a cold start.
+    LaunchedEffect(albumId, firstTrackUri, art) {
         bitmap = null
         if (art == null || albumId.isEmpty() || firstTrackUri.isEmpty()) return@LaunchedEffect
         bitmap = withContext(Dispatchers.IO) {
