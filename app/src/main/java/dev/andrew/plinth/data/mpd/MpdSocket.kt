@@ -101,8 +101,9 @@ class MpdSocket(
         try {
             block()
         } catch (t: Throwable) {
-            // The reply may be half-read: nothing can be trusted on this stream again.
-            close()
+            // An ACK is a whole reply, so the stream is still in step; anything else
+            // failed mid-read and cannot be resynchronised.
+            if (t !is MpdException.Ack) close()
             throw when (t) {
                 is MpdException -> t
                 is SocketTimeoutException -> MpdException.Timeout()

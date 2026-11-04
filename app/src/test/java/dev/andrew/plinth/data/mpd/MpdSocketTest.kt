@@ -128,6 +128,18 @@ class MpdSocketTest {
     }
 
     @Test
+    fun `an ACK ends the reply cleanly and leaves the socket usable`() = runBlocking {
+        server.onCommand("albumart") { "ACK [50@0] {albumart} No file exists\n" }
+        server.onCommand("status") { "state: stop\nOK\n" }
+        val s = socket()
+        s.connect("127.0.0.1", server.port)
+        runCatching { s.commandBinary("albumart \"x\" 0", 2_000) }
+        val next = s.command("status")
+        s.close()
+        assertTrue("an ACK must not kill the connection, got $next", next is MpdReply.Ok)
+    }
+
+    @Test
     fun `rejects a banner that is not MPD`() = runBlocking {
         server.banner = "HTTP/1.1 400 Bad Request"
         val s = socket()
