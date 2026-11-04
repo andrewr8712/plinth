@@ -1,12 +1,23 @@
-# MPD Controller Implementation Plan
+# MPD controller implementation plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+
+> **Status at 2026-11-05.** Tasks 1–15 are implemented and their tests pass: 78
+> JVM tests and 12 instrumented tests. Tasks 16–19 — the loudness envelope, the
+> VU meter, the playback service and the failure states — are not started. This
+> plan records how each task was built and which test it was written against;
+> where the shipped code differs from a step below, `HANDOFF.md` and §5.10 of the
+> design are authoritative. The known differences: search is a prefix `LIKE`
+> query rather than the FTS4 table in Tasks 7 and 15; art is cached by
+> `ArtRepository` with no Coil and no 512 px downscale (Task 9); and the Task 15
+> screens are stateless composables that take data and callbacks, not the
+> repository signatures listed there.
 
 **Goal:** A native Android controller (phone + tablet) for the OpenWrt/MPD streamer at `10.0.0.219`, with a Gallery-style now-playing surface, honest signal telemetry, and a VU meter driven by a precomputed loudness envelope.
 
 **Architecture:** Single-activity Compose app. A two-socket MPD client (command socket + `idle` socket) feeds a Room-cached library and a state flow; art and loudness data are cached on disk and memory-mapped. Layout is one `NowPlaying` graph arranged by window width, so phone, split-screen and tablet share behaviour.
 
-**Tech Stack:** Kotlin 2.x, Jetpack Compose (Material 3 skeleton), Room, DataStore, Coil 3, kotlinx-coroutines, MediaSessionCompat + MediaStyle. Python 3 + ffmpeg for the loudness scan tool.
+**Tech Stack:** Kotlin 2.x, Jetpack Compose (Material 3 skeleton), Room, DataStore, kotlinx-coroutines, MediaSessionCompat + MediaStyle. Python 3 + ffmpeg for the loudness scan tool.
 
 **Spec:** `docs/superpowers/specs/2026-11-04-mpd-tablet-controller-design.md`
 
@@ -1202,5 +1213,5 @@ git add -A && git commit -m "feat: offline states keep the cached library usable
 - [ ] `./gradlew :app:testDebugUnitTest` — all unit tests green.
 - [ ] `./gradlew :app:connectedDebugAndroidTest` — all instrumented tests green on the tablet.
 - [ ] `pytest tools/vu-scan/test_vu_scan.py -q` — scanner tests green.
-- [ ] Run against the real streamer: cold start → now playing with art < 1.5 s; album grid scrolls smoothly with 135 albums; meter tracks the music within ~80 ms; unplug the SMB share and confirm the app stays usable with the offline chip.
+- [ ] Run against the real streamer: cold start → now playing with art < 1.5 s; album grid scrolls smoothly with 139 albums; meter tracks the music within ~80 ms; unplug the SMB share and confirm the app stays usable with the offline chip.
 - [ ] `python tools/vu-scan/vu_scan.py --root /home/andrew/1tb/home/andrew/Music --out loudness.bin` produces ~14 MB for 1,965 tracks (951,149 s x 5 Hz x 3 B).

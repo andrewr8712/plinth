@@ -1,7 +1,12 @@
 # MPD controller for phone and tablet — design
 
 **Date:** 2026-11-04
-**Status:** design for approval
+**Status:** implemented through M3 on 2026-11-05; M4 (meter, service, offline
+states) is not built. Where the code differs from this text, §5.10 lists every
+deviation.
+**Scope:** the design of the Android client, the constraints the streamer imposes
+and the measurements behind them. Build instructions are in `README.md`; the
+current status is in `HANDOFF.md`. Server-side work is out of scope.
 **Working name:** Plinth (package `dev.andrew.plinth`) — cosmetic, change freely
 **Target:** the custom OpenWrt streamer at `10.0.0.219` (repo: `andrewr8712/rt-ac88u-openwrt-streamer`)
 
@@ -38,7 +43,7 @@ Probed live on 2026-11-04 against `10.0.0.219:6600`.
 |---|---|
 | Protocol | `OK MPD 0.23.5` — that is the **protocol** version; the daemon is 0.23.16 |
 | Auth | none; binds all interfaces; no firewall in the image |
-| Library | 1,965 tracks / 135 albums / 53 artists / 264 h (`db_playtime` 951,149 s) |
+| Library | 1,965 tracks / 135 album tags / 53 artists / 264 h (`db_playtime` 951,149 s). Grouping by album identity (§5.3) yields **139 albums** and 42 distinct album artists once blank `AlbumArtist` values are excluded |
 | Full library dump | `listallinfo` → 865,433 B in **0.09 s** |
 | Cover art | `albumart` → `size: 301900`, **~60 ms** warm once `binarylimit` is raised (one request, not 8 KB pages); `readpicture` returns bare `OK` (art is a folder image, not embedded) |
 | Output | id 0 `Topping DX5 II`, ALSA, `dop=1` |
@@ -135,8 +140,10 @@ a level meter in the foot band.
   single activity, single Gradle module, manual dependency wiring in one
   `AppContainer` (no Hilt).
 - `minSdk 26`, `targetSdk 35`. No orientation lock; `configChanges` handled.
-- Room for the library cache, DataStore for connection settings, Coil 3 for art
-  with a disk cache, kotlinx-serialization for the few JSON bits.
+- Room for the library cache and DataStore for connection settings. Art is
+  fetched by a small `ArtRepository` that writes one JPEG per album to the app's
+  cache directory and decodes it with `BitmapFactory`; there is no image library
+  and no image loading over HTTP.
 - Coroutines + Flow throughout; a single `MpdConnection` actor per socket.
 - No WebView, no JS engine, no image loading over HTTP.
 
@@ -174,14 +181,18 @@ Rules that come straight from the measurements:
 
 - First run (or `database` idle event): `listallinfo` → parsed into SQLite.
   865 KB and ~0.1 s, so a full replace is cheap; no incremental diffing needed.
-- Tables: `track(uri PK, album_id, disc, track_no, title, artist, album_artist,
-  album, year, genre, duration, format, bit_depth, sample_rate, path)` and
-  `album(id PK, title, artist, year, track_count, disc_count)`.
+- Tables: `track(uri PK, albumId, disc, trackNo, title, artist, albumArtist,
+  album, year, durationSec, channels, sampleRate, bits, isDsd, path)` and
+  `album(id PK, title, artist, year, trackCount, edition, firstUri)`. The album
+  row keeps the first track's URI so a grid tile can request art without loading
+  the album's tracks.
 - **Album identity** (settled in review, after the library was inspected):
   - group by normalised (album artist, album); empty `AlbumArtist` falls back to
     `Artist`; folder name is never the key — **except** when the `Album` tag is absent
-    altogether, where the folder is the only identity available (see HANDOFF.md, which also
-    records an open bug where two such albums still merge).
+    altogether, where the folder is the only identity available. Three folders in
+    the reference library have no tags at all (a DFF rip each of *Symphonic Suite
+    AKIRA*, *The Pale Emperor* and *Breakfast In America*), and keying them on
+    blanks merged all 33 of their tracks into one album.
   - collapse **exact duplicates** within a group — same (disc, track, title,
     duration) — keeping the first by folder order. The library has real
     duplicates: *Antichrist Superstar* appears twice (album folder + discography
@@ -196,15 +207,19 @@ Rules that come straight from the measurements:
     the wrong rule.
   - `album_id` = hash of the normalised tag key + edition. It is the Room key,
     the art filename and the `currentsong` lookup, so it must not change later.
-- Browse and search run **locally** against SQLite (FTS4 on title/artist/album).
-  No `search` round-trips for typing; `search` is only used for "find on server".
+- Browse and search run **locally** against SQLite: a prefix `LIKE` on title,
+  album and artist. No `search` round-trips for typing; `search` is only used for
+  "find on server". A prefix scan over 1,866 rows is instant, so an FTS table
+  would add a mirror and triggers for nothing.
 - The cache survives disconnection. A cached library plus an offline state is
   strictly better than an empty screen.
 
 ### 5.4 Cover art
 
 - Fetched per album, lazily, when the album is first rendered; stored under
-  `files/art/<album_id>.jpg`; downscaled to 512×512 on decode before writing.
+  `cacheDir/art/<album_id>.jpg`, as fetched. A negative answer is marked by an
+  empty file `cacheDir/art/none-<album_id>` whose modification time is the start
+  of the 7-day cache.
 - Raise `binarylimit 4000000` once per connection, then fetch with
   `albumart "<first track uri>" 0` — one request per cover (~70 ms for a 300 KB
   JPEG). Without raising the limit MPD caps each reply at 8 KB and a cover costs
@@ -347,7 +362,7 @@ The surface has eleven states, drawn in `mockups/states.html` (review artifact, 
 | Connecting | first launch / reconnect | Skeletons plus the host being dialled |
 | Empty library | `stats` reports 0 songs | "Library is empty" naming the SMB mount as the likely cause, plus Retry |
 | Empty queue | `playlistlength: 0` | "Nothing queued", mini player stays if audio is playing |
-| No search results | local FTS empty | Echoes the query, names what is searchable, offers Clear |
+| No search results | the prefix query returns nothing | Echoes the query, names what is searchable, offers Clear |
 
 Behaviour the pictures cannot show, fixed here:
 
@@ -365,9 +380,9 @@ Behaviour the pictures cannot show, fixed here:
 | Now playing | 420 dp art, title/artist/position, signal strip, full-width progress, centred transport, foot band with queue + meter (tablet); expands from the mini player (phone), with a chevron and an up-next row |
 | Library | Segmented: Albums / Artists / Tracks / Folders. Album grid with art, artist list, track list, folder tree straight from the MPD URI layout |
 | Album | Art, track list, "play all", "queue all", format of the album as a group |
-| Search | Local FTS, grouped results (albums, tracks), instant |
+| Search | Prefix match on title, album and artist, grouped results (albums, tracks), instant |
 | Queue | Full-screen on phone; on tablet it expands from the band's first block. Reorder, remove, save as playlist |
-| Playlists | `listplaylists`, load appends to queue, `save` from queue, `rm` |
+| Playlists | `listplaylists` from the queue screen, load replaces the queue, `save` from the queue. There is no separate playlists screen and `rm` is not implemented |
 | Output | The single output, DoP flag, "bit-perfect" explanation, connection settings, loudness data import |
 
 Navigation: `NavigationBar` on phones, no chrome at all on expanded tablets
@@ -426,6 +441,23 @@ wear a menu). Back from library returns to now playing, not out of the app.
 - Stretch, not v1: a Glance home-screen widget (art + transport + meter) for the
   tablet stand.
 
+### 5.10 Where the build differs from this design
+
+Recorded at the end of M3, so the text above reads as a decision rather than as a
+description of the code.
+
+| Area | This design | What is built |
+|---|---|---|
+| Search | FTS4 table over title, artist and album | Prefix `LIKE` on 1,866 rows; no FTS table (§5.3) |
+| Art loading | Coil 3 with a disk cache | `ArtRepository` writes the JPEG and `BitmapFactory` decodes it |
+| Art scaling | Downscaled to 512×512 before writing | Stored as fetched; drawn with `ContentScale.Crop` |
+| Serialization | kotlinx-serialization for the JSON bits | Not used; the loudness file is fixed-width binary |
+| Playlists | A playlists screen with `rm` | Save and load live in the queue screen; `rm` is not implemented |
+| Tablet chrome | A top bar that fades with inactivity | A static top bar, on every route except now playing |
+| Screens | Screens take the repository and the art loader | Screens are stateless and take data plus callbacks; the view model owns the repositories |
+| Library tabs | A segmented control | Text tabs with an accent underline, in the same screen |
+| Meter offset | Two sliders under Output | Not built; they land with the meter in Task 17 |
+
 ---
 
 ## 6. Constraints the build must respect
@@ -455,8 +487,9 @@ overflow (§5.5).
 
 Still open:
 
-- **The app's name** (currently "Plinth" as a placeholder, package
-  `dev.andrew.plinth`). Cosmetic, but it lands in the launcher and the package id.
+- **The app's name.** The working name is Plinth (package `dev.andrew.plinth`);
+  it is cosmetic, but it lands in the launcher and the package id, and changing
+  the package id loses the library cache.
 - **Icon set:** Material Symbols or hand-drawn hairlines, and the transport
   glyph weight — the mockup's icons are drawn SVG at 1.5 stroke.
 - **Motion specifics:** sheet transition, art crossfade duration, band reveal.
@@ -476,13 +509,13 @@ not a mock; the task ranges below are authoritative and match the plan.
    `outputs`, transport controls, idle loop, reconnect. Transport is verified against
    a fake MPD server rather than the streamer itself: driving the real one means
    sound in the room, and that check belongs to whoever is listening.
-2. **M2 — library and art** (tasks 6–9). `listallinfo` → SQLite, album identity,
+2. **M2 — library and art** (tasks 6–9, complete). `listallinfo` → SQLite, album identity,
    album/artist/folder browsing, local search, queue add/remove/reorder, then covers:
    lazy fetch with a raised chunk cap, disk cache, negative cache, placeholders.
-3. **M3 — the surface** (tasks 10–15). Settings, shell and theme, the tablet
+3. **M3 — the surface** (tasks 10–15, complete). Settings, shell and theme, the tablet
    now-playing arrangement, signal strip and verdict, phone surfaces and the sheet,
    library screens.
-4. **M4 — meter and polish** (tasks 16–19). Loudness envelope and the meter, the
+4. **M4 — meter and polish** (tasks 16–19, not started). Loudness envelope and the meter, the
    playback service and notification, and every offline and failure state.
 
 Art was its own milestone (one task) and the meter was its own (two tasks); both were
@@ -490,7 +523,7 @@ too thin to end on, so they joined the milestone that consumes them.
 
 ## 9. How we'll know it worked
 
-- Album grid scrolls at 60 fps with 135 albums of art, on the tablet.
+- Album grid scrolls at 60 fps with 139 albums of art, on the tablet.
 - Cold app start → now playing with art in under 1.5 s on the LAN.
 - Pulling the SMB share or the network leaves a usable app with a visible
   offline chip; nothing freezes.
