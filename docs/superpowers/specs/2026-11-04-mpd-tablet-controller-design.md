@@ -355,8 +355,25 @@ wear a menu). Back from library returns to now playing, not out of the app.
 ### 5.8 Theming
 
 - Dark only, at least for v1. Black `#0A0A0C` base, warm white type, one accent.
-- Type: system sans, weights 200 (display) / 400 (body) / 600 (labels);
-  letter-spacing negative on display, `+0.18em` uppercase on eyebrows.
+- **Type: Inter variable, bundled** (`res/font`, ~250 KB TTF subset). Pinned
+  300 / 400 / 500 — no 600, no 700; emphasis is size and colour, not weight.
+  Chosen over Manrope (axis floor is 200, so the hairline cannot be tuned) and
+  Space Grotesk (cannot draw below 300 at all); the system stack was measured
+  rendering 200, 250, 300 and 350 at identical widths, so the requested 200 was
+  never real. Proven in `mockups/typeset.html`.
+- **Seven sizes, not twelve:** 64 display / 44 display-compact / 28 title /
+  20 heading · artist / 16 row · body · data / 13 meta · numeric / 11 label.
+  Leading rises as size falls: 1.06 → 1.12 → 1.18 → 1.30 → 1.45.
+- Labels are 11 sp at **weight 500 and +0.12 em tracking** — the old 400 at
+  +0.20–0.22 em disintegrated on a dark surface. `text-transform: uppercase`
+  is a no-op in Arabic, which is why the label tier must not depend on it.
+- Numeric roles (times, sample rate, dB, counters) carry **tabular figures**;
+  a readout that jitters as digits change forfeits the instrument idea.
+- Long titles use the 44 px step, triggered by **measured width**, not a
+  character count; `overflow-wrap: break-word`, never `anywhere`.
+- RTL drops tracking and uppercase for joined scripts, and isolates the
+  countdown LTR so the minus leads its digits. An Arabic companion (Noto Sans
+  Arabic) is the one font asset still to add.
 - 8 dp spacing grid; art radii at 5 dp (A's gallery feel) with no shadows
   beyond a single large soft drop under the cover.
 - Blurred backdrop = the same bitmap, 40 dp blur, 50 % opacity, under a radial

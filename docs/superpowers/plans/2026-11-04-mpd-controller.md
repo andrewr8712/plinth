@@ -19,6 +19,7 @@
 - Album id = hash of (normalised album-artist, album, edition). Edition is `null` for ≤2 channels, `"5.1"`/`"4.0"` etc. above.
 - DSD is always labelled `DSD64 · DoP` (never "native DSD"). No resampling is implied or attempted.
 - Dark only: background `#0A0A0C`, warm white type. No WebView. No server config writes.
+- Type: Inter variable bundled in `res/font`; pinned weights 300/400/500; seven sizes 64/44/28/20/16/13/11; labels 11 sp at weight 500 and +0.12 em; tabular figures on every numeric role.
 - Art request pattern: `binarylimit 4000000` once per connection, then `albumart "<uri>" 0`; `ACK [50@0]` means *no art*.
 - Loudness envelope: 5 Hz, `u8 rms_l, u8 rms_r, u8 peak` dBFS-mapped, keyed by MPD URI.
 - Unit tests run on the JVM with a local `FakeMpdServer`; UI tests run instrumented on a device (`connectedDebugAndroidTest`).
