@@ -5,9 +5,22 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:name=".PlinthApp"
         android:allowBackup="false"
         android:label="Plinth"
         android:supportsRtl="true"
-        android:theme="@android:style/Theme.Black.NoTitleBar" />
+        android:theme="@android:style/Theme.Black.NoTitleBar">
+
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden|density"
+            android:exported="true"
+            android:theme="@android:style/Theme.Black.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
 
 </manifest>
