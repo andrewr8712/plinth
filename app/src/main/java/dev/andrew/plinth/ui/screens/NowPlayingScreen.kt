@@ -99,10 +99,11 @@ fun NowPlayingScreen(
                     modifier = Modifier.weight(1f),
                 )
                 LevelMeter(
+                    level = ui.level,
+                    active = ui.isPlaying,
                     modifier = Modifier
                         .width(220.dp)
                         .padding(end = INSET),
-                    enabled = ui.connected,
                 )
             }
         } else {

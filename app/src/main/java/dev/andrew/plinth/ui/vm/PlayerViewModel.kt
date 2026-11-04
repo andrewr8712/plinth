@@ -36,6 +36,9 @@ data class PlayerUi(
     val queueCount: Int = 0,
     val songId: Int? = null,
     val strip: dev.andrew.plinth.data.model.StripCells? = null,
+    /** The envelope frame for the position being heard, or null when there is none. */
+    val level: dev.andrew.plinth.data.loudness.StereoLevel? = null,
+    val isDsd: Boolean = false,
 )
 
 class PlayerViewModel(private val container: AppContainer) : ViewModel() {
@@ -100,6 +103,19 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
     private val _art = MutableStateFlow<dev.andrew.plinth.data.art.ArtRepository?>(null)
     val art: StateFlow<dev.andrew.plinth.data.art.ArtRepository?> = _art.asStateFlow()
 
+    /** Opened once per session; null until a loudness file has been imported. */
+    private var loudness: dev.andrew.plinth.data.loudness.LoudnessIndex? = null
+    private var levelJob: Job? = null
+    private var lastElapsed = 0.0
+    private var lastElapsedAtMs = 0L
+
+    private val _levelStatus = MutableStateFlow<String?>(null)
+    /** What the last import did, for the row under Output. */
+    val levelStatus: StateFlow<String?> = _levelStatus.asStateFlow()
+
+    private val _levelTracks = MutableStateFlow(0)
+    val levelTracks: StateFlow<Int> = _levelTracks.asStateFlow()
+
     init {
         viewModelScope.launch {
             val settings = container.settings.flow.first()
@@ -150,6 +166,53 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
                 delay(if (conn.isUp) POLL_MS else RETRY_MS)
             }
         }
+        loudness = container.loudness.open()
+        _levelTracks.value = loudness?.trackCount ?: 0
+        startLevelTicker()
+    }
+
+    /**
+     * The meter ticks faster than `status` polls: the envelope is 5 Hz, and a 2 Hz
+     * readout would make the bars step instead of move. The position is extrapolated
+     * from the last `status` with the monotonic clock, never invented.
+     */
+    private fun startLevelTicker() {
+        levelJob?.cancel()
+        levelJob = viewModelScope.launch {
+            while (isActive) {
+                delay(LEVEL_MS)
+                val index = loudness
+                val ui = _ui.value
+                if (index == null || !ui.isPlaying || ui.uri.isEmpty()) {
+                    if (ui.level != null) _ui.value = ui.copy(level = null)
+                    continue
+                }
+                val offsetMs = if (ui.isDsd) settings.value.meterOffsetDsdMs else settings.value.meterOffsetPcmMs
+                val position = lastElapsed +
+                    (android.os.SystemClock.elapsedRealtime() - lastElapsedAtMs) / 1000.0 -
+                    offsetMs / 1000.0
+                val level = index.levelAt(ui.uri, position)
+                if (level != ui.level) _ui.value = _ui.value.copy(level = level)
+            }
+        }
+    }
+
+    /** Reads an imported `loudness.bin` from the file picker. */
+    fun importLoudness(input: java.io.InputStream) {
+        viewModelScope.launch {
+            val result = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
+                container.loudness.importFrom(input)
+            }
+            when (result) {
+                is dev.andrew.plinth.data.loudness.ImportResult.Imported -> {
+                    loudness = container.loudness.open()
+                    _levelTracks.value = loudness?.trackCount ?: 0
+                    _levelStatus.value = "${result.tracks} tracks imported"
+                }
+                is dev.andrew.plinth.data.loudness.ImportResult.Rejected ->
+                    _levelStatus.value = result.reason
+            }
+        }
     }
 
     private suspend fun refresh(conn: MpdConnection) {
@@ -165,6 +228,8 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
             _ui.value = _ui.value.merge(status, song).copy(
                 strip = dev.andrew.plinth.data.model.SignalVerdicts.stripCells(status, lastTrack, lastOutput),
             )
+            lastElapsed = status.elapsed ?: lastElapsed
+            lastElapsedAtMs = android.os.SystemClock.elapsedRealtime()
             if (status.queueVersion != lastQueueVersion) {
                 lastQueueVersion = status.queueVersion
                 runCatching { _queue.value = conn.withClient { it.playlistInfo() } }
@@ -192,6 +257,7 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
             duration = status.duration ?: base.duration,
             isPlaying = status.state == PlaybackState.Play,
             songId = status.songId ?: base.songId,
+            isDsd = format?.isDsd == true,
             formatLine = format?.let { f ->
                 if (f.isDsd) {
                     "DSD${f.dsdRate} · ${f.channels} ch"
@@ -278,6 +344,14 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
         }
     }
 
+    fun setMeterOffset(dsd: Boolean, ms: Int) {
+        viewModelScope.launch {
+            container.settings.update {
+                if (dsd) it.copy(meterOffsetDsdMs = ms) else it.copy(meterOffsetPcmMs = ms)
+            }
+        }
+    }
+
     fun setServer(host: String, port: Int) {
         viewModelScope.launch {
             container.settings.update { it.copy(host = host, port = port) }
@@ -313,6 +387,7 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
     private companion object {
         const val POLL_MS = 500L
         const val RETRY_MS = 2_000L
+        const val LEVEL_MS = 100L
     }
 }
 

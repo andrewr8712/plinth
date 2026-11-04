@@ -2,7 +2,9 @@ package dev.andrew.plinth.ui.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -10,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.style.TextOverflow
@@ -18,6 +21,7 @@ import androidx.compose.ui.unit.sp
 import dev.andrew.plinth.data.art.ArtRepository
 import dev.andrew.plinth.data.model.QueueItem
 import dev.andrew.plinth.ui.components.Artwork
+import dev.andrew.plinth.ui.components.LevelMeter
 import dev.andrew.plinth.ui.components.ProgressHairline
 import dev.andrew.plinth.ui.components.QueueBand
 import dev.andrew.plinth.ui.components.SignalStrip
@@ -71,11 +75,21 @@ fun MediumNowPlaying(
         Spacer(Modifier.height(16.dp))
         Transport(ui.isPlaying, ui.connected, onPrev, onPlayPause, onNext)
         Spacer(Modifier.height(16.dp))
-        QueueBand(
-            items = queue,
-            onItemClick = onQueueItem,
-            onOpenQueue = onOpenQueue,
+        Row(
             modifier = Modifier.fillMaxWidth().testTag("queue-band"),
-        )
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            QueueBand(
+                items = queue,
+                onItemClick = onQueueItem,
+                onOpenQueue = onOpenQueue,
+                modifier = Modifier.weight(1f),
+            )
+            LevelMeter(
+                level = ui.level,
+                active = ui.isPlaying,
+                modifier = Modifier.width(180.dp).padding(end = 24.dp),
+            )
+        }
     }
 }

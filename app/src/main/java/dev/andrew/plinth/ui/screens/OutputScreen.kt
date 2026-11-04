@@ -7,9 +7,12 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Slider
+import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
@@ -32,8 +35,12 @@ fun OutputScreen(
     output: OutputInfo?,
     settings: Settings,
     stateLabel: String,
+    levelTracks: Int = 0,
+    levelStatus: String? = null,
     onStayAwake: (Boolean) -> Unit = {},
     onOpenConnection: () -> Unit = {},
+    onImportLoudness: () -> Unit = {},
+    onMeterOffset: (dsd: Boolean, ms: Int) -> Unit = { _, _ -> },
 ) {
     Column(
         Modifier
@@ -85,6 +92,47 @@ fun OutputScreen(
             modifier = Modifier.padding(horizontal = 24.dp).testTag("no-mixer-note"),
         )
 
+        SectionLabel("Loudness data")
+        Row(
+            modifier = Modifier.fillMaxWidth().padding(horizontal = 24.dp).testTag("loudness-row"),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween,
+        ) {
+            Column(Modifier.weight(1f)) {
+                Text(
+                    text = if (levelTracks > 0) "$levelTracks tracks" else "No loudness data",
+                    color = PlinthColors.Text,
+                    style = MaterialTheme.typography.bodyLarge,
+                )
+                Text(
+                    text = levelStatus ?: "The meter needs a loudness file built by tools/vu-scan.",
+                    color = PlinthColors.Faint,
+                    style = MaterialTheme.typography.bodySmall,
+                )
+            }
+            TextAction("Import", onClick = onImportLoudness, testTag = "import-loudness")
+        }
+
+        MeterOffsetRow(
+            label = "Meter sync · PCM",
+            valueMs = settings.meterOffsetPcmMs,
+            onChange = { onMeterOffset(false, it) },
+            testTag = "meter-offset-pcm",
+        )
+        MeterOffsetRow(
+            label = "Meter sync · DSD",
+            valueMs = settings.meterOffsetDsdMs,
+            onChange = { onMeterOffset(true, it) },
+            testTag = "meter-offset-dsd",
+        )
+        Text(
+            text = "The meter runs behind the streamer by its buffer and the DAC's latency. " +
+                "Raise the offset if the bars lead what you hear.",
+            color = PlinthColors.Faint,
+            style = MaterialTheme.typography.bodySmall,
+            modifier = Modifier.padding(start = 24.dp, end = 24.dp, top = 4.dp),
+        )
+
         SectionLabel("Server")
         Row(
             modifier = Modifier
@@ -132,6 +180,43 @@ fun OutputScreen(
                 modifier = Modifier.testTag("stay-awake"),
             )
         }
+    }
+}
+
+@Composable
+private fun MeterOffsetRow(
+    label: String,
+    valueMs: Int,
+    onChange: (Int) -> Unit,
+    testTag: String,
+) {
+    Row(
+        modifier = Modifier.fillMaxWidth().padding(start = 24.dp, end = 24.dp, top = 12.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text(
+            text = label,
+            color = PlinthColors.Muted,
+            style = MaterialTheme.typography.bodySmall,
+            modifier = Modifier.width(150.dp),
+        )
+        Slider(
+            value = valueMs.toFloat(),
+            onValueChange = { onChange(it.toInt()) },
+            valueRange = -500f..500f,
+            modifier = Modifier.weight(1f).testTag(testTag),
+            colors = SliderDefaults.colors(
+                thumbColor = PlinthColors.Accent,
+                activeTrackColor = PlinthColors.Accent,
+                inactiveTrackColor = PlinthColors.Plate,
+            ),
+        )
+        Text(
+            text = "$valueMs ms",
+            color = PlinthColors.Faint,
+            style = MaterialTheme.typography.bodySmall,
+            modifier = Modifier.width(64.dp),
+        )
     }
 }
 

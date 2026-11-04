@@ -228,12 +228,28 @@ fun AppRoot(container: AppContainer) {
             composable("output") {
                 val output by vm.output.collectAsStateWithLifecycle()
                 val settings by vm.settings.collectAsStateWithLifecycle()
+                val levelTracks by vm.levelTracks.collectAsStateWithLifecycle()
+                val levelStatus by vm.levelStatus.collectAsStateWithLifecycle()
+                val context = androidx.compose.ui.platform.LocalContext.current
+                val picker = androidx.activity.compose.rememberLauncherForActivityResult(
+                    androidx.activity.result.contract.ActivityResultContracts.OpenDocument(),
+                ) { uri ->
+                    uri?.let { chosen ->
+                        context.contentResolver.openInputStream(chosen)?.let { stream ->
+                            vm.importLoudness(stream)
+                        }
+                    }
+                }
                 OutputScreen(
                     output = output,
                     settings = settings,
                     stateLabel = ui.stateLabel,
+                    levelTracks = levelTracks,
+                    levelStatus = levelStatus,
                     onStayAwake = vm::setStayAwake,
                     onOpenConnection = { nav.navigate("connection") },
+                    onImportLoudness = { picker.launch(arrayOf("*/*")) },
+                    onMeterOffset = vm::setMeterOffset,
                 )
             }
             composable("connection") {
