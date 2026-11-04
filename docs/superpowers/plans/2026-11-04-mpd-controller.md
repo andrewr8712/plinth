@@ -1183,4 +1183,4 @@ git add -A && git commit -m "feat: offline states keep the cached library usable
 - [ ] `./gradlew :app:connectedDebugAndroidTest` — all instrumented tests green on the tablet.
 - [ ] `pytest tools/vu-scan/test_vu_scan.py -q` — scanner tests green.
 - [ ] Run against the real streamer: cold start → now playing with art < 1.5 s; album grid scrolls smoothly with 135 albums; meter tracks the music within ~80 ms; unplug the SMB share and confirm the app stays usable with the offline chip.
-- [ ] `python tools/vu-scan/vu_scan.py --root /home/andrew/1tb/home/andrew/Music --out loudness.bin` produces ~10 MB for 1,965 tracks.
+- [ ] `python tools/vu-scan/vu_scan.py --root /home/andrew/1tb/home/andrew/Music --out loudness.bin` produces ~14 MB for 1,965 tracks (951,149 s x 5 Hz x 3 B).

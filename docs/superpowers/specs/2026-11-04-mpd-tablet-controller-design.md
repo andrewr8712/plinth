@@ -40,7 +40,7 @@ Probed live on 2026-11-04 against `10.0.0.219:6600`.
 | Auth | none; binds all interfaces; no firewall in the image |
 | Library | 1,965 tracks / 135 albums / 53 artists / 264 h (`db_playtime` 951,149 s) |
 | Full library dump | `listallinfo` → 865,433 B in **0.09 s** |
-| Cover art | `albumart` → `size: 301900`, 8 KB chunks, **~60 ms** warm; `readpicture` returns bare `OK` (art is folder images, not embedded) |
+| Cover art | `albumart` → `size: 301900`, **~60 ms** warm once `binarylimit` is raised (one request, not 8 KB pages); `readpicture` returns bare `OK` (art is a folder image, not embedded) |
 | Output | id 0 `Topping DX5 II`, ALSA, `dop=1` |
 | Volume | **none** — `setvol`/`volume` → `ACK [5@0] {setvol} No mixer`; `getvol` → bare `OK` |
 | WiFi RTT | 3–18 ms (ping avg 8.8 ms) |
@@ -262,9 +262,9 @@ Components shared across widths so there is one behaviour, not three:
     the strip is the thing that tells you.
 - **Progress hairline** — thin, draggable, with elapsed/remaining either side.
   Scrub sends `seekcur` on release, not on every drag event.
-- **Queue** — `plchanges <version>` diffs applied to a local list; drag to
-  reorder sends `moveid`; swipe removes via `deleteid`. Queue rows show disc/
-  track number, title, duration, and a now-playing marker.
+- **Queue** — refetched wholesale on version change (§5.2), never diffed; drag
+  to reorder sends `moveid`; swipe removes via `deleteid`. Rows are text-only —
+  track number, title, duration, a now-playing marker — no thumbnails.
 - **Transport** — prev / play-pause / next, plus shuffle (random) and repeat in
   the band's queue header. `single` and `consume` live in the overflow, not the
   main row.
@@ -280,7 +280,7 @@ Components shared across widths so there is one behaviour, not three:
   each file to mono PCM, computes RMS and peak per 200 ms window, and writes one
   `loudness.bin` for the whole library. DSD is decoded through ffmpeg's DSF
   demuxer; anything it cannot read is skipped and logged.
-- **Size:** 264 h at 5 frames/s × 3 bytes/frame ≈ **10 MB**. Measured library,
+- **Size:** 264 h (951,149 s) at 5 frames/s × 3 bytes/frame ≈ **14 MB**. Measured library,
   not an estimate of a hypothetical one.
 - **Delivery:** the app imports `loudness.bin` through the system file picker
   (Settings → Loudness data). No server changes, no HTTP host, no rebuild to
@@ -325,12 +325,13 @@ has no meter** — the phone is the control surface, the tablet is the instrumen
   decays slower.
 - **Honest fallback:** if a track has no envelope entry, the meter renders a
   subdued "no level data" state — a still baseline with a small label — not a
-  fake animation. The decorative mode exists only as an explicit toggle
-  ("Ambient motion") in settings for people who want the room lit up.
+  fake animation. There is no decorative mode in v1: an optional "ambient
+  motion" toggle was considered and dropped, because every animation on this
+  surface should correspond to something the streamer actually reported.
 
 ### 5.6b States, drawn and specified
 
-The surface has twelve states, drawn in `mockups/states.html` (review artifact, not shipped):
+The surface has eleven states, drawn in `mockups/states.html` (review artifact, not shipped):
 
 | State | Trigger | What changes |
 |---|---|---|
@@ -340,7 +341,7 @@ The surface has twelve states, drawn in `mockups/states.html` (review artifact, 
 | No level data | URI absent from the envelope | Meter box kept at full size, reads `No level data` / `Not in the loudness scan`; never animates |
 | Stale envelope | `db_update` newer than the import | Same box, reads `Loudness data is older than the library` |
 | No artwork | `ACK 50` from `albumart` | Plate on `#17171B` with a 152 sp monogram and a `No artwork` label at the 11 sp label tier, no wash, no spinner, negative cached 7 days |
-| Long title | > 28 chars | 2-line clamp, 64→48 sp, `overflow-wrap: anywhere`; artist 1 line + ellipsis |
+| Long title | measured width exceeds one line | 2-line clamp with the 44 sp step, `overflow-wrap: break-word`; artist 1 line + ellipsis |
 | Connecting | first launch / reconnect | Skeletons plus the host being dialled |
 | Empty library | `stats` reports 0 songs | "Library is empty" naming the SMB mount as the likely cause, plus Retry |
 | Empty queue | `playlistlength: 0` | "Nothing queued", mini player stays if audio is playing |
@@ -445,17 +446,22 @@ wear a menu). Back from library returns to now playing, not out of the app.
 
 ## 7. What's left to the builder
 
-- Exact type ramp (sizes, line heights) and the final accent hue.
-- Icon set (Material Symbols vs hand-drawn hairlines) and transport glyph weight.
-- Meter geometry inside the band: bar width, gap, and whether the peak cap is
-  drawn at all.
-- Motion: sheet transitions, art crossfade on track change, band reveal.
-- The empty and error states' copy.
-- Whether `single`/`consume` get their own controls or live in the overflow.
-- Test harness shape: a scriptable fake MPD server (Python, ~150 lines) that the
-  UI tests and manual demos run against, so development doesn't need the router.
-- Whether the envelope import needs a progress UI for 10 MB.
-- Naming (currently "Plinth" as a placeholder).
+Settled since the first draft — do not reopen: the type ramp and face (§5.8), the
+layout and spacing scale (§5.5), the strip's three cells (§5.5), the meter's form
+(§5.6), the states and their copy (§5.6b), and `single`/`consume` living in the
+overflow (§5.5).
+
+Still open:
+
+- **The app's name** (currently "Plinth" as a placeholder, package
+  `dev.andrew.plinth`). Cosmetic, but it lands in the launcher and the package id.
+- **Icon set:** Material Symbols or hand-drawn hairlines, and the transport
+  glyph weight — the mockup's icons are drawn SVG at 1.5 stroke.
+- **Motion specifics:** sheet transition, art crossfade duration, band reveal.
+- **Envelope import:** whether a 14 MB import needs a progress UI or a bare
+  spinner.
+- **Fake MPD server:** the plan puts it in Kotlin test sources (`FakeMpdServer`);
+  a Python one is still the better tool for demos without the router.
 
 ---
 
