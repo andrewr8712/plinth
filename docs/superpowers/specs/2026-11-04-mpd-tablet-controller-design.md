@@ -337,7 +337,7 @@ The surface has twelve states, drawn in `mockups/states.html` (review artifact, 
 | Unreachable | two consecutive state timeouts | Device name replaced by `Streamer unreachable` + red dot; art at 55 %; transport 30 % and `aria-disabled`; strip prints `—`; `Retrying in Ns` + **Retry now** |
 | No level data | URI absent from the envelope | Meter box kept at full size, reads `No level data` / `Not in the loudness scan`; never animates |
 | Stale envelope | `db_update` newer than the import | Same box, reads `Loudness data is older than the library` |
-| No artwork | `ACK 50` from `albumart` | Initials plate on `#17171B`, no wash, no spinner, negative cached 7 days |
+| No artwork | `ACK 50` from `albumart` | Plate on `#17171B` with a 152 sp monogram and a `No artwork` label at the 11 sp label tier, no wash, no spinner, negative cached 7 days |
 | Long title | > 28 chars | 2-line clamp, 64→48 sp, `overflow-wrap: anywhere`; artist 1 line + ellipsis |
 | Connecting | first launch / reconnect | Skeletons plus the host being dialled |
 | Empty library | `stats` reports 0 songs | "Library is empty" naming the SMB mount as the likely cause, plus Retry |

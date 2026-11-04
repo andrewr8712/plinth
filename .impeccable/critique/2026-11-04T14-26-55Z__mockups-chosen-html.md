@@ -10,6 +10,7 @@ target_fingerprint: "sha256:2f235424cf19062f5d76349e0ede7a1c478c148b68826d334c02
 target_path: /home/andrew/projects/mpd-tablet-controller/mockups/chosen.html
 timestamp: 2026-11-04T14-26-55Z
 slug: mockups-chosen-html
+closed: true
 ---
 # Critique — Plinth now playing + library (mockup)
 
