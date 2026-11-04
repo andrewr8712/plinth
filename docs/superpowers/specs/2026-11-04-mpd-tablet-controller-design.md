@@ -179,7 +179,9 @@ Rules that come straight from the measurements:
   `album(id PK, title, artist, year, track_count, disc_count)`.
 - **Album identity** (settled in review, after the library was inspected):
   - group by normalised (album artist, album); empty `AlbumArtist` falls back to
-    `Artist`; folder name is never the key.
+    `Artist`; folder name is never the key — **except** when the `Album` tag is absent
+    altogether, where the folder is the only identity available (see HANDOFF.md, which also
+    records an open bug where two such albums still merge).
   - collapse **exact duplicates** within a group — same (disc, track, title,
     duration) — keeping the first by folder order. The library has real
     duplicates: *Antichrist Superstar* appears twice (album folder + discography
