@@ -1,3 +1,10 @@
 .superpowers/
 art/
 mockups/*.tpl.html
+local.properties
+.gradle/
+build/
+app/build/
+*.iml
+.idea/
+.kotlin/
