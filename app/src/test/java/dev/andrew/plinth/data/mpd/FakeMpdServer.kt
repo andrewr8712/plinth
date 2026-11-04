@@ -19,6 +19,11 @@ class FakeMpdServer : Closeable {
     private val server = ServerSocket(0)
     private val handlers = Collections.synchronizedMap(LinkedHashMap<String, (String) -> String?>())
     private val last = AtomicReference<String?>(null)
+    /** Every command line received, in order. Repositories refresh, so "last" is noisy. */
+    private val history = Collections.synchronizedList(ArrayList<String>())
+    val commands: List<String> get() = synchronized(history) { ArrayList(history) }
+
+    private val queueBlocks = Collections.synchronizedList(ArrayList<List<Pair<String, String>>>())
 
     @Volatile
     var stall: Boolean = false
@@ -44,6 +49,12 @@ class FakeMpdServer : Closeable {
         return this
     }
 
+    /** Serves `playlistinfo` from explicit key/value blocks, in the order given. */
+    fun queue(blocks: List<List<Pair<String, String>>>) {
+        queueBlocks.clear()
+        queueBlocks.addAll(blocks)
+    }
+
     fun onCommand(prefix: String, handler: (String) -> String?) {
         handlers[prefix] = handler
     }
@@ -57,7 +68,13 @@ class FakeMpdServer : Closeable {
             while (true) {
                 val line = readLineFrom(input) ?: return
                 last.set(line)
+                history.add(line)
                 if (stall) continue
+                if (line.startsWith("playlistinfo")) {
+                    out.write(queuePayload().toByteArray())
+                    out.flush()
+                    continue
+                }
                 val handler = handlers.entries.firstOrNull { line.startsWith(it.key) }?.value
                 if (handler == null) {
                     out.write("OK\n".toByteArray())
@@ -69,6 +86,12 @@ class FakeMpdServer : Closeable {
                 out.flush()
             }
         }
+    }
+
+    private fun queuePayload(): String {
+        val sb = StringBuilder()
+        synchronized(queueBlocks) { for (block in queueBlocks) for ((k, v) in block) sb.append(k).append(": ").append(v).append('\n') }
+        return sb.append("OK\n").toString()
     }
 
     private fun readLineFrom(input: InputStream): String? {

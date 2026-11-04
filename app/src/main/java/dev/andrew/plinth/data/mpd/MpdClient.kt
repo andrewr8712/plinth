@@ -5,6 +5,7 @@ import dev.andrew.plinth.data.model.AudioFormat
 import dev.andrew.plinth.data.model.OutputInfo
 import dev.andrew.plinth.data.model.PlaybackState
 import dev.andrew.plinth.data.model.PlayerState
+import dev.andrew.plinth.data.model.QueueItem
 import dev.andrew.plinth.data.model.Track
 
 /** Read side of the MPD protocol. Writes arrive in the next task. */
@@ -73,6 +74,12 @@ class MpdClient(private val socket: MpdSocket) {
         return LibraryParser.parse(p)
     }
 
+    /** The queue, whole. Called on every version change rather than diffing. */
+    suspend fun playlistInfo(): List<QueueItem> {
+        val p = okPairs(socket.command("playlistinfo", timeoutMs = MpdSocket.LIST_TIMEOUT_MS))
+        return QueueParser.parse(p)
+    }
+
     suspend fun outputs(): List<OutputInfo> {
         val p = okPairs(socket.command("outputs"))
         val out = ArrayList<OutputInfo>()
@@ -133,6 +140,30 @@ class MpdClient(private val socket: MpdSocket) {
     suspend fun setConsume(on: Boolean) = write("consume ${flag(on)}")
 
     suspend fun setCrossfade(seconds: Int) = write("crossfade $seconds")
+
+    // ---- queue --------------------------------------------------------------
+
+    suspend fun add(uri: String, pos: Int? = null) =
+        write(if (pos == null) "add ${quote(uri)}" else "add ${quote(uri)} $pos")
+
+    /** Adds and reports the new song id, which is what a "play next" needs. */
+    suspend fun addId(uri: String): Int? {
+        val p = okPairs(socket.command("addid ${quote(uri)}"))
+        return p.firstOrNull { it.first == "Id" }?.second?.toIntOrNull()
+    }
+
+    suspend fun deleteId(id: Int) = write("deleteid $id")
+
+    suspend fun moveId(id: Int, to: Int) = write("moveid $id $to")
+
+    suspend fun clearQueue() = write("clear")
+
+    suspend fun savePlaylist(name: String) = write("save ${quote(name)}")
+
+    suspend fun loadPlaylist(name: String) = write("load ${quote(name)}")
+
+    suspend fun listPlaylists(): List<String> =
+        okPairs(socket.command("listplaylists")).filter { it.first == "playlist" }.map { it.second }
 
     /** Raises the server's chunk cap; art needs ~302 KB in one reply. */
     suspend fun binaryLimit(bytes: Int) = write("binarylimit $bytes")
