@@ -232,7 +232,10 @@ One `NowPlaying` composable, three arrangements by window width:
 
 Components shared across widths so there is one behaviour, not three:
 
-- **Signal strip** — `FLAC · 24/96` → `96.0 kHz to DAC` → verdict. Built from
+- **Signal strip** — three cells, one fact each: `FLAC 24/96` → `USB · DX5 II`
+  → verdict. The output rate is *not* shown on the happy path, because it equals
+  the source rate by construction at this build; it appears in the Link cell
+  only when it differs (`44.1 → 48 kHz`) and the verdict turns. Built from
   `status` (`Format: 96000:24:2`, or `dsd64:2` → `DSD64 · DoP`) compared against
   the track's own format from the library cache.
   - The verdict is **computed, not decorative**: `bit-perfect` only when the
@@ -299,6 +302,8 @@ per track:
   format class (PCM / DoP).
 - Target accuracy: within ~80 ms of the DAC's own display. Anything worse reads
   as fake, which is the one failure this feature exists to avoid.
+- The meter's header carries the live value (`−14 dBFS`) rather than a bare
+  label, and the row is suppressed to `—` whenever the level is unknown.
 - Ballistics: attack 30 ms, release 350 ms, so it moves like a needle rather
   than a bar graph.
 - dBFS mapped to bar height with a −60 dB floor; peaks shown as a 1 px cap that

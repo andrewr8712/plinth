@@ -67,7 +67,7 @@
   .dot.warn { background: var(--danger); }
   .dot.idle { background: var(--faint); }
 
-  .body { position: absolute; inset: 110px 56px 52px; display: flex; gap: 56px; align-items: center; }
+  .body { position: absolute; inset: 112px 56px 112px; display: flex; gap: 56px; align-items: center; }
   .art { width: 260px; height: 260px; border-radius: 6px; background-image: var(--art-mezz); background-size: cover; box-shadow: 0 40px 70px -28px rgba(0,0,0,.95), 0 0 0 1px rgba(255,255,255,.06); flex: 0 0 auto; display: flex; align-items: center; justify-content: center; }
   .art.noart { background-image: none; background: var(--plate); box-shadow: none; border: 1px solid var(--hair); }
   .art .initials { font-size: 86px; font-weight: var(--w-light); letter-spacing: .04em; line-height: 1; color: rgba(246,245,243,.40); }
@@ -108,7 +108,9 @@
   .retry button { font: inherit; font-size: var(--f-meta); color: var(--text); background: none; border: 1px solid rgba(246,245,243,.35); border-radius: 999px; padding: 8px 16px; }
 
   .rail { width: 200px; flex: 0 0 200px; border-inline-start: 1px solid var(--hair); padding-inline-start: 28px; align-self: stretch;
-          display: flex; flex-direction: column; justify-content: center; gap: 26px; }
+          display: flex; flex-direction: column; justify-content: center; gap: 64px; }
+  .rail .row-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .rail .modes { display: inline-flex; gap: 10px; color: var(--muted); }
   .rail .k { font-size: var(--f-label); font-weight: var(--w-medium); line-height: var(--lh-label); letter-spacing: .12em;
              text-transform: uppercase; color: var(--faint); margin-bottom: 12px; }
   .meter { display: flex; gap: 10px; align-items: flex-end; height: 96px; }
@@ -188,26 +190,24 @@
         <div class="meta">
           <div class="title">Teardrop</div>
           <div class="artist">Massive Attack</div>
-          <div class="meta-line">Track 3 of 11 · 5:29</div>
+          <div class="meta-line">Track 3 of 11</div>
           <div class="strip">
             <div><div class="k">Source</div><div class="v">FLAC 16/44.1</div></div>
-            <div><div class="k">To DAC</div><div class="v">44.1 kHz</div></div>
+            <div><div class="k">Link</div><div class="v">USB · DX5 II</div></div>
             <div><div class="k">Signal</div><div class="v good">Bit-perfect</div></div>
           </div>
           <div class="progress"><div class="bar"><i></i></div><div class="times"><span>1:42</span><span>−3:47</span></div></div>
           <div class="transport" aria-label="Playback controls">
-            <span class="btn" role="button" aria-label="Shuffle off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></svg></span>
             <span class="btn" role="button" aria-label="Previous track"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 20L9 12l10-8z"/><rect x="5" y="4" width="1.6" height="16" rx=".8"/></svg></span>
             <span class="btn play" role="button" aria-label="Pause"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="7" y="5" width="3.4" height="14" rx="1"/><rect x="13.6" y="5" width="3.4" height="14" rx="1"/></svg></span>
             <span class="btn" role="button" aria-label="Next track"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 4l10 8-10 8z"/><rect x="17.4" y="4" width="1.6" height="16" rx=".8"/></svg></span>
-            <span class="btn" role="button" aria-label="Repeat off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg></span>
           </div>
         </div>
         <div class="rail">
-          <div><div class="k">Level</div><div class="meter" role="img" aria-label="Level: left minus 13 decibels, right minus 15"><div class="b"><span style="height:58%"></span><em style="bottom:66%"></em></div><div class="b"><span style="height:52%"></span><em style="bottom:60%"></em></div></div></div>
-          <div><div class="k">Up next · 9 more</div>
-            <div class="qi"><div class="th" style="filter:hue-rotate(40deg)"></div><div class="tx"><b>Angel</b><span>Massive Attack</span></div></div>
-            <div class="qi" style="margin-top:16px"><div class="th" style="filter:hue-rotate(-30deg)"></div><div class="tx"><b>Risingson</b><span>Massive Attack</span></div></div>
+          <div><div class="k row-head"><span>Level</span><span>−14 dBFS</span></div><div class="meter" role="img" aria-label="Level: left minus 13 decibels, right minus 15"><div class="b"><span style="height:58%"></span><em style="bottom:66%"></em></div><div class="b"><span style="height:52%"></span><em style="bottom:60%"></em></div></div></div>
+          <div><div class="k row-head"><span>Up next · 9</span><span class="modes"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg></span></div>
+            <div class="qi"><div class="tx"><b>Angel</b><span>Massive Attack</span></div></div>
+            <div class="qi" style="margin-top:16px"><div class="tx"><b>Risingson</b><span>Massive Attack</span></div></div>
           </div>
         </div>
       </div>
@@ -225,25 +225,23 @@
         <div class="meta">
           <div class="title">Teardrop</div>
           <div class="artist">Massive Attack</div>
-          <div class="meta-line">Track 3 of 11 · 5:29</div>
+          <div class="meta-line">Track 3 of 11</div>
           <div class="strip">
             <div><div class="k">Source</div><div class="v">FLAC 16/44.1</div></div>
-            <div><div class="k">To DAC</div><div class="v">44.1 kHz</div></div>
+            <div><div class="k">Link</div><div class="v">USB · DX5 II</div></div>
             <div><div class="k">Signal</div><div class="v good">Bit-perfect</div></div>
           </div>
           <div class="progress"><div class="bar"><i></i></div><div class="times"><span>1:42</span><span>−3:47</span></div></div>
           <div class="transport" aria-label="Playback controls">
-            <span class="btn" role="button" aria-label="Shuffle off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></svg></span>
             <span class="btn" role="button" aria-label="Previous track"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 20L9 12l10-8z"/><rect x="5" y="4" width="1.6" height="16" rx=".8"/></svg></span>
             <span class="btn play" role="button" aria-label="Play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5l11 7-11 7z"/></svg></span>
             <span class="btn" role="button" aria-label="Next track"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 4l10 8-10 8z"/><rect x="17.4" y="4" width="1.6" height="16" rx=".8"/></svg></span>
-            <span class="btn" role="button" aria-label="Repeat off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg></span>
           </div>
         </div>
         <div class="rail">
-          <div><div class="k">Level</div><div class="meter" role="img" aria-label="Level: silent, playback paused"><div class="b"><span style="height:2%"></span></div><div class="b"><span style="height:2%"></span></div></div></div>
-          <div><div class="k">Up next · 9 more</div>
-            <div class="qi"><div class="th" style="filter:hue-rotate(40deg)"></div><div class="tx"><b>Angel</b><span>Massive Attack</span></div></div>
+          <div><div class="k row-head"><span>Level</span><span>—</span></div><div class="meter" role="img" aria-label="Level: silent, playback paused"><div class="b"><span style="height:2%"></span></div><div class="b"><span style="height:2%"></span></div></div></div>
+          <div><div class="k row-head"><span>Up next · 9</span><span class="modes"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg></span></div>
+            <div class="qi"><div class="tx"><b>Angel</b><span>Massive Attack</span></div></div>
           </div>
         </div>
       </div>
@@ -264,23 +262,23 @@
           <div class="meta-line">Last heard 2 min ago · stopped at 1:42</div>
           <div class="strip">
             <div><div class="k">Source</div><div class="v none">—</div></div>
-            <div><div class="k">To DAC</div><div class="v none">—</div></div>
+            <div><div class="k">Link</div><div class="v none">—</div></div>
             <div><div class="k">Signal</div><div class="v none">Unknown</div></div>
           </div>
           <div class="progress"><div class="bar"><i style="width:31%"></i></div><div class="times"><span>1:42</span><span>−3:47</span></div></div>
           <div class="transport" aria-disabled="true" aria-label="Playback controls, unavailable while disconnected">
-            <span class="btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></svg></span>
+            
             <span class="btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 20L9 12l10-8z"/><rect x="5" y="4" width="1.6" height="16" rx=".8"/></svg></span>
             <span class="btn play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="7" y="5" width="3.4" height="14" rx="1"/><rect x="13.6" y="5" width="3.4" height="14" rx="1"/></svg></span>
             <span class="btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 4l10 8-10 8z"/><rect x="17.4" y="4" width="1.6" height="16" rx=".8"/></svg></span>
-            <span class="btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg></span>
+            
           </div>
           <div class="retry" role="status" aria-live="polite">Retrying in 8s <button type="button">Retry now</button></div>
         </div>
         <div class="rail">
-          <div><div class="k">Level</div><div class="nolvl"><span>No signal<em>Streamer offline</em></span></div></div>
-          <div><div class="k">Up next · unknown</div>
-            <div class="qi"><div class="th" style="background-image:none;background:var(--plate)"></div><div class="tx"><b>—</b><span>Unavailable offline</span></div></div>
+          <div><div class="k row-head"><span>Level</span><span>—</span></div><div class="nolvl"><span>No signal<em>Streamer offline</em></span></div></div>
+          <div><div class="k row-head"><span>Up next</span><span class="modes"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg></span></div>
+            <div class="qi"><div class="tx"><b>—</b><span>Unavailable offline</span></div></div>
           </div>
         </div>
       </div>
@@ -298,25 +296,23 @@
         <div class="meta">
           <div class="title">21st Century Schizoid Man</div>
           <div class="artist">King Crimson</div>
-          <div class="meta-line">Track 1 of 8 · 7:23</div>
+          <div class="meta-line">Track 1 of 8</div>
           <div class="strip">
             <div><div class="k">Source</div><div class="v">FLAC 24/96</div></div>
-            <div><div class="k">To DAC</div><div class="v">96 kHz</div></div>
+            <div><div class="k">Link</div><div class="v">USB · DX5 II</div></div>
             <div><div class="k">Signal</div><div class="v good">Bit-perfect</div></div>
           </div>
           <div class="progress"><div class="bar"><i style="width:43%"></i></div><div class="times"><span>3:12</span><span>−4:11</span></div></div>
           <div class="transport" aria-label="Playback controls">
-            <span class="btn" role="button" aria-label="Shuffle off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></svg></span>
             <span class="btn" role="button" aria-label="Previous track"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 20L9 12l10-8z"/><rect x="5" y="4" width="1.6" height="16" rx=".8"/></svg></span>
             <span class="btn play" role="button" aria-label="Pause"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="7" y="5" width="3.4" height="14" rx="1"/><rect x="13.6" y="5" width="3.4" height="14" rx="1"/></svg></span>
             <span class="btn" role="button" aria-label="Next track"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 4l10 8-10 8z"/><rect x="17.4" y="4" width="1.6" height="16" rx=".8"/></svg></span>
-            <span class="btn" role="button" aria-label="Repeat off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg></span>
           </div>
         </div>
         <div class="rail">
-          <div><div class="k">Level</div><div class="nolvl" role="img" aria-label="No level data for this track"><span>No level data<em>Not in the loudness scan</em></span></div></div>
-          <div><div class="k">Up next · 4 more</div>
-            <div class="qi"><div class="th" style="background-image:var(--art-court)"></div><div class="tx"><b>I Talk to the Wind</b><span>King Crimson</span></div></div>
+          <div><div class="k row-head"><span>Level</span><span>—</span></div><div class="nolvl" role="img" aria-label="No level data for this track"><span>No level data<em>Not in the loudness scan</em></span></div></div>
+          <div><div class="k row-head"><span>Up next · 4</span><span class="modes"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg></span></div>
+            <div class="qi"><div class="tx"><b>I Talk to the Wind</b><span>King Crimson</span></div></div>
           </div>
         </div>
       </div>
@@ -334,25 +330,23 @@
         <div class="meta">
           <div class="title">So Far Away</div>
           <div class="artist">Dire Straits</div>
-          <div class="meta-line">Track 1 of 9 · 5:07</div>
+          <div class="meta-line">Track 1 of 9</div>
           <div class="strip">
             <div><div class="k">Source</div><div class="v">DSD64 · DoP</div></div>
-            <div><div class="k">To DAC</div><div class="v">176.4 kHz</div></div>
+            <div><div class="k">Link</div><div class="v">USB · DX5 II</div></div>
             <div><div class="k">Signal</div><div class="v good">Bit-perfect</div></div>
           </div>
           <div class="progress"><div class="bar"><i style="width:34%"></i></div><div class="times"><span>1:44</span><span>−3:23</span></div></div>
           <div class="transport" aria-label="Playback controls">
-            <span class="btn" role="button" aria-label="Shuffle off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></svg></span>
             <span class="btn" role="button" aria-label="Previous track"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 20L9 12l10-8z"/><rect x="5" y="4" width="1.6" height="16" rx=".8"/></svg></span>
             <span class="btn play" role="button" aria-label="Pause"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="7" y="5" width="3.4" height="14" rx="1"/><rect x="13.6" y="5" width="3.4" height="14" rx="1"/></svg></span>
             <span class="btn" role="button" aria-label="Next track"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 4l10 8-10 8z"/><rect x="17.4" y="4" width="1.6" height="16" rx=".8"/></svg></span>
-            <span class="btn" role="button" aria-label="Repeat off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg></span>
           </div>
         </div>
         <div class="rail">
-          <div><div class="k">Level</div><div class="meter" role="img" aria-label="Level: left minus 18 decibels, right minus 18"><div class="b"><span style="height:38%"></span><em style="bottom:44%"></em></div><div class="b"><span style="height:36%"></span><em style="bottom:42%"></em></div></div></div>
-          <div><div class="k">Up next · 5 more</div>
-            <div class="qi"><div class="th" style="background-image:none;background:var(--plate)"></div><div class="tx"><b>Money for Nothing</b><span>Dire Straits</span></div></div>
+          <div><div class="k row-head"><span>Level</span><span>−18 dBFS</span></div><div class="meter" role="img" aria-label="Level: left minus 18 decibels, right minus 18"><div class="b"><span style="height:38%"></span><em style="bottom:44%"></em></div><div class="b"><span style="height:36%"></span><em style="bottom:42%"></em></div></div></div>
+          <div><div class="k row-head"><span>Up next · 5</span><span class="modes"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg></span></div>
+            <div class="qi"><div class="tx"><b>Money for Nothing</b><span>Dire Straits</span></div></div>
           </div>
         </div>
       </div>
@@ -370,25 +364,23 @@
         <div class="meta">
           <div class="title small">The Court of the Crimson King (Including "The Return of the Fire Witch" &amp; "The Dance of the Puppets")</div>
           <div class="artist">King Crimson · In the Court of the Crimson King (40th Anniversary Edition)</div>
-          <div class="meta-line">Track 5 of 8 · 9:56</div>
+          <div class="meta-line">Track 5 of 8</div>
           <div class="strip">
             <div><div class="k">Source</div><div class="v">FLAC 24/96</div></div>
-            <div><div class="k">To DAC</div><div class="v">96 kHz</div></div>
+            <div><div class="k">Link</div><div class="v">USB · DX5 II</div></div>
             <div><div class="k">Signal</div><div class="v good">Bit-perfect</div></div>
           </div>
           <div class="progress"><div class="bar"><i style="width:22%"></i></div><div class="times"><span>2:11</span><span>−7:45</span></div></div>
           <div class="transport" aria-label="Playback controls">
-            <span class="btn" role="button" aria-label="Shuffle off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></svg></span>
             <span class="btn" role="button" aria-label="Previous track"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 20L9 12l10-8z"/><rect x="5" y="4" width="1.6" height="16" rx=".8"/></svg></span>
             <span class="btn play" role="button" aria-label="Pause"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="7" y="5" width="3.4" height="14" rx="1"/><rect x="13.6" y="5" width="3.4" height="14" rx="1"/></svg></span>
             <span class="btn" role="button" aria-label="Next track"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 4l10 8-10 8z"/><rect x="17.4" y="4" width="1.6" height="16" rx=".8"/></svg></span>
-            <span class="btn" role="button" aria-label="Repeat off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg></span>
           </div>
         </div>
         <div class="rail">
-          <div><div class="k">Level</div><div class="meter" role="img" aria-label="Level: left minus 20 decibels, right minus 20"><div class="b"><span style="height:34%"></span><em style="bottom:40%"></em></div><div class="b"><span style="height:33%"></span><em style="bottom:39%"></em></div></div></div>
-          <div><div class="k">Up next · 2 more</div>
-            <div class="qi"><div class="th" style="background-image:var(--art-court)"></div><div class="tx"><b>Epitaph (Including "March for No Reason")</b><span>King Crimson</span></div></div>
+          <div><div class="k row-head"><span>Level</span><span>−20 dBFS</span></div><div class="meter" role="img" aria-label="Level: left minus 20 decibels, right minus 20"><div class="b"><span style="height:34%"></span><em style="bottom:40%"></em></div><div class="b"><span style="height:33%"></span><em style="bottom:39%"></em></div></div></div>
+          <div><div class="k row-head"><span>Up next · 2</span><span class="modes"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg></span></div>
+            <div class="qi"><div class="tx"><b>Epitaph (Including "March for No Reason")</b><span>King Crimson</span></div></div>
           </div>
         </div>
       </div>
@@ -406,7 +398,7 @@
         <div class="meta">
           <div class="title">دمعة</div>
           <div class="artist">ماسيف أتاك</div>
-          <div class="meta-line">المقطع ٣ من ١١ · ٥:٢٩</div>
+          <div class="meta-line">المقطع ٣ من ١١</div>
           <div class="strip">
             <div><div class="k">المصدر</div><div class="v">FLAC ‎16/44.1</div></div>
             <div><div class="k">إلى المُحوِّل</div><div class="v">٤٤٫١ كيلوهرتز</div></div>
@@ -422,9 +414,9 @@
           </div>
         </div>
         <div class="rail">
-          <div><div class="k">المستوى</div><div class="meter" role="img" aria-label="المستوى: يسار ١٣ تحت الصفر، يمين ١٥"><div class="b"><span style="height:58%"></span><em style="bottom:66%"></em></div><div class="b"><span style="height:52%"></span><em style="bottom:60%"></em></div></div></div>
-          <div><div class="k">التالي · ٩ أخرى</div>
-            <div class="qi"><div class="th" style="filter:hue-rotate(40deg)"></div><div class="tx"><b>أنجل</b><span>ماسيف أتاك</span></div></div>
+          <div><div class="k row-head"><span>المستوى</span><span>−١٤</span></div><div class="meter" role="img" aria-label="المستوى: يسار ١٣ تحت الصفر، يمين ١٥"><div class="b"><span style="height:58%"></span><em style="bottom:66%"></em></div><div class="b"><span style="height:52%"></span><em style="bottom:60%"></em></div></div></div>
+          <div><div class="k row-head"><span>التالي · ٩ أخرى</span><span class="modes"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg></span></div>
+            <div class="qi"><div class="tx"><b>أنجل</b><span>ماسيف أتاك</span></div></div>
           </div>
         </div>
       </div>
@@ -507,10 +499,10 @@
           <div class="art" style="width:100%;height:298px;background-image:var(--art-court);border-radius:8px"></div>
           <div class="title" style="font-size:28px;margin-top:22px">21st Century Schizoid Man</div>
           <div class="artist" style="font-size:16px">King Crimson</div>
-          <div class="meta-line" style="font-size:13px">Track 1 of 8 · 7:23</div>
+          <div class="meta-line" style="font-size:13px">Track 1 of 8</div>
           <div class="strip" style="gap:24px;margin-top:20px">
             <div><div class="k" style="font-size:11px">Source</div><div class="v" style="font-size:16px">FLAC 24/96</div></div>
-            <div><div class="k" style="font-size:11px">To DAC</div><div class="v" style="font-size:16px">96 kHz</div></div>
+            <div><div class="k" style="font-size:11px">Link</div><div class="v" style="font-size:16px">USB · DX5 II</div></div>
             <div><div class="k" style="font-size:11px">Signal</div><div class="v good" style="font-size:16px">Bit-perfect</div></div>
           </div>
           <div class="progress" style="margin-top:20px"><div class="bar"><i style="width:43%"></i></div><div class="times"><span>3:12</span><span>−4:11</span></div></div>
