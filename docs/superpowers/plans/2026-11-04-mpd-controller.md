@@ -357,6 +357,15 @@ git add -A && git commit -m "feat: idle loop and connection supervisor with back
 
 ## Task 6: Album identity and library sync
 
+> **Before this task (from the Phase-1 review):** `MpdClient` holds a single command
+> socket behind a mutex, and the default timeout is 3 s. `listallinfo` needs up to
+> 20 s (`MpdSocket.LIST_TIMEOUT_MS`) and must not block a transport press behind it:
+> give the library sync its own `MpdSocket` (a third connection), and pass
+> `LIST_TIMEOUT_MS` explicitly. Also raise the chunk cap once per command connection
+> with `MpdClient.binaryLimit(...)` before any `albumart` call — the default 8 KB
+> splits a 302 KB cover into ~37 chunks.
+
+
 **Files:**
 - Create: `app/src/main/java/dev/andrew/plinth/data/model/AlbumIdentity.kt`, `.../model/Album.kt`
 - Create: `app/src/main/java/dev/andrew/plinth/data/mpd/LibraryParser.kt`

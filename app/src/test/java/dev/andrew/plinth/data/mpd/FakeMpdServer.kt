@@ -23,6 +23,10 @@ class FakeMpdServer : Closeable {
     @Volatile
     var stall: Boolean = false
 
+    /** The greeting line; override to stand in for something that is not MPD. */
+    @Volatile
+    var banner: String = "OK MPD 0.23.5"
+
     val port: Int get() = server.localPort
     val lastCommand: String? get() = last.get()
 
@@ -48,7 +52,7 @@ class FakeMpdServer : Closeable {
         client.use { c ->
             val out: OutputStream = c.getOutputStream()
             val input: InputStream = c.getInputStream()
-            out.write("OK MPD 0.23.5\n".toByteArray())
+            out.write((banner + "\n").toByteArray())
             out.flush()
             while (true) {
                 val line = readLineFrom(input) ?: return

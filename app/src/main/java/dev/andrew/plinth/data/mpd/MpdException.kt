@@ -5,4 +5,7 @@ sealed class MpdException(message: String) : Exception(message) {
     class Timeout(message: String = "MPD did not answer in time") : MpdException(message)
     class Protocol(message: String) : MpdException(message)
     class Disconnected(message: String = "Connection closed") : MpdException(message)
+
+    /** An `ACK` from the server, keeping [code] because callers act on it (50 = no art). */
+    class Ack(val code: Int, val command: String, message: String) : MpdException(message)
 }

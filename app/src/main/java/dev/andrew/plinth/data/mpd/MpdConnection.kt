@@ -1,13 +1,19 @@
 package dev.andrew.plinth.data.mpd
 
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.isActive
+import kotlinx.coroutines.launch
 
 sealed interface ConnectionState {
     data object Up : ConnectionState
@@ -19,10 +25,9 @@ sealed interface ConnectionState {
 }
 
 /**
- * Owns the socket for the life of the app: connects, parks in `idle`, and rebuilds
- * the connection with backoff when anything goes wrong. Nothing downstream ever
- * sees a raw socket — only a [StateFlow] and [withClient], which fails fast when
- * the link is down rather than blocking the caller.
+ * Owns the sockets for the life of the app: connects, parks one in `idle`, and
+ * rebuilds everything with backoff when anything goes wrong. Downstream sees only
+ * a [StateFlow], the idle [events], and [withClient] — never a raw socket.
  */
 class MpdConnection(
     private val host: String,
@@ -36,6 +41,10 @@ class MpdConnection(
     private val _state = MutableStateFlow<ConnectionState>(ConnectionState.Connecting(0))
     val state: StateFlow<ConnectionState> = _state.asStateFlow()
 
+    /** Subsystems MPD reported as changed, in order. Repositories refresh off this. */
+    private val _events = MutableSharedFlow<Set<String>>(extraBufferCapacity = 8)
+    val events: SharedFlow<Set<String>> = _events.asSharedFlow()
+
     @Volatile
     private var socket: MpdSocket? = null
 
@@ -46,59 +55,113 @@ class MpdConnection(
     private var client: MpdClient? = null
 
     @Volatile
+    private var stopped: Boolean = false
+
+    @Volatile
     var failures: Int = 0
         private set
 
     val isUp: Boolean get() = _state.value is ConnectionState.Up
 
     /**
-     * Runs forever: connect → idle → on any failure, back off and start again.
-     *
-     * Two sockets, deliberately: MPD forbids commands on a connection parked in
-     * `idle`, so the command connection must be a separate one or every transport
-     * press would wait for someone else to change the song.
+     * Runs until [close]. Two sockets, deliberately: MPD closes a connection that
+     * sends a command while parked in `idle`, so transport presses need their own.
      */
     suspend fun run() {
-        while (currentCoroutineContext().isActive) {
-            try {
-                val cmd = socketFactory()
-                cmd.connect(host, port)
-                val idleSock = socketFactory()
-                idleSock.connect(host, port)
-                socket = cmd
-                idleSocket = idleSock
-                client = MpdClient(cmd)
-                failures = 0
-                _state.value = ConnectionState.Up
-
-                val idle = idleFactory(idleSock)
-                while (currentCoroutineContext().isActive) {
-                    idle.awaitChange()
-                    // Task 5 keeps the link warm; the repositories subscribe in M6.
-                }
-            } catch (c: CancellationException) {
+        // Cancelling the owning scope cannot interrupt a blocking socket read, so the
+        // watchdog closes the sockets the moment the job starts dying — that read then
+        // throws and the loop unwinds instead of leaking a thread and two fds.
+        val self = currentCoroutineContext()[Job]
+        val watchdog = self?.let { job ->
+            CoroutineScope(Dispatchers.IO).launch {
+                job.join()
                 closeQuietly()
-                throw c
-            } catch (t: Throwable) {
-                closeQuietly()
-                if (!currentCoroutineContext().isActive) break
-                failures++
-                _state.value = if (failures >= UNREACHABLE_AFTER) {
-                    ConnectionState.Unavailable(t.message ?: t::class.simpleName ?: "unreachable")
-                } else {
-                    ConnectionState.Connecting(failures)
-                }
-                sleep(backoff.next(failures))
             }
+        }
+        try {
+            while (!stopped && currentCoroutineContext().isActive) {
+                try {
+                    connectBoth()
+                    failures = 0
+                    _state.value = ConnectionState.Up
+
+                    val idle = idleFactory(idleSocket!!)
+                    while (!stopped && currentCoroutineContext().isActive) {
+                        val changed = idle.awaitChange()
+                        if (changed.isNotEmpty()) _events.tryEmit(changed)
+                    }
+                } catch (c: CancellationException) {
+                    closeQuietly()
+                    throw c
+                } catch (t: Throwable) {
+                    closeQuietly()
+                    if (stopped || !currentCoroutineContext().isActive) break
+                    failures++
+                    _state.value = if (failures >= UNREACHABLE_AFTER) {
+                        ConnectionState.Unavailable(t.message ?: t::class.simpleName ?: "unreachable")
+                    } else {
+                        ConnectionState.Connecting(failures)
+                    }
+                    sleep(backoff.next(failures))
+                }
+            }
+        } finally {
+            closeQuietly()
+            watchdog?.cancel()
         }
     }
 
-    /** Tears the link down. Closing the sockets is what frees a parked idle read. */
-    fun close() = closeQuietly()
+    /** Publishes both sockets only once both are up, so a half-connect leaks nothing. */
+    private suspend fun connectBoth() {
+        val cmd = socketFactory()
+        try {
+            cmd.connect(host, port)
+        } catch (t: Throwable) {
+            cmd.close()
+            throw t
+        }
+        val idle = socketFactory()
+        try {
+            idle.connect(host, port)
+        } catch (t: Throwable) {
+            idle.close()
+            cmd.close()
+            throw t
+        }
+        socket = cmd
+        idleSocket = idle
+        client = MpdClient(cmd)
+    }
 
+    /** Stops the loop for good and frees both sockets, including a parked idle read. */
+    fun close() {
+        stopped = true
+        closeQuietly()
+    }
+
+    /**
+     * Runs [block] against the live client. Any failure demotes the link: a command
+     * socket that died silently (Wi-Fi roam, NAT timeout) must not leave the UI
+     * showing "connected" forever.
+     */
     suspend fun <T> withClient(block: suspend (MpdClient) -> T): T {
         val c = client ?: throw MpdException.Disconnected("not connected")
-        return block(c)
+        return try {
+            block(c)
+        } catch (e: MpdException) {
+            demote(e)
+            throw e
+        } catch (e: java.io.IOException) {
+            demote(e)
+            throw MpdException.Disconnected(e.message ?: "read failed")
+        }
+    }
+
+    private fun demote(cause: Throwable) {
+        closeQuietly() // closing the idle socket wakes run(), which reconnects
+        if (!stopped) {
+            _state.value = ConnectionState.Connecting(failures.coerceAtLeast(1))
+        }
     }
 
     private fun closeQuietly() {

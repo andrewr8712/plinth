@@ -70,7 +70,7 @@ class MpdConnectionTest {
 
     @Test
     fun `backoff doubles and caps at thirty seconds`() {
-        val b = Backoff()
+        val b = Backoff(jitter = { 0.5 })
         assertEquals(1_000L, b.next(1))
         assertEquals(2_000L, b.next(2))
         assertEquals(4_000L, b.next(3))

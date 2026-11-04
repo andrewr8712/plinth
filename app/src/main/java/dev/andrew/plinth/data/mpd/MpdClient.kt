@@ -25,11 +25,11 @@ class MpdClient(private val socket: MpdSocket) {
             songPos = s("song")?.toIntOrNull(),
             elapsed = s("elapsed")?.toDoubleOrNull() ?: elapsedFromTime,
             duration = s("duration")?.toDoubleOrNull() ?: durationFromTime,
-            queueVersion = s("playlist")?.toIntOrNull() ?: 0,
-            random = s("random") == "1",
-            repeat = s("repeat") == "1",
-            single = s("single") == "1",
-            consume = s("consume") == "1",
+            queueVersion = s("playlist")?.toIntOrNull() ?: UNKNOWN_VERSION,
+            random = s("random").asFlag(),
+            repeat = s("repeat").asFlag(),
+            single = s("single").asFlag(),
+            consume = s("consume").asFlag(),
             format = audio,
             bitrateKbps = s("bitrate")?.toIntOrNull(),
             audioOutRateHz = audio?.sampleRate,
@@ -126,12 +126,27 @@ class MpdClient(private val socket: MpdSocket) {
 
     suspend fun setCrossfade(seconds: Int) = write("crossfade $seconds")
 
+    /** Raises the server's chunk cap; art needs ~302 KB in one reply. */
+    suspend fun binaryLimit(bytes: Int) = write("binarylimit $bytes")
+
     private suspend fun write(line: String) {
         val reply = socket.command(line)
         if (reply is MpdReply.Ack) throw MpdException.Protocol(reply.message)
     }
 
     private fun flag(on: Boolean) = if (on) 1 else 0
+
+    /** `1` and `oneshot` both mean on; `0` (or absence) means off. */
+    private fun String?.asFlag(): Boolean = this != null && this != "0"
+
+    companion object {
+        /** MPD omits `playlist`, so a failed parse must not look like version 0. */
+        const val UNKNOWN_VERSION = -1
+
+        /** MPD quoting: backslash first, then the quote character. */
+        fun quote(value: String): String =
+            "\"" + value.replace("\\", "\\\\").replace("\"", "\\\"") + "\""
+    }
 
     /** `time: 41:230` → elapsed 41, duration 230. */
     private fun parseTime(time: String?): Pair<Double?, Double?> {
