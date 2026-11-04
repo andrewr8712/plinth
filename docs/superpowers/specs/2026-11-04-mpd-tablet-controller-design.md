@@ -280,7 +280,7 @@ Components shared across widths so there is one behaviour, not three:
 - **Progress hairline** — thin, draggable, with elapsed/remaining either side.
   Scrub sends `seekcur` on release, not on every drag event.
 - **Queue** — refetched wholesale on version change (§5.2), never diffed; drag
-  to reorder sends `moveid`; swipe removes via `deleteid`. Rows are text-only —
+  to reorder sends `moveid`; swipe removes with `deleteid`. Rows are text-only —
   track number, title, duration, a now-playing marker — no thumbnails.
 - **Transport** — prev / play-pause / next, plus shuffle (random) and repeat in
   the band's queue header. `single` and `consume` live in the overflow, not the

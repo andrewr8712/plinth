@@ -27,7 +27,7 @@
 - **No volume control anywhere.** `MpdClient` exposes no `setvol`/`volume` command; no slider, disabled or otherwise.
 - Every MPD command carries a timeout: state commands **3 s**, `listallinfo` **20 s**, art requests **15 s**, `idle` **none**. No command may block the UI thread.
 - Read MPD replies **by terminator** (`buffer.endsWith("OK\n")` or an `ACK` line), never by substring search.
-- Album id = hash of (normalised album-artist, album, edition). Edition is `null` for ≤2 channels, `"5.1"`/`"4.0"` etc. above.
+- Album id = hash of (normalised album-artist, album, edition). Edition is `null` for ≤2 channels, `"5.1"` or `"4.0"` above.
 - DSD is always labelled `DSD64 · DoP` (never "native DSD"). No resampling is implied or attempted.
 - Dark only: background `#0A0A0C`, warm white type. No WebView. No server config writes.
 - Type: Inter variable bundled in `res/font`; pinned weights 300/400/500; seven sizes 64/44/28/20/16/13/11; labels 11 sp at weight 500 and +0.12 em; tabular figures on every numeric role.
@@ -242,7 +242,7 @@ Expected: FAIL — unresolved references.
 
 - [ ] **Step 3: Implement the read commands**
 
-Parse defensively: every field optional, `Int`/`Double` via the helpers from Task 1, `state` mapped with `Unknown` fallback. `currentSong` returns `null` on empty payload. `Track.albumId` comes from `AlbumIdentity.key(...)` (Task 6) — until Task 6 lands, call a placeholder that returns `""` and replace it in Task 6.
+Parse defensively: every field optional, `Int`/`Double` with the helpers from Task 1, `state` mapped with `Unknown` fallback. `currentSong` returns `null` on empty payload. `Track.albumId` comes from `AlbumIdentity.key(...)` (Task 6) — until Task 6 lands, call a placeholder that returns `""` and replace it in Task 6.
 
 - [ ] **Step 4: Run tests to verify they pass**
 
@@ -720,7 +720,7 @@ git add -A && git commit -m "feat: settings store and connection screen"
 }
 ```
 
-(Both assertions in one test via a parameterised `measureSize(width: Dp)` helper in the test file.)
+(Both assertions in one test with a parameterised `measureSize(width: Dp)` helper in the test file.)
 
 - [ ] **Step 2: Run it to verify it fails**
 
@@ -963,7 +963,7 @@ Expected: FAIL — unresolved references.
 
 - [ ] **Step 3: Implement**
 
-Album grid: `LazyVerticalGrid(GridCells.Adaptive(160.dp))`, art via Coil with `ArtRepository.cachedFile`, initials placeholder for `ArtResult.None`. Album screen: art header + track list + "Play all" (excludes `channels > 2`) and "Queue all". Output screen: the single output, DoP flag, bit-perfect explanation, "Volume is the DAC's knob; this streamer has no mixer", Meter sync sliders (Tasks 10/17), Stay-awake toggle.
+Album grid: `LazyVerticalGrid(GridCells.Fixed(columns))` with the column count chosen by window size, art drawn by `Artwork(albumId, album.firstUri, art)` with the placeholder plate for `ArtResult.None`. Album screen: cover header, track list, "Play all" and "Queue all". Output screen: the single output, DoP flag, bit-perfect explanation, "Volume is the DAC's knob; this streamer has no mixer", Meter sync sliders (Tasks 10/17), Stay-awake toggle.
 
 - [ ] **Step 4: Run it to verify it passes**
 
@@ -1145,7 +1145,7 @@ Expected: FAIL — unresolved references.
 
 - [ ] **Step 3: Implement**
 
-`MediaSessionCompat` with `PlaybackStateCompat` built from `PlayerState` (actions: play, pause, next, prev, stop; `setState(..., elapsed, 1.0f)`), art as the album's cached bitmap. Notification via `NotificationCompat.MediaStyle`; dismissing it stops the service. `shouldKeepScreenOn` drives `window.addFlags(FLAG_KEEP_SCREEN_ON)` on the activity.
+`MediaSessionCompat` with `PlaybackStateCompat` built from `PlayerState` (actions: play, pause, next, prev, stop; `setState(..., elapsed, 1.0f)`), art as the album's cached bitmap. Notification through `NotificationCompat.MediaStyle`; dismissing it stops the service. `shouldKeepScreenOn` drives `window.addFlags(FLAG_KEEP_SCREEN_ON)` on the activity.
 
 - [ ] **Step 4: Run them to verify they pass**
 
