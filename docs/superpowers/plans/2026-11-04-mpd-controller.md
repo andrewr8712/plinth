@@ -2,16 +2,18 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-> **Status at 2026-11-05.** Tasks 1–15 are implemented and their tests pass: 78
-> JVM tests and 12 instrumented tests. Tasks 16–19 — the loudness envelope, the
-> VU meter, the playback service and the failure states — are not started. This
-> plan records how each task was built and which test it was written against;
-> where the shipped code differs from a step below, `HANDOFF.md` and §5.10 of the
-> design are authoritative. The known differences: search is a prefix `LIKE`
-> query rather than the FTS4 table in Tasks 7 and 15; art is cached by
-> `ArtRepository` with no Coil and no 512 px downscale (Task 9); and the Task 15
-> screens are stateless composables that take data and callbacks, not the
-> repository signatures listed there.
+> **Status at 2026-11-05.** Tasks 1–17 are implemented and their JVM tests pass:
+> 89 unit tests, plus 12 instrumented tests from Tasks 12–15. The meter's three
+> instrumented tests are written but not yet run, because no device was visible to
+> `adb` when they were added. Tasks 18–19 — the playback service and the failure
+> states — are not started. This plan records how each task was built and which
+> test it was written against; where the shipped code differs from a step below,
+> `HANDOFF.md` and §5.10 of the design are authoritative. The known differences:
+> search is a prefix `LIKE` query rather than the FTS4 table in Tasks 7 and 15;
+> art is cached by `ArtRepository` with no Coil and no 512 px downscale (Task 9);
+> the Task 15 screens are stateless composables that take data and callbacks, not
+> the repository signatures listed there; and the scanner's tests run under
+> `unittest` rather than `pytest`, which still collects them.
 
 **Goal:** A native Android controller (phone + tablet) for the OpenWrt/MPD streamer at `10.0.0.219`, with a Gallery-style now-playing surface, honest signal telemetry, and a VU meter driven by a precomputed loudness envelope.
 
