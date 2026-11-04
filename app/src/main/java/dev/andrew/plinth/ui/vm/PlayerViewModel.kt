@@ -169,6 +169,24 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
         )
     }
 
+    /** Album rows are played as a queue: clear, add in order, start at [index]. */
+    fun playAlbum(tracks: List<dev.andrew.plinth.data.model.Track>, index: Int) {
+        val conn = connection ?: return
+        viewModelScope.launch {
+            runCatching {
+                conn.withClient { client ->
+                    client.clearQueue()
+                    tracks.forEach { client.add(it.uri) }
+                    client.play(index)
+                }
+            }
+            runCatching { refresh(conn) }
+        }
+    }
+
+    fun albumTracks(albumId: String): kotlinx.coroutines.flow.Flow<List<dev.andrew.plinth.data.model.Track>> =
+        container.library.albumTracks(albumId)
+
     fun playPause() = command {
         val playing = _ui.value.isPlaying
         if (playing) it.pause(true) else it.play()

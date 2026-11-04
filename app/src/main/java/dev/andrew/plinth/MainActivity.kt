@@ -25,6 +25,7 @@ import dev.andrew.plinth.ui.theme.PlinthColors
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dev.andrew.plinth.ui.screens.MiniPlayer
 import dev.andrew.plinth.ui.screens.NowPlayingSheet
+import dev.andrew.plinth.ui.screens.AlbumScreen
 import dev.andrew.plinth.ui.screens.LibraryScreen
 import dev.andrew.plinth.ui.screens.NowPlayingScreen
 import dev.andrew.plinth.ui.theme.PlinthTheme
@@ -108,9 +109,23 @@ fun AppRoot(container: AppContainer) {
             composable("library") {
                 val albums by vm.albums.collectAsStateWithLifecycle()
                 val syncing by vm.syncingLibrary.collectAsStateWithLifecycle()
-                LibraryScreen(size = surface, albums = albums, syncing = syncing)
+                LibraryScreen(
+                    size = surface,
+                    albums = albums,
+                    syncing = syncing,
+                    onOpenAlbum = { id -> nav.navigate("album/$id") },
+                )
             }
-            composable("album/{id}") { Placeholder("Album") }
+            composable("album/{id}") { entry ->
+                val id = entry.arguments?.getString("id").orEmpty()
+                val tracks by vm.albumTracks(id).collectAsStateWithLifecycle(initialValue = emptyList())
+                AlbumScreen(
+                    title = tracks.firstOrNull()?.album.orEmpty(),
+                    artist = tracks.firstOrNull()?.albumArtist.orEmpty(),
+                    tracks = tracks,
+                    onPlayTrack = { index -> vm.playAlbum(tracks, index) },
+                )
+            }
             composable("queue") { Placeholder("Queue") }
             composable("search") { Placeholder("Search") }
             composable("output") { Placeholder("Output") }
