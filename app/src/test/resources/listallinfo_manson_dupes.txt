@@ -1,0 +1,4364 @@
+file: 1996 - Antichrist Superstar/01 -Irresponsible Hate Anthem.flac
+Last-Modified: 2026-06-13T03:40:21Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 6d25dd00-e451-3b32-9422-04c4079329f0
+MUSICBRAINZ_TRACKID: ccd7105f-bd6e-4923-89cf-bd4d57619882
+OriginalDate: 1996-10-08
+Title: Irresponsible Hate Anthem
+Track: 1
+Time: 258
+duration: 257.760
+file: 1996 - Antichrist Superstar/02 -The Beautiful People.flac
+Last-Modified: 2026-06-13T03:41:02Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: ac046461-b94f-3bef-a78b-1a20ba881910
+MUSICBRAINZ_TRACKID: d7bd3f0e-2aba-424c-9457-db5341893aef
+OriginalDate: 1996-10-08
+Title: The Beautiful People
+Track: 2
+Time: 219
+duration: 218.840
+file: 1996 - Antichrist Superstar/03 -Dried Up, Tied And Dead To The World.flac
+Last-Modified: 2026-06-13T03:40:31Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 9aae22d3-4445-38c7-9054-c5e8167dd761
+MUSICBRAINZ_TRACKID: 7ab798bb-b279-4e0d-a228-d2680a326518
+OriginalDate: 1996-10-08
+Title: Dried Up, Tied And Dead To The World
+Track: 3
+Time: 256
+duration: 255.626
+file: 1996 - Antichrist Superstar/04 -Tourniquet.flac
+Last-Modified: 2026-06-13T03:40:50Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: ddd68152-ca88-3db7-9946-6865912ce33b
+MUSICBRAINZ_TRACKID: 55149c8f-364d-4074-8b72-6c559b013968
+OriginalDate: 1996-10-08
+Title: Tourniquet
+Track: 4
+Time: 269
+duration: 269.000
+file: 1996 - Antichrist Superstar/05 -Little Horn.flac
+Last-Modified: 2026-06-13T03:40:46Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 56380ccf-4241-3ca3-bf88-3460c1e9a5e7
+MUSICBRAINZ_TRACKID: c301f771-ac4b-40a4-b87a-fb1e675e85f0
+OriginalDate: 1996-10-08
+Title: Little Horn
+Track: 5
+Time: 163
+duration: 163.200
+file: 1996 - Antichrist Superstar/06 -Cryptorchid.flac
+Last-Modified: 2026-06-13T03:40:51Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: a77b7bb7-8e93-32e9-8246-73107430e2e2
+MUSICBRAINZ_TRACKID: 36e6e907-ea9b-4523-8767-201ef72e537d
+OriginalDate: 1996-10-08
+Title: Cryptorchid
+Track: 6
+Time: 164
+duration: 164.000
+file: 1996 - Antichrist Superstar/07 -Deformography.flac
+Last-Modified: 2026-06-13T03:40:47Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: c1a35f78-7e8f-38ea-ad67-f1427d8b60ac
+MUSICBRAINZ_TRACKID: afa1576f-3b7e-4562-9a41-1be931f2a55a
+OriginalDate: 1996-10-08
+Title: Deformography
+Track: 7
+Time: 271
+duration: 271.333
+file: 1996 - Antichrist Superstar/08 -Wormboy.flac
+Last-Modified: 2026-06-13T03:40:58Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 886f43c5-f2af-3fc5-a9a0-c0d3c2dfa5c9
+MUSICBRAINZ_TRACKID: 96241467-1e51-40c5-b502-2aca6d40afa7
+OriginalDate: 1996-10-08
+Title: Wormboy
+Track: 8
+Time: 236
+duration: 236.173
+file: 1996 - Antichrist Superstar/09 -Mister Superstar.flac
+Last-Modified: 2026-06-13T03:40:54Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 75fa1272-e692-306b-8884-b520712f5aab
+MUSICBRAINZ_TRACKID: 1882ea80-7a2a-427f-b918-3f3722a6e3b6
+OriginalDate: 1996-10-08
+Title: Mister Superstar
+Track: 9
+Time: 304
+duration: 304.026
+file: 1996 - Antichrist Superstar/10 -Angel With The Scabbed Wings.flac
+Last-Modified: 2026-06-13T03:40:59Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 537dadf8-b9b7-32f0-987a-48b194f7b230
+MUSICBRAINZ_TRACKID: 9f6069d7-edeb-4d02-9aad-33898f1732df
+OriginalDate: 1996-10-08
+Title: Angel With The Scabbed Wings
+Track: 10
+Time: 232
+duration: 232.106
+file: 1996 - Antichrist Superstar/11 -Kinderfeld.flac
+Last-Modified: 2026-06-13T03:40:39Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 31b556b9-3b25-346f-82ab-03f46bbc9b32
+MUSICBRAINZ_TRACKID: 6f34c126-d0ec-4b45-8282-cd91056f2aaa
+OriginalDate: 1996-10-08
+Title: Kinderfeld
+Track: 11
+Time: 292
+duration: 291.960
+file: 1996 - Antichrist Superstar/12 -Antichrist Superstar.flac
+Last-Modified: 2026-06-13T03:40:41Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: dda7006f-a5c0-3eb4-a8c2-55ea71e1f449
+MUSICBRAINZ_TRACKID: 94b7c530-25cb-49a2-98fe-b18d6ef010c9
+OriginalDate: 1996-10-08
+Title: Antichrist Superstar
+Track: 12
+Time: 314
+duration: 314.240
+file: 1996 - Antichrist Superstar/13 -1996.flac
+Last-Modified: 2026-06-13T03:40:34Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: c20079a8-cae3-3b67-90f1-6f080a117743
+MUSICBRAINZ_TRACKID: b920d557-35d4-4e9c-b160-b85b717955c1
+OriginalDate: 1996-10-08
+Title: 1996
+Track: 13
+Time: 241
+duration: 241.333
+file: 1996 - Antichrist Superstar/14 -Minute Of Decay.flac
+Last-Modified: 2026-06-13T03:40:56Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 60b256bd-612a-3612-ac5a-3c5abefaf95a
+MUSICBRAINZ_TRACKID: 14e21f7b-9d3a-4b31-bfdb-2e544ba5b32d
+OriginalDate: 1996-10-08
+Title: Minute Of Decay
+Track: 14
+Time: 284
+duration: 284.066
+file: 1996 - Antichrist Superstar/15 -The Reflecting God.flac
+Last-Modified: 2026-06-13T03:39:26Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: fc2b97d9-3dd7-3053-ae7e-c4506103fbdd
+MUSICBRAINZ_TRACKID: 2a8d353d-263c-4199-99d6-d8803be68a4a
+OriginalDate: 1996-10-08
+Title: The Reflecting God
+Track: 15
+Time: 336
+duration: 336.333
+file: 1996 - Antichrist Superstar/16 -Man That You Fear.flac
+Last-Modified: 2026-06-13T03:40:53Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: c378251e-4f33-3834-8fa1-3a88f43a0845
+MUSICBRAINZ_TRACKID: 44b8f4bc-a468-4f54-9172-662e0ba57978
+OriginalDate: 1996-10-08
+Title: Man That You Fear
+Track: 16
+Time: 371
+duration: 370.600
+file: 1996 - Antichrist Superstar/17 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:49Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 15e32dd6-e46e-3c69-a23f-f1d127ddaa0a
+MUSICBRAINZ_TRACKID: 6002d70f-ecd6-4f7d-a4a0-3226eda34304
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 17
+Time: 9
+duration: 9.160
+file: 1996 - Antichrist Superstar/18 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:50Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 18a3eb9f-4bc3-3a23-8a59-498b44259586
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 18
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/19 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:50Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: a54db3eb-f7b8-36f0-9867-9203e3619af6
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 19
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/20 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:50Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: f0006a01-b5ee-3d0b-9799-b919b7fba7b4
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 20
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/21 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:49Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: c4e79e2a-506b-3b76-b6b0-e97d917415e4
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 21
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/22 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:50Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 598d1a5f-aaae-357a-a6a7-ffb629772d26
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 22
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/23 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:51Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 6c240c09-e2c4-3874-ae61-d3b2e7fe7a1a
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 23
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/24 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:51Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: cd50fd8b-ec71-3f2b-ace1-7dbfbf4b890c
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 24
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/25 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:51Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 754c7c0b-f053-3112-a30f-c4aa821ef114
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 25
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/26 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:50Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 5eec5e49-006f-3371-a48e-04c7db16d38f
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 26
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/27 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:51Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: d83e8409-a2dc-3032-9022-ef7a90daf72d
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 27
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/28 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:51Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 4043ec61-2e49-349a-a650-1354be371bb0
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 28
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/29 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:52Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 074fffbc-a988-33ef-94c1-6e922182113d
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 29
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/30 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:50Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: b2ba2d93-ac9b-371e-96f0-4c915492d3d1
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 30
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/31 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:52Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: dbf3e60a-8843-3a52-8ec9-30618e00c3eb
+MUSICBRAINZ_TRACKID: 6002d70f-ecd6-4f7d-a4a0-3226eda34304
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 31
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/32 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:52Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 4ee62a8f-b35a-31e0-ad66-7a96f4d8360c
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 32
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/33 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:52Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: ac30371f-81ef-39d5-8c6e-605bb25cde94
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 33
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/34 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:51Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: fb734613-9924-3277-a289-f428ea9bb097
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 34
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/35 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:52Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: bc6abaf2-f48f-32cc-9905-471b6b92acc6
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 35
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/36 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:53Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 96e30a4e-e390-3a26-a820-14c088ca9ebd
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 36
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/37 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:53Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 433c94bf-2009-389d-8faf-847b806ed54e
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 37
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/38 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:51Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 9e0dd46e-d8e2-3996-b8a7-5e1a3ece00c3
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 38
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/39 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:51Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: a7c3c3be-cf8b-32cf-ad7d-fcb216af91a7
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 39
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/40 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:53Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 1f58b6e5-e05c-3435-a616-25c64b3a54b0
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 40
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/41 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:53Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: ccd2c890-b61f-3ee2-bf90-e769e9d210bf
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 41
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/42 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:53Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 34eb587c-f9c8-3212-a74a-7dc4c0b26619
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 42
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/43 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:51Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 6cd4dea9-4834-304e-b1b7-db9165ed78dd
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 43
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/44 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:51Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: d3f29cfd-bf2a-3dbf-a079-ccdfc4c22d28
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 44
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/45 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:54Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 3bf9709a-ee15-389e-a1cf-307cd3f4c7cc
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 45
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/46 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:54Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: e6e59a05-794b-34c0-b751-90f6add1bdec
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 46
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/47 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:54Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: f65ec64c-d6d0-37d8-bb60-aea980384d2f
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 47
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/48 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:54Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: fa34c1a6-cfe0-3d05-b5e2-4e439dd670ef
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 48
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/49 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:52Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 544c29f7-ae97-3747-b15f-7222184b7d3d
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 49
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/50 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:52Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 7f972c09-dff6-3962-9ed9-3a43d6327e20
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 50
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/51 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:54Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 194c3b5f-bcf4-3cac-960d-5d725db3db33
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 51
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/52 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:40Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 1df39fb1-54fe-371a-a826-51bc224acdd9
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 52
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/53 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:40Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 9fb8c0d8-e5cc-3944-8f32-6c2b429afdb1
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 53
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/54 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:40Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 20ce8c14-5f4c-3cee-bb4e-daaab1e68690
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 54
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/55 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:41Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: aa035e28-c263-3987-b3f0-8d5aa82d5531
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 55
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/56 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:41Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 7f0549cd-bcc3-3937-a693-996edfc3212d
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 56
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/57 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:41Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 5ac326b0-3020-3fa5-928e-c7cdc1a557bc
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 57
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/58 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:41Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 3e90e546-9647-3598-91fa-7c48b2242645
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 58
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/59 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:41Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 8d40c78e-d593-3a68-ad1c-efd79634a1ed
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 59
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/60 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:42Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: dcb66ad5-13bd-3b09-badb-d601296fe987
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 60
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/61 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:42Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 6ae06707-83f4-3bfa-b964-0772d1575505
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 61
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/62 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:42Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: d46734cf-1420-389b-ac55-2a3d174138d9
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 62
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/63 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:42Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 4087c9e1-d8dc-3a7b-acee-68e180f91f77
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 63
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/64 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:40Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 088d75c4-cd8c-36db-b7b1-cd19cd919de2
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 64
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/65 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:42Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 4de25a7f-e897-3bc7-b8de-1adff81b8c4b
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 65
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/66 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:42Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: a5b991d7-7848-346f-8ba2-ff7eb855b30b
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 66
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/67 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:43Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 3e1e1e6b-5df9-323a-9c52-a2c262fd7fb8
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 67
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/68 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:43Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 38c014ba-84fd-3b2a-8814-87afb1a1a5e2
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 68
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/69 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:43Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 744bdf2f-2156-3464-9157-1d2d8c5c41ab
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 69
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/70 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:43Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: b2f37f31-9062-337a-9d37-f9bed01285ea
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 70
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/71 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:43Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 17871917-9f32-3431-bf52-0d6f99af3960
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 71
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/72 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:43Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 96c1289a-df8d-3dd3-91d4-8ac283c2b368
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 72
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/73 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:41Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 918c835d-2ef8-3c99-8f30-0e43c7b7f80d
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 73
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/74 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:44Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: a9ba25e7-d618-34af-a4fe-f17da6c36292
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 74
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/75 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:44Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 4e04deae-39a9-3dd1-b903-b0d1993c4965
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 75
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/76 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:42Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 7adaa550-0808-3f24-a493-bd49b8232f08
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 76
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/77 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:44Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 32e78c07-2572-3ec7-9f5f-b878b41587ad
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 77
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/78 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:44Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 1e4b054b-1bb1-3c26-8da1-852e01d8dd62
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 78
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/79 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:44Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 63319bf5-8fdd-3c82-b7cc-233909250513
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 79
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/80 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:44Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 617fb257-97b3-3dcc-b5ba-cb7ab79b360c
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 80
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/81 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:42Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 54ba7e9f-ac53-3f2d-b74c-172a1bf3ecd2
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 81
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/82 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:43Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: b75909eb-26d2-330c-99c5-6bbd6ba8353b
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 82
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/83 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:45Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 489c8362-3e3d-3c38-bf47-d9721f442b14
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 83
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/84 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:45Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 20ee61c9-176e-3023-8a08-19fb9063b1b1
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 84
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/85 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:45Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 671e7ea8-f7c3-3a78-89c6-8ebed43fe773
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 85
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/86 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:44Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: daa97bff-0949-3f4e-b45b-549d12693a78
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 86
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/87 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:44Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 9ce589de-ea63-3adb-83b9-af8bddae2ab5
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 87
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/88 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:45Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: b3219afb-dbb4-3931-b807-ecc53dfe4d13
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 88
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/89 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:45Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 84f4f68b-7902-35e3-b535-a647856033e8
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 89
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/90 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:45Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 378bbbc9-c120-3e5b-86dd-199514811d0d
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 90
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/91 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:45Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 356101ba-0dbb-344e-9915-592aab64e663
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 91
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/92 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:46Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 758ac983-fdb1-348d-b6ce-a6ac52f609fc
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 92
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/93 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:46Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: afd79ffc-7206-34d6-bdc1-11dbe01e636a
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 93
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/94 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:46Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 0825062b-51ce-311d-b753-5cb73ef29041
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 94
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/95 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:46Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: e2024850-c437-35fe-a7dc-0cef266c51e1
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 95
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/96 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:46Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: ccac58e0-fc78-363b-bf2f-a5d3ddb86f5d
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 96
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/97 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:45Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 54277911-1c85-3209-9a97-6b4068d918ce
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 97
+Time: 4
+duration: 4.000
+file: 1996 - Antichrist Superstar/98 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:46Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 064b714c-ca8b-30bf-bfb3-7e1c5adb0bcd
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 98
+Time: 5
+duration: 5.240
+file: 1996 - Antichrist Superstar/99 -[Unknown].flac
+Last-Modified: 2026-06-13T03:41:05Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 01ff97d2-347f-36f9-aa3b-22727f52229e
+MUSICBRAINZ_TRACKID: 58748bc5-315a-4200-9190-82a23ee96878
+OriginalDate: 1996-10-08
+Title: [Unknown]
+Track: 99
+Time: 99
+duration: 99.200
+playlist: 1996 - Antichrist Superstar/Marilyn Manson - Antichrist Superstar.m3u
+Last-Modified: 2026-06-13T03:31:45Z
+directory: 2005 Nine Inch Nails - With Teeth (2019 Definitive Edition) [Hi-Res stereo 24.96] flac
+Last-Modified: 2026-05-22T10:34:31Z
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/01 -Irresponsible Hate Anthem.flac
+Last-Modified: 2026-06-13T03:40:21Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 6d25dd00-e451-3b32-9422-04c4079329f0
+MUSICBRAINZ_TRACKID: ccd7105f-bd6e-4923-89cf-bd4d57619882
+OriginalDate: 1996-10-08
+Title: Irresponsible Hate Anthem
+Track: 1
+Time: 258
+duration: 257.760
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/02 -The Beautiful People.flac
+Last-Modified: 2026-06-13T03:41:02Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: ac046461-b94f-3bef-a78b-1a20ba881910
+MUSICBRAINZ_TRACKID: d7bd3f0e-2aba-424c-9457-db5341893aef
+OriginalDate: 1996-10-08
+Title: The Beautiful People
+Track: 2
+Time: 219
+duration: 218.840
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/03 -Dried Up, Tied And Dead To The World.flac
+Last-Modified: 2026-06-13T03:40:31Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 9aae22d3-4445-38c7-9054-c5e8167dd761
+MUSICBRAINZ_TRACKID: 7ab798bb-b279-4e0d-a228-d2680a326518
+OriginalDate: 1996-10-08
+Title: Dried Up, Tied And Dead To The World
+Track: 3
+Time: 256
+duration: 255.626
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/04 -Tourniquet.flac
+Last-Modified: 2026-06-13T03:40:50Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: ddd68152-ca88-3db7-9946-6865912ce33b
+MUSICBRAINZ_TRACKID: 55149c8f-364d-4074-8b72-6c559b013968
+OriginalDate: 1996-10-08
+Title: Tourniquet
+Track: 4
+Time: 269
+duration: 269.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/05 -Little Horn.flac
+Last-Modified: 2026-06-13T03:40:46Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 56380ccf-4241-3ca3-bf88-3460c1e9a5e7
+MUSICBRAINZ_TRACKID: c301f771-ac4b-40a4-b87a-fb1e675e85f0
+OriginalDate: 1996-10-08
+Title: Little Horn
+Track: 5
+Time: 163
+duration: 163.200
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/06 -Cryptorchid.flac
+Last-Modified: 2026-06-13T03:40:51Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: a77b7bb7-8e93-32e9-8246-73107430e2e2
+MUSICBRAINZ_TRACKID: 36e6e907-ea9b-4523-8767-201ef72e537d
+OriginalDate: 1996-10-08
+Title: Cryptorchid
+Track: 6
+Time: 164
+duration: 164.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/07 -Deformography.flac
+Last-Modified: 2026-06-13T03:40:47Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: c1a35f78-7e8f-38ea-ad67-f1427d8b60ac
+MUSICBRAINZ_TRACKID: afa1576f-3b7e-4562-9a41-1be931f2a55a
+OriginalDate: 1996-10-08
+Title: Deformography
+Track: 7
+Time: 271
+duration: 271.333
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/08 -Wormboy.flac
+Last-Modified: 2026-06-13T03:40:58Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 886f43c5-f2af-3fc5-a9a0-c0d3c2dfa5c9
+MUSICBRAINZ_TRACKID: 96241467-1e51-40c5-b502-2aca6d40afa7
+OriginalDate: 1996-10-08
+Title: Wormboy
+Track: 8
+Time: 236
+duration: 236.173
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/09 -Mister Superstar.flac
+Last-Modified: 2026-06-13T03:40:54Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 75fa1272-e692-306b-8884-b520712f5aab
+MUSICBRAINZ_TRACKID: 1882ea80-7a2a-427f-b918-3f3722a6e3b6
+OriginalDate: 1996-10-08
+Title: Mister Superstar
+Track: 9
+Time: 304
+duration: 304.026
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/10 -Angel With The Scabbed Wings.flac
+Last-Modified: 2026-06-13T03:40:59Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 537dadf8-b9b7-32f0-987a-48b194f7b230
+MUSICBRAINZ_TRACKID: 9f6069d7-edeb-4d02-9aad-33898f1732df
+OriginalDate: 1996-10-08
+Title: Angel With The Scabbed Wings
+Track: 10
+Time: 232
+duration: 232.106
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/11 -Kinderfeld.flac
+Last-Modified: 2026-06-13T03:40:39Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 31b556b9-3b25-346f-82ab-03f46bbc9b32
+MUSICBRAINZ_TRACKID: 6f34c126-d0ec-4b45-8282-cd91056f2aaa
+OriginalDate: 1996-10-08
+Title: Kinderfeld
+Track: 11
+Time: 292
+duration: 291.960
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/12 -Antichrist Superstar.flac
+Last-Modified: 2026-06-13T03:40:41Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: dda7006f-a5c0-3eb4-a8c2-55ea71e1f449
+MUSICBRAINZ_TRACKID: 94b7c530-25cb-49a2-98fe-b18d6ef010c9
+OriginalDate: 1996-10-08
+Title: Antichrist Superstar
+Track: 12
+Time: 314
+duration: 314.240
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/13 -1996.flac
+Last-Modified: 2026-06-13T03:40:34Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: c20079a8-cae3-3b67-90f1-6f080a117743
+MUSICBRAINZ_TRACKID: b920d557-35d4-4e9c-b160-b85b717955c1
+OriginalDate: 1996-10-08
+Title: 1996
+Track: 13
+Time: 241
+duration: 241.333
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/14 -Minute Of Decay.flac
+Last-Modified: 2026-06-13T03:40:56Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 60b256bd-612a-3612-ac5a-3c5abefaf95a
+MUSICBRAINZ_TRACKID: 14e21f7b-9d3a-4b31-bfdb-2e544ba5b32d
+OriginalDate: 1996-10-08
+Title: Minute Of Decay
+Track: 14
+Time: 284
+duration: 284.066
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/15 -The Reflecting God.flac
+Last-Modified: 2026-06-13T03:39:26Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: fc2b97d9-3dd7-3053-ae7e-c4506103fbdd
+MUSICBRAINZ_TRACKID: 2a8d353d-263c-4199-99d6-d8803be68a4a
+OriginalDate: 1996-10-08
+Title: The Reflecting God
+Track: 15
+Time: 336
+duration: 336.333
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/16 -Man That You Fear.flac
+Last-Modified: 2026-06-13T03:40:53Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: c378251e-4f33-3834-8fa1-3a88f43a0845
+MUSICBRAINZ_TRACKID: 44b8f4bc-a468-4f54-9172-662e0ba57978
+OriginalDate: 1996-10-08
+Title: Man That You Fear
+Track: 16
+Time: 371
+duration: 370.600
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/17 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:49Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 15e32dd6-e46e-3c69-a23f-f1d127ddaa0a
+MUSICBRAINZ_TRACKID: 6002d70f-ecd6-4f7d-a4a0-3226eda34304
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 17
+Time: 9
+duration: 9.160
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/18 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:50Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 18a3eb9f-4bc3-3a23-8a59-498b44259586
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 18
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/19 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:50Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: a54db3eb-f7b8-36f0-9867-9203e3619af6
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 19
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/20 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:50Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: f0006a01-b5ee-3d0b-9799-b919b7fba7b4
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 20
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/21 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:49Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: c4e79e2a-506b-3b76-b6b0-e97d917415e4
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 21
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/22 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:50Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 598d1a5f-aaae-357a-a6a7-ffb629772d26
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 22
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/23 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:51Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 6c240c09-e2c4-3874-ae61-d3b2e7fe7a1a
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 23
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/24 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:51Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: cd50fd8b-ec71-3f2b-ace1-7dbfbf4b890c
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 24
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/25 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:51Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 754c7c0b-f053-3112-a30f-c4aa821ef114
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 25
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/26 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:50Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 5eec5e49-006f-3371-a48e-04c7db16d38f
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 26
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/27 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:51Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: d83e8409-a2dc-3032-9022-ef7a90daf72d
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 27
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/28 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:51Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 4043ec61-2e49-349a-a650-1354be371bb0
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 28
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/29 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:52Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 074fffbc-a988-33ef-94c1-6e922182113d
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 29
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/30 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:50Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: b2ba2d93-ac9b-371e-96f0-4c915492d3d1
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 30
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/31 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:52Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: dbf3e60a-8843-3a52-8ec9-30618e00c3eb
+MUSICBRAINZ_TRACKID: 6002d70f-ecd6-4f7d-a4a0-3226eda34304
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 31
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/32 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:52Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 4ee62a8f-b35a-31e0-ad66-7a96f4d8360c
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 32
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/33 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:52Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: ac30371f-81ef-39d5-8c6e-605bb25cde94
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 33
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/34 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:51Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: fb734613-9924-3277-a289-f428ea9bb097
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 34
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/35 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:52Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: bc6abaf2-f48f-32cc-9905-471b6b92acc6
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 35
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/36 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:53Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 96e30a4e-e390-3a26-a820-14c088ca9ebd
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 36
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/37 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:53Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 433c94bf-2009-389d-8faf-847b806ed54e
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 37
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/38 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:51Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 9e0dd46e-d8e2-3996-b8a7-5e1a3ece00c3
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 38
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/39 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:51Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: a7c3c3be-cf8b-32cf-ad7d-fcb216af91a7
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 39
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/40 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:53Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 1f58b6e5-e05c-3435-a616-25c64b3a54b0
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 40
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/41 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:53Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: ccd2c890-b61f-3ee2-bf90-e769e9d210bf
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 41
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/42 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:53Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 34eb587c-f9c8-3212-a74a-7dc4c0b26619
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 42
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/43 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:51Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 6cd4dea9-4834-304e-b1b7-db9165ed78dd
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 43
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/44 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:51Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: d3f29cfd-bf2a-3dbf-a079-ccdfc4c22d28
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 44
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/45 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:54Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 3bf9709a-ee15-389e-a1cf-307cd3f4c7cc
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 45
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/46 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:54Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: e6e59a05-794b-34c0-b751-90f6add1bdec
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 46
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/47 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:54Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: f65ec64c-d6d0-37d8-bb60-aea980384d2f
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 47
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/48 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:54Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: fa34c1a6-cfe0-3d05-b5e2-4e439dd670ef
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 48
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/49 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:52Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 544c29f7-ae97-3747-b15f-7222184b7d3d
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 49
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/50 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:52Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 7f972c09-dff6-3962-9ed9-3a43d6327e20
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 50
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/51 -[Silence].flac
+Last-Modified: 2026-06-13T03:38:54Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 194c3b5f-bcf4-3cac-960d-5d725db3db33
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 51
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/52 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:40Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 1df39fb1-54fe-371a-a826-51bc224acdd9
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 52
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/53 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:40Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 9fb8c0d8-e5cc-3944-8f32-6c2b429afdb1
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 53
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/54 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:40Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 20ce8c14-5f4c-3cee-bb4e-daaab1e68690
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 54
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/55 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:41Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: aa035e28-c263-3987-b3f0-8d5aa82d5531
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 55
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/56 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:41Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 7f0549cd-bcc3-3937-a693-996edfc3212d
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 56
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/57 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:41Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 5ac326b0-3020-3fa5-928e-c7cdc1a557bc
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 57
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/58 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:41Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 3e90e546-9647-3598-91fa-7c48b2242645
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 58
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/59 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:41Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 8d40c78e-d593-3a68-ad1c-efd79634a1ed
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 59
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/60 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:42Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: dcb66ad5-13bd-3b09-badb-d601296fe987
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 60
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/61 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:42Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 6ae06707-83f4-3bfa-b964-0772d1575505
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 61
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/62 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:42Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: d46734cf-1420-389b-ac55-2a3d174138d9
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 62
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/63 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:42Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 4087c9e1-d8dc-3a7b-acee-68e180f91f77
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 63
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/64 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:40Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 088d75c4-cd8c-36db-b7b1-cd19cd919de2
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 64
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/65 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:42Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 4de25a7f-e897-3bc7-b8de-1adff81b8c4b
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 65
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/66 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:42Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: a5b991d7-7848-346f-8ba2-ff7eb855b30b
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 66
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/67 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:43Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 3e1e1e6b-5df9-323a-9c52-a2c262fd7fb8
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 67
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/68 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:43Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 38c014ba-84fd-3b2a-8814-87afb1a1a5e2
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 68
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/69 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:43Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 744bdf2f-2156-3464-9157-1d2d8c5c41ab
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 69
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/70 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:43Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: b2f37f31-9062-337a-9d37-f9bed01285ea
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 70
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/71 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:43Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 17871917-9f32-3431-bf52-0d6f99af3960
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 71
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/72 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:43Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 96c1289a-df8d-3dd3-91d4-8ac283c2b368
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 72
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/73 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:41Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 918c835d-2ef8-3c99-8f30-0e43c7b7f80d
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 73
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/74 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:44Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: a9ba25e7-d618-34af-a4fe-f17da6c36292
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 74
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/75 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:44Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 4e04deae-39a9-3dd1-b903-b0d1993c4965
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 75
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/76 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:42Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 7adaa550-0808-3f24-a493-bd49b8232f08
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 76
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/77 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:44Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 32e78c07-2572-3ec7-9f5f-b878b41587ad
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 77
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/78 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:44Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 1e4b054b-1bb1-3c26-8da1-852e01d8dd62
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 78
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/79 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:44Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 63319bf5-8fdd-3c82-b7cc-233909250513
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 79
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/80 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:44Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 617fb257-97b3-3dcc-b5ba-cb7ab79b360c
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 80
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/81 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:42Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 54ba7e9f-ac53-3f2d-b74c-172a1bf3ecd2
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 81
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/82 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:43Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: b75909eb-26d2-330c-99c5-6bbd6ba8353b
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 82
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/83 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:45Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 489c8362-3e3d-3c38-bf47-d9721f442b14
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 83
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/84 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:45Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 20ee61c9-176e-3023-8a08-19fb9063b1b1
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 84
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/85 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:45Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 671e7ea8-f7c3-3a78-89c6-8ebed43fe773
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 85
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/86 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:44Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: daa97bff-0949-3f4e-b45b-549d12693a78
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 86
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/87 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:44Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 9ce589de-ea63-3adb-83b9-af8bddae2ab5
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 87
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/88 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:45Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: b3219afb-dbb4-3931-b807-ecc53dfe4d13
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 88
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/89 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:45Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 84f4f68b-7902-35e3-b535-a647856033e8
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 89
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/90 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:45Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 378bbbc9-c120-3e5b-86dd-199514811d0d
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 90
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/91 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:45Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 356101ba-0dbb-344e-9915-592aab64e663
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 91
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/92 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:46Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 758ac983-fdb1-348d-b6ce-a6ac52f609fc
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 92
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/93 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:46Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: afd79ffc-7206-34d6-bdc1-11dbe01e636a
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 93
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/94 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:46Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 0825062b-51ce-311d-b753-5cb73ef29041
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 94
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/95 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:46Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: e2024850-c437-35fe-a7dc-0cef266c51e1
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 95
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/96 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:46Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: ccac58e0-fc78-363b-bf2f-a5d3ddb86f5d
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 96
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/97 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:45Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 54277911-1c85-3209-9a97-6b4068d918ce
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 97
+Time: 4
+duration: 4.000
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/98 -[Silence].flac
+Last-Modified: 2026-06-13T03:40:46Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 064b714c-ca8b-30bf-bfb3-7e1c5adb0bcd
+MUSICBRAINZ_TRACKID: 588fc291-d93d-49df-99ab-ce9d8a39a201
+OriginalDate: 1996-10-08
+Title: [Silence]
+Track: 98
+Time: 5
+duration: 5.240
+file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/99 -[Unknown].flac
+Last-Modified: 2026-06-13T03:41:05Z
+Format: 44100:16:2
+Album: Antichrist Superstar
+AlbumArtist: Marilyn Manson
+AlbumArtistSort: Marilyn Manson
+Artist: Marilyn Manson
+ArtistSort: Marilyn Manson
+Date: 1996
+Disc: 1
+Genre: Industrial Metal
+Label: Interscope Records Mca Records Nothing Records
+MUSICBRAINZ_ALBUMARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_ALBUMID: ab8e11fc-4c77-4503-ba9a-3ef7cd2cb191
+MUSICBRAINZ_ARTISTID: 5dfdca28-9ddc-4853-933c-8bc97d87beec
+MUSICBRAINZ_RELEASETRACKID: 01ff97d2-347f-36f9-aa3b-22727f52229e
+MUSICBRAINZ_TRACKID: 58748bc5-315a-4200-9190-82a23ee96878
+OriginalDate: 1996-10-08
+Title: [Unknown]
+Track: 99
+Time: 99
+duration: 99.200
+playlist: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1996 - Antichrist Superstar/Marilyn Manson - Antichrist Superstar.m3u
+Last-Modified: 2026-06-13T03:31:45Z
+directory: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/1997 - Long Hard Road Out Of Hell (Soundtrack)
+Last-Modified: 2026-06-13T04:39:50Z

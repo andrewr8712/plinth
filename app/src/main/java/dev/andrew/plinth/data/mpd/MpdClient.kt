@@ -1,5 +1,6 @@
 package dev.andrew.plinth.data.mpd
 
+import dev.andrew.plinth.data.model.AlbumIdentity
 import dev.andrew.plinth.data.model.AudioFormat
 import dev.andrew.plinth.data.model.OutputInfo
 import dev.andrew.plinth.data.model.PlaybackState
@@ -47,14 +48,15 @@ class MpdClient(private val socket: MpdSocket) {
             ?: s("Time")?.toIntOrNull()
             ?: 0
         val artist = s("Artist").orEmpty()
+        val albumArtist = s("AlbumArtist")?.ifBlank { artist } ?: artist
         return Track(
             uri = uri,
-            albumId = "", // filled by AlbumIdentity in Task 6
+            albumId = AlbumIdentity.key(albumArtist, artist, s("Album").orEmpty(), format?.channels ?: 2),
             disc = s("Disc")?.toIntOrNull() ?: 1,
             trackNo = s("Track")?.toIntOrNull() ?: 0,
             title = s("Title").orEmpty(),
             artist = artist,
-            albumArtist = s("AlbumArtist")?.ifBlank { artist } ?: artist,
+            albumArtist = albumArtist,
             album = s("Album").orEmpty(),
             year = s("Date")?.take(4)?.toIntOrNull(),
             genre = s("Genre"),
@@ -63,6 +65,12 @@ class MpdClient(private val socket: MpdSocket) {
             path = uri.substringBeforeLast('/', ""),
             channels = format?.channels ?: 2,
         )
+    }
+
+    /** The whole library in one read: 865 KB / ~90 ms on this streamer. */
+    suspend fun listAllInfo(): List<Track> {
+        val p = okPairs(socket.command("listallinfo", timeoutMs = MpdSocket.LIST_TIMEOUT_MS))
+        return LibraryParser.parse(p)
     }
 
     suspend fun outputs(): List<OutputInfo> {

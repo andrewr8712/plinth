@@ -1,0 +1,1022 @@
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD1/01 Mellon Collie And The Infinite Sadness.flac
+Last-Modified: 2026-05-19T17:53:55Z
+Format: 96000:24:2
+Title: Mellon Collie And The Infinite Sadness
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 1
+Disc: 1
+Date: 2012
+Time: 172
+duration: 172.091
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD1/02 Tonight, Tonight.flac
+Last-Modified: 2026-05-19T18:13:50Z
+Format: 96000:24:2
+Title: Tonight, Tonight
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 2
+Disc: 1
+Date: 2012
+Time: 255
+duration: 254.629
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD1/03 Jellybelly.flac
+Last-Modified: 2026-05-19T18:10:40Z
+Format: 96000:24:2
+Title: Jellybelly
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 3
+Disc: 1
+Date: 2012
+Time: 182
+duration: 181.507
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD1/04 Zero.flac
+Last-Modified: 2026-05-19T18:15:22Z
+Format: 96000:24:2
+Title: Zero
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 4
+Disc: 1
+Date: 2012
+Time: 160
+duration: 160.198
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD1/05 Here Is No Why.flac
+Last-Modified: 2026-05-19T17:59:05Z
+Format: 96000:24:2
+Title: Here Is No Why
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 5
+Disc: 1
+Date: 2012
+Time: 225
+duration: 225.098
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD1/06 Bullet with Butterfly Wings.flac
+Last-Modified: 2026-05-19T18:05:39Z
+Format: 96000:24:2
+Title: Bullet With Butterfly Wings
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 6
+Disc: 1
+Date: 2012
+Time: 258
+duration: 258.488
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD1/07 To Forgive.flac
+Last-Modified: 2026-05-19T18:13:34Z
+Format: 96000:24:2
+Title: To Forgive
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 7
+Disc: 1
+Date: 2012
+Time: 257
+duration: 257.266
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD1/08 Fuck You (An Ode To No One).flac
+Last-Modified: 2026-05-19T18:13:07Z
+Format: 96000:24:2
+Title: Fuck You (An Ode To No One)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 8
+Disc: 1
+Date: 2012
+Time: 292
+duration: 291.733
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD1/09 Love.flac
+Last-Modified: 2026-05-19T18:12:20Z
+Format: 96000:24:2
+Title: Love
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 9
+Disc: 1
+Date: 2012
+Time: 263
+duration: 262.760
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD1/10 Cupid De Locke.flac
+Last-Modified: 2026-05-19T18:11:16Z
+Format: 96000:24:2
+Title: Cupid De Locke
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 10
+Disc: 1
+Date: 2012
+Time: 170
+duration: 170.280
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD1/11 Galapogos.flac
+Last-Modified: 2026-05-19T18:16:49Z
+Format: 96000:24:2
+Title: Galapogos
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 11
+Disc: 1
+Date: 2012
+Time: 286
+duration: 286.318
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD1/12 Muzzle.flac
+Last-Modified: 2026-05-19T18:06:07Z
+Format: 96000:24:2
+Title: Muzzle
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 12
+Disc: 1
+Date: 2012
+Time: 224
+duration: 223.921
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD1/13 Porcelina of the Vast Oceans.flac
+Last-Modified: 2026-05-19T18:15:46Z
+Format: 96000:24:2
+Title: Porcelina Of The Vast Oceans
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 13
+Disc: 1
+Date: 2012
+Time: 562
+duration: 561.533
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD1/14 Take Me Down.flac
+Last-Modified: 2026-05-19T18:12:23Z
+Format: 96000:24:2
+Title: Take Me Down
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 14
+Disc: 1
+Date: 2012
+Time: 172
+duration: 171.925
+directory: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD2
+Last-Modified: 2026-05-20T10:11:21Z
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD2/01 Where Boys Fear To Tread.flac
+Last-Modified: 2026-05-19T18:07:46Z
+Format: 96000:24:2
+Title: Where Boys Fear To Tread
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 1
+Disc: 2
+Date: 2012
+Time: 263
+duration: 262.601
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD2/02 Bodies.flac
+Last-Modified: 2026-05-19T18:16:09Z
+Format: 96000:24:2
+Title: Bodies
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 2
+Disc: 2
+Date: 2012
+Time: 252
+duration: 252.318
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD2/03 Thirty-Three.flac
+Last-Modified: 2026-05-19T18:07:32Z
+Format: 96000:24:2
+Title: Thirty-Three
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 3
+Disc: 2
+Date: 2012
+Time: 250
+duration: 250.284
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD2/04 In The Arms Of Sleep.flac
+Last-Modified: 2026-05-19T18:17:03Z
+Format: 96000:24:2
+Title: In The Arms Of Sleep
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 4
+Disc: 2
+Date: 2012
+Time: 253
+duration: 252.543
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD2/05 1979.flac
+Last-Modified: 2026-05-19T18:11:32Z
+Format: 96000:24:2
+Title: 1979
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 5
+Disc: 2
+Date: 2012
+Time: 266
+duration: 266.197
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD2/06 Tales Of A Scorched Earth.flac
+Last-Modified: 2026-05-19T18:16:36Z
+Format: 96000:24:2
+Title: Tales Of A Scorched Earth
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 6
+Disc: 2
+Date: 2012
+Time: 226
+duration: 225.842
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD2/07 Thru The Eyes Of Ruby.flac
+Last-Modified: 2026-05-19T18:15:41Z
+Format: 96000:24:2
+Title: Thru The Eyes Of Ruby
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 7
+Disc: 2
+Date: 2012
+Time: 458
+duration: 458.293
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD2/08 Stumbleine.flac
+Last-Modified: 2026-05-19T18:14:29Z
+Format: 96000:24:2
+Title: Stumbleine
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 8
+Disc: 2
+Date: 2012
+Time: 174
+duration: 174.413
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD2/09 X.Y.U..flac
+Last-Modified: 2026-05-19T18:14:25Z
+Format: 96000:24:2
+Title: X.Y.U.
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 9
+Disc: 2
+Date: 2012
+Time: 427
+duration: 427.093
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD2/10 We Only Come Out At Night.flac
+Last-Modified: 2026-05-19T18:13:51Z
+Format: 96000:24:2
+Title: We Only Come Out At Night
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 10
+Disc: 2
+Date: 2012
+Time: 245
+duration: 245.253
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD2/11 Beautiful.flac
+Last-Modified: 2026-05-19T18:15:49Z
+Format: 96000:24:2
+Title: Beautiful
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 11
+Disc: 2
+Date: 2012
+Time: 258
+duration: 258.386
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD2/12 Lily (My One And Only).flac
+Last-Modified: 2026-05-19T17:56:05Z
+Format: 96000:24:2
+Title: Lily (My One And Only)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 12
+Disc: 2
+Date: 2012
+Time: 212
+duration: 211.906
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD2/13 By Starlight.flac
+Last-Modified: 2026-05-19T18:14:21Z
+Format: 96000:24:2
+Title: By Starlight
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 13
+Disc: 2
+Date: 2012
+Time: 288
+duration: 288.120
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD2/14 Farewell And Goodnight.flac
+Last-Modified: 2026-05-19T18:11:54Z
+Format: 96000:24:2
+Title: Farewell And Goodnight
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 14
+Disc: 2
+Date: 2012
+Time: 262
+duration: 262.065
+directory: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD3
+Last-Modified: 2026-05-20T10:14:10Z
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD3/01 Tonight, Tonight (Strings Alone Mix).flac
+Last-Modified: 2026-05-19T18:14:26Z
+Format: 96000:24:2
+Title: Tonight, Tonight (Strings Alone Mix)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 1
+Disc: 3
+Date: 2012
+Time: 161
+duration: 161.040
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD3/02 Methusela (Sadlands Demo).flac
+Last-Modified: 2026-05-19T18:13:00Z
+Format: 96000:24:2
+Title: Methusela (Sadlands Demo)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 2
+Disc: 3
+Date: 2012
+Time: 249
+duration: 248.866
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD3/03 X.Y.U. (Take 11).flac
+Last-Modified: 2026-05-19T18:16:09Z
+Format: 96000:24:2
+Title: X.Y.U. (Take 11)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 3
+Disc: 3
+Date: 2012
+Time: 431
+duration: 430.946
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD3/04 Zero (Synth Mix).flac
+Last-Modified: 2026-05-19T18:15:23Z
+Format: 96000:24:2
+Title: Zero (Synth Mix)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 4
+Disc: 3
+Date: 2012
+Time: 167
+duration: 166.773
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD3/05 Feelium (Sadlands Demo).flac
+Last-Modified: 2026-05-19T18:15:51Z
+Format: 96000:24:2
+Title: Feelium (Sadlands Demo)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 5
+Disc: 3
+Date: 2012
+Time: 262
+duration: 261.613
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD3/06 Autumn Nocturne (Sadlands Demo).flac
+Last-Modified: 2026-05-19T18:06:57Z
+Format: 96000:24:2
+Title: Autumn Nocturne (Sadlands Demo)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 6
+Disc: 3
+Date: 2012
+Time: 90
+duration: 90.346
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD3/07 Beautiful (Loop Version).flac
+Last-Modified: 2026-05-19T18:13:12Z
+Format: 96000:24:2
+Title: Beautiful (Loop Version)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 7
+Disc: 3
+Date: 2012
+Time: 308
+duration: 307.586
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD3/08 Ugly (Sadlands Demo).flac
+Last-Modified: 2026-05-19T18:13:23Z
+Format: 96000:24:2
+Title: Ugly (Sadlands Demo)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 8
+Disc: 3
+Date: 2012
+Time: 167
+duration: 167.106
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD3/09 Ascending Guitars (Sadlands Demo).flac
+Last-Modified: 2026-05-19T18:15:00Z
+Format: 96000:24:2
+Title: Ascending Guitars (Sadlands Demo)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 9
+Disc: 3
+Date: 2012
+Time: 192
+duration: 192.066
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD3/10 By Starlight (Flood Rough).flac
+Last-Modified: 2026-05-19T18:16:37Z
+Format: 96000:24:2
+Title: By Starlight (Flood Rough)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 10
+Disc: 3
+Date: 2012
+Time: 271
+duration: 271.413
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD3/11 Medellia Of The Gray Skies (Take 1).flac
+Last-Modified: 2026-05-19T18:02:09Z
+Format: 96000:24:2
+Title: Medellia Of The Gray Skies (Take 1)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 11
+Disc: 3
+Date: 2012
+Time: 185
+duration: 184.813
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD3/12 Lover (Arrangement 1 Demo).flac
+Last-Modified: 2026-05-19T18:12:40Z
+Format: 96000:24:2
+Title: Lover (Arrangement 1 Demo)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 12
+Disc: 3
+Date: 2012
+Time: 227
+duration: 226.906
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD3/13 Thru The Eyes Of Ruby (Take 7).flac
+Last-Modified: 2026-05-19T18:09:43Z
+Format: 96000:24:2
+Title: Thru The Eyes Of Ruby (Take 7)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 13
+Disc: 3
+Date: 2012
+Time: 349
+duration: 349.413
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD3/14 In The Arms Of Sleep (Early Live Demo).flac
+Last-Modified: 2026-05-19T18:11:58Z
+Format: 96000:24:2
+Title: In The Arms Of Sleep (Early Live Demo)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 14
+Disc: 3
+Date: 2012
+Time: 231
+duration: 230.640
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD3/15 Lily (My One And Only) (Sadlands Demo).flac
+Last-Modified: 2026-05-19T18:13:36Z
+Format: 96000:24:2
+Title: Lily (My One And Only) (Sadlands Demo)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 15
+Disc: 3
+Date: 2012
+Time: 199
+duration: 199.133
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD3/16 1979 (Sadlands Demo).flac
+Last-Modified: 2026-05-19T18:16:23Z
+Format: 96000:24:2
+Title: 1979 (Sadlands Demo)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 16
+Disc: 3
+Date: 2012
+Time: 245
+duration: 244.746
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD3/17 Glamey Glamey (Sadlands Demo).flac
+Last-Modified: 2026-05-19T18:12:38Z
+Format: 96000:24:2
+Title: Glamey Glamey (Sadlands Demo)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 17
+Disc: 3
+Date: 2012
+Time: 186
+duration: 185.933
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD3/18 Meladori Magpie.flac
+Last-Modified: 2026-05-19T18:15:11Z
+Format: 96000:24:2
+Title: Meladori Magpie
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 18
+Disc: 3
+Date: 2012
+Time: 164
+duration: 164.413
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD3/19 Mellon Collie And The Infinite Sadness (Home Piano Version).flac
+Last-Modified: 2026-05-19T18:11:41Z
+Format: 96000:24:2
+Title: Mellon Collie And The Infinite Sadness (Home Piano Version)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 19
+Disc: 3
+Date: 2012
+Time: 165
+duration: 165.293
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD3/20 Galapagos (Instrumental／Sadlands Demo).flac
+Last-Modified: 2026-05-19T18:04:58Z
+Format: 96000:24:2
+Title: Galapagos (Instrumental/Sadlands Demo)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 20
+Disc: 3
+Date: 2012
+Time: 234
+duration: 234.440
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD3/21 To Forgive (Sadlands Demo).flac
+Last-Modified: 2026-05-19T18:12:55Z
+Format: 96000:24:2
+Title: To Forgive (Sadlands Demo)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 21
+Disc: 3
+Date: 2012
+Time: 226
+duration: 226.320
+directory: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD4
+Last-Modified: 2026-05-20T10:16:35Z
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD4/01 Bullet With Butterfly Wings (Sadlands Demo).flac
+Last-Modified: 2026-05-19T18:12:19Z
+Format: 96000:24:2
+Title: Bullet With Butterfly Wings (Sadlands Demo)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 1
+Disc: 4
+Date: 2012
+Time: 274
+duration: 274.080
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD4/02 Set The Ray To Jerry (Vocal Rough).flac
+Last-Modified: 2026-05-19T18:16:47Z
+Format: 96000:24:2
+Title: Set The Ray To Jerry (Vocal Rough)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 2
+Disc: 4
+Date: 2012
+Time: 253
+duration: 252.653
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD4/03 Thirty-Three (Sadlands Demo).flac
+Last-Modified: 2026-05-19T18:14:33Z
+Format: 96000:24:2
+Title: Thirty-Three (Sadlands Demo)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 3
+Disc: 4
+Date: 2012
+Time: 244
+duration: 243.560
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD4/04 Cupid De Locke (BT 2012 Mix).flac
+Last-Modified: 2026-05-19T18:10:59Z
+Format: 96000:24:2
+Title: Cupid De Locke (BT 2012 Mix)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 4
+Disc: 4
+Date: 2012
+Time: 193
+duration: 193.120
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD4/05 Porcelina Of The Vast Oceans (Live Studio Rough).flac
+Last-Modified: 2026-05-19T18:10:20Z
+Format: 96000:24:2
+Title: Porcelina Of The Vast Oceans (Live Studio Rough)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 5
+Disc: 4
+Date: 2012
+Time: 546
+duration: 545.853
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD4/06 Jellybelly (Instrumental／Pit Mix 3).flac
+Last-Modified: 2026-05-19T18:13:25Z
+Format: 96000:24:2
+Title: Jellybelly (Instrumental/Pit Mix 3)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 6
+Disc: 4
+Date: 2012
+Time: 186
+duration: 185.760
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD4/07 The Aeroplane Flies High (Turns Left, Looks Right).flac
+Last-Modified: 2026-05-19T18:16:59Z
+Format: 96000:24:2
+Title: The Aeroplane Flies High (Turns Left, Looks Right)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 7
+Disc: 4
+Date: 2012
+Time: 513
+duration: 512.760
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD4/08 Jupiter’s Lament (Barbershop Version).flac
+Last-Modified: 2026-05-19T18:04:20Z
+Format: 96000:24:2
+Title: Jupiter’s Lament (Barbershop version)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 8
+Disc: 4
+Date: 2012
+Time: 161
+duration: 161.173
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD4/09 Bagpipes Drone (Sadlands Demo).flac
+Last-Modified: 2026-05-19T17:59:31Z
+Format: 96000:24:2
+Title: Bagpipes Drone (Sadlands Demo)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 9
+Disc: 4
+Date: 2012
+Time: 158
+duration: 158.253
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD4/10 Tonight, Tonight (Band Version Only, No Strings).flac
+Last-Modified: 2026-05-19T18:14:01Z
+Format: 96000:24:2
+Title: Tonight, Tonight (Band Version Only, No Strings)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 10
+Disc: 4
+Date: 2012
+Time: 255
+duration: 255.226
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD4/11 Knuckles (Studio Outtake).flac
+Last-Modified: 2026-05-19T18:11:24Z
+Format: 96000:24:2
+Title: Knuckles (Studio Outtake)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 11
+Disc: 4
+Date: 2012
+Time: 189
+duration: 189.000
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD4/12 Pennies.flac
+Last-Modified: 2026-05-19T18:12:09Z
+Format: 96000:24:2
+Title: Pennies
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 12
+Disc: 4
+Date: 2012
+Time: 150
+duration: 150.080
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD4/13 Here Is No Why (Pumpkinland Demo).flac
+Last-Modified: 2026-05-19T18:06:20Z
+Format: 96000:24:2
+Title: Here Is No Why (Pumpkinland Demo)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 13
+Disc: 4
+Date: 2012
+Time: 231
+duration: 231.146
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD4/14 Blast (Fuzz Version).flac
+Last-Modified: 2026-05-19T18:16:41Z
+Format: 96000:24:2
+Title: Blast (Fuzz Version)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 14
+Disc: 4
+Date: 2012
+Time: 176
+duration: 176.453
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD4/15 Towers of Rabble (Live).flac
+Last-Modified: 2026-05-19T18:15:55Z
+Format: 96000:24:2
+Title: Towers of Rabble (Live)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 15
+Disc: 4
+Date: 2012
+Time: 178
+duration: 177.653
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD4/16 Rotten Apples.flac
+Last-Modified: 2026-05-19T18:01:57Z
+Format: 96000:24:2
+Title: Rotten Apples
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 16
+Disc: 4
+Date: 2012
+Time: 186
+duration: 185.586
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD4/17 Fun Time (Sadlands Demo).flac
+Last-Modified: 2026-05-19T18:03:10Z
+Format: 96000:24:2
+Title: Fun Time (Sadlands Demo)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 17
+Disc: 4
+Date: 2012
+Time: 273
+duration: 272.506
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD4/18 Thru The Eyes Of Ruby (Acoustic Version).flac
+Last-Modified: 2026-05-19T18:10:19Z
+Format: 96000:24:2
+Title: Thru The Eyes Of Ruby (Acoustic Version)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 18
+Disc: 4
+Date: 2012
+Time: 295
+duration: 295.173
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD4/19 Chinoise (Sadlands Demo).flac
+Last-Modified: 2026-05-19T18:03:42Z
+Format: 96000:24:2
+Title: Chinoise (Sadlands Demo)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 19
+Disc: 4
+Date: 2012
+Time: 74
+duration: 73.586
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD4/20 Speed.flac
+Last-Modified: 2026-05-19T18:14:57Z
+Format: 96000:24:2
+Title: Speed
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 20
+Disc: 4
+Date: 2012
+Time: 205
+duration: 205.026
+directory: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD5
+Last-Modified: 2026-05-20T10:09:27Z
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD5/01 Mellon Collie And The Infinite Sadness (Nighttime Version 1).flac
+Last-Modified: 2026-05-19T18:03:41Z
+Format: 96000:24:2
+Title: Mellon Collie And The Infinite Sadness (Nighttime Version 1)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 1
+Disc: 5
+Date: 2012
+Time: 76
+duration: 75.733
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD5/02 Galapagos (Sadlands Demo).flac
+Last-Modified: 2026-05-19T18:16:32Z
+Format: 96000:24:2
+Title: Galapagos (Sadlands Demo)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 2
+Disc: 5
+Date: 2012
+Time: 265
+duration: 265.173
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD5/03 Cherry (BT 2012 Mix).flac
+Last-Modified: 2026-05-19T18:07:13Z
+Format: 96000:24:2
+Title: Cherry (BT 2012 Mix)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 3
+Disc: 5
+Date: 2012
+Time: 262
+duration: 262.453
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD5/04 Love (Flood Rough).flac
+Last-Modified: 2026-05-19T18:14:05Z
+Format: 96000:24:2
+Title: Love (Flood Rough)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 4
+Disc: 5
+Date: 2012
+Time: 262
+duration: 261.920
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD5/05 New Waver (Sadlands Demo).flac
+Last-Modified: 2026-05-19T18:15:36Z
+Format: 96000:24:2
+Title: New Waver (Sadlands Demo)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 5
+Disc: 5
+Date: 2012
+Time: 165
+duration: 164.586
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD5/06 Fuck You (An Ode To No One) (Production Master Rough).flac
+Last-Modified: 2026-05-19T18:14:30Z
+Format: 96000:24:2
+Title: Fuck You (An Ode To No One) (Production Master Rough)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 6
+Disc: 5
+Date: 2012
+Time: 299
+duration: 298.826
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD5/07 Isolation (BT 2012 Mix).flac
+Last-Modified: 2026-05-19T18:13:44Z
+Format: 96000:24:2
+Title: Isolation (BT 2012 Mix)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 7
+Disc: 5
+Date: 2012
+Time: 244
+duration: 244.026
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD5/08 Transformer (Early Mix).flac
+Last-Modified: 2026-05-19T18:12:09Z
+Format: 96000:24:2
+Title: Transformer (Early Mix)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 8
+Disc: 5
+Date: 2012
+Time: 207
+duration: 207.333
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD5/09 Dizzle (Sadlands Demo).flac
+Last-Modified: 2026-05-19T18:02:41Z
+Format: 96000:24:2
+Title: Dizzle (Sadlands Demo)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 9
+Disc: 5
+Date: 2012
+Time: 138
+duration: 138.186
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD5/10 Goodnight (Basic Vocal Rough).flac
+Last-Modified: 2026-05-19T18:06:47Z
+Format: 96000:24:2
+Title: Goodnight (Basic Vocal Rough)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 10
+Disc: 5
+Date: 2012
+Time: 235
+duration: 235.480
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD5/11 Eye (Soundworks Demo).flac
+Last-Modified: 2026-05-19T18:12:27Z
+Format: 96000:24:2
+Title: Eye (Soundworks Demo)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 11
+Disc: 5
+Date: 2012
+Time: 214
+duration: 214.280
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD5/12 Blank (Sadlands Demo).flac
+Last-Modified: 2026-05-19T18:15:13Z
+Format: 96000:24:2
+Title: Blank (Sadlands Demo)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 12
+Disc: 5
+Date: 2012
+Time: 172
+duration: 172.080
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD5/13 Beautiful (Instrumental-Middle 8).flac
+Last-Modified: 2026-05-19T18:11:37Z
+Format: 96000:24:2
+Title: Beautiful (Instrumental-Middle 8)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 13
+Disc: 5
+Date: 2012
+Time: 256
+duration: 255.626
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD5/14 My Blue Heaven (BT 2012 Mix).flac
+Last-Modified: 2026-05-19T18:16:02Z
+Format: 96000:24:2
+Title: My Blue Heaven (BT 2012 Mix)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 14
+Disc: 5
+Date: 2012
+Time: 199
+duration: 198.546
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD5/15 One And Two.flac
+Last-Modified: 2026-05-19T18:14:16Z
+Format: 96000:24:2
+Title: One And Two
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 15
+Disc: 5
+Date: 2012
+Time: 225
+duration: 224.973
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD5/16 Zoom (7 ips).flac
+Last-Modified: 2026-05-19T18:13:59Z
+Format: 96000:24:2
+Title: Zoom (7 ips)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 16
+Disc: 5
+Date: 2012
+Time: 164
+duration: 163.840
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD5/17 Pastichio Medley (Reversed Extras).flac
+Last-Modified: 2026-05-19T18:05:23Z
+Format: 96000:24:2
+Title: Pastichio Medley (Reversed Extras)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 17
+Disc: 5
+Date: 2012
+Time: 44
+duration: 43.720
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD5/18 Marquis In Spades (BT 2012 Mix).flac
+Last-Modified: 2026-05-19T18:11:04Z
+Format: 96000:24:2
+Title: Marquis In Spades (BT 2012 Mix)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 18
+Disc: 5
+Date: 2012
+Time: 194
+duration: 194.093
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD5/19 Tales Of A Scorched Earth (Guitar Overdub Mix).flac
+Last-Modified: 2026-05-19T18:15:30Z
+Format: 96000:24:2
+Title: Tales Of A Scorched Earth (Guitar Overdub Mix)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 19
+Disc: 5
+Date: 2012
+Time: 227
+duration: 227.293
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD5/20 Tonite Reprise (Version 1).flac
+Last-Modified: 2026-05-19T18:07:05Z
+Format: 96000:24:2
+Title: Tonite Reprise (Version 1)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 20
+Disc: 5
+Date: 2012
+Time: 156
+duration: 156.040
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD5/21 Wishing You Were Real (Home Demo).flac
+Last-Modified: 2026-05-19T18:15:34Z
+Format: 96000:24:2
+Title: Wishing You Were Real (Home Demo)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 21
+Disc: 5
+Date: 2012
+Time: 187
+duration: 187.320
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD5/22 Thru The Eyes Of Ruby (Pit Mix 3).flac
+Last-Modified: 2026-05-19T17:55:35Z
+Format: 96000:24:2
+Title: Thru The Eyes Of Ruby (Pit Mix 3)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 22
+Disc: 5
+Date: 2012
+Time: 46
+duration: 45.533
+file: The Smashing Pumpkins - Mellon Collie And The Infinite Sadness (2012) [FLAC]/CD5/23 Phang (Sadlands Demo).flac
+Last-Modified: 2026-05-19T18:04:02Z
+Format: 96000:24:2
+Title: Phang (Sadlands Demo)
+Artist: The Smashing Pumpkins
+Album: Mellon Collie And The Infinite Sadness
+Track: 23
+Disc: 5
+Date: 2012
+Time: 151
+duration: 150.800
+directory: Tool - Fear Inoculum (2019) [FLAC 24-96]
+Last-Modified: 2026-05-19T12:22:02Z

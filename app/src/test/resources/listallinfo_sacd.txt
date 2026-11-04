@@ -1,0 +1,64 @@
+file: 1975 - Wish You Were Here (SACD-R)/01 - Shine On You Crazy Diamond (Parts I - V).dsf
+Last-Modified: 2026-05-21T12:26:29Z
+Artist: Pink Floyd
+AlbumArtist: Pink Floyd
+Title: Shine On You Crazy Diamond (Parts I - V)
+Album: Wish You Were Here
+Track: 1
+Date: 2011-03-05
+Disc: 1
+Label: Pink Floyd Music Ltd.
+Time: 811
+duration: 810.666
+file: 1975 - Wish You Were Here (SACD-R)/02 - Welcome To The Machine.dsf
+Last-Modified: 2026-05-21T12:26:41Z
+Artist: Pink Floyd
+AlbumArtist: Pink Floyd
+Title: Welcome To The Machine
+Album: Wish You Were Here
+Track: 2
+Date: 2011-03-05
+Disc: 1
+Label: Pink Floyd Music Ltd.
+Time: 445
+duration: 445.381
+file: 1975 - Wish You Were Here (SACD-R)/03 - Have A Cigar.dsf
+Last-Modified: 2026-05-21T12:26:49Z
+Artist: Pink Floyd
+AlbumArtist: Pink Floyd
+Title: Have A Cigar
+Album: Wish You Were Here
+Track: 3
+Date: 2011-03-05
+Disc: 1
+Label: Pink Floyd Music Ltd.
+Time: 308
+duration: 307.850
+file: 1975 - Wish You Were Here (SACD-R)/04 - Wish You Were Here.dsf
+Last-Modified: 2026-05-21T12:26:57Z
+Artist: Pink Floyd
+AlbumArtist: Pink Floyd
+Title: Wish You Were Here
+Album: Wish You Were Here
+Track: 4
+Date: 2011-03-05
+Disc: 1
+Label: Pink Floyd Music Ltd.
+Time: 333
+duration: 333.450
+file: 1975 - Wish You Were Here (SACD-R)/05 - Shine On You Crazy Diamond (Parts VI - IX).dsf
+Last-Modified: 2026-05-21T12:27:17Z
+Artist: Pink Floyd
+AlbumArtist: Pink Floyd
+Title: Shine On You Crazy Diamond (Parts VI - IX)
+Album: Wish You Were Here
+Track: 5
+Date: 2011-03-05
+Disc: 1
+Label: Pink Floyd Music Ltd.
+Time: 756
+duration: 755.728
+playlist: 1975 - Wish You Were Here (SACD-R)/Wish You Were Here.cue
+Last-Modified: 2026-05-21T12:26:00Z
+directory: 1996 - Antichrist Superstar
+Last-Modified: 2026-06-13T03:43:06Z
