@@ -67,10 +67,10 @@
   .dot.warn { background: var(--danger); }
   .dot.idle { background: var(--faint); }
 
-  .body { position: absolute; inset: 112px 56px 112px; display: flex; gap: 56px; align-items: center; }
-  .art { width: 260px; height: 260px; border-radius: 6px; background-image: var(--art-mezz); background-size: cover; box-shadow: 0 40px 70px -28px rgba(0,0,0,.95), 0 0 0 1px rgba(255,255,255,.06); flex: 0 0 auto; display: flex; align-items: center; justify-content: center; }
+  .body { position: absolute; inset: 112px 56px 208px; display: flex; gap: 64px; align-items: flex-end; }
+  .art { width: 420px; height: 420px; border-radius: 6px; background-image: var(--art-mezz); background-size: cover; box-shadow: 0 40px 70px -28px rgba(0,0,0,.95), 0 0 0 1px rgba(255,255,255,.06); flex: 0 0 auto; display: flex; align-items: center; justify-content: center; }
   .art.noart { background-image: none; background: var(--plate); box-shadow: none; border: 1px solid var(--hair); }
-  .art .initials { font-size: 86px; font-weight: var(--w-light); letter-spacing: .04em; line-height: 1; color: rgba(246,245,243,.40); }
+  .art .initials { font-size: 140px; font-weight: var(--w-light); letter-spacing: .04em; line-height: 1; color: rgba(246,245,243,.40); }
   .meta { flex: 1; min-width: 0; }
 
   /* display — one line at 64, two at 44. Leading 1.06 keeps the descender inside the box. */
@@ -78,25 +78,25 @@
            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
            overflow-wrap: break-word; text-wrap: balance; }
   .title.small { font-size: var(--f-display-sm); letter-spacing: -.015em; line-height: var(--lh-display-sm); }
-  .artist { font-size: var(--f-heading); font-weight: var(--w-regular); line-height: 1.35; color: var(--muted); margin-top: 14px;
+  .artist { font-size: var(--f-heading); font-weight: var(--w-regular); line-height: 1.35; color: var(--muted); margin-top: 16px;
             white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .meta-line { font-size: var(--f-meta); color: var(--faint); margin-top: 10px; letter-spacing: .005em; line-height: 1.45;
+  .meta-line { font-size: var(--f-meta); color: var(--faint); margin-top: 12px; letter-spacing: .005em; line-height: 1.45;
                font-variant-numeric: tabular-nums; }
 
-  .strip { display: flex; gap: 40px; margin-top: 32px; }
+  .strip { display: flex; gap: 40px; margin-top: 40px; }
   .strip .k { font-size: var(--f-label); font-weight: var(--w-medium); line-height: var(--lh-label); letter-spacing: .12em; text-transform: uppercase; color: var(--faint); }
   .strip .v { font-size: var(--f-body); line-height: var(--lh-data); margin-top: 6px; font-variant-numeric: tabular-nums; }
   .strip .v.good { color: var(--accent); }
   .strip .v.none { color: var(--faint); }
 
-  .progress { margin-top: 32px; max-width: 420px; }
+  .progress { margin-top: 40px; }
   .bar { height: 2px; background: rgba(246,245,243,.16); border-radius: 2px; position: relative; }
   .bar i { position: absolute; inset-inline-start: 0; top: 0; bottom: 0; width: 31%; background: rgba(246,245,243,.9); border-radius: 2px; }
   .paused .bar i { background: rgba(246,245,243,.45); }
   .times { display: flex; justify-content: space-between; font-size: var(--f-meta); color: var(--faint); margin-top: 10px;
            letter-spacing: .02em; line-height: 1.2; font-variant-numeric: tabular-nums; }
 
-  .transport { display: flex; align-items: center; gap: 34px; margin-top: 26px; color: rgba(246,245,243,.72); }
+  .transport { display: flex; align-items: center; justify-content: center; gap: 24px; margin-top: 40px; color: rgba(246,245,243,.72); }
   .btn { width: 48px; height: 48px; flex: 0 0 48px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
   .btn svg { width: 20px; height: 20px; }
   .btn.play { width: 74px; height: 74px; flex: 0 0 74px; border: 1px solid rgba(246,245,243,.55); }
@@ -107,22 +107,26 @@
            font-size: var(--f-meta); line-height: 1.45; color: var(--muted); }
   .retry button { font: inherit; font-size: var(--f-meta); color: var(--text); background: none; border: 1px solid rgba(246,245,243,.35); border-radius: 999px; padding: 8px 16px; }
 
-  .rail { width: 200px; flex: 0 0 200px; border-inline-start: 1px solid var(--hair); padding-inline-start: 28px; align-self: stretch;
-          display: flex; flex-direction: column; justify-content: center; gap: 64px; }
+  .rail { position: absolute; inset-inline: -56px; top: 100%; height: 132px; width: auto; flex: none;
+          border-inline-start: 0; border-top: 1px solid var(--hair); padding: 18px 56px 0;
+          display: flex; flex-direction: row-reverse; align-items: flex-start; justify-content: space-between; gap: 48px; }
+  .rail > div:first-child { flex: 0 0 168px; }
+  .rail > div:last-child { flex: 0 0 460px; }
   .rail .row-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
   .rail .modes { display: inline-flex; gap: 10px; color: var(--muted); }
-  .rail .k { font-size: var(--f-label); font-weight: var(--w-medium); line-height: var(--lh-label); letter-spacing: .12em;
+  .rail .k { min-width: 0; font-size: var(--f-label); font-weight: var(--w-medium); line-height: var(--lh-label); letter-spacing: .12em;
              text-transform: uppercase; color: var(--faint); margin-bottom: 12px; }
-  .meter { display: flex; gap: 10px; align-items: flex-end; height: 96px; }
+  .meter { display: flex; gap: 10px; align-items: flex-end; height: 56px; }
   .meter .b { width: 12px; height: 100%; background: rgba(246,245,243,.08); border-radius: 2px; position: relative; overflow: hidden; }
   .meter .b span { position: absolute; inset-inline: 0; bottom: 0; background: linear-gradient(to top, rgba(126,217,195,.45), var(--accent)); border-radius: 2px; }
   .meter .b em { position: absolute; inset-inline: 0; height: 3px; background: var(--accent); }
   .flat .meter .b span { background: rgba(246,245,243,.22); }
   .flat .meter .b em { display: none; }
-  .nolvl { height: 96px; border: 1px solid var(--hair); border-radius: 3px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 10px; }
+  .nolvl { height: 56px; border: 1px solid var(--hair); border-radius: 3px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 10px; }
   .nolvl span { font-size: var(--f-label); font-weight: var(--w-medium); letter-spacing: .12em; line-height: 1.4; text-transform: uppercase; color: var(--faint); }
   .nolvl em { display: block; font-style: normal; font-size: var(--f-meta); letter-spacing: .005em; line-height: 1.45; text-transform: none; color: var(--faint); margin-top: 6px; font-variant-numeric: tabular-nums; }
   .qi { display: flex; gap: 14px; align-items: center; }
+  .rail .qi + .qi { margin-top: 8px; }
   .qi .th { width: 44px; height: 44px; border-radius: 3px; background-image: var(--art-mezz); background-size: cover; opacity: .8; flex: 0 0 auto; }
   .qi .tx { font-size: var(--f-body); color: var(--muted); line-height: var(--lh-data); min-width: 0; }
   .qi .tx b { display: block; font-weight: var(--w-medium); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -260,6 +264,8 @@
           <div class="title">Teardrop</div>
           <div class="artist">Massive Attack</div>
           <div class="meta-line">Last heard 2 min ago · stopped at 1:42</div>
+          <div class="retry retry-inline" role="status" aria-live="polite">Retrying in 8s <button type="button">Retry now</button></div>
+
           <div class="strip">
             <div><div class="k">Source</div><div class="v none">—</div></div>
             <div><div class="k">Link</div><div class="v none">—</div></div>
@@ -273,7 +279,6 @@
             <span class="btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 4l10 8-10 8z"/><rect x="17.4" y="4" width="1.6" height="16" rx=".8"/></svg></span>
             
           </div>
-          <div class="retry" role="status" aria-live="polite">Retrying in 8s <button type="button">Retry now</button></div>
         </div>
         <div class="rail">
           <div><div class="k row-head"><span>Level</span><span>—</span></div><div class="nolvl"><span>No signal<em>Streamer offline</em></span></div></div>
@@ -406,11 +411,9 @@
           </div>
           <div class="progress"><div class="bar"><i></i></div><div class="times"><span>١:٤٢</span><span>−٣:٤٧</span></div></div>
           <div class="transport" aria-label="أزرار التشغيل">
-            <span class="btn" role="button" aria-label="عشوائي متوقف"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20L21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></svg></span>
             <span class="btn" role="button" aria-label="المقطع السابق"><svg viewBox="0 0 24 24" fill="currentColor" style="transform:scaleX(-1)"><path d="M19 20L9 12l10-8z"/><rect x="5" y="4" width="1.6" height="16" rx=".8"/></svg></span>
             <span class="btn play" role="button" aria-label="إيقاف مؤقت"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="7" y="5" width="3.4" height="14" rx="1"/><rect x="13.6" y="5" width="3.4" height="14" rx="1"/></svg></span>
             <span class="btn" role="button" aria-label="المقطع التالي"><svg viewBox="0 0 24 24" fill="currentColor" style="transform:scaleX(-1)"><path d="M5 4l10 8-10 8z"/><rect x="17.4" y="4" width="1.6" height="16" rx=".8"/></svg></span>
-            <span class="btn" role="button" aria-label="تكرار متوقف"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg></span>
           </div>
         </div>
         <div class="rail">

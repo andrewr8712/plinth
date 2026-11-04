@@ -222,13 +222,26 @@ Rules that come straight from the measurements:
 
 ### 5.5 Layout system
 
+Spatial thesis (set in the layout pass, measured against the old frame):
+
+- **The cover leads.** 420 dp, 53.8 % of canvas height, bottom edge shared with the
+  column so the record and its label read as one object.
+- **The queue stops borrowing column width.** The old 200 dp rail was 15 %
+  occupied and cost the cover 160 dp; the queue moves to a foot band, where it
+  stays in peripheral vision without competing for the spine.
+- **Nothing moves between states.** The column is bottom-anchored and the
+  transport is centred under a full-width progress bar, so a two-line title grows
+  upward and the play button keeps one position (the old frame drifted 64 dp).
+- **Spacing scale:** 8 · 12 · 16 · 24 · 40 · 64 · 96. Every gap inside the frame
+  comes from it; the 56 dp inset and 112 dp top margin are the device constants.
+
 One `NowPlaying` composable, three arrangements by window width:
 
 | Width | Arrangement |
 |---|---|
 | `< 600 dp` (phone) | Browse-first. Library list/grid, mini player pinned above the tab bar, tapping it opens a full-height now-playing sheet with the meter and signal strip. |
 | `600–840 dp` (tablet in split-screen, phone landscape) | Now playing with the art shrunk and the queue rail collapsed to a bottom strip; library reachable from the top bar. |
-| `≥ 840 dp` (tablet) | Direction A: blurred art wash, 200 dp art, thin display type, hairline transport, right rail carrying **level meter → up next**. Signal strip under the title. |
+| `≥ 840 dp` (tablet) | **One spine, one band.** 420 dp cover on the left; a 584 dp column (title, artist, position, signal strip, full-width progress, centred three-control transport) whose bottom edge is pinned to the cover's; a 132 dp band across the foot holding *up next* at the start and the level meter at the end. Blurred art wash behind. |
 
 Components shared across widths so there is one behaviour, not three:
 
