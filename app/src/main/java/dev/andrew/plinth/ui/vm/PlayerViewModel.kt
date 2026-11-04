@@ -32,6 +32,7 @@ data class PlayerUi(
     val bitrateKbps: Int? = null,
     val stateLabel: String = "Connecting…",
     val queueCount: Int = 0,
+    val strip: dev.andrew.plinth.data.model.StripCells? = null,
 )
 
 class PlayerViewModel(private val container: AppContainer) : ViewModel() {
@@ -43,6 +44,8 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
     private var pollJob: Job? = null
     private var lastSongId: Int? = null
     private var lastQueueVersion: Int = Int.MIN_VALUE
+    private var lastOutput: dev.andrew.plinth.data.model.OutputInfo? = null
+    private var lastTrack: dev.andrew.plinth.data.model.Track? = null
 
     private val _queue = MutableStateFlow<List<dev.andrew.plinth.data.model.QueueItem>>(emptyList())
     val queue: StateFlow<List<dev.andrew.plinth.data.model.QueueItem>> = _queue.asStateFlow()
@@ -67,6 +70,7 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
             conn.state.collect { state ->
                 if (state is ConnectionState.Up) {
                     _art.value = runCatching { conn.withClient { container.artFor(it) } }.getOrNull()
+                    lastOutput = runCatching { conn.withClient { it.outputs().firstOrNull() } }.getOrNull()
                 } else {
                     _art.value = null
                 }
@@ -97,7 +101,10 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
             } else {
                 null
             }
-            _ui.value = _ui.value.merge(status, song)
+            if (song != null) lastTrack = song
+            _ui.value = _ui.value.merge(status, song).copy(
+                strip = dev.andrew.plinth.data.model.SignalVerdicts.stripCells(status, lastTrack, lastOutput),
+            )
             if (status.queueVersion != lastQueueVersion) {
                 lastQueueVersion = status.queueVersion
                 runCatching { _queue.value = conn.withClient { it.playlistInfo() } }

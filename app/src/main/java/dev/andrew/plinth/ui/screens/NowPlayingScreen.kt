@@ -29,6 +29,7 @@ import dev.andrew.plinth.ui.components.Artwork
 import dev.andrew.plinth.ui.components.LevelMeter
 import dev.andrew.plinth.ui.components.ProgressHairline
 import dev.andrew.plinth.ui.components.QueueBand
+import dev.andrew.plinth.ui.components.SignalStrip
 import dev.andrew.plinth.ui.components.Transport
 import dev.andrew.plinth.ui.layout.SurfaceSize
 import dev.andrew.plinth.ui.theme.PlinthColors
@@ -138,22 +139,13 @@ private fun TrackColumn(
             overflow = TextOverflow.Ellipsis,
         )
         Spacer(Modifier.height(12.dp))
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Text(
-                text = position(ui.elapsed, ui.duration),
-                color = PlinthColors.Faint,
-                style = MaterialTheme.typography.bodySmall,
-            )
-            ui.formatLine?.let {
-                Text(
-                    text = "  ·  $it",
-                    color = PlinthColors.Faint,
-                    style = MaterialTheme.typography.bodySmall,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
-            }
-        }
+        Text(
+            text = position(ui.elapsed, ui.duration),
+            color = PlinthColors.Faint,
+            style = MaterialTheme.typography.bodySmall,
+        )
+        Spacer(Modifier.height(16.dp))
+        ui.strip?.let { SignalStrip(it) }
         Spacer(Modifier.height(24.dp))
         ProgressHairline(ui.elapsed, ui.duration, onSeek)
         Spacer(Modifier.height(16.dp))
