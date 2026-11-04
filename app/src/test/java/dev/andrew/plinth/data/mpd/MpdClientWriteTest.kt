@@ -46,10 +46,11 @@ class MpdClientWriteTest {
     }
 
     @Test
-    fun `ACK from a write surfaces as an exception`() = runBlocking {
+    fun `ACK from a write surfaces as an exception`() {
         server.onCommand("play") { "ACK [2@0] {play} Bad song index\n" }
-        assertThrows(MpdException.Protocol::class.java) {
+        val thrown = assertThrows(MpdException.Protocol::class.java) {
             runBlocking { client().play(99) }
         }
+        assertEquals("Bad song index", thrown.message)
     }
 }

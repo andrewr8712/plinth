@@ -100,6 +100,39 @@ class MpdClient(private val socket: MpdSocket) {
         is MpdReply.Ack -> throw MpdException.Protocol(reply.message)
     }
 
+    // ---- writes -------------------------------------------------------------
+
+    suspend fun play(pos: Int? = null) = write(if (pos == null) "play" else "play $pos")
+
+    /** No argument toggles, which is what MPD's own `pause` does. */
+    suspend fun pause(next: Boolean? = null) = write(if (next == null) "pause" else "pause ${flag(next)}")
+
+    suspend fun stop() = write("stop")
+
+    suspend fun next() = write("next")
+
+    suspend fun previous() = write("previous")
+
+    suspend fun seekCur(seconds: Double) =
+        write("seekcur " + String.format(java.util.Locale.US, "%.2f", seconds))
+
+    suspend fun setRandom(on: Boolean) = write("random ${flag(on)}")
+
+    suspend fun setRepeat(on: Boolean) = write("repeat ${flag(on)}")
+
+    suspend fun setSingle(on: Boolean) = write("single ${flag(on)}")
+
+    suspend fun setConsume(on: Boolean) = write("consume ${flag(on)}")
+
+    suspend fun setCrossfade(seconds: Int) = write("crossfade $seconds")
+
+    private suspend fun write(line: String) {
+        val reply = socket.command(line)
+        if (reply is MpdReply.Ack) throw MpdException.Protocol(reply.message)
+    }
+
+    private fun flag(on: Boolean) = if (on) 1 else 0
+
     /** `time: 41:230` → elapsed 41, duration 230. */
     private fun parseTime(time: String?): Pair<Double?, Double?> {
         val parts = time?.split(":") ?: return null to null
