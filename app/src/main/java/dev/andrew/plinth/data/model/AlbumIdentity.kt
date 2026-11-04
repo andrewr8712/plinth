@@ -44,10 +44,19 @@ object AlbumIdentity {
         return sha1Hex(payload).take(ID_LENGTH)
     }
 
-    /** Drops repeats of (disc, track, title, duration), keeping the first copy. */
+    /**
+     * Drops repeats of (disc, track, title, duration) *within one album*, keeping the
+     * first copy. The album id is part of the key on purpose: this library reuses a
+     * title and duration across albums (a single and its parent record, the stereo and
+     * binaural mixes of one album), and dropping those left albums holding a fraction
+     * of their tracks. Two copies of the same rip share an album id, so they still
+     * collapse.
+     */
     fun dedupe(tracks: List<Track>): List<Track> {
         val seen = HashSet<String>()
-        return tracks.filter { seen.add("${it.disc}|${it.trackNo}|${it.title}|${it.durationSec}") }
+        return tracks.filter {
+            seen.add("${it.albumId}|${it.disc}|${it.trackNo}|${it.title}|${it.durationSec}")
+        }
     }
 
     private fun sha1Hex(s: String): String =

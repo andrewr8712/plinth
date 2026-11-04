@@ -69,4 +69,26 @@ class AlbumIdentityTest {
         assertEquals(t.first().uri, deduped.first().uri)
         assertEquals(deduped.size, deduped.map { "${it.disc}|${it.trackNo}|${it.title}" }.distinct().size)
     }
+
+    /**
+     * A single and its parent record — or a stereo and a binaural mix — carry the same
+     * title, position and duration. They are two albums, so both keep the track; only
+     * repeats *within* one album collapse.
+     */
+    @Test
+    fun `the same song on two different albums survives on both`() {
+        fun row(album: String, uri: String) = Track(
+            uri = uri, albumId = AlbumIdentity.key("King Gizzard", "King Gizzard", album, 2),
+            disc = 1, trackNo = 1, title = "The Dripping Tap", artist = "King Gizzard",
+            albumArtist = "King Gizzard", album = album, year = 2022, genre = null,
+            durationSec = 1097, format = null, path = uri.substringBeforeLast('/'), channels = 2,
+        )
+        val album = row("Omnium Gatherum", "Omnium Gatherum/01 The Dripping Tap.flac")
+        val single = row("The Dripping Tap", "The Dripping Tap/01. The Dripping Tap.flac")
+        assertTrue("the two albums must have different ids", album.albumId != single.albumId)
+
+        val kept = AlbumIdentity.dedupe(listOf(album, single))
+        assertEquals(listOf(album.uri, single.uri), kept.map { it.uri })
+        assertEquals(2, kept.map { it.albumId }.distinct().size)
+    }
 }
