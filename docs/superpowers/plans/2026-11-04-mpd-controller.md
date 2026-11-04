@@ -20,6 +20,10 @@
 - DSD is always labelled `DSD64 · DoP` (never "native DSD"). No resampling is implied or attempted.
 - Dark only: background `#0A0A0C`, warm white type. No WebView. No server config writes.
 - Type: Inter variable bundled in `res/font`; pinned weights 300/400/500; seven sizes 64/44/28/20/16/13/11; labels 11 sp at weight 500 and +0.12 em; tabular figures on every numeric role.
+- Structure at ≥840 dp: 420 dp cover + 584 dp column + a **152 dp band** pinned to the bottom edge. No rail. Transport is three controls, centred, and its position never changes between states.
+- Signal strip cells are Source / Link / Verdict. The output rate appears in the Link cell **only when it differs** from the source (`44.1 → 48 kHz`); on the happy path the cell names the path (`USB · DX5 II`).
+- The queue is text-only — no thumbnails — and is refetched wholesale on version change. Shuffle and repeat live in the band's queue header, never in the transport row.
+- The level meter exists on the tablet and the medium window only; the phone sheet has none.
 - Art request pattern: `binarylimit 4000000` once per connection, then `albumart "<uri>" 0`; `ACK [50@0]` means *no art*.
 - Loudness envelope: 5 Hz, `u8 rms_l, u8 rms_r, u8 peak` dBFS-mapped, keyed by MPD URI.
 - Unit tests run on the JVM with a local `FakeMpdServer`; UI tests run instrumented on a device (`connectedDebugAndroidTest`).
@@ -694,7 +698,7 @@ Expected: FAIL — unresolved references.
 
 - [ ] **Step 3: Implement**
 
-Theme with the spec's type ramp (display 44 sp / w200 / tracking −0.02 em; body 15 sp; eyebrow 10 sp / w600 / tracking +0.18 em). `AppRoot` holds a `NavHost` with routes `now`, `library`, `album/{id}`, `queue`, `search`, `output`, `connection`. `AppContainer` constructs `SettingsStore`, `MpdConnection`, repositories; created in `PlinthApp.onCreate`.
+Theme with the spec's seven-step ramp (64/44/28/20/16/13/11 at weights 300/400/500), Inter variable bundled from `res/font`, and a Noto Sans Arabic subset behind `:lang(ar)` with tracking and uppercase suppressed for joined scripts. `AppRoot` holds a `NavHost` with routes `now`, `library`, `album/{id}`, `queue`, `search`, `output`, `connection`. `AppContainer` constructs `SettingsStore`, `MpdConnection`, repositories; created in `PlinthApp.onCreate`.
 
 - [ ] **Step 4: Run it to verify it passes**
 
@@ -712,48 +716,54 @@ git add -A && git commit -m "feat: app shell, theme and surface breakpoints"
 ## Task 12: Now Playing, expanded (tablet) arrangement
 
 **Files:**
-- Create: `app/src/main/java/dev/andrew/plinth/ui/screens/NowPlayingScreen.kt`, `.../ui/components/{Artwork,Transport,ProgressHairline,QueueRail}.kt`
+- Create: `app/src/main/java/dev/andrew/plinth/ui/screens/NowPlayingScreen.kt`, `.../ui/components/{Artwork,Transport,ProgressHairline,QueueBand,LevelMeter}.kt`
 - Create: `app/src/main/java/dev/andrew/plinth/ui/vm/PlayerViewModel.kt`
 - Test: `app/src/androidTest/java/dev/andrew/plinth/ui/NowPlayingExpandedTest.kt`
 
 **Interfaces:**
+- Consumes: `PlayerState`, `QueueItem`, `ArtRepository.cachedFile(albumId)`, `Settings.meterOffsetPcmMs/meterOffsetDsdMs`
 - Produces:
   ```kotlin
   @Composable fun NowPlayingScreen(size: SurfaceSize, vm: PlayerViewModel)
-  @Composable fun Artwork(albumId: String, firstTrackUri: String, art: ArtRepository, modifier: Modifier)  // crossfades on albumId change
-  @Composable fun ProgressHairline(elapsed: Double?, duration: Double?, onSeek: (Double) -> Unit)          // emits on drag end only
-  @Composable fun QueueRail(items: List<QueueItem>, onItemClick: (Int) -> Unit, modifier: Modifier)
+  @Composable fun Artwork(albumId: String, firstTrackUri: String, art: ArtRepository, modifier: Modifier)
+  @Composable fun ProgressHairline(elapsed: Double?, duration: Double?, onSeek: (Double) -> Unit)
+  @Composable fun Transport(isPlaying: Boolean, enabled: Boolean, onPrev: () -> Unit, onPlayPause: () -> Unit, onNext: () -> Unit)
+  @Composable fun QueueBand(items: List<QueueItem>, onItemClick: (Int) -> Unit, onOpenQueue: () -> Unit, modifier: Modifier)
   class PlayerViewModel(state: StateFlow<PlayerState>, queue: QueueRepository, client: MpdClient) {
-      val ui: StateFlow<PlayerUi>   // state + current track + connection
-      fun playPause(); fun next(); fun previous(); fun seek(seconds: Double); fun toggleRandom(); fun toggleRepeat()
+      val ui: StateFlow<PlayerUi>
+      fun playPause(); fun next(); fun previous(); fun seek(seconds: Double)
   }
   ```
 
-- [ ] **Step 1: Write the failing instrumented test**
+**Structure (expanded, ≥840 dp):** 56 dp insets; a 420 dp cover; a 584 dp column whose bottom edge is pinned to the cover's, containing title (64 sp, 44 sp step for a two-line title), artist 20 sp, position 13 sp, the signal strip, a full-width progress hairline, and a **centred three-control transport**; then a 152 dp band pinned to the window's bottom edge, holding the queue at the start (shuffle/repeat beside its label) and `LevelMeter` at the end. No rail. Gaps only from 8/12/16/24/40/64/96.
+
+- [ ] **Step 1: Write the failing instrumented tests**
 
 ```kotlin
-@Test fun `expanded shows title, artist, progress and transport`() {
-    composeRule.setContent { PlinthTheme { NowPlayingScreen(SurfaceSize.Expanded, fakeVm(title = "Teardrop", artist = "Massive Attack")) } }
+@Test fun `expanded shows cover, title, centred transport and the band`() {
+    composeRule.setContent { PlinthTheme { NowPlayingScreen(SurfaceSize.Expanded, fakeVm(title = "Teardrop")) } }
+    composeRule.onNodeWithTag("cover").assertWidthIsEqualTo(420.dp)
     composeRule.onNodeWithText("Teardrop").assertIsDisplayed()
-    composeRule.onNodeWithText("Massive Attack").assertIsDisplayed()
-    composeRule.onNodeWithContentDescription("Play").assertIsDisplayed()
-    composeRule.onNodeWithContentDescription("Queue").assertExists()
+    composeRule.onNodeWithContentDescription("Play").assertIsCenteredInColumn()   // x-centre within 1 dp
+    composeRule.onNodeWithText("Up next", substring = true).assertExists()
+    composeRule.onNodeWithContentDescription("Stereo level meter").assertExists()
 }
-@Test fun `seek is sent once on release, not per drag`() {
-    // drag the progress hairline, assert the fake client saw exactly one seekcur
+@Test fun `transport keeps one position when the title wraps to two lines`() {
+    // measure the play button's y with a 1-line title, then a 2-line title; assert equal within 1 dp
 }
+@Test fun `seek is sent once on release, not per drag`() { /* exactly one seekcur per drag */ }
 ```
 
-- [ ] **Step 2: Run it to verify it fails**
+- [ ] **Step 2: Run them to verify they fail**
 
 Run: `./gradlew :app:connectedDebugAndroidTest --tests '*NowPlayingExpandedTest*'`
 Expected: FAIL — unresolved references.
 
 - [ ] **Step 3: Implement**
 
-Expanded = blurred backdrop (single `Modifier.blur(40.dp)` over a per-album pre-blurred derivative cached under `files/blur/<albumId>.jpg`, 50 % alpha, radial scrim — never blur per frame), 200 dp art, 44 sp display title, hairline transport circle, right rail 150 dp with `Up next`. Medium = art 120 dp, rail replaced by a bottom queue peek. Compact = delegates to Task 14's surface.
+The column uses `heightIn(min = 420.dp)` with the transport pinned to its bottom, so a wrapped title grows upward and the play button never moves. Titles use `maxLines = 2, overflow = Ellipsis`, stepping to 44 sp on **measured width**. `Artwork` crossfades on `albumId` change. `ProgressHairline` emits `onSeek` on drag end only.
 
-- [ ] **Step 4: Run it to verify it passes**
+- [ ] **Step 4: Run them to verify they pass**
 
 Run: `./gradlew :app:connectedDebugAndroidTest --tests '*NowPlayingExpandedTest*'`
 Expected: PASS.
@@ -761,7 +771,7 @@ Expected: PASS.
 - [ ] **Step 5: Commit**
 
 ```bash
-git add -A && git commit -m "feat: expanded now playing surface"
+git add -A && git commit -m "feat: expanded now playing with cover spine and foot band"
 ```
 
 ---
@@ -780,6 +790,8 @@ git add -A && git commit -m "feat: expanded now playing surface"
       data class Transcoded(val from: String, val to: String) : SignalVerdict
       data class Multichannel(val channels: Int) : SignalVerdict; data object Unknown : SignalVerdict }
   object SignalVerdicts { fun of(state: PlayerState, track: Track?, output: OutputInfo?): SignalVerdict }
+  data class StripCells(val source: String, val link: String, val verdict: String)
+  fun stripCells(state: PlayerState, track: Track?, output: OutputInfo?): StripCells
   @Composable fun SignalStrip(track: Track?, state: PlayerState, output: OutputInfo?)
   ```
 - Rules: file format vs `state.format` equal **and** `replayGainMode == "off"` **and** output is the ALSA `hw:0,0` output → `BitPerfect`. Channels > 2 → `Multichannel`. Lossy extension → `Lossy`. Mismatched rate → `Transcoded`. No track/format → `Unknown`.
@@ -793,6 +805,14 @@ git add -A && git commit -m "feat: expanded now playing surface"
 @Test fun `six channel file is multichannel, not transcoded`() { assertTrue(of(track("flac", 96000, 24, 6), status("96000:24:6", "off")) is Multichannel) }
 @Test fun `missing format is unknown, not a crash`() { assertEquals(Unknown, of(track(null, 0, 0, 2), status(null, "off"))) }
 @Test fun `replay gain on downgrades the verdict`() { assertTrue(of(track("flac", 44100, 16, 2), status("44100:16:2", "track")) is Transcoded) }
+@Test fun `the link cell names the path, and prints a rate only when it differs`() {
+    assertEquals("USB · DX5 II", stripCells(status("96000:24:2", "off"), track("flac", 96000, 24, 2), output).link)
+    assertEquals("44.1 → 48 kHz", stripCells(status("48000:24:2", "off"), track("flac", 44100, 16, 2), output).link)
+}
+@Test fun `the three cells are format, link, verdict — never the rate twice`() {
+    val c = stripCells(status("96000:24:2", "off"), track("flac", 96000, 24, 2), output)
+    assertEquals(listOf("FLAC · 24/96", "USB · DX5 II", "Bit-perfect"), listOf(c.source, c.link, c.verdict))
+}
 ```
 
 - [ ] **Step 2: Run tests to verify they fail**
@@ -802,7 +822,7 @@ Expected: FAIL — unresolved references.
 
 - [ ] **Step 3: Implement**
 
-`labelFor(format)` renders `FLAC · 24/96`, `DSD64 · DoP`, `MP3 · 320 kbps`, `—` when unknown. Strip layout: three cells (`source`, `to DAC`, `verdict`), 10 sp labels, 14 sp values, verdict in accent when `BitPerfect` and in muted amber otherwise.
+`labelFor(format)` renders `FLAC · 24/96`, `DSD64 · DoP`, `MP3 · 320 kbps`, `—` when unknown. Strip layout: three cells — **Source / Link / Verdict** — 11 sp labels at weight 500 and +0.12 em, 16 sp values with tabular figures, verdict in accent when `BitPerfect` and muted otherwise. The output rate appears in the Link cell only on a mismatch (`44.1 → 48 kHz`); on the happy path that cell names the path, so no fact is printed twice.
 
 - [ ] **Step 4: Run tests to verify they pass**
 
@@ -817,43 +837,52 @@ git add -A && git commit -m "feat: signal strip with computed bit-perfect verdic
 
 ---
 
-## Task 14: Phone surfaces — library nav, mini player, sheet
+## Task 14: Phone surfaces and the medium window
 
 **Files:**
-- Create: `app/src/main/java/dev/andrew/plinth/ui/screens/MiniPlayer.kt`, `.../ui/screens/NowPlayingSheet.kt`
-- Modify: `MainActivity.kt` (Compact branch: library root + mini player + nav bar)
+- Create: `app/src/main/java/dev/andrew/plinth/ui/screens/{MiniPlayer,NowPlayingSheet,MediumNowPlaying}.kt`
+- Modify: `MainActivity.kt` (Compact branch: library root + mini player + navigation bar)
 - Test: `app/src/androidTest/java/dev/andrew/plinth/ui/PhoneSurfacesTest.kt`
 
 **Interfaces:**
 - Produces:
   ```kotlin
   @Composable fun MiniPlayer(title: String, artist: String, albumId: String, isPlaying: Boolean, onOpen: () -> Unit, onPlayPause: () -> Unit)
-  @Composable fun NowPlayingSheet(vm: PlayerViewModel, onDismiss: () -> Unit)   // full-height, drag handle, meter slot
+  @Composable fun NowPlayingSheet(vm: PlayerViewModel, onDismiss: () -> Unit)   // 12 dp inset, chevron, up-next row, no meter
+  @Composable fun MediumNowPlaying(vm: PlayerViewModel)                          // 600–839 dp: stacked spine
   ```
 
-- [ ] **Step 1: Write the failing instrumented test**
+- [ ] **Step 1: Write the failing instrumented tests**
 
 ```kotlin
-@Test fun `tapping the mini player opens the sheet`() {
+@Test fun `tapping the mini player opens the sheet and the chevron closes it`() {
     composeRule.setContent { PhoneRoot(fakeVm("Teardrop")) }
     composeRule.onNodeWithTag("mini-player").performClick()
     composeRule.onNodeWithTag("now-playing-sheet").assertIsDisplayed()
+    composeRule.onNodeWithContentDescription("Close now playing").performClick()
+    composeRule.onNodeWithTag("now-playing-sheet").assertDoesNotExist()
 }
-@Test fun `sheet dismiss returns to the library`() {
-    // open then swipe down / press back, assert library list visible
+@Test fun `sheet shows an up-next row and no meter`() {
+    composeRule.onNodeWithText("Up next", substring = true).assertIsDisplayed()
+    composeRule.onNodeWithContentDescription("Stereo level meter").assertDoesNotExist()
+}
+@Test fun `medium width stacks the spine`() {
+    composeRule.setContent { MediumNowPlaying(fakeVm("Teardrop")) }   // hosted at 760 x 980
+    composeRule.onNodeWithTag("queue-band").assertExists()
+    composeRule.onNodeWithTag("cover").assertWidthIsEqualTo(760.dp - 80.dp)
 }
 ```
 
-- [ ] **Step 2: Run it to verify it fails**
+- [ ] **Step 2: Run them to verify they fail**
 
 Run: `./gradlew :app:connectedDebugAndroidTest --tests '*PhoneSurfacesTest*'`
 Expected: FAIL — unresolved references.
 
 - [ ] **Step 3: Implement**
 
-Sheet = `ModalBottomSheet` with a `skipPartiallyExpanded` state; the sheet hosts the same `NowPlayingScreen(Compact)` content minus the rail, plus the meter slot (Task 17).
+Sheet = `ModalBottomSheet` with `skipPartiallyExpanded`, 12 dp top inset, 20 dp top radius, a 44 dp chevron, and a bottom `Up next · N` row wired to the queue. `MediumNowPlaying` stacks cover (full width, 400 dp) → title 44 sp → strip → progress → transport, with the band beneath. Mini player inset 24 dp, matching every other block.
 
-- [ ] **Step 4: Run it to verify it passes**
+- [ ] **Step 4: Run them to verify they pass**
 
 Run: `./gradlew :app:connectedDebugAndroidTest --tests '*PhoneSurfacesTest*'`
 Expected: PASS.
@@ -861,7 +890,7 @@ Expected: PASS.
 - [ ] **Step 5: Commit**
 
 ```bash
-git add -A && git commit -m "feat: phone surfaces with mini player and now playing sheet"
+git add -A && git commit -m "feat: phone sheet with exit and up-next, medium stacked spine"
 ```
 
 ---
@@ -991,48 +1020,47 @@ git add -A && git commit -m "feat: loudness envelope scanner, reader and importe
 
 **Files:**
 - Create: `app/src/main/java/dev/andrew/plinth/ui/components/VuMeter.kt`
-- Modify: `NowPlayingScreen.kt` (rail, above *Up next*) and `NowPlayingSheet.kt` (under the progress hairline)
+- Modify: `NowPlayingScreen.kt` (the band's trailing block), `MediumNowPlaying.kt`
 - Test: `app/src/test/java/dev/andrew/plinth/ui/VuBallisticsTest.kt`, `app/src/androidTest/java/dev/andrew/plinth/ui/VuMeterTest.kt`
 
 **Interfaces:**
 - Produces:
   ```kotlin
-  class Ballistics(initial: Float = 0f) { fun step(current: Float, target: Float, dtMs: Long): Float }  // attack 30 ms, release 350 ms
-  // test helper: Ballistics(initial = 1f) seeds the follower at full deflection
+  class Ballistics(initial: Float = 0f) { fun step(current: Float, target: Float, dtMs: Long): Float }   // attack 30 ms, release 350 ms
   data class MeterFrame(val left: Float, val right: Float, val peakLeft: Float, val peakRight: Float)
-  @Composable fun VuMeter(levels: () -> StereoLevel?, hasData: Boolean, active: Boolean, modifier: Modifier)
+  @Composable fun LevelMeter(level: StereoLevel?, active: Boolean, modifier: Modifier)
   ```
+
+**Drawn form:** two 16 dp bars 10 dp apart, 56 dp tall, in the band's trailing block under a header carrying the live value (`LEVEL  −14 dBFS`). No scale rail and no L/R glyphs — the header carries the number. Never rendered on the phone.
 
 - [ ] **Step 1: Write the failing tests**
 
 ```kotlin
 @Test fun `attack is faster than release`() {
-    val b = Ballistics(); val up = b.step(0f, 1f, 30); val down = Ballistics(initial = 1f).step(1f, 0f, 30)
-    assertTrue(up > 0.5f); assertTrue(down > 0.85f)     // fell less than it rose
+    val up = Ballistics().step(0f, 1f, 30); val down = Ballistics(initial = 1f).step(1f, 0f, 30)
+    assertTrue(up > 0.5f); assertTrue(down > 0.85f)
 }
-@Test fun `release reaches near zero after a second of silence`() { /* 350ms tau -> < 0.1 */ }
+@Test fun `release reaches near zero after a second of silence`() { /* < 0.1 */ }
 ```
 
 ```kotlin
 @Test fun `no data renders the unavailable state, not an animation`() {
-    composeRule.setContent { VuMeter(levels = { null }, hasData = false, active = true) }
+    composeRule.setContent { LevelMeter(level = null, active = true) }
     composeRule.onNodeWithContentDescription("No level data").assertIsDisplayed()
 }
-@Test fun `bars are still when playback is stopped`() { /* active=false -> bars at baseline, no ticker */ }
+@Test fun `header prints the live value`() { /* "-14 dBFS" present for (-14,-15) */ }
 ```
 
-- [ ] **Step 2: Run tests to verify they fail**
+- [ ] **Step 2: Run them to verify they fail**
 
 Run: `./gradlew :app:testDebugUnitTest --tests '*VuBallisticsTest*'` and `./gradlew :app:connectedDebugAndroidTest --tests '*VuMeterTest*'`
 Expected: FAIL — unresolved references.
 
 - [ ] **Step 3: Implement**
 
-`Ballistics` as an exponential follower (`alpha = 1 - exp(-dt/tau)`), τ 30 ms attack / 350 ms release. `VuMeter` = two vertical bars, 8 dp wide, 4 dp gap, 60 dp tall in the rail; ticks only while `active`, driven by a `LaunchedEffect` at 60 Hz reading `levels()`; peak caps decay at 1.5 s. `hasData == false` draws a 1 px baseline at 15 % alpha plus the content description "No level data" — Review Focus 6.
+`Ballistics` as an exponential follower (`alpha = 1 - exp(-dt/tau)`). `LevelMeter` ticks only while `active`; `level == null` draws a 1 dp baseline at 15 % alpha plus the content description "No level data". Position = `elapsed − offsetMs/1000`, with `offsetMs` from settings keyed per format class (PCM / DoP).
 
-Wiring: `PlayerViewModel` computes `positionSec = (elapsed - offsetMs/1000)` with `offsetMs` from settings (PCM vs DoP), looks up `LoudnessIndex.levelAt(currentUri, positionSec)`.
-
-- [ ] **Step 4: Run tests to verify they pass**
+- [ ] **Step 4: Run them to verify they pass**
 
 Run: `./gradlew :app:testDebugUnitTest --tests '*VuBallisticsTest*'` and `./gradlew :app:connectedDebugAndroidTest --tests '*VuMeterTest*'`
 Expected: PASS.
@@ -1040,7 +1068,7 @@ Expected: PASS.
 - [ ] **Step 5: Commit**
 
 ```bash
-git add -A && git commit -m "feat: vu meter with real levels and honest fallback"
+git add -A && git commit -m "feat: level meter in the band with numeric header"
 ```
 
 ---
@@ -1101,7 +1129,7 @@ git add -A && git commit -m "feat: media notification and hybrid background poli
 
 ---
 
-## Task 19: Offline behaviour end to end
+## Task 19: States and offline behaviour end to end
 
 **Files:**
 - Modify: `PlayerViewModel.kt` (map `ConnectionState` → chip), `LibraryScreen.kt`, `NowPlayingScreen.kt`
@@ -1113,6 +1141,10 @@ git add -A && git commit -m "feat: media notification and hybrid background poli
 - [ ] **Step 1: Write the failing tests**
 
 ```kotlin
+@Test fun `paused swaps the glyph, drops the fill and flattens the meter`() { /* play icon, 45% fill, no accent */ }
+@Test fun `no artwork draws the monogram plate with its label`() { /* "No artwork" present, no spinner */ }
+@Test fun `a track outside the envelope keeps the meter's space and says so`() { /* "No level data" */ }
+@Test fun `a long title clamps to two lines and still leaves the transport in place`() { /* play y unchanged */ }
 @Test fun `stalled server shows the offline chip but keeps cached library browsable`() {
     // fake server accepts, then stalls; open library -> tiles visible, chip displayed
     composeRule.onNodeWithTag("offline-chip").assertIsDisplayed()

@@ -102,12 +102,12 @@ library and art cached locally, and never let a stale share freeze the UI.
 
 | | Direction | Verdict |
 |---|---|---|
-| A | **Gallery** — blurred cover wash fills the tablet, thin 44 px type, one hairline transport circle, queue in a narrow right rail; phone is a dense album grid | **Chosen** — quiet, room-like, ages well |
-| B | **Deck** — FiiO-style two panes: cover + spec left, queue permanently right | Kept in part: the always-visible queue rail is borrowed into A |
+| A | **Gallery** — blurred cover wash fills the tablet, thin display type, one hairline transport circle, queue nearby; phone is a dense album grid | **Chosen** — quiet, room-like, ages well |
+| B | **Deck** — FiiO-style two panes: cover + spec left, queue permanently right | Kept in part: the always-visible queue is borrowed into A, as a foot band rather than a rail (see §5.5) |
 | C | **Console** — PowerAmp-style plinth, reflection, brushed panels, amber controls, telemetry block | Kept in part: the telemetry strip is borrowed into A; the full skeuomorphic skin is dropped (fails loudly when details slip) |
 
 The result is **A's layout with C's honesty**: a signal strip under the title and
-a level meter in the rail.
+a level meter in the foot band.
 
 ### 4.2 How it gets built
 
@@ -241,7 +241,7 @@ One `NowPlaying` composable, three arrangements by window width:
 |---|---|
 | `< 600 dp` (phone) | Browse-first. Library list/grid, mini player pinned above the tab bar; tapping it opens a full-height sheet inset 12 dp (so the library shows behind it), a 44 dp chevron to close, the signal strip, three-control transport and an **Up next · N** row. **No meter** — the phone is the control surface; the tablet is the instrument. |
 | `600–840 dp` (tablet in split-screen, phone landscape) | **Stacked spine.** Cover fills the width at 400 dp, type steps down one (44 display), strip/progress/transport in one column, band keeps queue + meter. Same components as the tablet, one column instead of three. |
-| `≥ 840 dp` (tablet) | **One spine, one band.** 420 dp cover on the left; a 584 dp column (title, artist, position, signal strip, full-width progress, centred three-control transport) whose bottom edge is pinned to the cover's; a 132 dp band across the foot holding *up next* at the start and the level meter at the end. Blurred art wash behind. |
+| `≥ 840 dp` (tablet) | **One spine, one band.** 420 dp cover on the left; a 584 dp column (title, artist, position, signal strip, full-width progress, centred three-control transport) whose bottom edge is pinned to the cover's; a 152 dp band pinned to the frame's bottom edge, holding *up next* at the start and the level meter at the end. Blurred art wash behind. |
 
 Components shared across widths so there is one behaviour, not three:
 
@@ -300,8 +300,9 @@ per track:
   frames × { u8 rms_l, u8 rms_r, u8 peak }   (dBFS mapped -60..0 → 0..255)
 ```
 
-**Rendering.** The meter is a stereo pair of bars in the tablet rail (above
-*Up next*) and in the phone's now-playing sheet.
+**Rendering.** The meter is a stereo pair of 16 dp bars in the tablet's foot
+band, at its trailing end, with the live value in the block's header. **The phone
+has no meter** — the phone is the control surface, the tablet is the instrument.
 
 - The meter must land on what is *audible*, which lags MPD's `elapsed` by the
   ALSA buffer plus USB and DAC latency. So: `index = (elapsed − L) × 5`, floored
@@ -343,7 +344,6 @@ The surface has twelve states, drawn in `mockups/states.html` (review artifact, 
 | Empty library | `stats` reports 0 songs | "Library is empty" naming the SMB mount as the likely cause, plus Retry |
 | Empty queue | `playlistlength: 0` | "Nothing queued", mini player stays if audio is playing |
 | No search results | local FTS empty | Echoes the query, names what is searchable, offers Clear |
-| Sheet, no level data | phone, envelope miss | Fixed-height meter row so the sheet does not jump between tracks |
 
 Behaviour the pictures cannot show, fixed here:
 
@@ -358,11 +358,11 @@ Behaviour the pictures cannot show, fixed here:
 
 | Screen | Contents |
 |---|---|
-| Now playing | Art, title/artist, signal strip, progress, transport, meter, queue rail (tablet); expands from mini player (phone) |
+| Now playing | 420 dp art, title/artist/position, signal strip, full-width progress, centred transport, foot band with queue + meter (tablet); expands from the mini player (phone), with a chevron and an up-next row |
 | Library | Segmented: Albums / Artists / Tracks / Folders. Album grid with art, artist list, track list, folder tree straight from the MPD URI layout |
 | Album | Art, track list, "play all", "queue all", format of the album as a group |
 | Search | Local FTS, grouped results (albums, tracks), instant |
-| Queue | Full-screen on phone, the rail's expanded form on tablet; reorder, remove, save as playlist |
+| Queue | Full-screen on phone; on tablet it expands from the band's first block. Reorder, remove, save as playlist |
 | Playlists | `listplaylists`, load appends to queue, `save` from queue, `rm` |
 | Output | The single output, DoP flag, "bit-perfect" explanation, connection settings, loudness data import |
 
@@ -446,9 +446,9 @@ wear a menu). Back from library returns to now playing, not out of the app.
 
 - Exact type ramp (sizes, line heights) and the final accent hue.
 - Icon set (Material Symbols vs hand-drawn hairlines) and transport glyph weight.
-- Meter geometry: bar width, gap, rail placement, and whether the peak cap is
+- Meter geometry inside the band: bar width, gap, and whether the peak cap is
   drawn at all.
-- Motion: sheet transitions, art crossfade on track change, rail slide-in.
+- Motion: sheet transitions, art crossfade on track change, band reveal.
 - The empty and error states' copy.
 - Whether `single`/`consume` get their own controls or live in the overflow.
 - Test harness shape: a scriptable fake MPD server (Python, ~150 lines) that the
@@ -466,7 +466,7 @@ wear a menu). Back from library returns to now playing, not out of the app.
    local search; queue add/remove/reorder.
 3. **M3 — art.** Lazy fetch, chunk loop, disk cache, placeholders, timeouts.
 4. **M4 — the surface.** Tablet layout A, phone layout, signal strip, progress,
-   rail, theming.
+   band, theming.
 5. **M5 — meter.** Generator tool, format, import, ballistics, fallback state.
 6. **M6 — polish.** MediaSession notification, playlists, offline states,
    final motion and type.
