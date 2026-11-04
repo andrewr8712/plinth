@@ -86,6 +86,24 @@ class ScanTest(unittest.TestCase):
             self.assertEqual(0, vu_scan.scan(root, out, quiet=True))
             self.assertEqual(0, vu_scan.read_envelope(out)[1].__len__())
 
+    def test_a_file_with_a_damaged_header_is_namechecked_and_skipped(self):
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp) / "music"
+            root.mkdir()
+            write_sine(root / "good.wav", 1.0, -6.0)
+            # a half-copied download: right size, null header
+            (root / "broken.flac").write_bytes(b"\x00" * 4096)
+            out = Path(tmp) / "loudness.bin"
+
+            count = vu_scan.scan(root, out, quiet=True)
+
+            self.assertEqual(1, count)
+            _, records = vu_scan.read_envelope(out)
+            self.assertNotIn("broken.flac", records)
+            self.assertEqual("starts with null bytes, so the header is damaged (a truncated copy)",
+                             vu_scan.header_problem(root / "broken.flac"))
+            self.assertIsNone(vu_scan.header_problem(root / "good.wav"))
+
     def test_uri_is_relative_to_the_library_root(self):
         with TemporaryDirectory() as tmp:
             root = Path(tmp) / "music"

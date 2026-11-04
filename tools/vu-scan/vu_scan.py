@@ -100,6 +100,25 @@ def decode_frames(path: Path, rate: int = 5, ffmpeg: str = "ffmpeg"):
             raise RuntimeError(f"ffmpeg failed on {path}")
 
 
+def header_problem(path: Path) -> str | None:
+    """A reason to skip a file before handing it to ffmpeg, or None to try it.
+
+    Reference libraries contain half-copied downloads whose first bytes are nulls;
+    ffmpeg's "Cannot determine format of input after EOF" says nothing a person can
+    act on, so name the actual defect here.
+    """
+    try:
+        with open(path, "rb") as handle:
+            head = handle.read(12)
+    except OSError as exc:
+        return f"unreadable: {exc}"
+    if not head:
+        return "empty file"
+    if head.count(0) == len(head):
+        return "starts with null bytes, so the header is damaged (a truncated copy)"
+    return None
+
+
 def iter_files(root: Path):
     for path in sorted(root.rglob("*")):
         if path.is_file() and path.suffix.lower() in EXTENSIONS:
@@ -126,6 +145,11 @@ def scan(root: Path, out_path: Path, rate: int = 5, jobs: int = 4, ffmpeg: str =
 
     def work(path: Path):
         uri = mpd_uri(root, path)
+        problem = header_problem(path)
+        if problem is not None:
+            with lock:
+                skipped.append(f"{uri}: {problem}")
+            return
         try:
             frames = bytearray()
             for rms_l, rms_r, peak in decode_frames(path, rate, ffmpeg):
