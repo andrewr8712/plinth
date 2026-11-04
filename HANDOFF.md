@@ -6,9 +6,9 @@ A personal Android controller for the OpenWrt/MPD streamer at `10.0.0.219`, repl
 
 ## State at handoff
 
-- **M1 (MPD protocol) complete. M2 (library, art) complete. M3 (surfaces) complete except Task 15's remaining screens. M4–M6 not started.**
-- `74` unit tests green. `5` instrumented tests green, run on real devices: `NowPlayingExpandedTest` (2), `PhoneSurfacesTest` (3).
-- Debug APK installs and runs on both the tablet and the phone. Last known-good commit is the tip of `main`.
+- **M1 (MPD protocol) complete. M2 (library, art) complete. M3 (surfaces) complete — Task 15's screens landed this session. M4 (meter, service, polish — plan tasks 16–19) not started.**
+- `78` unit tests green. `12` instrumented tests green, run on a real tablet: `NowPlayingExpandedTest` (2), `PhoneSurfacesTest` (3), `LibrarySurfacesTest` (7).
+- Debug APK installs and runs on both the tablet and the phone. **Task 15 was built on branch `feat/task-15-screens` (off `build/phase-1`) and is not merged** — `master` is still the state described by the commit before it.
 - The album-merge bug and a second, larger dedupe bug are closed and verified on the tablet from a cleared database — see "Closed bugs" below. Nothing else is known broken.
 
 ## Build and install
@@ -59,15 +59,12 @@ Note this leaves two near-identical *Pale Emperor* tiles (13 + 13): the discogra
 
 ## What is left
 
-**Task 15 (M3), remaining screens.** Data layer is done and tested for all of these:
-- Artist list — `LibraryRepository.artists()`
-- Folder view — `folders()`
-- Search — `search()` (SQL `LIKE` prefix, not FTS; 1,965 rows scan instantly, accepted)
-- Queue screen — `QueueRepository`, plus the `queue` route already navigates
-- Output / settings screen — `OutputInfo`, `SettingsStore`
-- **Cover art on grid tiles** — `LibraryScreen.AlbumTile` draws the album's initial today. `Artwork` already takes `art: ArtRepository?` and caches to disk; this is a swap of the placeholder box for an `Artwork`.
+**Task 15 is done** — the library's four tabs, cover art on tiles, album detail with play/queue all, search, queue with reorder/remove/save/load, and output/settings all exist and are verified on the tablet. What it does *not* have, recorded rather than forgotten:
+- The tablet's top bar does not fade with inactivity (spec §5.7 wants it to). It is a static row.
+- No meter-sync sliders on Output — they land with the meter (Task 17), not before.
+- Search is prefix `LIKE`, not FTS (ruled in Task 7); albums are matched from the cached list.
 
-**M4 (meter, service, polish) — not started.**
+**M4 (meter, service, polish) — not started.** Plan tasks 16–19:
 - VU meter: precomputed 5 Hz stereo RMS envelope (~14 MB), `index = (elapsed − L)`, `L` default 120 ms PCM / 240 ms DoP, offset slider ±500 ms. Tablet and Medium only, never on the phone sheet. `QueueBand` reserves the 152 dp band and currently draws the meter at rest.
 - Foreground service (`mediaPlayback`) while playing, keep-screen-on while charging, infinite reconnect backoff, 60 s grace after pause/stop. Chosen as "hybrid" by the user.
 - The eleven failure states in `mockups/states.tpl.html` are designed but not implemented.
@@ -88,4 +85,4 @@ Note this leaves two near-identical *Pale Emperor* tiles (13 + 13): the discogra
 
 ## Numbers worth keeping
 
-1,965 rows returned by `listallinfo` · 1,866 tracks cached · **139 albums in the grid = 139 by identity** · 43 album artists · `listallinfo` 865 KB / 90 ms raw / 809 ms cold parse · cover 301,900 B at 1280², ~60 ms warm.
+1,965 rows returned by `listallinfo` · 1,866 tracks cached · **139 albums in the grid = 139 by identity** · 42 album artists (blank ones excluded) · 91 folders · `listallinfo` 865 KB / 90 ms raw / 809 ms cold parse · cover 301,900 B at 1280², ~60 ms warm.
