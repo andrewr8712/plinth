@@ -155,7 +155,11 @@ Rules that come straight from the measurements:
   stop at `ACK`. Art payloads contain arbitrary bytes.
 - **Two sockets**: one for commands, one parked on `idle`. Re-armed after every
   event; `idle` returns subsystems, and the client issues the matching refresh
-  (`status`, `plchanges <version>`, `listallinfo` on `database`).
+  (`status`, `playlistinfo` on `playlist`, `listallinfo` on `database`).
+- **Refetch the queue, don't diff it.** `plchanges <version>` reports additions
+  and moves but never removals, so a queue view built on diffs keeps deleted
+  rows forever. The queue is 12–200 rows and `playlistinfo` costs ~0.1 s; refetch
+  on version change and keep the local list only for optimistic reorder.
 - **Timeouts, differentiated:** state commands 3 s; `listallinfo` 20 s; art 15 s
   per chunk; `idle` no timeout (server holds it). On timeout the client marks the
   relevant capability `Unavailable` and stops retrying that class for 30 s.
@@ -173,9 +177,23 @@ Rules that come straight from the measurements:
 - Tables: `track(uri PK, album_id, disc, track_no, title, artist, album_artist,
   album, year, genre, duration, format, bit_depth, sample_rate, path)` and
   `album(id PK, title, artist, year, track_count, disc_count)`.
-- `album_id` = stable hash of (album artist, album, disc set) — the library has
-  duplicates (`Mezzanine` under an empty album artist, `Deftones` with five
-  compilations), so grouping must not rely on folder names alone.
+- **Album identity** (settled in review, after the library was inspected):
+  - group by normalised (album artist, album); empty `AlbumArtist` falls back to
+    `Artist`; folder name is never the key.
+  - collapse **exact duplicates** within a group — same (disc, track, title,
+    duration) — keeping the first by folder order. The library has real
+    duplicates: *Antichrist Superstar* appears twice (album folder + discography
+    folder) giving 198 rows for a 99-track album, and *The Beautiful People*
+    spans two singles.
+  - split **non-stereo mixes** into their own edition inside the album
+    (*The Raven…* has Stereo / 5.1 / Binaural, and 6 of its tracks are
+    `96000:24:6`). Multichannel rows are shown with a `5.1` chip and are excluded
+    from "play all" — this DAC is a stereo path and they will fail to open.
+  - box sets that legitimately span folders (*Mellon Collie*, 5 dirs; *RAM*,
+    2 discs) merge naturally under the tag key, which is why folder-splitting is
+    the wrong rule.
+  - `album_id` = hash of the normalised tag key + edition. It is the Room key,
+    the art filename and the `currentsong` lookup, so it must not change later.
 - Browse and search run **locally** against SQLite (FTS4 on title/artist/album).
   No `search` round-trips for typing; `search` is only used for "find on server".
 - The cache survives disconnection. A cached library plus an offline state is
@@ -185,8 +203,17 @@ Rules that come straight from the measurements:
 
 - Fetched per album, lazily, when the album is first rendered; stored under
   `files/art/<album_id>.jpg`; downscaled to 512×512 on decode before writing.
-- Source order: `albumart "<first track uri>" 0..n` (chunked, 8 KB) →
-  if bare `OK`, remember "no art" for that album for 7 days.
+- Raise `binarylimit 4000000` once per connection, then fetch with
+  `albumart "<first track uri>" 0` — one request per cover (~70 ms for a 300 KB
+  JPEG). Without raising the limit MPD caps each reply at 8 KB and a cover costs
+  37–158 round trips.
+- "No art" is `ACK [50@0] {albumart} No file exists`, **not** a bare `OK` (bare
+  `OK` is what `readpicture` returns for a file with no embedded picture, and
+  `albumart` is the only command that also finds a cover sitting next to the
+  tracks). Cache the negative answer per album for 7 days, keyed off ACK 50.
+- The same ACK 50 arrives when the SMB mount is stale rather than the album
+  being artless, so a negative is only cached after a *successful* `status`
+  round-trip in the same session.
 - Bounded: 15 s per album, 2 concurrent fetches, cancelled when the row scrolls
   off. A stale SMB mount must cost one placeholder, never a frozen list.
 - Placeholder: the album's initials set in the app's typography on a muted card,
@@ -205,10 +232,18 @@ One `NowPlaying` composable, three arrangements by window width:
 
 Components shared across widths so there is one behaviour, not three:
 
-- **Signal strip** — `FLAC · 24/96` → `96.0 kHz to DAC` → `bit-perfect`. Built
-  from `status` (`Format: 96000:24:2`) and the output's `dop` attribute. For DSD:
-  `DSD64 · DoP` derived from the `dsd64:2` status format. For untagged SACD
-  files: `DSD · DoP` from the `.dsf`/`.dff` extension.
+- **Signal strip** — `FLAC · 24/96` → `96.0 kHz to DAC` → verdict. Built from
+  `status` (`Format: 96000:24:2`, or `dsd64:2` → `DSD64 · DoP`) compared against
+  the track's own format from the library cache.
+  - The verdict is **computed, not decorative**: `bit-perfect` only when the
+    status format matches the file's format *and* `replay_gain_mode` is `off`
+    *and* the output is the ALSA `hw:0,0` output with no mixer.
+  - Otherwise `transcoded` (rate/format differ), `lossy` (source is mp3/aac/ogg),
+    `5.1 → stereo path` for the six-channel rows, or `unknown` while the status
+    is still settling. Stopped state shows the last known chain, dimmed.
+  - Because this build has no resampler, `transcoded` should be unreachable —
+    which is the point: if it ever appears, something changed on the server and
+    the strip is the thing that tells you.
 - **Progress hairline** — thin, draggable, with elapsed/remaining either side.
   Scrub sends `seekcur` on release, not on every drag event.
 - **Queue** — `plchanges <version>` diffs applied to a local list; drag to
@@ -222,7 +257,9 @@ Components shared across widths so there is one behaviour, not three:
 **Data source.** A precomputed loudness envelope per track, generated off-device.
 
 - **Generator:** `tools/vu-scan/` — a Python 3 + ffmpeg tool that walks the
-  library (SMB share is already mounted on the machine that hosts it), decodes
+  library **on the machine that holds it**: `/home/andrew/1tb/home/andrew/Music`
+  on this workstation (ffmpeg 9.0.2 present, 667 GB volume, same tree the router
+  mounts over CIFS), decodes
   each file to mono PCM, computes RMS and peak per 200 ms window, and writes one
   `loudness.bin` for the whole library. DSD is decoded through ffmpeg's DSF
   demuxer; anything it cannot read is skipped and logged.
@@ -250,9 +287,18 @@ per track:
 **Rendering.** The meter is a stereo pair of bars in the tablet rail (above
 *Up next*) and in the phone's now-playing sheet.
 
-- Index = floor((elapsed + latency_offset) × 5), where `latency_offset` is
-  estimated once per output from the difference between the local clock at
-  `play` and the first `status` showing a non-zero elapsed; default 150 ms.
+- The meter must land on what is *audible*, which lags MPD's `elapsed` by the
+  ALSA buffer plus USB and DAC latency. So: `index = (elapsed − L) × 5`, floored
+  at 0. (An earlier draft added the offset — wrong direction: that runs the
+  meter ahead of the sound.)
+- `L` defaults to **120 ms**, is calibrated once per output with a one-shot
+  measurement at first play (compare the local monotonic clock at `play` with the
+  first `status` showing non-zero `elapsed`), and is adjustable ±500 ms with a
+  2 dp slider under Output → "Meter sync", next to the loudness-data row. DSD/DoP
+  buffers are longer than PCM, so the value is stored per output *and* per
+  format class (PCM / DoP).
+- Target accuracy: within ~80 ms of the DAC's own display. Anything worse reads
+  as fake, which is the one failure this feature exists to avoid.
 - Ballistics: attack 30 ms, release 350 ms, so it moves like a needle rather
   than a bar graph.
 - dBFS mapped to bar height with a −60 dB floor; peaks shown as a 1 px cap that
@@ -294,8 +340,22 @@ wear a menu). Back from library returns to now playing, not out of the app.
 - A `MediaSession` + `MediaStyle` notification (art, title, artist, transport)
   so the phone's lockscreen and quick settings can drive it. The session is
   bound to the remote state, not to a local `ExoPlayer`.
-- A foreground service while connected, so state keeps updating when the screen
-  is off; dropped when the queue ends and the app is backgrounded.
+- **Background policy — hybrid (chosen).** The tablet is an appliance while it
+  is playing and an app otherwise:
+  - `playing` → foreground service (`mediaPlayback`), keep-screen-on while
+    charging, reconnect with infinite backoff, notification live.
+  - `paused` / `stopped` → stay connected for 60 s (so a quick pause-and-resume
+    doesn't tear the socket down), then release the idle socket, stop the
+    service and let the screen time out normally.
+  - Settings toggle **"Stay awake while charging"** under Output: when on, the
+    service stays up and the screen stays lit while a charger is attached,
+    regardless of playback state. Off by default.
+  - App backgrounded with no service → reconnect is suspended, not retried;
+    state is refreshed on next foreground. This resolves the earlier
+    contradiction between "pause backoff when backgrounded" and "keep state
+    fresh with the screen off": the service, not the app, owns the connection.
+  - A notification always exists while the service runs; dismissing it stops the
+    service (and the keep-awake), which is the honest way out of appliance mode.
 - Stretch, not v1: a Glance home-screen widget (art + transport + meter) for the
   tablet stand.
 
