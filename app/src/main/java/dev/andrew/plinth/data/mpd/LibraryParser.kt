@@ -37,7 +37,9 @@ object LibraryParser {
         val uri = t("file").orEmpty()
         val artist = t("Artist").orEmpty()
         val albumArtist = t("AlbumArtist")?.ifBlank { artist } ?: artist
-        val album = t("Album").orEmpty()
+        // Some rips carry no Album tag at all. Falling back to the folder keeps each
+        // folder its own album; keying on blanks merged unrelated records together.
+        val album = t("Album")?.ifBlank { null } ?: folderName(uri)
         val format = AudioFormat.parse(t("Format"))
             ?: if (fallbackFormatFromExt) formatFromExtension(uri) else null
         val channels = format?.channels ?: 2
@@ -70,6 +72,11 @@ object LibraryParser {
                 AudioFormat(sampleRate = 2_822_400, bits = 1, channels = 2, isDsd = true, dsdRate = 64)
             else -> null
         }
+    }
+
+    private fun folderName(uri: String): String {
+        val path = uri.substringBeforeLast('/', "")
+        return path.substringAfterLast('/').ifBlank { path }
     }
 
     private fun fileName(uri: String): String =
