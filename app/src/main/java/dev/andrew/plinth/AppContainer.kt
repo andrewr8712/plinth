@@ -19,6 +19,10 @@ class AppContainer(context: Context) {
     private val db = LibraryDb.build(appContext)
     val library = LibraryRepository(db)
 
+    val loudness = dev.andrew.plinth.data.loudness.LoudnessImporter(
+        File(appContext.filesDir, "").apply { mkdirs() },
+    )
+
     fun connection(host: String, port: Int) = MpdConnection(host, port)
 
     fun artFor(client: MpdClient) = ArtRepository(client, File(appContext.cacheDir, "covers"))
