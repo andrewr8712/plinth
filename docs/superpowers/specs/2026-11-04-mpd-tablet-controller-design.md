@@ -308,6 +308,34 @@ per track:
   fake animation. The decorative mode exists only as an explicit toggle
   ("Ambient motion") in settings for people who want the room lit up.
 
+### 5.6b States, drawn and specified
+
+The surface has twelve states, drawn in `mockups/states.html` (review artifact, not shipped):
+
+| State | Trigger | What changes |
+|---|---|---|
+| Playing | `state: play` | Baseline |
+| Paused | `state: pause` | Play glyph; progress fill 45 %; meter flat and grey; status dot idle |
+| Unreachable | two consecutive state timeouts | Device name replaced by `Streamer unreachable` + red dot; art at 55 %; transport 30 % and `aria-disabled`; strip prints `—`; `Retrying in Ns` + **Retry now** |
+| No level data | URI absent from the envelope | Meter box kept at full size, reads `No level data` / `Not in the loudness scan`; never animates |
+| Stale envelope | `db_update` newer than the import | Same box, reads `Loudness data is older than the library` |
+| No artwork | `ACK 50` from `albumart` | Initials plate on `#17171B`, no wash, no spinner, negative cached 7 days |
+| Long title | > 28 chars | 2-line clamp, 64→48 sp, `overflow-wrap: anywhere`; artist 1 line + ellipsis |
+| Connecting | first launch / reconnect | Skeletons plus the host being dialled |
+| Empty library | `stats` reports 0 songs | "Library is empty" naming the SMB mount as the likely cause, plus Retry |
+| Empty queue | `playlistlength: 0` | "Nothing queued", mini player stays if audio is playing |
+| No search results | local FTS empty | Echoes the query, names what is searchable, offers Clear |
+| Sheet, no level data | phone, envelope miss | Fixed-height meter row so the sheet does not jump between tracks |
+
+Behaviour the pictures cannot show, fixed here:
+
+- **Timeouts:** state 3 s, `listallinfo` 20 s, art 15 s, `idle` unbounded. Two consecutive state failures flip to Unreachable; the UI always renders last-known state with a stale marker rather than waiting on the socket.
+- **Reconnect:** 0.5 s → 16 s with ±20 % jitter, reset on success; **Retry now** cancels the wait; no attempts while backgrounded with no service.
+- **Seek gestures:** one pointer owns a drag; `pointercancel`, `lostpointercapture`, window blur, or a second pointer abandons it, restores the last confirmed position and sends nothing.
+- **Transport double-tap:** send once, ignore repeats for 250 ms or until `status` returns.
+- **i18n:** all containers flex (+35 % width budget), logical properties throughout, digits and durations through locale formatting.
+- **Accessibility:** 48 dp targets, accessible names on every transport control, `aria-live="polite"` on state text, meter exposes dB values, disabled transport is `aria-disabled` rather than hidden.
+
 ### 5.7 Screens
 
 | Screen | Contents |
