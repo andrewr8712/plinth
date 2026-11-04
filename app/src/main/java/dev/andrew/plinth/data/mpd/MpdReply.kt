@@ -18,3 +18,14 @@ sealed interface MpdReply {
 fun Pair<String, String>.intOrNull(): Int? = second.trim().toIntOrNull()
 
 fun Pair<String, String>.doubleOrNull(): Double? = second.trim().toDoubleOrNull()
+
+/** A binary reply: `size` is the whole payload, `bytes` what this read returned. */
+data class BinaryReply(val size: Int, val bytes: ByteArray) {
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is BinaryReply) return false
+        return size == other.size && bytes.contentEquals(other.bytes)
+    }
+
+    override fun hashCode(): Int = 31 * size + bytes.contentHashCode()
+}
