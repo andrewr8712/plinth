@@ -27,8 +27,15 @@ interface LibraryDao {
     @Query("SELECT * FROM album ORDER BY artist COLLATE NOCASE, year, title COLLATE NOCASE")
     fun albums(): Flow<List<AlbumEntity>>
 
-    @Query("SELECT DISTINCT albumArtist FROM track ORDER BY albumArtist COLLATE NOCASE")
+    @Query("SELECT DISTINCT albumArtist FROM track WHERE albumArtist <> '' ORDER BY albumArtist COLLATE NOCASE")
     fun artists(): Flow<List<String>>
+
+    @Query("SELECT * FROM track WHERE albumArtist = :artist ORDER BY album COLLATE NOCASE, disc, trackNo")
+    fun artistTracks(artist: String): Flow<List<TrackEntity>>
+
+    /** Every track, for the library's Tracks tab: one list readers can scan alphabetically. */
+    @Query("SELECT * FROM track ORDER BY artist COLLATE NOCASE, album COLLATE NOCASE, disc, trackNo")
+    fun tracks(): Flow<List<TrackEntity>>
 
     @Query("SELECT * FROM track WHERE albumId = :albumId ORDER BY disc, trackNo")
     fun albumTracks(albumId: String): Flow<List<TrackEntity>>

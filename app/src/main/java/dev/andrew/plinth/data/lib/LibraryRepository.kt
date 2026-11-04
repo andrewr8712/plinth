@@ -32,6 +32,11 @@ class LibraryRepository(private val db: LibraryDb) {
 
     fun artists(): Flow<List<String>> = dao.artists()
 
+    fun artistTracks(artist: String): Flow<List<Track>> =
+        dao.artistTracks(artist).map { rows -> rows.map { it.toTrack() } }
+
+    fun tracks(): Flow<List<Track>> = dao.tracks().map { rows -> rows.map { it.toTrack() } }
+
     fun albumTracks(albumId: String): Flow<List<Track>> =
         dao.albumTracks(albumId).map { rows -> rows.map { it.toTrack() } }
 

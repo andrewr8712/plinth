@@ -3,9 +3,15 @@ package dev.andrew.plinth
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBars
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
@@ -13,7 +19,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -26,8 +35,15 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dev.andrew.plinth.ui.screens.MiniPlayer
 import dev.andrew.plinth.ui.screens.NowPlayingSheet
 import dev.andrew.plinth.ui.screens.AlbumScreen
+import dev.andrew.plinth.ui.screens.ConnectionScreen
 import dev.andrew.plinth.ui.screens.LibraryScreen
+import dev.andrew.plinth.ui.screens.LibraryTab
 import dev.andrew.plinth.ui.screens.NowPlayingScreen
+import dev.andrew.plinth.ui.screens.OutputScreen
+import dev.andrew.plinth.ui.screens.QueueScreen
+import dev.andrew.plinth.ui.screens.SearchScreen
+import dev.andrew.plinth.ui.screens.TrackListScreen
+import dev.andrew.plinth.ui.screens.albumsMatching
 import dev.andrew.plinth.ui.theme.PlinthTheme
 import dev.andrew.plinth.ui.vm.PlayerViewModel
 import dev.andrew.plinth.ui.vm.PlayerViewModelFactory
@@ -69,10 +85,18 @@ fun AppRoot(container: AppContainer) {
     val ui by vm.ui.collectAsStateWithLifecycle()
     val queue by vm.queue.collectAsStateWithLifecycle()
     val art by vm.art.collectAsStateWithLifecycle()
+    val currentRoute = nav.currentBackStackEntryAsState().value?.destination?.route
     var sheetOpen by androidx.compose.runtime.remember { androidx.compose.runtime.mutableStateOf(false) }
 
     Scaffold(
         containerColor = PlinthColors.Base,
+        topBar = {
+            // The tablet has no bottom bar, so Search and Output would be unreachable
+            // without this. Now playing stays chrome-free — it is the instrument.
+            if (surface != SurfaceSize.Compact && currentRoute != "now") {
+                TabletTopBar(nav, currentRoute)
+            }
+        },
         bottomBar = {
             if (surface == SurfaceSize.Compact) {
                 androidx.compose.foundation.layout.Column {
@@ -108,12 +132,29 @@ fun AppRoot(container: AppContainer) {
             }
             composable("library") {
                 val albums by vm.albums.collectAsStateWithLifecycle()
+                val artists by vm.artists.collectAsStateWithLifecycle()
+                val tracks by vm.tracks.collectAsStateWithLifecycle()
+                val folders by vm.folders.collectAsStateWithLifecycle()
                 val syncing by vm.syncingLibrary.collectAsStateWithLifecycle()
+                // The tab is screen state, not a route: switching tabs should not grow
+                // the back stack, and back should return to now-playing in one press.
+                var tab by androidx.compose.runtime.saveable.rememberSaveable {
+                    androidx.compose.runtime.mutableStateOf(LibraryTab.Albums)
+                }
                 LibraryScreen(
                     size = surface,
+                    tab = tab,
+                    onTab = { tab = it },
                     albums = albums,
+                    artists = artists,
+                    tracks = tracks,
+                    folders = folders,
+                    art = art,
                     syncing = syncing,
                     onOpenAlbum = { id -> nav.navigate("album/$id") },
+                    onOpenArtist = { name -> nav.navigate("artist/${android.net.Uri.encode(name)}") },
+                    onOpenFolder = { name -> nav.navigate("folder/${android.net.Uri.encode(name)}") },
+                    onPlayTrack = { track -> vm.playNow(track.uri) },
                 )
             }
             composable("album/{id}") { entry ->
@@ -123,13 +164,91 @@ fun AppRoot(container: AppContainer) {
                     title = tracks.firstOrNull()?.album.orEmpty(),
                     artist = tracks.firstOrNull()?.albumArtist.orEmpty(),
                     tracks = tracks,
+                    albumId = id,
+                    art = art,
                     onPlayTrack = { index -> vm.playAlbum(tracks, index) },
+                    onPlayAll = { vm.playAlbum(tracks, 0) },
+                    onQueueAll = { vm.queueAll(tracks) },
                 )
             }
-            composable("queue") { Placeholder("Queue") }
-            composable("search") { Placeholder("Search") }
-            composable("output") { Placeholder("Output") }
-            composable("connection") { Placeholder("Connection") }
+            composable("artist/{name}") { entry ->
+                val name = android.net.Uri.decode(entry.arguments?.getString("name").orEmpty())
+                val tracks by vm.artistTracks(name).collectAsStateWithLifecycle(initialValue = emptyList())
+                TrackListScreen(
+                    title = name,
+                    subtitle = "",
+                    tracks = tracks,
+                    onPlay = { index -> vm.playAlbum(tracks, index) },
+                    showAlbum = true,
+                )
+            }
+            composable("folder/{name}") { entry ->
+                val name = android.net.Uri.decode(entry.arguments?.getString("name").orEmpty())
+                val tracks by vm.folderTracks(name).collectAsStateWithLifecycle(initialValue = emptyList())
+                TrackListScreen(
+                    title = name,
+                    subtitle = "Folder",
+                    tracks = tracks,
+                    onPlay = { index -> vm.playAlbum(tracks, index) },
+                    showAlbum = true,
+                )
+            }
+            composable("queue") {
+                var playlists by androidx.compose.runtime.remember {
+                    androidx.compose.runtime.mutableStateOf(emptyList<String>())
+                }
+                androidx.compose.runtime.LaunchedEffect(Unit) {
+                    vm.fetchPlaylists { playlists = it }
+                }
+                QueueScreen(
+                    items = queue,
+                    currentId = ui.songId,
+                    playlists = playlists,
+                    onPlay = vm::queuePlay,
+                    onRemove = vm::queueRemove,
+                    onMove = vm::queueMove,
+                    onClear = vm::queueClear,
+                    onSave = vm::saveQueue,
+                    onLoad = vm::loadPlaylist,
+                )
+            }
+            composable("search") {
+                val query by vm.query.collectAsStateWithLifecycle()
+                val results by vm.searchResults.collectAsStateWithLifecycle()
+                val albums by vm.albums.collectAsStateWithLifecycle()
+                SearchScreen(
+                    query = query,
+                    albums = albumsMatching(albums, query),
+                    tracks = results,
+                    onQueryChange = vm::setQuery,
+                    onOpenAlbum = { id -> nav.navigate("album/$id") },
+                    onPlayTrack = { track -> vm.playNow(track.uri) },
+                )
+            }
+            composable("output") {
+                val output by vm.output.collectAsStateWithLifecycle()
+                val settings by vm.settings.collectAsStateWithLifecycle()
+                OutputScreen(
+                    output = output,
+                    settings = settings,
+                    stateLabel = ui.stateLabel,
+                    onStayAwake = vm::setStayAwake,
+                    onOpenConnection = { nav.navigate("connection") },
+                )
+            }
+            composable("connection") {
+                val settings by vm.settings.collectAsStateWithLifecycle()
+                val state by vm.connectionState.collectAsStateWithLifecycle()
+                ConnectionScreen(
+                    initialHost = settings.host,
+                    initialPort = settings.port,
+                    initialState = state,
+                    onConnect = { host, port ->
+                        vm.setServer(host, port)
+                        nav.popBackStack()
+                    },
+                )
+            }
         }
     }
     if (sheetOpen) {
@@ -155,13 +274,7 @@ private fun PlinthBottomBar(nav: NavHostController) {
         destinations.forEach { destination ->
             NavigationBarItem(
                 selected = current == destination.route,
-                onClick = {
-                    nav.navigate(destination.route) {
-                        popUpTo(nav.graph.startDestinationId) { saveState = true }
-                        launchSingleTop = true
-                        restoreState = true
-                    }
-                },
+                onClick = { nav.goTopLevel(destination.route) },
                 icon = {},
                 label = {
                     Text(
@@ -174,13 +287,46 @@ private fun PlinthBottomBar(nav: NavHostController) {
     }
 }
 
+/** The tablet's only chrome: where else you can go. */
 @Composable
-private fun Placeholder(name: String) {
-    Box(Modifier.fillMaxSize(), contentAlignment = androidx.compose.ui.Alignment.Center) {
+private fun TabletTopBar(nav: NavHostController, current: String?) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            // targetSdk 35 is edge-to-edge by mandate, so the bar must inset itself or
+            // it draws under the clock and battery.
+            .windowInsetsPadding(WindowInsets.statusBars)
+            .background(PlinthColors.Base)
+            .padding(start = 24.dp, end = 16.dp, top = 10.dp, bottom = 2.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(4.dp),
+    ) {
         Text(
-            name,
+            text = "Plinth",
             color = PlinthColors.Faint,
-            style = androidx.compose.material3.MaterialTheme.typography.headlineMedium,
+            style = androidx.compose.material3.MaterialTheme.typography.labelSmall,
+            modifier = Modifier.weight(1f),
         )
+        destinations.filter { it.route != "now" }.forEach { destination ->
+            val selected = current == destination.route
+            Text(
+                text = destination.label,
+                color = if (selected) PlinthColors.Text else PlinthColors.Faint,
+                style = androidx.compose.material3.MaterialTheme.typography.bodySmall,
+                modifier = Modifier
+                    .clickable { nav.goTopLevel(destination.route) }
+                    .padding(horizontal = 12.dp, vertical = 10.dp)
+                    .testTag("top-${destination.route}"),
+            )
+        }
+    }
+}
+
+/** Top-level destinations replace each other rather than stacking up. */
+private fun NavHostController.goTopLevel(route: String) {
+    navigate(route) {
+        popUpTo(graph.startDestinationId) { saveState = true }
+        launchSingleTop = true
+        restoreState = true
     }
 }

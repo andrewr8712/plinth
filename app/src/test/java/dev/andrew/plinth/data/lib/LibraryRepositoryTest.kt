@@ -106,6 +106,40 @@ class LibraryRepositoryTest {
     }
 
     @Test
+    fun `an album carries the uri its art is asked for`() = runBlocking {
+        repo.replaceAll(fixture("listallinfo_raven.txt"))
+        val albums = repo.albums().first()
+        val uris = repo.tracks().first().map { it.uri }.toSet()
+        assertTrue(albums.all { it.firstUri in uris })
+        // track 1 of the album, not an arbitrary row
+        val surround = albums.first { it.edition == "5.1" }
+        val firstOfIt = repo.albumTracks(surround.id).first().first()
+        assertEquals(firstOfIt.uri, surround.firstUri)
+    }
+
+    @Test
+    fun `the tracks tab lists everything, artist by artist`() = runBlocking {
+        repo.replaceAll(massiveAttack())
+        val all = repo.tracks().first()
+        assertEquals(3, all.size)
+        assertEquals(listOf("Angel", "Teardrop", "Teardrop (Live)"), all.map { it.title })
+    }
+
+    @Test
+    fun `a blank album artist is not listed as an artist`() = runBlocking {
+        repo.replaceAll(fixture("listallinfo_untagged.txt"))
+        assertTrue("untagged rips have no artist to list", repo.artists().first().isEmpty())
+    }
+
+    @Test
+    fun `artist tracks are that artist's, in album order`() = runBlocking {
+        repo.replaceAll(massiveAttack())
+        val tracks = repo.artistTracks("Massive Attack").first()
+        assertEquals(listOf("Angel", "Teardrop"), tracks.map { it.title })
+        assertTrue(repo.artistTracks("Someone Else").first().none { it.artist == "Massive Attack" })
+    }
+
+    @Test
     fun `album row carries the edition and a track count`() = runBlocking {
         repo.replaceAll(fixture("listallinfo_raven.txt"))
         val albums = repo.albums().first()

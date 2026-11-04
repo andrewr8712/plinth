@@ -10,6 +10,8 @@ data class Album(
     val year: Int?,
     val trackCount: Int,
     val edition: String?,
+    /** The first track's URI, which is what `albumart` is asked for. */
+    val firstUri: String = "",
 )
 
 /**

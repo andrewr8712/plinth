@@ -13,6 +13,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.isActive
@@ -33,6 +34,7 @@ data class PlayerUi(
     val bitrateKbps: Int? = null,
     val stateLabel: String = "Connecting…",
     val queueCount: Int = 0,
+    val songId: Int? = null,
     val strip: dev.andrew.plinth.data.model.StripCells? = null,
 )
 
@@ -60,6 +62,41 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
     val albums: StateFlow<List<dev.andrew.plinth.data.model.Album>> = container.library.albums()
         .stateIn(viewModelScope, kotlinx.coroutines.flow.SharingStarted.Eagerly, emptyList())
 
+    val artists: StateFlow<List<String>> = container.library.artists()
+        .stateIn(viewModelScope, kotlinx.coroutines.flow.SharingStarted.Eagerly, emptyList())
+
+    val folders: StateFlow<List<String>> = container.library.folders()
+        .stateIn(viewModelScope, kotlinx.coroutines.flow.SharingStarted.Eagerly, emptyList())
+
+    val tracks: StateFlow<List<dev.andrew.plinth.data.model.Track>> = container.library.tracks()
+        .stateIn(viewModelScope, kotlinx.coroutines.flow.SharingStarted.Eagerly, emptyList())
+
+    /** Search runs in Room on a prefix index-free scan; 1,866 rows is instant. */
+    private val _query = MutableStateFlow("")
+    val query: StateFlow<String> = _query.asStateFlow()
+
+    @OptIn(kotlinx.coroutines.ExperimentalCoroutinesApi::class)
+    val searchResults: StateFlow<List<dev.andrew.plinth.data.model.Track>> = _query
+        .flatMapLatest { container.library.search(it) }
+        .stateIn(viewModelScope, kotlinx.coroutines.flow.SharingStarted.Eagerly, emptyList())
+
+    fun setQuery(text: String) {
+        _query.value = text
+    }
+
+    private val _output = MutableStateFlow<dev.andrew.plinth.data.model.OutputInfo?>(null)
+    val output: StateFlow<dev.andrew.plinth.data.model.OutputInfo?> = _output.asStateFlow()
+
+    private val _connectionState = MutableStateFlow<ConnectionState>(ConnectionState.Connecting(failuresAgo = 0))
+    val connectionState: StateFlow<ConnectionState> = _connectionState.asStateFlow()
+
+    val settings: StateFlow<dev.andrew.plinth.data.settings.Settings> =
+        container.settings.flow.stateIn(
+            viewModelScope,
+            kotlinx.coroutines.flow.SharingStarted.Eagerly,
+            dev.andrew.plinth.data.settings.Settings(),
+        )
+
     private val _art = MutableStateFlow<dev.andrew.plinth.data.art.ArtRepository?>(null)
     val art: StateFlow<dev.andrew.plinth.data.art.ArtRepository?> = _art.asStateFlow()
 
@@ -78,9 +115,11 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
         viewModelScope.launch { conn.run() }
         viewModelScope.launch {
             conn.state.collect { state ->
+                _connectionState.value = state
                 if (state is ConnectionState.Up) {
                     _art.value = runCatching { conn.withClient { container.artFor(it) } }.getOrNull()
                     lastOutput = runCatching { conn.withClient { it.outputs().firstOrNull() } }.getOrNull()
+                    _output.value = lastOutput
                     if (!librarySynced) {
                         librarySynced = true
                         viewModelScope.launch {
@@ -152,6 +191,7 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
             elapsed = status.elapsed ?: base.elapsed,
             duration = status.duration ?: base.duration,
             isPlaying = status.state == PlaybackState.Play,
+            songId = status.songId ?: base.songId,
             formatLine = format?.let { f ->
                 if (f.isDsd) {
                     "DSD${f.dsdRate} · ${f.channels} ch"
@@ -186,6 +226,64 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
 
     fun albumTracks(albumId: String): kotlinx.coroutines.flow.Flow<List<dev.andrew.plinth.data.model.Track>> =
         container.library.albumTracks(albumId)
+
+    fun artistTracks(artist: String): kotlinx.coroutines.flow.Flow<List<dev.andrew.plinth.data.model.Track>> =
+        container.library.artistTracks(artist)
+
+    fun folderTracks(folder: String): kotlinx.coroutines.flow.Flow<List<dev.andrew.plinth.data.model.Track>> =
+        container.library.folderTracks(folder)
+
+    /** One track, alone in the queue — what tapping a single search result should do. */
+    fun playNow(uri: String) = command { client ->
+        client.clearQueue()
+        client.add(uri)
+        client.play(0)
+    }
+
+    fun queueTrack(uri: String) = command { client -> client.add(uri) }
+
+    fun queueAll(tracks: List<dev.andrew.plinth.data.model.Track>) = command { client ->
+        tracks.forEach { client.add(it.uri) }
+    }
+
+    fun queuePlay(pos: Int) = command { client -> client.play(pos) }
+
+    fun queueRemove(id: Int) = command { client -> client.deleteId(id) }
+
+    /** [from] and [to] are queue positions; MPD moves by song id. */
+    fun queueMove(from: Int, to: Int) = command { client ->
+        val id = _queue.value.getOrNull(from)?.id ?: return@command
+        client.moveId(id, to)
+    }
+
+    fun queueClear() = command { client -> client.clearQueue() }
+
+    fun saveQueue(name: String) = command { client ->
+        if (name.isNotBlank()) client.savePlaylist(name.trim())
+    }
+
+    /** Saved playlists live on the streamer; the dialog needs them on demand. */
+    fun fetchPlaylists(onResult: (List<String>) -> Unit) {
+        val conn = connection ?: return onResult(emptyList())
+        viewModelScope.launch {
+            onResult(runCatching { conn.withClient { it.listPlaylists() } }.getOrDefault(emptyList()))
+        }
+    }
+
+    fun loadPlaylist(name: String) = command { client -> client.loadPlaylist(name) }
+
+    fun setStayAwake(on: Boolean) {
+        viewModelScope.launch {
+            container.settings.update { it.copy(stayAwakeWhileCharging = on) }
+        }
+    }
+
+    fun setServer(host: String, port: Int) {
+        viewModelScope.launch {
+            container.settings.update { it.copy(host = host, port = port) }
+            connect(host, port)
+        }
+    }
 
     fun playPause() = command {
         val playing = _ui.value.isPlaying

@@ -33,6 +33,8 @@ data class AlbumEntity(
     val year: Int?,
     val trackCount: Int,
     val edition: String?,
+    /** Kept so a grid tile can ask for art without loading the album's tracks. */
+    val firstUri: String,
 )
 
 fun Track.toEntity(): TrackEntity = TrackEntity(
@@ -78,7 +80,15 @@ fun TrackEntity.toTrack(): Track = Track(
     channels = channels,
 )
 
-fun AlbumEntity.toAlbum(): Album = Album(id, title, artist, year, trackCount, edition)
+fun AlbumEntity.toAlbum(): Album = Album(
+    id = id,
+    title = title,
+    artist = artist,
+    year = year,
+    trackCount = trackCount,
+    edition = edition,
+    firstUri = firstUri,
+)
 
 /** Derives the album row from its tracks: title and year from the first one. */
 fun List<Track>.toAlbumEntity(id: String): AlbumEntity {
@@ -90,5 +100,6 @@ fun List<Track>.toAlbumEntity(id: String): AlbumEntity {
         year = mapNotNull { it.year }.minOrNull(),
         trackCount = size,
         edition = AlbumIdentity.edition(first.channels),
+        firstUri = first.uri,
     )
 }
