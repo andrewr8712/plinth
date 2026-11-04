@@ -23,6 +23,12 @@ class FakeMpdServer : Closeable {
     private val history = Collections.synchronizedList(ArrayList<String>())
     val commands: List<String> get() = synchronized(history) { ArrayList(history) }
 
+    @Volatile
+    private var binaryPayload: ByteArray? = null
+
+    /** Serve `albumart` with a real binary body, chunked or whole. */
+    fun binaryResponse(bytes: ByteArray) { binaryPayload = bytes }
+
     private val queueBlocks = Collections.synchronizedList(ArrayList<List<Pair<String, String>>>())
 
     @Volatile
@@ -70,6 +76,15 @@ class FakeMpdServer : Closeable {
                 last.set(line)
                 history.add(line)
                 if (stall) continue
+                val payload = binaryPayload
+                if (payload != null && line.startsWith("albumart")) {
+                    out.write("size: ${payload.size}\nbinary: ${payload.size}\n".toByteArray())
+                    out.write(payload)
+                    out.write("\nOK\n".toByteArray())
+                    out.flush()
+                    continue
+                }
+
                 if (line.startsWith("playlistinfo")) {
                     out.write(queuePayload().toByteArray())
                     out.flush()

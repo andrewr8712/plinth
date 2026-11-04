@@ -168,6 +168,10 @@ class MpdClient(private val socket: MpdSocket) {
     /** Raises the server's chunk cap; art needs ~302 KB in one reply. */
     suspend fun binaryLimit(bytes: Int) = write("binarylimit $bytes")
 
+    /** One `albumart` request. Needs `binaryLimit` raised first or it arrives chunked. */
+    suspend fun albumArt(uri: String, offset: Int = 0, timeoutMs: Int = MpdSocket.ART_TIMEOUT_MS): BinaryReply =
+        socket.commandBinary("albumart ${quote(uri)} $offset", timeoutMs)
+
     private suspend fun write(line: String) {
         val reply = socket.command(line)
         if (reply is MpdReply.Ack) throw MpdException.Protocol(reply.message)
