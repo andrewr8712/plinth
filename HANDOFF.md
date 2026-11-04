@@ -7,9 +7,9 @@ A personal Android controller for the OpenWrt/MPD streamer at `10.0.0.219`, repl
 ## State at handoff
 
 - **M1 (MPD protocol) complete. M2 (library, art) complete. M3 (surfaces) complete except Task 15's remaining screens. M4–M6 not started.**
-- `71` unit tests green. `5` instrumented tests green, run on real devices: `NowPlayingExpandedTest` (2), `PhoneSurfacesTest` (3).
+- `74` unit tests green. `5` instrumented tests green, run on real devices: `NowPlayingExpandedTest` (2), `PhoneSurfacesTest` (3).
 - Debug APK installs and runs on both the tablet and the phone. Last known-good commit is the tip of `main`.
-- **One real bug is open** — see "Open bug" below. Nothing else is known broken.
+- The album-merge bug and a second, larger dedupe bug are closed and verified on the tablet from a cleared database — see "Closed bugs" below. Nothing else is known broken.
 
 ## Build and install
 
@@ -37,39 +37,25 @@ Instrumented tests need `ANDROID_SERIAL` set to a connected device. Toolchain is
 
 SSH to the streamer is refused (publickey and password), so everything goes through MPD on 6600. Both `adb` targets are wireless; `adb connect` first if `adb devices` is empty.
 
-## Open bug — album detail merges two unrelated albums
+## Closed bugs
 
-**Symptom.** Opening one album in the library shows 33 tracks from *two* records, with a blank header. Rows 01–10 are a Guilty Gear soundtrack (`KANEDA`, `BATTLE AGAINST CLOWN`, … `REQUIEM`); rows 11+ are Marilyn Manson's *The Pale Emperor (Deluxe Edition)* (`Killing Strangers`, `Deep Six`, …).
+### 1. Album detail merged unrelated records (the one that was open)
 
-**It is not stale cache.** It survived `adb shell pm clear dev.andrew.plinth` followed by a genuine first-run sync (grid rebuilt to 136 albums, same merge). So it reproduces from a clean database.
+The three DFF folders in this library — *Symphonic Suite AKIRA*, *The Pale Emperor DSD*, *Breakfast In America SACD* — carry **no tags at all**: `lsinfo` returns only `file`, `Last-Modified`, `Time`, `duration`. With `Album`, `AlbumArtist`, `Artist` and `Track` all absent, all 33 rows keyed on blank + blank and became one album with a blank header (which is also why every row read `00`).
 
-**What MPD actually reports** for the Manson track, so the data is fine on the server:
+**Root cause of "the fix did not work": the fix was never on the device.** `LibraryParser` keys a blank `Album` on the folder name (commit `54b15dd`, 00:58:15), but the APK under test was assembled at 00:56:40 and installed at 00:57:58 — both *before* the commit. The database proved which code wrote it: the merged bucket's id was `1489f923c4dca729` = `sha1("" + NUL + "" + NUL)[0..16]`, the pre-fix blank key. `pm clear` + resync could not have helped.
 
-```
-file: Marilyn Manson  - Discography 1990-2020 (FLAC) 88/2015 - The Pale Emperor (Deluxe Edition)/01 -Killing Strangers.flac
-Album: The Pale Emperor (Deluxe Edition)
-AlbumArtist: Marilyn Manson
-```
+Now verified from a cleared database on the tablet: 139 albums, three separate tiles (folder-name titles), album detail shows 10 / 13 / 10 rows, header reads "10 tracks" with no leading separator, no fabricated track numbers.
 
-The Guilty Gear tracks carry **no `Album` tag** (that is why the header is blank), and **every row on the screen shows track number `00`** — so these tracks have no usable `Track`/`Disc` tags either; the Manson ones carry vinyl-style numbering in the title instead (`A1.`, `A2.`, `B1.`). The same merged album opens from more than one grid tile, so it is one bucket, not a bad row.
+Tests pinning it: `LibraryParserTest.untagged folders are separate albums keyed on the folder name` and `LibraryRepositoryTest.untagged folders stay separate all the way into the album table`, both against `listallinfo_untagged.txt` (the 33 real blocks copied off the streamer, not invented).
 
-**Already tried, did not fix it.** `LibraryParser.kt:42` now falls back to the folder name when `Album` is blank:
+### 2. `dedupe()` deleted tracks that belonged to other albums
 
-```kotlin
-val album = t("Album")?.ifBlank { null } ?: folderName(uri)
-```
+Found while chasing the old "136 albums in the grid, 137 by identity" note — it was not an id collapse. `AlbumIdentity.dedupe()` keyed on `(disc, track, title, duration)` **globally**, so a song that legitimately appears on two albums was dropped from the second one. Live damage: *The Pale Emperor* held 3 of 13 tracks, *Hand. Cannot. Erase.* 17 of 25, *Sweet Dreams* 3 of 4, *Lest We Forget* 17 of 18, *Live* 6 of 7, and *The Dripping Tap* lost its only track so its album row vanished entirely.
 
-That is committed. Note it deliberately relaxes the spec's "folder name is never the key" rule; the rule exists so box sets merge on their tags, and a folder with no tags has nothing else to identify it.
+`albumId` is now in the dedupe key. Duplicate copies of one rip share an album id, so they still collapse (Manson fixture: 198 rows → 99, unchanged). Library: **1,844 tracks / 136 albums → 1,866 / 139**, and the grid count now equals the identity count, which is what the old 137-vs-136 note was pointing at.
 
-**Narrowed hypotheses — check these in order:**
-
-1. `LibraryRepository.albumTracks(albumId)` may not be filtering on `albumId` at all (it returned 33 rows, not the whole 1,965 — so it filters on *something*).
-2. The album row's `id` (from the album table, used by the route `album/{id}`) and `track.albumId` may be computed by two different paths that disagree — `AlbumIdentity.key(...)` in the parser versus whatever `replaceAll` writes into the album table.
-3. `AlbumIdentity.dedupe()` may reassign or share an id across groups.
-4. `AlbumIdentity.key(albumArtist, artist, album, channels)` may be ignoring `album` in some branch (e.g. a blank-album early return).
-5. **Most likely, given the `00` track numbers:** these rows are the *untagged* ones, and the id is derived from `(disc, trackNo)` somewhere rather than from text tags — every one of them has `disc=0, trackNo=0`. Check whether `replaceAll` or the album query groups by disc/track instead of album id. Also check whether the Guilty Gear files sit loose in the library root: `folderName()` returns blank for a URI with no directory, so the fallback would produce a blank album even after the fix, and blank would join anything else that is blank.
-
-**Fastest way in:** write a failing unit test in `AlbumIdentityTest` with a two-block fixture — one track with blank `Album`, one with a real `Album` — asserting the two keys differ. Then a second test at the `LibraryRepository` level asserting `albumTracks(idA)` does not return the `idB` track. `app/src/test/resources/` already holds real `listallinfo` blocks copied from the device (`listallinfo_{manson_dupes,mellon_collie,raven,sacd}.txt`) and `LibraryParserTest` shows the fixture pattern. The bug will fall out at one of those two levels.
+Note this leaves two near-identical *Pale Emperor* tiles (13 + 13): the discography rip and the 24-bit rip carry different `Album` tags, so by the spec's rules they are different albums. That is a tagging problem in the library, not an app bug — dedupe is not the place to fix it.
 
 ## What is left
 
@@ -88,6 +74,7 @@ That is committed. Note it deliberately relaxes the spec's "folder name is never
 
 ## Pitfalls that cost real time — do not rediscover these
 
+- **Prove the APK you tested was built from the commit you think you fixed it with.** The album-merge fix was declared "committed and did not work" for a day; it had simply never been compiled. Compare `git log -1 --format=%ci <commit>`, the APK's mtime and `dumpsys package dev.andrew.plinth | grep lastUpdateTime`. Better: pull the app's own database (`adb exec-out run-as dev.andrew.plinth cat databases/library.db > /tmp/library.db`, plus `-wal`) and read what the running code actually produced — the merged bucket's id matched `sha1("\0\0")` byte for byte, which ended the hypothesis hunt immediately.
 - **No regex on the hot path.** `MpdParser` originally parsed ACK replies with a `Regex`; Android's ICU rejects the pattern and threw `PatternSyntaxException` at class-init, so *every* command failed silently while all JVM tests passed. ACK parsing is hand-rolled now. Any new regex needs an on-device check.
 - **Espresso 3.6.1 crashes on Android 17** (`InputManager.getInstance` removed). Pinned to 3.7.0 with androidx.test 1.3.0 / test-core 1.7.0. Do not downgrade.
 - **`LaunchedEffect` keys must include the repository.** `Artwork` keyed on `(albumId, uri)` only, so on a cold start it ran while `art` was still null and never retried — the big cover stayed blank forever while the mini player showed the same art.
@@ -96,8 +83,9 @@ That is committed. Note it deliberately relaxes the spec's "folder name is never
 - **`albumart` is one request** with `binarylimit` raised once per connection, not 8 KB chunks. `ACK [50@0]` means "no art" and is negatively cached for 7 days; anything else is an error.
 - **Never write to the streamer during probing** — no `play`/`stop`/`setvol`/`toggleoutput`. Transport is exercised against `FakeMpdServer` only; real playback was never started by the agent, and the plan of record is that the user verifies playback while listening.
 - **`write_file` refuses to overwrite files it has not read** in the current turn. Read first, or use `patch`.
-- Tablet screenshots: `adb -s 10.0.0.220:41219 exec-out screencap -p > /tmp/x.png`, then look at them. Four bugs in this project were found by looking at a screenshot and none by the test suite.
+- **A missing tag must not become a printed value.** Untagged rows have `trackNo = 0` and a blank artist; render nothing (or omit the separator) rather than `00` and a dangling `·`.
+- Tablet screenshots: `adb -s 10.0.0.220:41219 exec-out screencap -p > /tmp/x.png`, then look at them. Five bugs in this project were found by looking at a screenshot and none by the test suite.
 
 ## Numbers worth keeping
 
-1,965 tracks · 136 albums in the grid (137 by identity — one collapses in `replaceAll`, unexplained) · 43 album artists · `listallinfo` 865 KB / 90 ms raw / 809 ms cold parse · cover 301,900 B at 1280², ~60 ms warm.
+1,965 rows returned by `listallinfo` · 1,866 tracks cached · **139 albums in the grid = 139 by identity** · 43 album artists · `listallinfo` 865 KB / 90 ms raw / 809 ms cold parse · cover 301,900 B at 1280², ~60 ms warm.
