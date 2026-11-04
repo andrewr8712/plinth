@@ -21,7 +21,11 @@ import androidx.navigation.compose.rememberNavController
 import dev.andrew.plinth.ui.layout.SurfaceSize
 import dev.andrew.plinth.ui.layout.rememberSurfaceSize
 import dev.andrew.plinth.ui.theme.PlinthColors
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import dev.andrew.plinth.ui.screens.NowPlayingScreen
 import dev.andrew.plinth.ui.theme.PlinthTheme
+import dev.andrew.plinth.ui.vm.PlayerViewModel
+import dev.andrew.plinth.ui.vm.PlayerViewModelFactory
 
 class MainActivity : ComponentActivity() {
 
@@ -68,7 +72,24 @@ fun AppRoot(container: AppContainer) {
             startDestination = "now",
             modifier = Modifier.padding(insets),
         ) {
-            composable("now") { Placeholder("Now playing") }
+            composable("now") {
+                val vm: PlayerViewModel = androidx.lifecycle.viewmodel.compose.viewModel(
+                    factory = PlayerViewModelFactory(container),
+                )
+                val ui by vm.ui.collectAsStateWithLifecycle()
+                val queue by vm.queue.collectAsStateWithLifecycle()
+                val art by vm.art.collectAsStateWithLifecycle()
+                NowPlayingScreen(
+                    size = surface,
+                    ui = ui,
+                    queue = queue,
+                    art = art,
+                    onPlayPause = vm::playPause,
+                    onPrev = vm::previous,
+                    onNext = vm::next,
+                    onSeek = vm::seek,
+                )
+            }
             composable("library") { Placeholder("Library") }
             composable("album/{id}") { Placeholder("Album") }
             composable("queue") { Placeholder("Queue") }
