@@ -266,7 +266,8 @@ Components shared across widths so there is one behaviour, not three:
   reorder sends `moveid`; swipe removes via `deleteid`. Queue rows show disc/
   track number, title, duration, and a now-playing marker.
 - **Transport** — prev / play-pause / next, plus shuffle (random) and repeat in
-  the rail header. `single` and `consume` live in the overflow, not the main row.
+  the band's queue header. `single` and `consume` live in the overflow, not the
+  main row.
 
 ### 5.6 The VU meter
 
