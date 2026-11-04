@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.animation.core.withInfiniteAnimationFrameNanos
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -16,7 +17,6 @@ import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
-import androidx.compose.runtime.withFrameNanos
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
@@ -79,7 +79,10 @@ fun LevelMeter(
         }
         var previous = 0L
         while (true) {
-            withFrameNanos { now ->
+            // withInfiniteAnimationFrameNanos, not withFrameNanos: a plain frame loop
+            // marks Compose permanently busy, so every instrumented test that composes
+            // this meter times out on idling.
+            withInfiniteAnimationFrameNanos { now ->
                 if (previous != 0L) {
                     val dt = (now - previous) / 1_000_000
                     val frame = target

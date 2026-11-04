@@ -36,12 +36,17 @@ class LoudnessIndex private constructor(
 
     val trackCount: Int get() = records.size
 
-    /** The level at [positionSec] into the track, or null when the track or position is unknown. */
+    /**
+     * The level at [positionSec] into the track, or null when the track is absent.
+     *
+     * A position before the start clamps to the first frame: the meter runs behind
+     * playback by the output's latency, so at the very start of a track the offset
+     * lands slightly before zero and the honest answer is the first window, not silence.
+     */
     fun levelAt(uri: String, positionSec: Double): StereoLevel? {
-        if (positionSec < 0) return null
         val record = records[uri] ?: return null
-        val frame = (positionSec * rate).toInt()
-        if (frame < 0 || frame >= record.frames) return null
+        val frame = maxOf(0, (positionSec * rate).toInt())
+        if (frame >= record.frames) return null
         val offset = record.start + frame * BYTES_PER_FRAME
         return StereoLevel.fromBytes(
             buffer.get(offset).toInt(),

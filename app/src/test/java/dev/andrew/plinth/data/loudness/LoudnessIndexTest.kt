@@ -64,7 +64,10 @@ class LoudnessIndexTest {
         assertEquals(100, atOne.left)
 
         assertNull("past the last frame must not clamp", index.levelAt("a.flac", 9999.0))
-        assertNull("a negative position is not a frame", index.levelAt("a.flac", -1.0))
+        // The meter subtracts the output latency, so a track's first frames are read at
+        // a slightly negative position. That is the first window, not a missing frame.
+        val beforeStart = index.levelAt("a.flac", -0.12)!!
+        assertEquals(10, beforeStart.left)
     }
 
     @Test

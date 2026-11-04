@@ -183,14 +183,19 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
                 delay(LEVEL_MS)
                 val index = loudness
                 val ui = _ui.value
-                if (index == null || !ui.isPlaying || ui.uri.isEmpty()) {
+                if (index == null || ui.uri.isEmpty()) {
                     if (ui.level != null) _ui.value = ui.copy(level = null)
                     continue
                 }
                 val offsetMs = if (ui.isDsd) settings.value.meterOffsetDsdMs else settings.value.meterOffsetPcmMs
-                val position = lastElapsed +
-                    (android.os.SystemClock.elapsedRealtime() - lastElapsedAtMs) / 1000.0 -
-                    offsetMs / 1000.0
+                // Paused keeps the frame at the paused position: a needle at rest is
+                // truthful, where "No level data" would blame a missing envelope.
+                val clocked = if (ui.isPlaying) {
+                    lastElapsed + (android.os.SystemClock.elapsedRealtime() - lastElapsedAtMs) / 1000.0
+                } else {
+                    lastElapsed
+                }
+                val position = clocked - offsetMs / 1000.0
                 val level = index.levelAt(ui.uri, position)
                 if (level != ui.level) _ui.value = _ui.value.copy(level = level)
             }

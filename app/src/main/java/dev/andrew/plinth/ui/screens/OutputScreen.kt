@@ -37,6 +37,7 @@ fun OutputScreen(
     stateLabel: String,
     levelTracks: Int = 0,
     levelStatus: String? = null,
+    libraryTracks: Int = 0,
     onStayAwake: (Boolean) -> Unit = {},
     onOpenConnection: () -> Unit = {},
     onImportLoudness: () -> Unit = {},
@@ -92,47 +93,6 @@ fun OutputScreen(
             modifier = Modifier.padding(horizontal = 24.dp).testTag("no-mixer-note"),
         )
 
-        SectionLabel("Loudness data")
-        Row(
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 24.dp).testTag("loudness-row"),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween,
-        ) {
-            Column(Modifier.weight(1f)) {
-                Text(
-                    text = if (levelTracks > 0) "$levelTracks tracks" else "No loudness data",
-                    color = PlinthColors.Text,
-                    style = MaterialTheme.typography.bodyLarge,
-                )
-                Text(
-                    text = levelStatus ?: "The meter needs a loudness file built by tools/vu-scan.",
-                    color = PlinthColors.Faint,
-                    style = MaterialTheme.typography.bodySmall,
-                )
-            }
-            TextAction("Import", onClick = onImportLoudness, testTag = "import-loudness")
-        }
-
-        MeterOffsetRow(
-            label = "Meter sync · PCM",
-            valueMs = settings.meterOffsetPcmMs,
-            onChange = { onMeterOffset(false, it) },
-            testTag = "meter-offset-pcm",
-        )
-        MeterOffsetRow(
-            label = "Meter sync · DSD",
-            valueMs = settings.meterOffsetDsdMs,
-            onChange = { onMeterOffset(true, it) },
-            testTag = "meter-offset-dsd",
-        )
-        Text(
-            text = "The meter runs behind the streamer by its buffer and the DAC's latency. " +
-                "Raise the offset if the bars lead what you hear.",
-            color = PlinthColors.Faint,
-            style = MaterialTheme.typography.bodySmall,
-            modifier = Modifier.padding(start = 24.dp, end = 24.dp, top = 4.dp),
-        )
-
         SectionLabel("Server")
         Row(
             modifier = Modifier
@@ -180,6 +140,54 @@ fun OutputScreen(
                 modifier = Modifier.testTag("stay-awake"),
             )
         }
+
+        SectionLabel("Loudness data")
+        Row(
+            modifier = Modifier.fillMaxWidth().padding(horizontal = 24.dp).testTag("loudness-row"),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween,
+        ) {
+            Column(Modifier.weight(1f)) {
+                Text(
+                    text = if (levelTracks > 0) "$levelTracks tracks with levels" else "No loudness data",
+                    color = PlinthColors.Text,
+                    style = MaterialTheme.typography.bodyLarge,
+                )
+                Text(
+                    // Say what the file covers, not just that it exists: a stale MPD path
+                    // leaves some tracks without a level, and that should be visible here
+                    // rather than discovered at the meter.
+                    text = levelStatus ?: when {
+                        levelTracks == 0 -> "The meter needs a loudness file built by tools/vu-scan."
+                        libraryTracks > 0 -> "of $libraryTracks in the library; the rest show no level data."
+                        else -> "Imported envelope"
+                    },
+                    color = PlinthColors.Faint,
+                    style = MaterialTheme.typography.bodySmall,
+                )
+            }
+            TextAction("Import", onClick = onImportLoudness, testTag = "import-loudness")
+        }
+
+        MeterOffsetRow(
+            label = "Meter sync · PCM",
+            valueMs = settings.meterOffsetPcmMs,
+            onChange = { onMeterOffset(false, it) },
+            testTag = "meter-offset-pcm",
+        )
+        MeterOffsetRow(
+            label = "Meter sync · DSD",
+            valueMs = settings.meterOffsetDsdMs,
+            onChange = { onMeterOffset(true, it) },
+            testTag = "meter-offset-dsd",
+        )
+        Text(
+            text = "The meter runs behind the streamer by its buffer and the DAC's latency. " +
+                "Raise the offset if the bars lead what you hear.",
+            color = PlinthColors.Faint,
+            style = MaterialTheme.typography.bodySmall,
+            modifier = Modifier.padding(start = 24.dp, end = 24.dp, top = 4.dp),
+        )
     }
 }
 

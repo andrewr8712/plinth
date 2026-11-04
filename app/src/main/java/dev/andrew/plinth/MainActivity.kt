@@ -230,6 +230,7 @@ fun AppRoot(container: AppContainer) {
                 val settings by vm.settings.collectAsStateWithLifecycle()
                 val levelTracks by vm.levelTracks.collectAsStateWithLifecycle()
                 val levelStatus by vm.levelStatus.collectAsStateWithLifecycle()
+                val libraryTracks by vm.tracks.collectAsStateWithLifecycle()
                 val context = androidx.compose.ui.platform.LocalContext.current
                 val picker = androidx.activity.compose.rememberLauncherForActivityResult(
                     androidx.activity.result.contract.ActivityResultContracts.OpenDocument(),
@@ -246,6 +247,7 @@ fun AppRoot(container: AppContainer) {
                     stateLabel = ui.stateLabel,
                     levelTracks = levelTracks,
                     levelStatus = levelStatus,
+                    libraryTracks = libraryTracks.size,
                     onStayAwake = vm::setStayAwake,
                     onOpenConnection = { nav.navigate("connection") },
                     onImportLoudness = { picker.launch(arrayOf("*/*")) },

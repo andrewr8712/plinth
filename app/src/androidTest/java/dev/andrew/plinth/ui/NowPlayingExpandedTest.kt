@@ -68,7 +68,11 @@ class NowPlayingExpandedTest {
         rule.onNodeWithText("Teardrop").assertIsDisplayed()
         rule.onNodeWithContentDescription("Pause").assertExists()
         rule.onNodeWithText("Up next", substring = true).assertExists()
-        rule.onNodeWithContentDescription("Stereo level meter").assertExists()
+        // The meter is present, and honest about having nothing to draw: this screen is
+        // composed with no imported envelope, so it reports "No level data" rather than
+        // claiming to be a working meter. VuMeterTest pins both states.
+        rule.onNodeWithTag("level-meter").assertExists()
+        rule.onNodeWithContentDescription("No level data").assertExists()
 
         // the play button is centred in the 584 dp column: same centre as the hairline
         val play = rule.onNodeWithTag("playPause").getUnclippedBoundsInRoot()
