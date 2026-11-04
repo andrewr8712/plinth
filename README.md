@@ -139,5 +139,4 @@ unreachable.
 
 ## License
 
-No license is granted. This is a personal project; the source is published so it
-can be read and learned from. Ask before you redistribute it.
+MIT — see [LICENSE](LICENSE).
