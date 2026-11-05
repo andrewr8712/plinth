@@ -146,7 +146,7 @@ class PlaybackService : Service() {
             previous == null || previous.state != state?.state || previous.songId != state?.songId ->
                 publish()
             // Only the position moved: refresh the session (so a lockscreen scrub is
-            // current) without rebuilding the notification and its PendingIntents 2x/s.
+            // current) without rebuilding the notification and its PendingIntents 1x/s.
             foreground -> session.setPlaybackState(playbackStateFor(state))
         }
     }

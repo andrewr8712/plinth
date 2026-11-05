@@ -73,6 +73,12 @@ fun Transport(
 
 private enum class Glyph { Prev, Play, Pause, Next }
 
+/** The drawn play/pause mark, shared with the phone's mini player. */
+@Composable
+fun PlayPauseGlyph(isPlaying: Boolean, color: Color, size: Dp) {
+    TransportGlyph(if (isPlaying) Glyph.Pause else Glyph.Play, color, size)
+}
+
 /**
  * Drawn, not typed. U+23F8/23EE/23ED have emoji presentation and render as coloured
  * system emoji (a blue pause block) on Android; drawing keeps the glyph on-palette.

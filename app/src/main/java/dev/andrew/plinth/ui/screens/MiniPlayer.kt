@@ -24,9 +24,9 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import dev.andrew.plinth.data.art.ArtRepository
 import dev.andrew.plinth.ui.components.Artwork
+import dev.andrew.plinth.ui.components.PlayPauseGlyph
 import dev.andrew.plinth.ui.theme.PlinthColors
 import dev.andrew.plinth.ui.vm.PlayerUi
 
@@ -80,10 +80,10 @@ fun MiniPlayer(
             onClick = onPlayPause,
             modifier = Modifier.semantics { contentDescription = if (ui.isPlaying) "Pause" else "Play" },
         ) {
-            Text(
-                text = if (ui.isPlaying) "⏸" else "▶",
+            PlayPauseGlyph(
+                isPlaying = ui.isPlaying,
                 color = PlinthColors.Accent,
-                fontSize = 20.sp,
+                size = 20.dp,
             )
         }
     }

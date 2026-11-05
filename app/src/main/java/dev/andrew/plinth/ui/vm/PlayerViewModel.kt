@@ -10,10 +10,12 @@ import dev.andrew.plinth.data.model.PlayerState
 import dev.andrew.plinth.data.mpd.ConnectionState
 import dev.andrew.plinth.data.mpd.MpdClient
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.first
@@ -86,8 +88,9 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
     private val _query = MutableStateFlow("")
     val query: StateFlow<String> = _query.asStateFlow()
 
-    @OptIn(kotlinx.coroutines.ExperimentalCoroutinesApi::class)
+    @OptIn(kotlinx.coroutines.ExperimentalCoroutinesApi::class, FlowPreview::class)
     val searchResults: StateFlow<List<dev.andrew.plinth.data.model.Track>> = _query
+        .debounce(150)
         .flatMapLatest { container.library.search(it) }
         .stateIn(viewModelScope, kotlinx.coroutines.flow.SharingStarted.Eagerly, emptyList())
 
@@ -133,7 +136,6 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
     init {
         loudness = container.loudness.open()
         _levelTracks.value = loudness?.trackCount ?: 0
-        startLevelTicker()
 
         viewModelScope.launch {
             val first = container.settings.flow.first()
@@ -146,6 +148,19 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
 
     fun connect(host: String, port: Int) {
         engine.connect(host, port)
+    }
+
+    /** Starts the meter ticker for as long as the UI is visible. Idempotent. */
+    fun startMeter() {
+        if (levelJob?.isActive == true) return
+        startLevelTicker()
+    }
+
+    /** Stops the meter ticker and drops the last frame; called when the UI stops. */
+    fun stopMeter() {
+        levelJob?.cancel()
+        levelJob = null
+        if (_ui.value.level != null) _ui.value = _ui.value.copy(level = null)
     }
 
     /**

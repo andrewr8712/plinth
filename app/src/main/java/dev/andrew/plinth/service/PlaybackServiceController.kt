@@ -116,6 +116,6 @@ class PlaybackServiceController(
     private fun newScope() = CoroutineScope(SupervisorJob() + Dispatchers.Default)
 
     private companion object {
-        const val TICK_MS = 2_000L
+        const val TICK_MS = 5_000L
     }
 }

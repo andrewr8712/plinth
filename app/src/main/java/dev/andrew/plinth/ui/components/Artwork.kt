@@ -21,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import dev.andrew.plinth.data.art.ArtRepository
@@ -45,18 +46,25 @@ fun Artwork(
     // plate says "No artwork" only when the album really has none.
     var missing by remember(albumId) { mutableStateOf(false) }
 
+    // The rendered size in pixels. The cover is decoded for the size it will be drawn
+    // at, not its source size: the library has 1600² and 3700² covers, and the grid
+    // draws nine of them at once.
+    var targetPx by remember { mutableStateOf(0) }
+
     // `art` is in the key on purpose: it arrives once the connection is up, and a
     // key that ignored it would leave the cover blank forever on a cold start.
-    LaunchedEffect(albumId, firstTrackUri, art) {
+    LaunchedEffect(albumId, firstTrackUri, art, targetPx) {
         bitmap = null
         missing = false
-        if (art == null || albumId.isEmpty() || firstTrackUri.isEmpty()) return@LaunchedEffect
+        if (art == null || albumId.isEmpty() || firstTrackUri.isEmpty() || targetPx <= 0) {
+            return@LaunchedEffect
+        }
         // Decode and decide off the main thread, then publish both facts in one go:
         // a snapshot-state write from the IO thread would be a change nobody observed.
         val loaded = withContext(Dispatchers.IO) {
             when (val result = art.forAlbum(albumId, firstTrackUri)) {
                 is ArtResult.Jpeg -> runCatching {
-                    BitmapFactory.decodeByteArray(result.bytes, 0, result.bytes.size)?.asImageBitmap()
+                    decodeSampled(result.bytes, targetPx)?.asImageBitmap()
                 }.getOrNull() to false
                 ArtResult.None -> null to true
                 else -> null to false
@@ -67,7 +75,10 @@ fun Artwork(
     }
 
     Box(
-        modifier = modifier.background(PlinthColors.Plate).testTag("cover"),
+        modifier = modifier
+            .onSizeChanged { targetPx = maxOf(it.width, it.height) }
+            .background(PlinthColors.Plate)
+            .testTag("cover"),
         contentAlignment = Alignment.Center,
     ) {
         val image = bitmap
@@ -123,4 +134,27 @@ internal fun initials(label: String): String {
     val words = label.trim().split(' ', '\t', '\n').filter { it.isNotBlank() }
     val letters = words.take(2).mapNotNull { it.firstOrNull()?.uppercaseChar() }
     return letters.joinToString("").ifEmpty { "—" }
+}
+
+/**
+ * Decode a JPEG to at least [targetPx] on its shorter side, using a power-of-two
+ * `inSampleSize`. The source covers range from 1600² to 3700²; at full size the
+ * 3700² one is ~55 MB of ARGB, which is more than the grid or the sheet needs.
+ */
+private fun decodeSampled(bytes: ByteArray, targetPx: Int): android.graphics.Bitmap? {
+    val bounds = BitmapFactory.Options().apply { inJustDecodeBounds = true }
+    BitmapFactory.decodeByteArray(bytes, 0, bytes.size, bounds)
+    if (bounds.outWidth <= 0 || bounds.outHeight <= 0) return null
+    var sample = 1
+    while (bounds.outWidth / (sample * 2) >= targetPx &&
+        bounds.outHeight / (sample * 2) >= targetPx
+    ) {
+        sample *= 2
+    }
+    return BitmapFactory.decodeByteArray(
+        bytes,
+        0,
+        bytes.size,
+        BitmapFactory.Options().apply { inSampleSize = sample },
+    )
 }

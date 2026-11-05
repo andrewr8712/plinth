@@ -9,14 +9,15 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
@@ -28,11 +29,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.compose.LifecycleStartEffect
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -103,16 +107,21 @@ class MainActivity : ComponentActivity() {
             },
         )
         lifecycleScope.launch {
-            container.settings.flow.collect { stayAwakeWhileCharging = it.stayAwakeWhileCharging }
-        }
-        // The charger can be plugged in while nothing else is changing, so this is a
-        // ticker rather than a state collector. One second is below the screen timeout.
-        lifecycleScope.launch {
-            while (isActive) {
-                if (lifecycle.currentState.isAtLeast(Lifecycle.State.STARTED)) {
-                    applyScreenPolicy(container)
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                launch {
+                    container.settings.flow.collect {
+                        stayAwakeWhileCharging = it.stayAwakeWhileCharging
+                    }
                 }
-                delay(1_000)
+                // The charger can be plugged in while nothing else is changing, so this
+                // is a ticker rather than a state collector. One second is below the
+                // screen timeout, and repeatOnLifecycle stops it when the UI is gone.
+                launch {
+                    while (isActive) {
+                        applyScreenPolicy(container)
+                        delay(1_000)
+                    }
+                }
             }
         }
     }
@@ -164,6 +173,12 @@ fun AppRoot(container: AppContainer) {
     val settings by vm.settings.collectAsStateWithLifecycle()
     val levelStale by vm.levelStale.collectAsStateWithLifecycle()
     val currentRoute = nav.currentBackStackEntryAsState().value?.destination?.route
+    // The loudness envelope ticker is 10 Hz; make it follow the activity's visible
+    // lifetime instead of running for the whole ViewModel.
+    LifecycleStartEffect(Unit) {
+        vm.startMeter()
+        onStopOrDispose { vm.stopMeter() }
+    }
     var sheetOpen by androidx.compose.runtime.remember { androidx.compose.runtime.mutableStateOf(false) }
     // Incremented on every interaction; the top bar keys its idle countdown on it, so
     // a touch anywhere in the Scaffold restarts the fade without the observer having to
@@ -446,8 +461,13 @@ private fun TabletTopBar(
                 color = if (selected) PlinthColors.Text else PlinthColors.Faint,
                 style = androidx.compose.material3.MaterialTheme.typography.bodySmall,
                 modifier = Modifier
-                    .clickable { nav.goTopLevel(destination.route) }
-                    .padding(horizontal = 12.dp, vertical = 10.dp)
+                    .selectable(
+                        selected = selected,
+                        onClick = { nav.goTopLevel(destination.route) },
+                        role = Role.Tab,
+                    )
+                    .defaultMinSize(minHeight = 48.dp)
+                    .padding(horizontal = 16.dp, vertical = 12.dp)
                     .testTag("top-${destination.route}"),
             )
         }

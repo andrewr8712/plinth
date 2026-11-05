@@ -205,7 +205,7 @@ class PlaybackEngine {
         const val OWNER_UI = "ui"
         const val OWNER_SERVICE = "service"
 
-        private const val POLL_MS = 500L
+        private const val POLL_MS = 1_000L
         private const val RETRY_MS = 1_000L
     }
 }

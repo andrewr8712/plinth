@@ -6,10 +6,12 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -17,7 +19,11 @@ import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import dev.andrew.plinth.data.model.Album
@@ -40,7 +46,9 @@ fun SearchScreen(
     onOpenAlbum: (String) -> Unit = {},
     onPlayTrack: (Track) -> Unit = {},
 ) {
-    Column(Modifier.fillMaxSize().background(PlinthColors.Base)) {
+    val focusManager = LocalFocusManager.current
+    val keyboard = LocalSoftwareKeyboardController.current
+    Column(Modifier.fillMaxSize().background(PlinthColors.Base).imePadding()) {
         Text(
             text = "Search",
             color = PlinthColors.Text,
@@ -56,6 +64,12 @@ fun SearchScreen(
             keyboardOptions = androidx.compose.foundation.text.KeyboardOptions(
                 imeAction = ImeAction.Search,
             ),
+            keyboardActions = KeyboardActions(
+                onSearch = {
+                    focusManager.clearFocus()
+                    keyboard?.hide()
+                },
+            ),
             colors = TextFieldDefaults.colors(
                 focusedContainerColor = PlinthColors.Plate,
                 unfocusedContainerColor = PlinthColors.Plate,
@@ -69,6 +83,7 @@ fun SearchScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 24.dp)
+                .semantics { contentDescription = "Search title, album or artist" }
                 .testTag("search-field"),
         )
 
