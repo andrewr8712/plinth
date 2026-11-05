@@ -13,16 +13,20 @@ Volumio. `README.md` covers building, testing and installing.
 
 ## Status
 
-- **M1 (MPD protocol), M2 (library and art) and M3 (surfaces) are complete. M4 is
-  half done: the loudness envelope and the meter are built (tasks 16–17), the
-  background policy exists without the service that consumes it (task 18), and the
+- **M1–M3 are complete. M4 is nearly done: the loudness envelope and the meter
+  (tasks 16–17) and the foreground playback service (task 18) are built; the
   failure states are not started (task 19).**
-- 93 unit tests pass, and 15 instrumented tests pass on a tablet
-  (`NowPlayingExpandedTest` 2, `PhoneSurfacesTest` 3, `LibrarySurfacesTest` 7,
-  `VuMeterTest` 3). Nine Python tests cover the scanner.
+- 99 unit tests pass, and 17 instrumented tests pass on a tablet
+  (`PlaybackServiceTest` 2, `NowPlayingExpandedTest` 2, `PhoneSurfacesTest` 3,
+  `LibrarySurfacesTest` 7, `VuMeterTest` 3). Nine Python tests cover the scanner.
 - The meter is verified reading a real envelope on the tablet. The one thing not
   verified is the bars moving: that needs playback, which is started by ear, not by
   a test.
+- The playback service is verified on the tablet: it promotes itself to the
+  foreground as `mediaPlayback`, posts a MediaStyle notification with the live
+  title, `artist · album`, cached art and four actions, and the one-minute grace
+  after a pause stopped it and removed the notification. Pressing Play from the
+  notification is the one action not exercised — it would start audio.
 - The debug APK runs on both the reference tablet and phone.
 - **`feat/task-15-screens` is merged into `master`** (fast-forward, 2026-11-05).
   Master now holds the library screens; the branch can be deleted.
@@ -51,6 +55,13 @@ The instrumented tests need `ANDROID_SERIAL` set to a connected device:
 export ANDROID_SERIAL=TABLET_SERIAL
 ./gradlew :app:connectedDebugAndroidTest
 ```
+
+If `~` is read-only (as in the sandbox this was built in), keep the tools' state
+inside the tree: `GRADLE_USER_HOME=$PWD/.gradle-home`,
+`XDG_DATA_HOME=$PWD/.kotlin-data`, `ANDROID_USER_HOME=$PWD/.android-home`. The
+test JVM already gets a writable `user.home` from `app/build.gradle.kts`, and
+debug signing uses `.keystore/debug.keystore` when that file exists. All three
+paths are gitignored.
 
 ## The reference setup
 
@@ -134,12 +145,19 @@ dedupe should paper over.
 - **Meter — done.** Two bars with a live dBFS header in the band, 30 ms attack and
   350 ms release, per-format offset adjustable under Output. Medium has it too; the
   phone does not.
-- **Playback service — policy only.** `BackgroundPolicy` decides when the app should
-  hold a connection (playing, a one-minute grace after pause, or charging with the
-  stay-awake setting). The `mediaPlayback` service, its MediaStyle notification and
-  the keep-screen-on flag are not written: a foreground service that misses its
-  `startForeground` call crashes on launch, and there was no device on `adb` while
-  that task was in scope.
+- **Playback service — done (task 18).** `PlaybackEngine` owns the MPD connection in
+  application scope, with two owners (the UI and the service); when neither needs
+  it, the sockets are released, which is the design's "backgrounded with no
+  service" rule. `PlaybackService` is the `mediaPlayback` foreground service: it
+  calls `startForeground` before anything that can fail, carries a
+  `MediaSessionCompat` bound to the remote state, and draws a MediaStyle
+  notification (art, title, artist · album, Previous/Play-Pause/Next/Stop). The
+  notification's delete intent and the Stop action both end the service.
+  `PlaybackServiceController` starts it when the streamer plays (or when "stay
+  awake while charging" is on and a charger is attached), and stops it a minute
+  after a pause or stop. `BackgroundPolicy.shouldKeepScreenOn` drives
+  `FLAG_KEEP_SCREEN_ON` on the activity; a partial wakelock is held only while
+  playing. Verified on the tablet, including the grace stop.
 - **Failure states — not started.** The eleven states in `mockups/states.tpl.html`
   are designed but not implemented.
 

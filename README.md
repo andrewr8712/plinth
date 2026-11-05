@@ -17,10 +17,10 @@ Early but usable. The MPD client, the library cache, cover art, the now-playing
 surface for phone and tablet, and the browsing screens (library tabs, album,
 search, queue, playlists, output) all work and are tested on a real tablet.
 
-Not built yet: the foreground playback service with its notification, and the
-offline and failure states. The VU meter and its loudness envelope are built and
-verified on the tablet. `HANDOFF.md` is the precise status — read it before
-changing anything.
+Not built yet: the offline and failure states. The VU meter and its loudness
+envelope, and the foreground playback service with its media notification, are
+built and verified on the tablet. `HANDOFF.md` is the precise status — read it
+before changing anything.
 
 ## Requirements
 
