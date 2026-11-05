@@ -16,3 +16,5 @@ app/build/
 .android-home/
 .screenshots/
 .gradle-connected.log
+__pycache__/
+*.pyc
