@@ -7,6 +7,14 @@ import java.nio.ByteOrder
 import java.nio.MappedByteBuffer
 import java.nio.channels.FileChannel
 
+/**
+ * True when the envelope was scanned from an older library than the streamer now has.
+ * An envelope that recorded no db_update (0) cannot be called stale, and a streamer
+ * that did not report one is not evidence either.
+ */
+fun isLoudnessStale(envelopeDbUpdate: Long, libraryDbUpdate: Long?): Boolean =
+    envelopeDbUpdate > 0 && libraryDbUpdate != null && envelopeDbUpdate < libraryDbUpdate
+
 /** One 200 ms window of a track: left RMS, right RMS and peak, as 0..255 dBFS bytes. */
 data class StereoLevel(val left: Int, val right: Int, val peak: Int) {
 

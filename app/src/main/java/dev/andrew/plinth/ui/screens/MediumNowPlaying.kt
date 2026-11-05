@@ -44,6 +44,7 @@ fun MediumNowPlaying(
     onSeek: (Double) -> Unit = {},
     onQueueItem: (Int) -> Unit = {},
     onOpenQueue: () -> Unit = {},
+    levelStale: Boolean = false,
 ) {
     Column(Modifier.fillMaxSize().background(PlinthColors.Base).padding(horizontal = 40.dp, vertical = 32.dp)) {
         Artwork(
@@ -90,6 +91,7 @@ fun MediumNowPlaying(
                 level = ui.level,
                 active = ui.isPlaying,
                 offline = ui.offline,
+                stale = levelStale,
                 modifier = Modifier.width(180.dp).padding(end = 24.dp),
             )
         }

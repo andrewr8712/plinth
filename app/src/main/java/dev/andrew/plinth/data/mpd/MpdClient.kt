@@ -80,6 +80,17 @@ class MpdClient(private val socket: MpdSocket) {
         return QueueParser.parse(p)
     }
 
+    /**
+     * When MPD last rebuilt its database, in epoch seconds. The loudness scanner
+     * records the same value in the envelope header, so comparing the two is the only
+     * honest way to say a level file is stale rather than wrong.
+     */
+    suspend fun dbUpdate(): Long? =
+        okPairs(socket.command("stats"))
+            .firstOrNull { it.first == "db_update" }
+            ?.second
+            ?.toLongOrNull()
+
     suspend fun outputs(): List<OutputInfo> {
         val p = okPairs(socket.command("outputs"))
         val out = ArrayList<OutputInfo>()

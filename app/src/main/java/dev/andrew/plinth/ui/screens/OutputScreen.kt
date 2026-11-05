@@ -38,6 +38,7 @@ fun OutputScreen(
     levelTracks: Int = 0,
     levelStatus: String? = null,
     libraryTracks: Int = 0,
+    levelStale: Boolean = false,
     onStayAwake: (Boolean) -> Unit = {},
     onOpenConnection: () -> Unit = {},
     onImportLoudness: () -> Unit = {},
@@ -149,7 +150,11 @@ fun OutputScreen(
         ) {
             Column(Modifier.weight(1f)) {
                 Text(
-                    text = if (levelTracks > 0) "$levelTracks tracks with levels" else "No loudness data",
+                    text = when {
+                        levelStale -> "Loudness data is older than the library"
+                        levelTracks > 0 -> "$levelTracks tracks with levels"
+                        else -> "No loudness data"
+                    },
                     color = PlinthColors.Text,
                     style = MaterialTheme.typography.bodyLarge,
                 )
@@ -158,6 +163,7 @@ fun OutputScreen(
                     // leaves some tracks without a level, and that should be visible here
                     // rather than discovered at the meter.
                     text = levelStatus ?: when {
+                        levelStale -> "Rebuild it with tools/vu-scan; the library changed since the scan."
                         levelTracks == 0 -> "The meter needs a loudness file built by tools/vu-scan."
                         libraryTracks > 0 -> "of $libraryTracks in the library; the rest show no level data."
                         else -> "Imported envelope"

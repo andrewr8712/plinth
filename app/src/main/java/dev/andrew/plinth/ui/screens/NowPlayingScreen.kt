@@ -64,11 +64,15 @@ fun NowPlayingScreen(
     onOpenQueue: () -> Unit = {},
     onOpenLibrary: () -> Unit = {},
     onRetry: () -> Unit = {},
+    levelStale: Boolean = false,
 ) {
     Box(Modifier.fillMaxSize().background(PlinthColors.Base)) {
         if (size == SurfaceSize.Medium) {
             // 600–839 dp: the cover would squeeze the column, so the spine stacks instead
-            MediumNowPlaying(ui, queue, art, onPlayPause, onPrev, onNext, onSeek, onQueueItem, onOpenQueue)
+            MediumNowPlaying(
+                ui, queue, art, onPlayPause, onPrev, onNext, onSeek, onQueueItem, onOpenQueue,
+                levelStale,
+            )
         } else if (size == SurfaceSize.Expanded) {
             Column(
                 modifier = Modifier
@@ -109,6 +113,7 @@ fun NowPlayingScreen(
                     level = ui.level,
                     active = ui.isPlaying,
                     offline = ui.offline,
+                    stale = levelStale,
                     modifier = Modifier
                         .width(220.dp)
                         .padding(end = INSET),

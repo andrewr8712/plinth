@@ -156,6 +156,7 @@ fun AppRoot(container: AppContainer) {
     val queue by vm.queue.collectAsStateWithLifecycle()
     val art by vm.art.collectAsStateWithLifecycle()
     val settings by vm.settings.collectAsStateWithLifecycle()
+    val levelStale by vm.levelStale.collectAsStateWithLifecycle()
     val currentRoute = nav.currentBackStackEntryAsState().value?.destination?.route
     var sheetOpen by androidx.compose.runtime.remember { androidx.compose.runtime.mutableStateOf(false) }
 
@@ -200,6 +201,7 @@ fun AppRoot(container: AppContainer) {
                     onOpenLibrary = { nav.navigate("library") },
                     onOpenQueue = { nav.navigate("queue") },
                     onRetry = vm::retry,
+                    levelStale = levelStale,
                 )
             }
             composable("library") {
@@ -326,6 +328,7 @@ fun AppRoot(container: AppContainer) {
                     levelTracks = levelTracks,
                     levelStatus = levelStatus,
                     libraryTracks = libraryTracks.size,
+                    levelStale = levelStale,
                     onStayAwake = vm::setStayAwake,
                     onOpenConnection = { nav.navigate("connection") },
                     onImportLoudness = { picker.launch(arrayOf("*/*")) },

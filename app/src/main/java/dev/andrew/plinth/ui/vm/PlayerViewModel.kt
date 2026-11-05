@@ -124,6 +124,12 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
     private val _levelTracks = MutableStateFlow(0)
     val levelTracks: StateFlow<Int> = _levelTracks.asStateFlow()
 
+    private val _levelStale = MutableStateFlow(false)
+    /** True when the imported envelope predates the streamer's current database. */
+    val levelStale: StateFlow<Boolean> = _levelStale.asStateFlow()
+
+    private var libraryDbUpdate: Long? = null
+
     init {
         loudness = container.loudness.open()
         _levelTracks.value = loudness?.trackCount ?: 0
@@ -186,11 +192,19 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
                     loudness = container.loudness.open()
                     _levelTracks.value = loudness?.trackCount ?: 0
                     _levelStatus.value = "${result.tracks} tracks imported"
+                    refreshLevelStaleness()
                 }
                 is dev.andrew.plinth.data.loudness.ImportResult.Rejected ->
                     _levelStatus.value = result.reason
             }
         }
+    }
+
+    private fun refreshLevelStaleness() {
+        _levelStale.value = dev.andrew.plinth.data.loudness.isLoudnessStale(
+            envelopeDbUpdate = loudness?.dbUpdate ?: 0,
+            libraryDbUpdate = libraryDbUpdate,
+        )
     }
 
     private fun onConnection(state: ConnectionState) {
@@ -217,6 +231,8 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
             _art.value = runCatching { engine.withClient { container.artFor(it) } }.getOrNull()
             lastOutput = runCatching { engine.withClient { it.outputs().firstOrNull() } }.getOrNull()
             _output.value = lastOutput
+            libraryDbUpdate = runCatching { engine.withClient { it.dbUpdate() } }.getOrNull()
+            refreshLevelStaleness()
             if (!librarySynced) {
                 librarySynced = true
                 viewModelScope.launch {

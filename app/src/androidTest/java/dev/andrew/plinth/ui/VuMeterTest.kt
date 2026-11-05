@@ -2,6 +2,9 @@ package dev.andrew.plinth.ui
 
 import androidx.compose.foundation.layout.width
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.SemanticsProperties
+import androidx.compose.ui.test.SemanticsMatcher
+import androidx.compose.ui.test.assert
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
@@ -48,6 +51,24 @@ class VuMeterTest {
         }
         rule.onNodeWithText("-14 dBFS", substring = true).assertIsDisplayed()
         rule.onNodeWithContentDescription("Stereo level meter").assertIsDisplayed()
+    }
+
+    @Test
+    fun staleEnvelopeSaysWhyRatherThanDrawingLevels() {
+        rule.setContent {
+            PlinthTheme {
+                LevelMeter(
+                    level = StereoLevel(196, 190, 200),
+                    active = true,
+                    stale = true,
+                    modifier = Modifier.width(220.dp),
+                )
+            }
+        }
+        rule.onNodeWithText("Loudness data is older than the library").assertIsDisplayed()
+        rule.onNodeWithTag("level-meter").assert(
+            SemanticsMatcher.expectValue(SemanticsProperties.StateDescription, "Stale"),
+        )
     }
 
     @Test

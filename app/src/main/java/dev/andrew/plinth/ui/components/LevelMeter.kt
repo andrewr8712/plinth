@@ -67,6 +67,8 @@ fun LevelMeter(
     modifier: Modifier = Modifier,
     /** The streamer is unreachable: the bars have no subject at all, not just no frame. */
     offline: Boolean = false,
+    /** The envelope was scanned before the library's last rebuild. */
+    stale: Boolean = false,
 ) {
     val target by rememberUpdatedState(level)
     var left by remember { mutableFloatStateOf(0f) }
@@ -101,10 +103,11 @@ fun LevelMeter(
         Text(
             text = when {
                 offline -> "No signal"
+                stale -> "Loudness data is older than the library"
                 level == null -> "No level data"
                 else -> "LEVEL  ${level.dbfs} dBFS"
             },
-            color = if (level == null || offline) PlinthColors.Faint else PlinthColors.Muted,
+            color = if (level == null || offline || stale) PlinthColors.Faint else PlinthColors.Muted,
             style = MaterialTheme.typography.labelSmall,
             modifier = Modifier.padding(bottom = 6.dp).testTag("level-header"),
         )
@@ -115,6 +118,7 @@ fun LevelMeter(
                 .semantics {
                     contentDescription = when {
                         offline -> "No signal: streamer offline"
+                        stale -> "Loudness data is older than the library"
                         level == null -> "No level data"
                         else -> "Stereo level meter"
                     }
@@ -122,6 +126,7 @@ fun LevelMeter(
                     // assistive tech does not read a still bar as a silent signal.
                     stateDescription = when {
                         offline -> "Offline"
+                        stale -> "Stale"
                         level == null -> "No level data"
                         active -> "Live"
                         else -> "Idle"
@@ -130,8 +135,8 @@ fun LevelMeter(
                 .testTag("level-meter"),
             horizontalArrangement = Arrangement.spacedBy(10.dp),
         ) {
-            MeterBar(left, level == null || offline, Modifier.weight(1f))
-            MeterBar(right, level == null || offline, Modifier.weight(1f))
+            MeterBar(left, level == null || offline || stale, Modifier.weight(1f))
+            MeterBar(right, level == null || offline || stale, Modifier.weight(1f))
         }
     }
 }
