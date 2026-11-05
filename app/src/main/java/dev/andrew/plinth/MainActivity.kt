@@ -26,6 +26,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.DefaultLifecycleObserver
@@ -42,6 +43,8 @@ import dev.andrew.plinth.data.playback.PlaybackEngine
 import dev.andrew.plinth.ui.layout.SurfaceSize
 import dev.andrew.plinth.ui.layout.rememberSurfaceSize
 import dev.andrew.plinth.ui.theme.PlinthColors
+import dev.andrew.plinth.ui.topbar.observeTopBarInteraction
+import dev.andrew.plinth.ui.topbar.rememberTopBarAlpha
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dev.andrew.plinth.ui.screens.MiniPlayer
 import dev.andrew.plinth.ui.screens.NowPlayingSheet
@@ -157,14 +160,27 @@ fun AppRoot(container: AppContainer) {
     val art by vm.art.collectAsStateWithLifecycle()
     val currentRoute = nav.currentBackStackEntryAsState().value?.destination?.route
     var sheetOpen by androidx.compose.runtime.remember { androidx.compose.runtime.mutableStateOf(false) }
+    // Incremented on every interaction; the top bar keys its idle countdown on it, so
+    // a touch anywhere in the Scaffold restarts the fade without the observer having to
+    // know which control was touched.
+    var topBarInteractions by androidx.compose.runtime.remember {
+        androidx.compose.runtime.mutableIntStateOf(0)
+    }
+    // Only the tablet has a fading bar; the phone's shell is left exactly as it was.
+    val topBarInteraction = if (surface == SurfaceSize.Compact) {
+        Modifier
+    } else {
+        Modifier.observeTopBarInteraction { topBarInteractions++ }
+    }
 
     Scaffold(
         containerColor = PlinthColors.Base,
+        modifier = topBarInteraction,
         topBar = {
             // The tablet has no bottom bar, so Search and Output would be unreachable
             // without this. Now playing stays chrome-free — it is the instrument.
             if (surface != SurfaceSize.Compact && currentRoute != "now") {
-                TabletTopBar(nav, currentRoute)
+                TabletTopBar(nav, currentRoute, topBarInteractions)
             }
         },
         bottomBar = {
@@ -380,12 +396,18 @@ private fun PlinthBottomBar(nav: NavHostController) {
     }
 }
 
-/** The tablet's only chrome: where else you can go. */
+/** The tablet's only chrome: where else you can go. It fades while idle. */
 @Composable
-private fun TabletTopBar(nav: NavHostController, current: String?) {
+private fun TabletTopBar(
+    nav: NavHostController,
+    current: String?,
+    interactionSignal: Int,
+) {
+    val alpha = rememberTopBarAlpha(current, interactionSignal)
     Row(
         modifier = Modifier
             .fillMaxWidth()
+            .alpha(alpha)
             // targetSdk 35 is edge-to-edge by mandate, so the bar must inset itself or
             // it draws under the clock and battery.
             .windowInsetsPadding(WindowInsets.statusBars)
