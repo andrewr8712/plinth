@@ -18,3 +18,4 @@ app/build/
 .gradle-connected.log
 __pycache__/
 *.pyc
+.worktrees/
