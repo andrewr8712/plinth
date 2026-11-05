@@ -456,7 +456,7 @@ description of the code.
 | Tablet chrome | A top bar that fades with inactivity | A static top bar, on every route except now playing |
 | Screens | Screens take the repository and the art loader | Screens are stateless and take data plus callbacks; the view model owns the repositories |
 | Library tabs | A segmented control | Text tabs with an accent underline, in the same screen |
-| Meter offset | Two sliders under Output | Not built; they land with the meter in Task 17 |
+| Meter offset | Two sliders under Output | Built with the meter in Task 17: PCM 120 ms, DSD 240 ms by default |
 
 ---
 

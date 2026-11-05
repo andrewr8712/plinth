@@ -131,8 +131,6 @@ dedupe should paper over.
 
 - The tablet's top bar is a static row; the design asks for one that fades with
   inactivity (spec §5.7).
-- Output has no meter-sync sliders yet. They belong with the meter (Task 17), not
-  before it — a slider that moves nothing is a dead control.
 - Search is a prefix `LIKE` query, not FTS. At 1,866 rows the scan is instant;
   albums are matched from the cached list.
 
