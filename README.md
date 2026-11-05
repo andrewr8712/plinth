@@ -26,6 +26,18 @@ empty library, queue and search say what is missing and offer one action. The
 remaining polish is listed in `HANDOFF.md`, which is the precise status — read it
 before changing anything.
 
+## Streamer reliability
+
+The reference streamer was load-tested for 62.5 minutes on 2026-11-05 while the
+library shuffled: both Cortex-A9 cores saturated and a 2 GB CIFS read, with
+**240/240 samples in `play`**, **0 stalls**, **0 pauses or stops**, and **0 MPD,
+USB, CIFS or ALSA errors**. Peak CPU 99.8 %, peak temperature 76.6 °C, and 16
+clean track changes. The full report and phase-by-phase data are in the streamer
+repository:
+[docs/STABILITY-2026-11-05.md](https://github.com/andrewr8712/rt-ac88u-openwrt-streamer/blob/main/docs/STABILITY-2026-11-05.md).
+
+![Streamer load test](docs/screenshots/streamer-load-test.png)
+
 ## Screenshots
 
 The tablet surface, at 10 inches:
