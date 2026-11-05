@@ -145,8 +145,8 @@ class OfflineTest {
     }
 
     @Test
-    fun emptyLibraryNamesTheShareAndOffersRetry() {
-        var retried = false
+    fun emptyLibraryNamesTheShareAndOffersResync() {
+        var resynced = false
         rule.setContent {
             PlinthTheme {
                 LibraryScreen(
@@ -157,14 +157,14 @@ class OfflineTest {
                     artists = emptyList(),
                     tracks = emptyList(),
                     folders = emptyList(),
-                    onRetry = { retried = true },
+                    onResync = { resynced = true },
                 )
             }
         }
 
         rule.onNodeWithText("Library is empty").assertIsDisplayed()
         rule.onNodeWithTag("empty-action").performClick()
-        assertTrue("Retry must reach the connection", retried)
+        assertTrue("Retry must re-read the share, not just redial", resynced)
     }
 
     @Test
