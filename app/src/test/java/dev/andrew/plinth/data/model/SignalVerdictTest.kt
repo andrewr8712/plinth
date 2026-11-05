@@ -46,7 +46,8 @@ class SignalVerdictTest {
     fun `dsd over dop is bit perfect and labelled`() {
         val t = track("dsf", 2_822_400, 1, 2)
         assertEquals(SignalVerdict.BitPerfect, SignalVerdicts.of(status("dsd64:2", "off"), t, output))
-        assertEquals("DSD64 · DoP", SignalVerdicts.labelFor(t.format, t.uri))
+        assertEquals("DSD64 · DoP", SignalVerdicts.labelFor(t.format, t.uri, dop = true))
+        assertEquals("DSD64", SignalVerdicts.labelFor(t.format, t.uri, dop = false))
     }
 
     @Test

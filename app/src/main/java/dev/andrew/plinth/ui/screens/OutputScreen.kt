@@ -35,6 +35,7 @@ fun OutputScreen(
     output: OutputInfo?,
     settings: Settings,
     stateLabel: String,
+    isDsd: Boolean = false,
     levelTracks: Int = 0,
     levelStatus: String? = null,
     libraryTracks: Int = 0,
@@ -65,10 +66,15 @@ fun OutputScreen(
             style = MaterialTheme.typography.bodyLarge,
             modifier = Modifier.padding(horizontal = 24.dp),
         )
+        val transport = when {
+            output?.dopAttribute == true -> "DoP"
+            isDsd -> "Native DSD"
+            else -> "PCM"
+        }
         Text(
             text = listOfNotNull(
                 output?.let { if (it.enabled) "Enabled" else "Disabled" },
-                output?.let { if (it.dopAttribute) "DoP" else "PCM" },
+                transport,
                 stateLabel,
             ).joinToString(" · "),
             color = PlinthColors.Faint,
@@ -80,7 +86,14 @@ fun OutputScreen(
         Text(
             text = "Plinth asks the streamer for the file and nothing else. When the strip " +
                 "says bit-perfect, MPD decoded the file at its own rate and sent it to the " +
-                "output untouched; DSD travels as DoP, never as native DSD.",
+                "output untouched. " + when {
+                    output?.dopAttribute == true ->
+                        "DSD travels as DoP; the DAC reconstructs it."
+                    isDsd ->
+                        "DSD travels as native DSD on this output."
+                    else ->
+                        "PCM is sent to the output untouched."
+                },
             color = PlinthColors.Muted,
             style = MaterialTheme.typography.bodySmall,
             modifier = Modifier.padding(horizontal = 24.dp),

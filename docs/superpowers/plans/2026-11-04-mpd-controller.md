@@ -31,7 +31,7 @@
 - Every MPD command carries a timeout: state commands **3 s**, `listallinfo` **20 s**, art requests **15 s**, `idle` **none**. No command may block the UI thread.
 - Read MPD replies **by terminator** (`buffer.endsWith("OK\n")` or an `ACK` line), never by substring search.
 - Album id = hash of (normalised album-artist, album, edition). Edition is `null` for ≤2 channels, `"5.1"` or `"4.0"` above.
-- DSD is always labelled `DSD64 · DoP` (never "native DSD"). No resampling is implied or attempted.
+- DSD labels follow the output: `DSD64 · DoP` when DoP is enabled, `DSD64` for native. No resampling is implied or attempted.
 - Dark only: background `#0A0A0C`, warm white type. No WebView. No server config writes.
 - Type: Inter variable bundled in `res/font`; pinned weights 300/400/500; seven sizes 64/44/28/20/16/13/11; labels 11 sp at weight 500 and +0.12 em; tabular figures on every numeric role.
 - Structure at ≥840 dp: 420 dp cover + 584 dp column + a **152 dp band** pinned to the bottom edge. No rail. Transport is three controls, centred, and its position never changes between states.
@@ -835,7 +835,7 @@ git add -A && git commit -m "feat: expanded now playing with cover spine and foo
 ```kotlin
 @Test fun `matching pcm with rg off is bit perfect`() { assertEquals(BitPerfect, of(track("flac", 96000, 24, 2), status("96000:24:2", "off"))) }
 @Test fun `rate mismatch is transcoded`() { assertTrue(of(track("flac", 192000, 24, 2), status("96000:24:2", "off")) is Transcoded) }
-@Test fun `dsd over dop is bit perfect and labelled`() { assertEquals(BitPerfect, of(track("dsf", 2822400, 1, 2), status("dsd64:2", "off"))); assertEquals("DSD64 · DoP", labelFor(...)) }
+@Test fun `dsd over dop is bit perfect and labelled`() { assertEquals(BitPerfect, of(track("dsf", 2822400, 1, 2), status("dsd64:2", "off"))); assertEquals("DSD64 · DoP", labelFor(..., dop=true)); assertEquals("DSD64", labelFor(..., dop=false)) }
 @Test fun `six channel file is multichannel, not transcoded`() { assertTrue(of(track("flac", 96000, 24, 6), status("96000:24:6", "off")) is Multichannel) }
 @Test fun `missing format is unknown, not a crash`() { assertEquals(Unknown, of(track(null, 0, 0, 2), status(null, "off"))) }
 @Test fun `replay gain on downgrades the verdict`() { assertTrue(of(track("flac", 44100, 16, 2), status("44100:16:2", "track")) is Transcoded) }

@@ -34,10 +34,15 @@ object SignalVerdicts {
         return SignalVerdict.BitPerfect
     }
 
-    fun labelFor(format: AudioFormat?, uri: String = "", bitrateKbps: Int? = null): String {
+    fun labelFor(
+        format: AudioFormat?,
+        uri: String = "",
+        bitrateKbps: Int? = null,
+        dop: Boolean = false,
+    ): String {
         if (format == null) return "—"
         val ext = uri.substringAfterLast('.', "").uppercase()
-        if (format.isDsd) return "DSD${format.dsdRate} · DoP"
+        if (format.isDsd) return "DSD${format.dsdRate}" + if (dop) " · DoP" else ""
         val kind = when (ext) {
             "MP3" -> "MP3"
             "AAC", "M4A" -> "AAC"
@@ -58,7 +63,12 @@ object SignalVerdicts {
      */
     fun stripCells(state: PlayerState, track: Track?, output: OutputInfo?): StripCells {
         val verdict = of(state, track, output)
-        val source = labelFor(track?.format, track?.uri ?: "", state.bitrateKbps)
+        val source = labelFor(
+            track?.format,
+            track?.uri ?: "",
+            state.bitrateKbps,
+            dop = output?.dopAttribute == true,
+        )
 
         val file = track?.format
         val stream = state.format

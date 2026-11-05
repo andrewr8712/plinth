@@ -349,6 +349,7 @@ fun AppRoot(container: AppContainer) {
                     output = output,
                     settings = settings,
                     stateLabel = ui.stateLabel,
+                    isDsd = ui.isDsd,
                     levelTracks = levelTracks,
                     levelStatus = levelStatus,
                     libraryTracks = libraryTracks.size,

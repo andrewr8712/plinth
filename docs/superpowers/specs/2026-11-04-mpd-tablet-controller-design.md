@@ -50,7 +50,7 @@ Probed live on 2026-11-04 against `10.0.0.219:6600`.
 | Volume | **none** — `setvol`/`volume` → `ACK [5@0] {setvol} No mixer`; `getvol` → bare `OK` |
 | WiFi RTT | 3–18 ms (ping avg 8.8 ms) |
 | Tags | rich incl. `MUSICBRAINZ_*`, `Composer`, `Work`, `Movement`, `Label` |
-| DSD | `dsd64:2` in status; DoP only, DSD512 unsupported |
+| DSD | `dsd128:2` in status; native DSD via ALSA `DSD_U32_BE` (DoP also available) |
 | Missing formats | SACD/DVD-A rips can report `Format:` absent — derive from extension |
 
 Two failure modes found while probing, both of which shape the client:
@@ -469,7 +469,8 @@ description of the code.
 - **Art and tags can hang.** Every file-touching call is bounded; UI shows
   cached data and an "unreachable" chip meanwhile.
 - **No auth.** Host + port is the entire connection config. Don't build a login.
-- **DSD labels** are `DSD64 · DoP` — never "native DSD".
+- **DSD labels** name the transport the output reports: `DSD64 · DoP` when DoP is
+  enabled, `DSD64` when the output is native.
 - **No resampling exists.** An unsupported rate fails on the server; the app
   must show MPD's error text, not invent a papered-over retry.
 - Library path layout is `Album Dir/NN - Track.flac` with no reliable artist
