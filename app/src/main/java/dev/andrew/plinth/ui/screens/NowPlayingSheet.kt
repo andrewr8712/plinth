@@ -28,6 +28,7 @@ import dev.andrew.plinth.ui.components.Artwork
 import dev.andrew.plinth.ui.components.ProgressHairline
 import dev.andrew.plinth.ui.components.SignalStrip
 import dev.andrew.plinth.ui.components.Transport
+import dev.andrew.plinth.ui.components.upcoming
 import dev.andrew.plinth.ui.theme.PlinthColors
 import dev.andrew.plinth.ui.vm.PlayerUi
 
@@ -106,13 +107,22 @@ fun NowPlayingSheet(
             Spacer(Modifier.height(8.dp))
             Transport(ui.isPlaying, ui.connected, onPrev, onPlayPause, onNext)
             Spacer(Modifier.height(16.dp))
+            val next = upcoming(queue, ui.songId)
             Text(
-                text = if (queue.isEmpty()) "Up next" else "Up next · ${queue.size}",
+                text = if (next.isEmpty()) "Up next" else "Up next · ${next.size}",
                 color = PlinthColors.Muted,
                 style = MaterialTheme.typography.labelSmall,
                 modifier = Modifier.testTag("upNextRow").padding(vertical = 12.dp),
             )
-            queue.take(2).forEach { item ->
+            if (next.isEmpty()) {
+                Text(
+                    text = "Nothing queued",
+                    color = PlinthColors.Faint,
+                    style = MaterialTheme.typography.bodySmall,
+                    modifier = Modifier.padding(vertical = 6.dp),
+                )
+            }
+            next.take(2).forEach { item ->
                 Row(Modifier.fillMaxWidth().padding(vertical = 6.dp)) {
                     Text(
                         text = item.title,
