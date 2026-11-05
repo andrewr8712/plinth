@@ -34,6 +34,11 @@ The tablet surface, at 10 inches:
 
 ![The library on the tablet](docs/screenshots/tablet-library.png)
 
+The phone surface:
+
+<img src="docs/screenshots/phone-now-playing.png" width="300" alt="Now playing on the phone">
+<img src="docs/screenshots/phone-library.png" width="300" alt="The library on the phone">
+
 ## Requirements
 
 - An MPD server reachable over the network. Plinth sends only MPD commands; it
