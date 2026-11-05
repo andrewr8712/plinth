@@ -46,11 +46,13 @@ class MpdClientWriteTest {
     }
 
     @Test
-    fun `ACK from a write surfaces as an exception`() {
+    fun `ACK from a write keeps its code so callers can tell it from a dead link`() {
         server.onCommand("play") { "ACK [2@0] {play} Bad song index\n" }
-        val thrown = assertThrows(MpdException.Protocol::class.java) {
+        val thrown = assertThrows(MpdException.Ack::class.java) {
             runBlocking { client().play(99) }
         }
+        assertEquals(2, thrown.code)
+        assertEquals("play", thrown.command)
         assertEquals("Bad song index", thrown.message)
     }
 }

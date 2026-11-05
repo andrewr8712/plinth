@@ -148,6 +148,10 @@ class MpdConnection(
         val c = client ?: throw MpdException.Disconnected("not connected")
         return try {
             block(c)
+        } catch (e: MpdException.Ack) {
+            // An ACK is a whole reply: MPD is healthy and the stream is still in step.
+            // Demoting here turned every album without a cover into a reconnect.
+            throw e
         } catch (e: MpdException) {
             demote(e)
             throw e

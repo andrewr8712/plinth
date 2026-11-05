@@ -294,7 +294,11 @@ class PlaybackService : Service() {
         PendingIntent.getActivity(
             this,
             0,
-            Intent(this, MainActivity::class.java),
+            Intent(this, MainActivity::class.java).apply {
+                // Reopening must return to the live activity, not stack a second one
+                // with its own ViewModel, tickers and engine owner.
+                flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP
+            },
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )
 
@@ -339,7 +343,9 @@ class PlaybackService : Service() {
 
         override fun onSkipToPrevious() = engine.previous()
 
-        override fun onStop() = stopSelf()
+        override fun onSeekTo(pos: Long) = engine.seek(pos / 1000.0)
+
+        override fun onStop() = engine.stop()
     }
 
     companion object {

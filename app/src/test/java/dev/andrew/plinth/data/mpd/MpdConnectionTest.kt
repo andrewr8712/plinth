@@ -68,6 +68,38 @@ class MpdConnectionTest {
         }
     }
 
+    @Test(timeout = 20_000)
+    fun `an ACK is a reply, not a dead link`() = runBlocking {
+        server.onCommand("idle") { null }
+        server.onCommand("status") { "state: stop\nplaylist: 4\nOK\n" }
+        server.onCommand("play") { "ACK [2@0] {play} Bad song index\n" }
+        server.onCommand("albumart") { "ACK [50@0] {albumart} No file exists\n" }
+
+        val conn = MpdConnection(host = "127.0.0.1", port = server.port)
+        val job = launch(Dispatchers.IO) { conn.run() }
+        try {
+            withTimeout(5_000) { conn.state.first { it is ConnectionState.Up } }
+
+            // A command ACK used to be Protocol, and withClient demoted on both.
+            val writeError = runCatching { conn.withClient { it.play(99) } }.exceptionOrNull()
+            assertTrue("expected an Ack, got $writeError", writeError is MpdException.Ack)
+            assertEquals(2, (writeError as MpdException.Ack).code)
+
+            // 50 is the one that used to disconnect the app while browsing covers.
+            val artError = runCatching { conn.withClient { it.albumArt("missing.flac") } }.exceptionOrNull()
+            assertTrue("expected Ack 50, got $artError", artError is MpdException.Ack)
+            assertEquals(50, (artError as MpdException.Ack).code)
+
+            assertEquals("an ACK is not a connection failure", 0, conn.failures)
+            assertTrue("an ACK must not demote the link", conn.state.value is ConnectionState.Up)
+            val st = withTimeout(2_000) { conn.withClient { it.status() } }
+            assertEquals(PlaybackState.Stop, st.state)
+        } finally {
+            conn.close()
+            job.cancelAndJoin()
+        }
+    }
+
     @Test
     fun `backoff doubles and caps at thirty seconds`() {
         val b = Backoff(jitter = { 0.5 })

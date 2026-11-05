@@ -123,7 +123,8 @@ class MpdClient(private val socket: MpdSocket) {
 
     private fun okPairs(reply: MpdReply): List<Pair<String, String>> = when (reply) {
         is MpdReply.Ok -> reply.pairs
-        is MpdReply.Ack -> throw MpdException.Protocol(reply.message)
+        // Keep the code: 50 means "no art", and that is a fact, not a broken socket.
+        is MpdReply.Ack -> throw MpdException.Ack(reply.code, reply.command, reply.message)
     }
 
     // ---- writes -------------------------------------------------------------
@@ -185,7 +186,7 @@ class MpdClient(private val socket: MpdSocket) {
 
     private suspend fun write(line: String) {
         val reply = socket.command(line)
-        if (reply is MpdReply.Ack) throw MpdException.Protocol(reply.message)
+        if (reply is MpdReply.Ack) throw MpdException.Ack(reply.code, reply.command, reply.message)
     }
 
     private fun flag(on: Boolean) = if (on) 1 else 0

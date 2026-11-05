@@ -30,6 +30,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavHostController
@@ -108,7 +109,9 @@ class MainActivity : ComponentActivity() {
         // ticker rather than a state collector. One second is below the screen timeout.
         lifecycleScope.launch {
             while (isActive) {
-                applyScreenPolicy(container)
+                if (lifecycle.currentState.isAtLeast(Lifecycle.State.STARTED)) {
+                    applyScreenPolicy(container)
+                }
                 delay(1_000)
             }
         }
@@ -182,7 +185,7 @@ fun AppRoot(container: AppContainer) {
             // The tablet has no bottom bar, so Search and Output would be unreachable
             // without this. Now playing stays chrome-free — it is the instrument.
             if (surface != SurfaceSize.Compact && currentRoute != "now") {
-                TabletTopBar(nav, currentRoute, topBarInteractions)
+                TabletTopBar(nav, currentRoute) { topBarInteractions }
             }
         },
         bottomBar = {
@@ -407,9 +410,11 @@ private fun PlinthBottomBar(nav: NavHostController) {
 private fun TabletTopBar(
     nav: NavHostController,
     current: String?,
-    interactionSignal: Int,
+    // A lambda, not the value: reading the counter here keeps the per-touch
+    // recomposition inside the bar instead of rebuilding AppRoot's whole graph.
+    interactionSignal: () -> Int,
 ) {
-    val alpha = rememberTopBarAlpha(current, interactionSignal)
+    val alpha = rememberTopBarAlpha(current, interactionSignal())
     Row(
         modifier = Modifier
             .fillMaxWidth()
