@@ -6,12 +6,15 @@
     android:viewportHeight="108">
     <path
         android:fillColor="#FFFFFF"
-        android:pathData="M38,61.5 H70 A2,2 0 0 1 72,63.5 V66 A2,2 0 0 1 70,68 H38 A2,2 0 0 1 36,66 V63.5 A2,2 0 0 1 38,61.5 Z" />
+        android:pathData="M33.6,60 H74.4 A1.6,1.6 0 0 1 76,61.6 V63.4 A1.6,1.6 0 0 1 74.4,65 H33.6 A1.6,1.6 0 0 1 32,63.4 V61.6 A1.6,1.6 0 0 1 33.6,60 Z" />
     <path
         android:fillColor="#FFFFFF"
-        android:pathData="M34.2,71 H73.8 A2.2,2.2 0 0 1 76,73.2 V76.3 A2.2,2.2 0 0 1 73.8,78.5 H34.2 A2.2,2.2 0 0 1 32,76.3 V73.2 A2.2,2.2 0 0 1 34.2,71 Z" />
+        android:pathData="M37.8,65 H70.2 A1.8,1.8 0 0 1 72,66.8 V71.7 A1.8,1.8 0 0 1 70.2,73.5 H37.8 A1.8,1.8 0 0 1 36,71.7 V66.8 A1.8,1.8 0 0 1 37.8,65 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M33.6,73.5 H74.4 A1.6,1.6 0 0 1 76,75.1 V76.4 A1.6,1.6 0 0 1 74.4,78 H33.6 A1.6,1.6 0 0 1 32,76.4 V75.1 A1.6,1.6 0 0 1 33.6,73.5 Z" />
     <path
         android:fillColor="#FFFFFF"
         android:fillType="evenOdd"
-        android:pathData="M39,42 a15,15 0 1,0 30,0 a15,15 0 1,0 -30,0 Z M48.6,35.6 L61.6,42 L48.6,48.4 Z" />
+        android:pathData="M39,40 a15,15 0 1,0 30,0 a15,15 0 1,0 -30,0 Z M48.6,33.6 L61.6,40 L48.6,46.4 Z" />
 </vector>
