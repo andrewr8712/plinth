@@ -50,12 +50,20 @@ class MpdClientReadTest {
     }
 
     @Test
-    fun `currentsong without Format returns a track with null format`() = runBlocking {
+    fun `currentsong without Format infers DSD from a dsf extension`() = runBlocking {
         server.onCommand("currentsong") { "file: A/01 - X.dsf\nTitle: X\nArtist: Y\nTime: 200\nOK\n" }
         val t = client().currentSong()!!
-        assertNull(t.format)
+        assertEquals(64, t.format?.dsdRate)
+        assertTrue(t.format?.isDsd == true)
         assertEquals("X", t.title)
         assertEquals(200, t.durationSec)
+    }
+
+    @Test
+    fun `currentsong without Format leaves a flac unknown`() = runBlocking {
+        server.onCommand("currentsong") { "file: A/01 - X.flac\nTitle: X\nArtist: Y\nTime: 200\nOK\n" }
+        val t = client().currentSong()!!
+        assertNull(t.format)
     }
 
     @Test

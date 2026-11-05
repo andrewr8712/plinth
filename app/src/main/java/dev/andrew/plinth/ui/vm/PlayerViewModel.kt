@@ -301,7 +301,16 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
             },
             strip = dev.andrew.plinth.data.model.SignalVerdicts.stripCells(
                 status,
-                engine.track.value,
+                engine.track.value?.let { track ->
+                    // MPD reports no Format for DFF/DSF; the library guesses DSD64 from
+                    // the extension, but the stream knows the real rate (DSD128 here).
+                    // While a DSD file plays, the stream is the only evidence.
+                    if (track.format?.isDsd == true && format?.isDsd == true) {
+                        track.copy(format = format)
+                    } else {
+                        track
+                    }
+                },
                 lastOutput,
             ),
         )

@@ -31,6 +31,15 @@ object LibraryParser {
         return out
     }
 
+    /**
+     * The current song through the same fallbacks as the library. SACD/DFF rips often
+     * carry no tags and no `Format:`; the folder and file name are then the only
+     * evidence, and using the library's rules keeps the album id — and so the cover —
+     * identical to the cached one.
+     */
+    fun currentSong(pairs: List<Pair<String, String>>): Track? =
+        toTrack(pairs, fallbackFormatFromExt = true).takeIf { it.uri.isNotBlank() }
+
     private fun toTrack(pairs: List<Pair<String, String>>, fallbackFormatFromExt: Boolean): Track {
         fun t(key: String): String? = pairs.firstOrNull { it.first == key }?.second
 

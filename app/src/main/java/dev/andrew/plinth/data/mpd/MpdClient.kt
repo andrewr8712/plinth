@@ -42,30 +42,7 @@ class MpdClient(private val socket: MpdSocket) {
     suspend fun currentSong(): Track? {
         val p = okPairs(socket.command("currentsong"))
         if (p.isEmpty()) return null
-        fun s(key: String): String? = p.firstOrNull { it.first == key }?.second
-        val uri = s("file") ?: return null
-        val format = AudioFormat.parse(s("Format"))
-        val duration = s("duration")?.toDoubleOrNull()?.toInt()
-            ?: s("Time")?.toIntOrNull()
-            ?: 0
-        val artist = s("Artist").orEmpty()
-        val albumArtist = s("AlbumArtist")?.ifBlank { artist } ?: artist
-        return Track(
-            uri = uri,
-            albumId = AlbumIdentity.key(albumArtist, artist, s("Album").orEmpty(), format?.channels ?: 2),
-            disc = s("Disc")?.toIntOrNull() ?: 1,
-            trackNo = s("Track")?.toIntOrNull() ?: 0,
-            title = s("Title").orEmpty(),
-            artist = artist,
-            albumArtist = albumArtist,
-            album = s("Album").orEmpty(),
-            year = s("Date")?.take(4)?.toIntOrNull(),
-            genre = s("Genre"),
-            durationSec = duration,
-            format = format,
-            path = uri.substringBeforeLast('/', ""),
-            channels = format?.channels ?: 2,
-        )
+        return LibraryParser.currentSong(p)
     }
 
     /** The whole library in one read: 865 KB / ~90 ms on this streamer. */
