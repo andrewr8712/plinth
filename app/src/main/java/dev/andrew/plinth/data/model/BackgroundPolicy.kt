@@ -19,8 +19,13 @@ class BackgroundPolicy(
         else -> minutesSinceInactive <= GRACE_MINUTES
     }
 
-    /** The screen stays lit only for something worth watching: music that is playing. */
-    fun shouldKeepScreenOn(state: PlaybackState): Boolean = state == PlaybackState.Play
+    /**
+     * The screen stays lit for something worth watching: music that is playing, or —
+     * when the tablet is used as an appliance — any state at all while the charger is
+     * attached and the setting says to stay awake.
+     */
+    fun shouldKeepScreenOn(state: PlaybackState): Boolean =
+        state == PlaybackState.Play || (stayAwakeWhileCharging && charging)
 
     private companion object {
         const val GRACE_MINUTES = 1L

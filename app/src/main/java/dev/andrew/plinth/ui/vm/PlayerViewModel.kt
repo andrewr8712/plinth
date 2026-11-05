@@ -1,13 +1,14 @@
 package dev.andrew.plinth.ui.vm
 
+import android.os.SystemClock
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import dev.andrew.plinth.AppContainer
-import dev.andrew.plinth.data.mpd.ConnectionState
-import dev.andrew.plinth.data.mpd.MpdConnection
-import dev.andrew.plinth.data.model.PlayerState
 import dev.andrew.plinth.data.model.PlaybackState
+import dev.andrew.plinth.data.model.PlayerState
+import dev.andrew.plinth.data.mpd.ConnectionState
+import dev.andrew.plinth.data.mpd.MpdClient
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -41,17 +42,20 @@ data class PlayerUi(
     val isDsd: Boolean = false,
 )
 
+/**
+ * The UI's view of [dev.andrew.plinth.data.playback.PlaybackEngine]. The engine owns
+ * the socket so the playback service can keep it alive without an activity; this
+ * maps its state into [PlayerUi] and keeps the library, art and queue in step.
+ */
 class PlayerViewModel(private val container: AppContainer) : ViewModel() {
+
+    private val engine = container.engine
 
     private val _ui = MutableStateFlow(PlayerUi())
     val ui: StateFlow<PlayerUi> = _ui.asStateFlow()
 
-    private var connection: MpdConnection? = null
-    private var pollJob: Job? = null
-    private var lastSongId: Int? = null
     private var lastQueueVersion: Int = Int.MIN_VALUE
     private var lastOutput: dev.andrew.plinth.data.model.OutputInfo? = null
-    private var lastTrack: dev.andrew.plinth.data.model.Track? = null
 
     private val _queue = MutableStateFlow<List<dev.andrew.plinth.data.model.QueueItem>>(emptyList())
     val queue: StateFlow<List<dev.andrew.plinth.data.model.QueueItem>> = _queue.asStateFlow()
@@ -117,58 +121,21 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
     val levelTracks: StateFlow<Int> = _levelTracks.asStateFlow()
 
     init {
-        viewModelScope.launch {
-            val settings = container.settings.flow.first()
-            connect(settings.host, settings.port)
-        }
-    }
-
-    fun connect(host: String, port: Int) {
-        pollJob?.cancel()
-        connection?.close()
-        val conn = container.connection(host, port)
-        connection = conn
-        viewModelScope.launch { conn.run() }
-        viewModelScope.launch {
-            conn.state.collect { state ->
-                _connectionState.value = state
-                if (state is ConnectionState.Up) {
-                    _art.value = runCatching { conn.withClient { container.artFor(it) } }.getOrNull()
-                    lastOutput = runCatching { conn.withClient { it.outputs().firstOrNull() } }.getOrNull()
-                    _output.value = lastOutput
-                    if (!librarySynced) {
-                        librarySynced = true
-                        viewModelScope.launch {
-                            _syncingLibrary.value = true
-                            runCatching {
-                                val tracks = conn.withClient { it.listAllInfo() }
-                                if (tracks.isNotEmpty()) container.library.replaceAll(tracks)
-                            }
-                            _syncingLibrary.value = false
-                        }
-                    }
-                } else {
-                    _art.value = null
-                }
-                _ui.value = _ui.value.copy(
-                    connected = state is ConnectionState.Up,
-                    stateLabel = when (state) {
-                        is ConnectionState.Up -> "Connected"
-                        is ConnectionState.Connecting -> "Connecting…"
-                        is ConnectionState.Unavailable -> state.message
-                    },
-                )
-            }
-        }
-        pollJob = viewModelScope.launch {
-            while (isActive) {
-                if (conn.isUp) refresh(conn)
-                delay(if (conn.isUp) POLL_MS else RETRY_MS)
-            }
-        }
         loudness = container.loudness.open()
         _levelTracks.value = loudness?.trackCount ?: 0
         startLevelTicker()
+
+        viewModelScope.launch {
+            val first = container.settings.flow.first()
+            engine.connect(first.host, first.port)
+        }
+        viewModelScope.launch { engine.connection.collect(::onConnection) }
+        viewModelScope.launch { engine.player.collect { state -> if (state != null) onStatus(state) } }
+        viewModelScope.launch { engine.track.collect { song -> if (song != null) onTrack(song) } }
+    }
+
+    fun connect(host: String, port: Int) {
+        engine.connect(host, port)
     }
 
     /**
@@ -191,7 +158,7 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
                 // Paused keeps the frame at the paused position: a needle at rest is
                 // truthful, where "No level data" would blame a missing envelope.
                 val clocked = if (ui.isPlaying) {
-                    lastElapsed + (android.os.SystemClock.elapsedRealtime() - lastElapsedAtMs) / 1000.0
+                    lastElapsed + (SystemClock.elapsedRealtime() - lastElapsedAtMs) / 1000.0
                 } else {
                     lastElapsed
                 }
@@ -220,44 +187,46 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
         }
     }
 
-    private suspend fun refresh(conn: MpdConnection) {
-        try {
-            val status = conn.withClient { it.status() }
-            val song = if (status.songId != lastSongId) {
-                lastSongId = status.songId
-                conn.withClient { it.currentSong() }
-            } else {
-                null
+    private fun onConnection(state: ConnectionState) {
+        _connectionState.value = state
+        if (state is ConnectionState.Up) {
+            onUp()
+        } else {
+            _art.value = null
+        }
+        _ui.value = _ui.value.copy(
+            connected = state is ConnectionState.Up,
+            stateLabel = when (state) {
+                is ConnectionState.Up -> "Connected"
+                is ConnectionState.Connecting -> "Connecting…"
+                is ConnectionState.Unavailable -> state.message
+            },
+        )
+    }
+
+    private fun onUp() {
+        viewModelScope.launch {
+            _art.value = runCatching { engine.withClient { container.artFor(it) } }.getOrNull()
+            lastOutput = runCatching { engine.withClient { it.outputs().firstOrNull() } }.getOrNull()
+            _output.value = lastOutput
+            if (!librarySynced) {
+                librarySynced = true
+                viewModelScope.launch {
+                    _syncingLibrary.value = true
+                    runCatching {
+                        val tracks = engine.withClient { it.listAllInfo() }
+                        if (tracks.isNotEmpty()) container.library.replaceAll(tracks)
+                    }
+                    _syncingLibrary.value = false
+                }
             }
-            if (song != null) lastTrack = song
-            _ui.value = _ui.value.merge(status, song).copy(
-                strip = dev.andrew.plinth.data.model.SignalVerdicts.stripCells(status, lastTrack, lastOutput),
-            )
-            lastElapsed = status.elapsed ?: lastElapsed
-            lastElapsedAtMs = android.os.SystemClock.elapsedRealtime()
-            if (status.queueVersion != lastQueueVersion) {
-                lastQueueVersion = status.queueVersion
-                runCatching { _queue.value = conn.withClient { it.playlistInfo() } }
-            }
-        } catch (_: Exception) {
-            // the connection supervisor owns recovery; the next tick tries again
         }
     }
 
-    private fun PlayerUi.merge(status: PlayerState, song: dev.andrew.plinth.data.model.Track?): PlayerUi {
-        val base = if (song != null) {
-            copy(
-                title = song.title.ifBlank { song.uri.substringAfterLast('/') },
-                artist = song.artist.ifBlank { song.albumArtist },
-                album = song.album,
-                albumId = song.albumId,
-                uri = song.uri,
-            )
-        } else {
-            this
-        }
+    private fun onStatus(status: PlayerState) {
         val format = status.format
-        return base.copy(
+        val base = _ui.value
+        _ui.value = base.copy(
             elapsed = status.elapsed ?: base.elapsed,
             duration = status.duration ?: base.duration,
             isPlaying = status.state == PlaybackState.Play,
@@ -277,21 +246,43 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
                 PlaybackState.Stop -> "Stopped"
                 PlaybackState.Unknown -> base.stateLabel
             },
+            strip = dev.andrew.plinth.data.model.SignalVerdicts.stripCells(
+                status,
+                engine.track.value,
+                lastOutput,
+            ),
+        )
+        lastElapsed = status.elapsed ?: lastElapsed
+        lastElapsedAtMs = SystemClock.elapsedRealtime()
+        if (status.queueVersion != lastQueueVersion) {
+            lastQueueVersion = status.queueVersion
+            viewModelScope.launch {
+                runCatching { _queue.value = engine.withClient { it.playlistInfo() } }
+            }
+        }
+    }
+
+    private fun onTrack(song: dev.andrew.plinth.data.model.Track) {
+        _ui.value = _ui.value.copy(
+            title = song.title.ifBlank { song.uri.substringAfterLast('/') },
+            artist = song.artist.ifBlank { song.albumArtist },
+            album = song.album,
+            albumId = song.albumId,
+            uri = song.uri,
         )
     }
 
     /** Album rows are played as a queue: clear, add in order, start at [index]. */
     fun playAlbum(tracks: List<dev.andrew.plinth.data.model.Track>, index: Int) {
-        val conn = connection ?: return
         viewModelScope.launch {
             runCatching {
-                conn.withClient { client ->
+                engine.withClient { client ->
                     client.clearQueue()
                     tracks.forEach { client.add(it.uri) }
                     client.play(index)
                 }
             }
-            runCatching { refresh(conn) }
+            runCatching { engine.refresh() }
         }
     }
 
@@ -335,9 +326,8 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
 
     /** Saved playlists live on the streamer; the dialog needs them on demand. */
     fun fetchPlaylists(onResult: (List<String>) -> Unit) {
-        val conn = connection ?: return onResult(emptyList())
         viewModelScope.launch {
-            onResult(runCatching { conn.withClient { it.listPlaylists() } }.getOrDefault(emptyList()))
+            onResult(runCatching { engine.withClient { it.listPlaylists() } }.getOrDefault(emptyList()))
         }
     }
 
@@ -360,38 +350,27 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
     fun setServer(host: String, port: Int) {
         viewModelScope.launch {
             container.settings.update { it.copy(host = host, port = port) }
-            connect(host, port)
+            engine.connect(host, port)
         }
     }
 
-    fun playPause() = command {
-        val playing = _ui.value.isPlaying
-        if (playing) it.pause(true) else it.play()
-    }
+    fun playPause() = engine.playPause()
 
-    fun next() = command { it.next() }
+    fun next() = engine.next()
 
-    fun previous() = command { it.previous() }
+    fun previous() = engine.previous()
 
-    fun seek(seconds: Double) = command { it.seekCur(seconds) }
+    fun seek(seconds: Double) = engine.seek(seconds)
 
-    private fun command(block: suspend (dev.andrew.plinth.data.mpd.MpdClient) -> Unit) {
-        val conn = connection ?: return
+    private fun command(block: suspend (MpdClient) -> Unit) {
         viewModelScope.launch {
-            runCatching { conn.withClient { block(it) } }
+            runCatching { engine.withClient { block(it) } }
             // draw the new state immediately rather than waiting for the next tick
-            runCatching { refresh(conn) }
+            runCatching { engine.refresh() }
         }
-    }
-
-    override fun onCleared() {
-        pollJob?.cancel()
-        connection?.close()
     }
 
     private companion object {
-        const val POLL_MS = 500L
-        const val RETRY_MS = 2_000L
         const val LEVEL_MS = 100L
     }
 }

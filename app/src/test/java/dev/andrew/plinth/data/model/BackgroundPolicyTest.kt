@@ -43,6 +43,18 @@ class BackgroundPolicyTest {
     }
 
     @Test
+    fun `stay awake while charging lights the screen even when stopped`() {
+        val awake = BackgroundPolicy(stayAwakeWhileCharging = true, charging = true)
+        assertTrue(awake.shouldKeepScreenOn(PlaybackState.Pause))
+        assertTrue(awake.shouldKeepScreenOn(PlaybackState.Stop))
+        assertFalse(
+            "the setting without a charger still sleeps the screen",
+            BackgroundPolicy(stayAwakeWhileCharging = true, charging = false)
+                .shouldKeepScreenOn(PlaybackState.Stop),
+        )
+    }
+
+    @Test
     fun `unknown state is treated as idle, not as playing`() {
         assertTrue(plain.shouldRun(PlaybackState.Unknown, minutesSinceInactive = 0))
         assertFalse(plain.shouldRun(PlaybackState.Unknown, minutesSinceInactive = 3))

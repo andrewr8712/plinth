@@ -1,8 +1,13 @@
 package dev.andrew.plinth
 
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -23,11 +28,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import dev.andrew.plinth.data.model.BackgroundPolicy
+import dev.andrew.plinth.data.model.PlaybackState
+import dev.andrew.plinth.data.playback.PlaybackEngine
 import dev.andrew.plinth.ui.layout.SurfaceSize
 import dev.andrew.plinth.ui.layout.rememberSurfaceSize
 import dev.andrew.plinth.ui.theme.PlinthColors
@@ -47,16 +58,75 @@ import dev.andrew.plinth.ui.screens.albumsMatching
 import dev.andrew.plinth.ui.theme.PlinthTheme
 import dev.andrew.plinth.ui.vm.PlayerViewModel
 import dev.andrew.plinth.ui.vm.PlayerViewModelFactory
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
+
+    private var stayAwakeWhileCharging = false
+
+    private val notificationPermission =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val container = (application as PlinthApp).container
+        askForNotifications()
+        observeBackgroundPolicy(container)
         setContent {
             PlinthTheme {
                 AppRoot(container)
             }
+        }
+    }
+
+    /**
+     * The UI is one of the engine's two owners. Dropping the demand on stop is what
+     * suspends reconnects when the app is backgrounded and no service is running;
+     * the service supplies the other demand while it is up.
+     */
+    private fun observeBackgroundPolicy(container: AppContainer) {
+        lifecycle.addObserver(
+            object : DefaultLifecycleObserver {
+                override fun onStart(owner: LifecycleOwner) {
+                    container.engine.setActive(PlaybackEngine.OWNER_UI, true)
+                }
+
+                override fun onStop(owner: LifecycleOwner) {
+                    container.engine.setActive(PlaybackEngine.OWNER_UI, false)
+                }
+            },
+        )
+        lifecycleScope.launch {
+            container.settings.flow.collect { stayAwakeWhileCharging = it.stayAwakeWhileCharging }
+        }
+        // The charger can be plugged in while nothing else is changing, so this is a
+        // ticker rather than a state collector. One second is below the screen timeout.
+        lifecycleScope.launch {
+            while (isActive) {
+                applyScreenPolicy(container)
+                delay(1_000)
+            }
+        }
+    }
+
+    private fun applyScreenPolicy(container: AppContainer) {
+        val policy = BackgroundPolicy(stayAwakeWhileCharging, container.isCharging())
+        val state = container.engine.player.value?.state ?: PlaybackState.Unknown
+        if (policy.shouldKeepScreenOn(state)) {
+            window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        } else {
+            window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        }
+    }
+
+    private fun askForNotifications() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
+            checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) !=
+            PackageManager.PERMISSION_GRANTED
+        ) {
+            notificationPermission.launch(Manifest.permission.POST_NOTIFICATIONS)
         }
     }
 }

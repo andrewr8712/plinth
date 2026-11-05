@@ -9,3 +9,10 @@ app/build/
 .idea/
 .kotlin/
 .impeccable/
+.gradle-home/
+.kotlin-data/
+.gradle-home-build.log
+.keystore/
+.android-home/
+.screenshots/
+.gradle-connected.log

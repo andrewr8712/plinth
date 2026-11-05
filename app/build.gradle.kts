@@ -18,6 +18,20 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    // The default debug keystore lives under ~/.android, which is read-only in this
+    // sandbox; AGP then refuses to validate it. Use a workspace copy when present.
+    val localDebugKeystore = rootProject.file(".keystore/debug.keystore")
+    signingConfigs {
+        if (localDebugKeystore.isFile) {
+            getByName("debug") {
+                storeFile = localDebugKeystore
+                storePassword = "android"
+                keyAlias = "androiddebugkey"
+                keyPassword = "android"
+            }
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -38,6 +52,24 @@ android {
 
     testOptions {
         unitTests.isIncludeAndroidResources = true
+        unitTests.all { test ->
+            // Robolectric keeps a download lock under user.home, which is read-only on
+            // this machine. Give the test JVM a writable home, and when the SDK jar is
+            // already in the real Maven cache tell Robolectric to use it offline so a
+            // test run never needs the network.
+            val realHome = System.getProperty("user.home")
+            val cachedSdk = File(realHome, ".m2/repository/org/robolectric/android-all-instrumented")
+                .listFiles()
+                ?.firstOrNull { it.isDirectory }
+            test.systemProperty(
+                "user.home",
+                layout.buildDirectory.dir("test-home").get().asFile.apply { mkdirs() }.absolutePath,
+            )
+            if (cachedSdk != null) {
+                test.systemProperty("robolectric.offline", "true")
+                test.systemProperty("robolectric.dependency.dir", cachedSdk.absolutePath)
+            }
+        }
     }
 }
 
@@ -55,6 +87,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.compose)
 
     implementation(libs.androidx.datastore.preferences)
+    implementation(libs.androidx.media)
 
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
