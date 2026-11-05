@@ -31,6 +31,7 @@ import dev.andrew.plinth.ui.components.Artwork
 import dev.andrew.plinth.ui.components.LevelMeter
 import dev.andrew.plinth.ui.components.ProgressHairline
 import dev.andrew.plinth.ui.components.QueueBand
+import dev.andrew.plinth.ui.components.upcoming
 import dev.andrew.plinth.ui.components.SignalStrip
 import dev.andrew.plinth.ui.components.Transport
 import dev.andrew.plinth.ui.components.UnavailableChip
@@ -104,7 +105,7 @@ fun NowPlayingScreen(
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 QueueBand(
-                    items = queue,
+                    items = upcoming(queue, ui.songId),
                     onItemClick = onQueueItem,
                     onOpenQueue = onOpenQueue,
                     modifier = Modifier.weight(1f),

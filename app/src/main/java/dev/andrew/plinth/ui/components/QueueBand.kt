@@ -89,3 +89,9 @@ fun QueueBand(
 }
 
 private const val MAX_ROWS = 3
+
+/** What is still to come, so the band never lists the track that is already playing. */
+fun upcoming(queue: List<QueueItem>, currentId: Int?): List<QueueItem> {
+    val index = queue.indexOfFirst { it.id == currentId }
+    return if (index >= 0) queue.drop(index + 1) else queue
+}

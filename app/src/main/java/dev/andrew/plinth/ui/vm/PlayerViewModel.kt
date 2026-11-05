@@ -231,6 +231,18 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
             _art.value = runCatching { engine.withClient { container.artFor(it) } }.getOrNull()
             lastOutput = runCatching { engine.withClient { it.outputs().firstOrNull() } }.getOrNull()
             _output.value = lastOutput
+            // A paused or stopped streamer returns an equal status every poll, so the
+            // StateFlow does not emit again; the strip computed before the outputs
+            // arrived would otherwise keep saying "USB · output".
+            engine.player.value?.let { status ->
+                _ui.value = _ui.value.copy(
+                    strip = dev.andrew.plinth.data.model.SignalVerdicts.stripCells(
+                        status,
+                        engine.track.value,
+                        lastOutput,
+                    ),
+                )
+            }
             libraryDbUpdate = runCatching { engine.withClient { it.dbUpdate() } }.getOrNull()
             refreshLevelStaleness()
             if (!librarySynced) syncLibrary()
