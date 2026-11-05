@@ -1,0 +1,41 @@
+# Keep the Gradle version catalog and the workflow actions current. The CI
+# workflow runs the unit tests, lint and build on every Dependabot PR, so an
+# upgrade that breaks the app is visible before it lands.
+version: 2
+updates:
+  - package-ecosystem: gradle
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    labels:
+      - dependencies
+    commit-message:
+      prefix: deps
+    groups:
+      androidx:
+        patterns:
+          - "androidx.*"
+      compose:
+        patterns:
+          - "androidx.compose*"
+      kotlin:
+        patterns:
+          - "org.jetbrains.kotlin*"
+      test:
+        patterns:
+          - "junit*"
+          - "org.robolectric*"
+          - "androidx.test*"
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    labels:
+      - dependencies
+    commit-message:
+      prefix: ci
