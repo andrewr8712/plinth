@@ -33,6 +33,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import dev.andrew.plinth.data.model.QueueItem
+import dev.andrew.plinth.ui.components.EmptyState
 import dev.andrew.plinth.ui.components.ListRow
 import dev.andrew.plinth.ui.theme.PlinthColors
 
@@ -51,6 +52,7 @@ fun QueueScreen(
     onClear: () -> Unit = {},
     onSave: (String) -> Unit = {},
     onLoad: (String) -> Unit = {},
+    onBrowse: () -> Unit = {},
 ) {
     var saving by remember { mutableStateOf(false) }
     var loading by remember { mutableStateOf(false) }
@@ -86,13 +88,13 @@ fun QueueScreen(
         }
 
         if (items.isEmpty()) {
-            Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                Text(
-                    text = "The queue is empty",
-                    color = PlinthColors.Faint,
-                    style = MaterialTheme.typography.bodyLarge,
-                )
-            }
+            EmptyState(
+                title = "Nothing queued",
+                body = "Pick an album or a track and it lands here.",
+                actionLabel = "Browse albums",
+                onAction = onBrowse,
+                testTag = "queue-empty",
+            )
         } else {
             LazyColumn(Modifier.fillMaxSize().testTag("queueList")) {
                 itemsIndexed(items, key = { _, item -> item.id }) { index, item ->

@@ -13,12 +13,12 @@ Volumio. `README.md` covers building, testing and installing.
 
 ## Status
 
-- **M1–M3 are complete. M4 is nearly done: the loudness envelope and the meter
-  (tasks 16–17) and the foreground playback service (task 18) are built; the
-  failure states are not started (task 19).**
-- 99 unit tests pass, and 17 instrumented tests pass on a tablet
-  (`PlaybackServiceTest` 2, `NowPlayingExpandedTest` 2, `PhoneSurfacesTest` 3,
-  `LibrarySurfacesTest` 7, `VuMeterTest` 3). Nine Python tests cover the scanner.
+- **M1–M4 are complete: the loudness envelope and meter (tasks 16–17), the
+  foreground playback service (task 18) and the failure/empty states (task 19).**
+- 103 unit tests pass, and 24 instrumented tests pass on a tablet
+  (`OfflineTest` 7, `PlaybackServiceTest` 2, `NowPlayingExpandedTest` 2,
+  `PhoneSurfacesTest` 3, `LibrarySurfacesTest` 7, `VuMeterTest` 3). Nine Python
+  tests cover the scanner.
 - The meter is verified reading a real envelope on the tablet. The one thing not
   verified is the bars moving: that needs playback, which is started by ear, not by
   a test.
@@ -27,6 +27,12 @@ Volumio. `README.md` covers building, testing and installing.
   title, `artist · album`, cached art and four actions, and the one-minute grace
   after a pause stopped it and removed the notification. Pressing Play from the
   notification is the one action not exercised — it would start audio.
+- The failure surfaces are verified on the tablet by pointing the app at a closed
+  port: the chip read "Streamer refused the connection" with Retry now, all 139
+  cached albums stayed browsable, the transport was disabled in place, the meter
+  said "No signal", the strip answered "—"/"Unknown", and restoring the port
+  cleared everything. The monogram plate is visible on the untagged albums
+  ("No artwork").
 - The debug APK runs on both the reference tablet and phone.
 - **`feat/task-15-screens` is merged into `master`** (fast-forward, 2026-11-05).
   Master now holds the library screens; the branch can be deleted.
@@ -131,6 +137,11 @@ dedupe should paper over.
 
 - The tablet's top bar is a static row; the design asks for one that fades with
   inactivity (spec §5.7).
+- The first-run state is honest text ("Reading the library…") rather than the
+  designed skeletons, and there is no Arabic companion font, so the RTL study in
+  the mockup is not exercised.
+- The loudness stale-copy ("older than the library") is not implemented: the
+  envelope has no timestamp to compare against the library update.
 - Search is a prefix `LIKE` query, not FTS. At 1,866 rows the scan is instant;
   albums are matched from the cached list.
 
@@ -156,8 +167,13 @@ dedupe should paper over.
   after a pause or stop. `BackgroundPolicy.shouldKeepScreenOn` drives
   `FLAG_KEEP_SCREEN_ON` on the activity; a partial wakelock is held only while
   playing. Verified on the tablet, including the grace stop.
-- **Failure states — not started.** The eleven states in `mockups/states.tpl.html`
-  are designed but not implemented.
+- **Failure and empty states — done (task 19).** `UnavailableChip` carries the
+  reason and a Retry that cancels the backoff; `PlayerUi.offline` disables the
+  transport in place, dims the cover, blanks the strip to "—"/"Unknown" and turns
+  the meter into "No signal". Cached albums stay browsable. Empty library, empty
+  queue and no-search-results have an `EmptyState` with the likely cause and one
+  action. No artwork draws an initials plate ("No artwork" only when MPD said
+  ACK 50), and a paused meter exposes an "Idle" state to assistive tech.
 
 ## Pitfalls
 

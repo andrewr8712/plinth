@@ -29,8 +29,10 @@ import dev.andrew.plinth.data.art.ArtRepository
 import dev.andrew.plinth.data.model.Album
 import dev.andrew.plinth.data.model.Track
 import dev.andrew.plinth.ui.components.Artwork
+import dev.andrew.plinth.ui.components.EmptyState
 import dev.andrew.plinth.ui.components.ListRow
 import dev.andrew.plinth.ui.components.TrackRow
+import dev.andrew.plinth.ui.components.UnavailableChip
 import dev.andrew.plinth.ui.layout.SurfaceSize
 import dev.andrew.plinth.ui.theme.PlinthColors
 
@@ -57,6 +59,9 @@ fun LibraryScreen(
     folders: List<String>,
     art: ArtRepository? = null,
     syncing: Boolean = false,
+    offline: Boolean = false,
+    offlineReason: String = "",
+    onRetry: () -> Unit = {},
     onOpenAlbum: (String) -> Unit = {},
     onOpenArtist: (String) -> Unit = {},
     onOpenFolder: (String) -> Unit = {},
@@ -95,12 +100,31 @@ fun LibraryScreen(
 
         LibraryTabs(tab, onTab)
 
+        if (offline) {
+            UnavailableChip(
+                reason = offlineReason.ifBlank { "Streamer not answering" },
+                onRetry = onRetry,
+                modifier = Modifier.padding(start = 24.dp, end = 24.dp, bottom = 12.dp),
+            )
+        }
+
         if (count == 0) {
-            Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                Text(
-                    text = if (syncing) "Reading the library…" else "Nothing cached yet",
-                    color = PlinthColors.Faint,
-                    style = MaterialTheme.typography.bodyLarge,
+            if (syncing) {
+                Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    Text(
+                        text = "Reading the library…",
+                        color = PlinthColors.Faint,
+                        style = MaterialTheme.typography.bodyLarge,
+                    )
+                }
+            } else {
+                EmptyState(
+                    title = "Library is empty",
+                    body = "The streamer can see MPD but not its music share. " +
+                        "Its SMB mount is probably down.",
+                    actionLabel = "Retry",
+                    onAction = onRetry,
+                    testTag = "library-empty",
                 )
             }
             return@Column
@@ -201,6 +225,7 @@ private fun AlbumTile(album: Album, art: ArtRepository?, onClick: () -> Unit) {
             albumId = album.id,
             firstTrackUri = album.firstUri,
             art = art,
+            label = album.title,
             modifier = Modifier.fillMaxWidth().aspectRatio(1f),
         )
         Text(

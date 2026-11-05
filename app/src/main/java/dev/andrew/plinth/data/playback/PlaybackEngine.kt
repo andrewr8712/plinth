@@ -81,6 +81,15 @@ class PlaybackEngine {
         }
     }
 
+    /** Drops the current backoff wait and redials now. What the chip's button calls. */
+    fun retry() {
+        synchronized(lock) {
+            if (owners.isEmpty()) return
+            stopLocked()
+            startLocked()
+        }
+    }
+
     suspend fun <T> withClient(block: suspend (MpdClient) -> T): T {
         val c = conn ?: throw MpdException.Disconnected("not connected")
         return c.withClient(block)

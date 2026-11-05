@@ -40,6 +40,10 @@ data class PlayerUi(
     /** The envelope frame for the position being heard, or null when there is none. */
     val level: dev.andrew.plinth.data.loudness.StereoLevel? = null,
     val isDsd: Boolean = false,
+    /** True only for [dev.andrew.plinth.data.mpd.ConnectionState.Unavailable]. */
+    val offline: Boolean = false,
+    /** Human copy for the failure chip; empty when there is nothing to report. */
+    val offlineReason: String = "",
 )
 
 /**
@@ -150,7 +154,9 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
                 delay(LEVEL_MS)
                 val index = loudness
                 val ui = _ui.value
-                if (index == null || ui.uri.isEmpty()) {
+                if (index == null || ui.uri.isEmpty() || ui.offline) {
+                    // No contact, no evidence: do not keep extrapolating a position
+                    // into the envelope while the streamer is unreachable.
                     if (ui.level != null) _ui.value = ui.copy(level = null)
                     continue
                 }
@@ -196,6 +202,8 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
         }
         _ui.value = _ui.value.copy(
             connected = state is ConnectionState.Up,
+            offline = state is ConnectionState.Unavailable,
+            offlineReason = offlineCopy(state).orEmpty(),
             stateLabel = when (state) {
                 is ConnectionState.Up -> "Connected"
                 is ConnectionState.Connecting -> "Connecting…"
@@ -354,6 +362,9 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
         }
     }
 
+    /** Cancels the reconnect backoff and dials again, from the offline chip. */
+    fun retry() = engine.retry()
+
     fun playPause() = engine.playPause()
 
     fun next() = engine.next()
@@ -373,6 +384,24 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
     private companion object {
         const val LEVEL_MS = 100L
     }
+}
+
+/**
+ * The chip's copy, kept out of Android so it can be tested on the JVM. A timeout and a
+ * refused socket read differently to the owner: one is the streamer asleep, the other
+ * a wrong address.
+ */
+internal fun offlineCopy(state: ConnectionState): String? = when (state) {
+    is ConnectionState.Unavailable -> {
+        val message = state.message.lowercase()
+        when {
+            "refused" in message -> "Streamer refused the connection"
+            "route" in message || "unreachable" in message || "network" in message ->
+                "Streamer unreachable"
+            else -> "Streamer not answering"
+        }
+    }
+    else -> null
 }
 
 @Suppress("UNCHECKED_CAST")

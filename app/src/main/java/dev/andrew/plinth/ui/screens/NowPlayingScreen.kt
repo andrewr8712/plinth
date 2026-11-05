@@ -19,6 +19,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.text.style.TextOverflow
@@ -32,6 +33,7 @@ import dev.andrew.plinth.ui.components.ProgressHairline
 import dev.andrew.plinth.ui.components.QueueBand
 import dev.andrew.plinth.ui.components.SignalStrip
 import dev.andrew.plinth.ui.components.Transport
+import dev.andrew.plinth.ui.components.UnavailableChip
 import dev.andrew.plinth.ui.layout.SurfaceSize
 import dev.andrew.plinth.ui.theme.PlinthColors
 import dev.andrew.plinth.ui.vm.PlayerUi
@@ -61,6 +63,7 @@ fun NowPlayingScreen(
     onQueueItem: (Int) -> Unit = {},
     onOpenQueue: () -> Unit = {},
     onOpenLibrary: () -> Unit = {},
+    onRetry: () -> Unit = {},
 ) {
     Box(Modifier.fillMaxSize().background(PlinthColors.Base)) {
         if (size == SurfaceSize.Medium) {
@@ -78,7 +81,11 @@ fun NowPlayingScreen(
                         albumId = ui.albumId,
                         firstTrackUri = ui.uri,
                         art = art,
-                        modifier = Modifier.size(COVER).clickable { onOpenLibrary() },
+                        label = ui.album.ifBlank { ui.title },
+                        modifier = Modifier
+                            .size(COVER)
+                            .alpha(if (ui.offline) 0.55f else 1f)
+                            .clickable { onOpenLibrary() },
                     )
                     Spacer(Modifier.width(40.dp))
                     TrackColumn(ui, size, onPlayPause, onPrev, onNext, onSeek)
@@ -101,6 +108,7 @@ fun NowPlayingScreen(
                 LevelMeter(
                     level = ui.level,
                     active = ui.isPlaying,
+                    offline = ui.offline,
                     modifier = Modifier
                         .width(220.dp)
                         .padding(end = INSET),
@@ -108,6 +116,16 @@ fun NowPlayingScreen(
             }
         } else {
             CompactNowPlaying(ui, art, onPlayPause, onPrev, onNext, onSeek)
+        }
+
+        // A failure belongs on top of the instrument, not in a reflowing banner: the
+        // transport must not move when the streamer goes away.
+        if (ui.offline) {
+            UnavailableChip(
+                reason = ui.offlineReason.ifBlank { "Streamer not answering" },
+                onRetry = onRetry,
+                modifier = Modifier.align(Alignment.TopCenter).padding(top = 16.dp),
+            )
         }
     }
 }
@@ -152,7 +170,7 @@ private fun TrackColumn(
             style = MaterialTheme.typography.bodySmall,
         )
         Spacer(Modifier.height(16.dp))
-        ui.strip?.let { SignalStrip(it) }
+        ui.strip?.let { SignalStrip(it, offline = ui.offline) }
         Spacer(Modifier.height(24.dp))
         ProgressHairline(ui.elapsed, ui.duration, onSeek)
         Spacer(Modifier.height(16.dp))
@@ -180,7 +198,11 @@ private fun CompactNowPlaying(
             albumId = ui.albumId,
             firstTrackUri = ui.uri,
             art = art,
-            modifier = Modifier.fillMaxWidth().weight(1f),
+            label = ui.album.ifBlank { ui.title },
+            modifier = Modifier
+                .fillMaxWidth()
+                .weight(1f)
+                .alpha(if (ui.offline) 0.55f else 1f),
         )
         Spacer(Modifier.height(24.dp))
         Text(
@@ -193,7 +215,7 @@ private fun CompactNowPlaying(
         Spacer(Modifier.height(6.dp))
         Text(ui.artist, color = PlinthColors.Muted, style = MaterialTheme.typography.bodyLarge)
         Spacer(Modifier.height(12.dp))
-        ui.strip?.let { SignalStrip(it) }
+        ui.strip?.let { SignalStrip(it, offline = ui.offline) }
         Spacer(Modifier.height(16.dp))
         ProgressHairline(ui.elapsed, ui.duration, onSeek)
         Spacer(Modifier.height(8.dp))

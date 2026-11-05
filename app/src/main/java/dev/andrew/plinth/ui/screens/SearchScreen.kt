@@ -22,6 +22,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import dev.andrew.plinth.data.model.Album
 import dev.andrew.plinth.data.model.Track
+import dev.andrew.plinth.ui.components.EmptyState
 import dev.andrew.plinth.ui.components.ListRow
 import dev.andrew.plinth.ui.components.TrackRow
 import dev.andrew.plinth.ui.theme.PlinthColors
@@ -83,13 +84,13 @@ fun SearchScreen(
         }
 
         if (albums.isEmpty() && tracks.isEmpty()) {
-            Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                Text(
-                    text = "Nothing matches “$query”",
-                    color = PlinthColors.Faint,
-                    style = MaterialTheme.typography.bodyLarge,
-                )
-            }
+            EmptyState(
+                title = "No matches for “$query”",
+                body = "Titles, artists and albums only — try a shorter query.",
+                actionLabel = "Clear search",
+                onAction = { onQueryChange("") },
+                testTag = "search-empty",
+            )
             return@Column
         }
 

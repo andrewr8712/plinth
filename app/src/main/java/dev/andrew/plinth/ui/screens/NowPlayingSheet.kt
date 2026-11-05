@@ -80,6 +80,7 @@ fun NowPlayingSheet(
                 albumId = ui.albumId,
                 firstTrackUri = ui.uri,
                 art = art,
+                label = ui.album.ifBlank { ui.title },
                 modifier = Modifier.fillMaxWidth().height(320.dp),
             )
             Spacer(Modifier.height(20.dp))
@@ -99,7 +100,7 @@ fun NowPlayingSheet(
                 overflow = TextOverflow.Ellipsis,
             )
             Spacer(Modifier.height(16.dp))
-            ui.strip?.let { SignalStrip(it) }
+            ui.strip?.let { SignalStrip(it, offline = ui.offline) }
             Spacer(Modifier.height(16.dp))
             ProgressHairline(ui.elapsed, ui.duration, onSeek)
             Spacer(Modifier.height(8.dp))

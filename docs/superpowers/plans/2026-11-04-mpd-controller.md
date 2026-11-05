@@ -2,9 +2,9 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-> **Status at 2026-11-05.** Tasks 1–18 are implemented and their tests pass: 99
-> unit tests, plus 17 instrumented tests on the tablet, including the meter's
-> three. Task 19 — the failure states — is not started. This plan records how each task was built and which
+> **Status at 2026-11-05.** Tasks 1–19 are implemented and their tests pass: 103
+> unit tests, plus 24 instrumented tests on the tablet, including the meter's
+> three and the seven failure-state tests. This plan records how each task was built and which
 > test it was written against; where the shipped code differs from a step below,
 > `HANDOFF.md` and §5.10 of the design are authoritative. The known differences:
 > search is a prefix `LIKE` query rather than the FTS4 table in Tasks 7 and 15;

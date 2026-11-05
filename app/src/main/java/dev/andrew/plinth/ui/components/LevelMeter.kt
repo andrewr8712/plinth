@@ -24,6 +24,7 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.unit.dp
 import dev.andrew.plinth.data.loudness.StereoLevel
 import dev.andrew.plinth.ui.theme.PlinthColors
@@ -64,6 +65,8 @@ fun LevelMeter(
     level: StereoLevel?,
     active: Boolean,
     modifier: Modifier = Modifier,
+    /** The streamer is unreachable: the bars have no subject at all, not just no frame. */
+    offline: Boolean = false,
 ) {
     val target by rememberUpdatedState(level)
     var left by remember { mutableFloatStateOf(0f) }
@@ -96,8 +99,12 @@ fun LevelMeter(
 
     Column(modifier = modifier, horizontalAlignment = Alignment.Start) {
         Text(
-            text = level?.let { "LEVEL  ${it.dbfs} dBFS" } ?: "No level data",
-            color = if (level == null) PlinthColors.Faint else PlinthColors.Muted,
+            text = when {
+                offline -> "No signal"
+                level == null -> "No level data"
+                else -> "LEVEL  ${level.dbfs} dBFS"
+            },
+            color = if (level == null || offline) PlinthColors.Faint else PlinthColors.Muted,
             style = MaterialTheme.typography.labelSmall,
             modifier = Modifier.padding(bottom = 6.dp).testTag("level-header"),
         )
@@ -106,13 +113,25 @@ fun LevelMeter(
                 .fillMaxWidth()
                 .height(56.dp)
                 .semantics {
-                    contentDescription = if (level == null) "No level data" else "Stereo level meter"
+                    contentDescription = when {
+                        offline -> "No signal: streamer offline"
+                        level == null -> "No level data"
+                        else -> "Stereo level meter"
+                    }
+                    // The bars are flattened while paused or offline; say so, so
+                    // assistive tech does not read a still bar as a silent signal.
+                    stateDescription = when {
+                        offline -> "Offline"
+                        level == null -> "No level data"
+                        active -> "Live"
+                        else -> "Idle"
+                    }
                 }
                 .testTag("level-meter"),
             horizontalArrangement = Arrangement.spacedBy(10.dp),
         ) {
-            MeterBar(left, level == null, Modifier.weight(1f))
-            MeterBar(right, level == null, Modifier.weight(1f))
+            MeterBar(left, level == null || offline, Modifier.weight(1f))
+            MeterBar(right, level == null || offline, Modifier.weight(1f))
         }
     }
 }

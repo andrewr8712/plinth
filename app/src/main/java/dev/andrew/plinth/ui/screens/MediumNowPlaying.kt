@@ -50,6 +50,7 @@ fun MediumNowPlaying(
             albumId = ui.albumId,
             firstTrackUri = ui.uri,
             art = art,
+            label = ui.album.ifBlank { ui.title },
             modifier = Modifier.fillMaxWidth().height(400.dp),
         )
         Spacer(Modifier.height(24.dp))
@@ -69,7 +70,7 @@ fun MediumNowPlaying(
             overflow = TextOverflow.Ellipsis,
         )
         Spacer(Modifier.height(16.dp))
-        ui.strip?.let { SignalStrip(it) }
+        ui.strip?.let { SignalStrip(it, offline = ui.offline) }
         Spacer(Modifier.height(24.dp))
         ProgressHairline(ui.elapsed, ui.duration, onSeek)
         Spacer(Modifier.height(16.dp))
@@ -88,6 +89,7 @@ fun MediumNowPlaying(
             LevelMeter(
                 level = ui.level,
                 active = ui.isPlaying,
+                offline = ui.offline,
                 modifier = Modifier.width(180.dp).padding(end = 24.dp),
             )
         }

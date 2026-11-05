@@ -56,6 +56,7 @@ fun MiniPlayer(
             albumId = ui.albumId,
             firstTrackUri = ui.uri,
             art = art,
+            label = ui.album.ifBlank { ui.title },
             modifier = Modifier.size(40.dp).clip(RoundedCornerShape(4.dp)),
         )
         Spacer(Modifier.width(12.dp))

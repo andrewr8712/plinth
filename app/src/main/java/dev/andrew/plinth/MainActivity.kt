@@ -198,6 +198,7 @@ fun AppRoot(container: AppContainer) {
                     onSeek = vm::seek,
                     onOpenLibrary = { nav.navigate("library") },
                     onOpenQueue = { nav.navigate("queue") },
+                    onRetry = vm::retry,
                 )
             }
             composable("library") {
@@ -221,6 +222,9 @@ fun AppRoot(container: AppContainer) {
                     folders = folders,
                     art = art,
                     syncing = syncing,
+                    offline = ui.offline,
+                    offlineReason = ui.offlineReason,
+                    onRetry = vm::retry,
                     onOpenAlbum = { id -> nav.navigate("album/$id") },
                     onOpenArtist = { name -> nav.navigate("artist/${android.net.Uri.encode(name)}") },
                     onOpenFolder = { name -> nav.navigate("folder/${android.net.Uri.encode(name)}") },
@@ -280,6 +284,7 @@ fun AppRoot(container: AppContainer) {
                     onClear = vm::queueClear,
                     onSave = vm::saveQueue,
                     onLoad = vm::loadPlaylist,
+                    onBrowse = { nav.goTopLevel("library") },
                 )
             }
             composable("search") {

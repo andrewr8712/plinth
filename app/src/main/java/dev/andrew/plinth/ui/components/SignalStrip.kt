@@ -23,11 +23,17 @@ fun SignalStrip(
     cells: StripCells,
     modifier: Modifier = Modifier,
     accentVerdict: Boolean = cells.verdict == "Bit-perfect",
+    /** Offline has no evidence for any of the three; answer "—" rather than repeat. */
+    offline: Boolean = false,
 ) {
     Row(modifier = modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(32.dp)) {
-        Cell("SOURCE", cells.source)
-        Cell("LINK", cells.link)
-        Cell("VERDICT", cells.verdict, accent = accentVerdict)
+        Cell("SOURCE", if (offline) "—" else cells.source)
+        Cell("LINK", if (offline) "—" else cells.link)
+        Cell(
+            "VERDICT",
+            if (offline) "Unknown" else cells.verdict,
+            accent = accentVerdict && !offline,
+        )
     }
 }
 

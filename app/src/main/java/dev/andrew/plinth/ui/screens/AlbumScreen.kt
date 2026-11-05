@@ -48,6 +48,7 @@ fun AlbumScreen(
                 albumId = albumId,
                 firstTrackUri = tracks.firstOrNull()?.uri.orEmpty(),
                 art = art,
+                label = title,
                 modifier = Modifier.size(132.dp).testTag("album-cover"),
             )
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
