@@ -50,10 +50,24 @@ interface LibraryDao {
     @Query("SELECT * FROM track WHERE path = :folder OR path LIKE :folder || '/%' ORDER BY path, disc, trackNo")
     fun folderTracks(folder: String): Flow<List<TrackEntity>>
 
-    /** Prefix match on the three things a person types. LIKE is ASCII-case-insensitive. */
+    /**
+     * Prefix search over the FTS index. [q] is already a MATCH expression built from
+     * prefix terms by [LibraryRepository]; raw user text would be an FTS query
+     * language of its own and could be a syntax error.
+     */
     @Query(
-        "SELECT * FROM track WHERE title LIKE :q || '%' OR album LIKE :q || '%' OR artist LIKE :q || '%' " +
+        "SELECT * FROM track WHERE rowid IN " +
+            "(SELECT docid FROM track_fts WHERE track_fts MATCH :q) " +
             "ORDER BY artist COLLATE NOCASE, album COLLATE NOCASE, disc, trackNo LIMIT 200",
     )
     fun search(q: String): Flow<List<TrackEntity>>
+
+    /**
+     * Rebuilds the whole index from the `track` content table. Room's sync triggers
+     * already cover row writes, but a rebuild inside the same transaction makes
+     * `replaceAll` self-sufficient — including for a database whose FTS table was
+     * created by a migration rather than by Room.
+     */
+    @Query("INSERT INTO track_fts(track_fts) VALUES('rebuild')")
+    suspend fun rebuildSearchIndex()
 }

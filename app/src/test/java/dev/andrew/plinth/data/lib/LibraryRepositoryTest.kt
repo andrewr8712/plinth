@@ -45,6 +45,18 @@ class LibraryRepositoryTest {
         return LibraryParser.parse(pairs)
     }
 
+    private fun track(
+        uri: String,
+        title: String,
+        artist: String,
+        album: String,
+        albumId: String = uri,
+    ): Track = Track(
+        uri = uri, albumId = albumId, disc = 1, trackNo = 1, title = title,
+        artist = artist, albumArtist = artist, album = album, year = null,
+        genre = null, durationSec = 200, format = null, path = album, channels = 2,
+    )
+
     private fun massiveAttack(): List<Track> = listOf(
         Track(
             uri = "Mezzanine/01 - Angel.flac", albumId = "a1", disc = 1, trackNo = 1,
@@ -84,6 +96,74 @@ class LibraryRepositoryTest {
         assertEquals(2, repo.search("TEARD").first().size)
         // but not the middle of a word
         assertTrue("search must be a prefix match", repo.search("rop").first().isEmpty())
+        assertTrue("search must be a prefix match", repo.search("eardrop").first().isEmpty())
+    }
+
+    @Test
+    fun `search matches artist and album prefixes`() = runBlocking {
+        repo.replaceAll(massiveAttack())
+        // "massive" is only in the artist, "mezzanine" only in the album
+        assertEquals(2, repo.search("massive").first().size)
+        assertEquals(2, repo.search("mezzanine").first().size)
+        // every term is a prefix, so two typed words still hit
+        assertEquals(2, repo.search("mass att").first().size)
+    }
+
+    @Test
+    fun `search never passes FTS syntax through`() = runBlocking {
+        repo.replaceAll(massiveAttack())
+
+        // These read as FTS4 syntax, not text: raw, a lone quote or a trailing AND
+        // is an SQL error and `*`/`OR` would widen the search. Sanitised they are
+        // just the same prefix query.
+        assertEquals(2, repo.search("\"teard").first().size)
+        assertEquals(2, repo.search("teard\"*").first().size)
+        assertEquals(2, repo.search("(teard)").first().size)
+        assertEquals(2, repo.search("-teard").first().size)
+        assertEquals(2, repo.search("teard*").first().size)
+
+        // With nothing left to look for the result is empty, never "everything".
+        val noise = listOf("\"", "*", "-", "(", ")", "()", "\"*\"", "%%", "AND", "OR", "NOT", "foo AND", "NEAR/2")
+        for (query in noise) {
+            assertTrue("'$query' must not match the library", repo.search(query).first().isEmpty())
+        }
+    }
+
+    @Test
+    fun `a blank or punctuation-only search returns nothing`() = runBlocking {
+        repo.replaceAll(massiveAttack())
+        assertTrue(repo.search("").first().isEmpty())
+        assertTrue(repo.search("   ").first().isEmpty())
+    }
+
+    @Test
+    fun `search accepts CJK text`() = runBlocking {
+        repo.replaceAll(
+            listOf(track(uri = "Akira/01.flac", title = "残酷な天使のテーゼ", artist = "高橋洋子", album = "残酷な天使のテーゼ")),
+        )
+        // No SQL error, and the start of the CJK run is a prefix like any other token.
+        assertEquals(1, repo.search("残酷").first().size)
+        assertEquals(0, repo.search("天使").first().size)
+    }
+
+    @Test
+    fun `the search index follows replaceAll`() = runBlocking {
+        repo.replaceAll(listOf(track("Old/01.flac", "Old Song", "Old Artist", "Old Album", albumId = "old")))
+        assertEquals(1, repo.search("old").first().size)
+
+        // A second sync replaces the library wholesale: the index has to follow the
+        // deletes as well as the inserts.
+        repo.replaceAll(
+            listOf(
+                track("New/01.flac", "New Song", "New Artist", "New Album", albumId = "new"),
+                track("New/02.flac", "Another Song", "New Artist", "New Album", albumId = "new"),
+            ),
+        )
+        assertEquals(2, repo.search("new").first().size)
+        assertTrue("replaced rows must leave the index", repo.search("old").first().isEmpty())
+
+        repo.replaceAll(emptyList())
+        assertTrue("an empty library has nothing to find", repo.search("new").first().isEmpty())
     }
 
     @Test
