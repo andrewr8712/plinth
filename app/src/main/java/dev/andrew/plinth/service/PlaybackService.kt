@@ -111,7 +111,12 @@ class PlaybackService : Service() {
             ACTION_PLAY_PAUSE -> engine.playPause()
             ACTION_NEXT -> engine.next()
             ACTION_PREVIOUS -> engine.previous()
-            ACTION_STOP -> {
+            // Stop means stop the streamer, not just the notification; the service
+            // stays for the grace period and lets the policy put it away.
+            ACTION_STOP -> engine.stop()
+            // Dismiss is the design's way out of appliance mode: end the service.
+            // (A foreground service notification is usually NO_CLEAR, so this is rare.)
+            ACTION_DISMISS -> {
                 stopSelf()
                 return START_NOT_STICKY
             }
@@ -134,14 +139,32 @@ class PlaybackService : Service() {
     }
 
     private fun onState(state: PlayerState?) {
+        val previous = shownState
         shownState = state
-        publish()
+        when {
+            // A state or track change needs a new notification.
+            previous == null || previous.state != state?.state || previous.songId != state?.songId ->
+                publish()
+            // Only the position moved: refresh the session (so a lockscreen scrub is
+            // current) without rebuilding the notification and its PendingIntents 2x/s.
+            foreground -> session.setPlaybackState(playbackStateFor(state))
+        }
     }
 
     private fun onTrack(track: Track?) {
+        val changed = track?.albumId != shownTrack?.albumId
         shownTrack = track
-        if (track != null && track.albumId != artAlbumId) loadArt(track)
-        publish()
+        if (changed) {
+            // Never let the previous album's cover outlive its track, even for the
+            // moment before the new fetch resolves.
+            artJob?.cancel()
+            art = null
+            artAlbumId = null
+            publish()
+            if (track != null && track.albumId.isNotBlank()) loadArt(track)
+        } else {
+            publish()
+        }
     }
 
     private fun publish() {
@@ -202,7 +225,7 @@ class PlaybackService : Service() {
     private fun buildNotification(track: Track?, state: PlayerState?): Notification {
         val playing = state?.state == PlaybackState.Play
         val title = track?.let { it.title.ifBlank { it.uri.substringAfterLast('/') } }
-            ?: "Connecting…"
+            ?: if (state != null) "Nothing playing" else "Connecting…"
         val subtitle = track?.let { t ->
             listOf(t.artist.ifBlank { t.albumArtist }, t.album)
                 .filter { it.isNotBlank() }
@@ -214,7 +237,7 @@ class PlaybackService : Service() {
             .setContentTitle(title)
             .setContentText(subtitle)
             .setContentIntent(openAppIntent())
-            .setDeleteIntent(actionIntent(ACTION_STOP, 99))
+            .setDeleteIntent(actionIntent(ACTION_DISMISS, 99))
             .setStyle(
                 MediaStyle()
                     .setMediaSession(session.sessionToken)
@@ -236,7 +259,7 @@ class PlaybackService : Service() {
             .addAction(action(android.R.drawable.ic_media_next, "Next", ACTION_NEXT, 3))
             .addAction(action(android.R.drawable.ic_menu_close_clear_cancel, "Stop", ACTION_STOP, 4))
 
-        art?.let { builder.setLargeIcon(it) }
+        art?.takeIf { artAlbumId == shownTrack?.albumId }?.let { builder.setLargeIcon(it) }
         return builder.build()
     }
 
@@ -251,7 +274,8 @@ class PlaybackService : Service() {
                 MediaMetadataCompat.METADATA_KEY_DURATION,
                 ((track?.durationSec ?: 0) * 1000).toLong(),
             )
-        art?.let { builder.putBitmap(MediaMetadataCompat.METADATA_KEY_ALBUM_ART, it) }
+        art?.takeIf { artAlbumId == track?.albumId }
+            ?.let { builder.putBitmap(MediaMetadataCompat.METADATA_KEY_ALBUM_ART, it) }
         return builder.build()
     }
 
@@ -357,6 +381,7 @@ class PlaybackService : Service() {
         const val ACTION_NEXT = "dev.andrew.plinth.action.NEXT"
         const val ACTION_PREVIOUS = "dev.andrew.plinth.action.PREVIOUS"
         const val ACTION_STOP = "dev.andrew.plinth.action.STOP"
+        const val ACTION_DISMISS = "dev.andrew.plinth.action.DISMISS"
 
         private const val NOTIFICATION_ID = 1
         private const val SESSION_TAG = "Plinth"

@@ -111,7 +111,7 @@ fun NowPlayingScreen(
                 )
                 LevelMeter(
                     level = ui.level,
-                    active = ui.isPlaying,
+                    active = ui.isPlaying && ui.connected,
                     offline = ui.offline,
                     stale = levelStale,
                     modifier = Modifier

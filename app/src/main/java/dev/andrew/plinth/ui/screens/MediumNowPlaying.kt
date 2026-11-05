@@ -89,7 +89,7 @@ fun MediumNowPlaying(
             )
             LevelMeter(
                 level = ui.level,
-                active = ui.isPlaying,
+                active = ui.isPlaying && ui.connected,
                 offline = ui.offline,
                 stale = levelStale,
                 modifier = Modifier.width(180.dp).padding(end = 24.dp),

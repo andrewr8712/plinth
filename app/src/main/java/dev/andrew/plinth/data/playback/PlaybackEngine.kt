@@ -16,6 +16,8 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 
@@ -49,9 +51,15 @@ class PlaybackEngine {
     private var host: String? = null
     private var port: Int = 0
     private val owners = mutableSetOf<String>()
+    @Volatile
     private var conn: MpdConnection? = null
     private var runJob: Job? = null
+
+    @Volatile
     private var lastSongId: Int? = null
+
+    /** Commands refresh while the loop polls; two polls interleaving can publish backwards. */
+    private val pollMutex = Mutex()
 
     /** Bumped on every start/stop so a dying job cannot publish into the next one. */
     private var generation = 0
@@ -165,16 +173,26 @@ class PlaybackEngine {
         _connection.value = ConnectionState.Connecting(failuresAgo = 0)
     }
 
-    private suspend fun poll(c: MpdConnection) {
+    private suspend fun poll(c: MpdConnection) = pollMutex.withLock {
+        if (conn !== c) return@withLock
         try {
             val status = c.withClient { it.status() }
             // Read the song before publishing the status, so a collector that sees a
             // new song id can rely on the track already being there.
-            if (status.songId != lastSongId || _track.value == null) {
-                lastSongId = status.songId
-                val song = c.withClient { it.currentSong() }
-                if (song != null) _track.value = song
+            when {
+                // MPD has no current song (queue cleared, or stopped from empty): the
+                // old title must not outlive it on the screen or in the notification.
+                status.songId == null -> {
+                    lastSongId = null
+                    _track.value = null
+                }
+                status.songId != lastSongId || _track.value == null -> {
+                    lastSongId = status.songId
+                    _track.value = c.withClient { it.currentSong() }
+                }
             }
+            // A stop or retry replaced the link while the reads were in flight.
+            if (conn !== c) return@withLock
             _player.value = status
         } catch (e: CancellationException) {
             throw e

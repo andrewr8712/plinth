@@ -67,6 +67,8 @@ fun LibraryScreen(
     offline: Boolean = false,
     offlineReason: String = "",
     onRetry: () -> Unit = {},
+    /** The empty state re-reads the share; the chip's Retry only redials. */
+    onResync: () -> Unit = {},
     onOpenAlbum: (String) -> Unit = {},
     onOpenArtist: (String) -> Unit = {},
     onOpenFolder: (String) -> Unit = {},
@@ -130,7 +132,7 @@ fun LibraryScreen(
                     body = "The streamer can see MPD but not its music share. " +
                         "Its SMB mount is probably down.",
                     actionLabel = "Retry",
-                    onAction = onRetry,
+                    onAction = onResync,
                     testTag = "library-empty",
                 )
             }

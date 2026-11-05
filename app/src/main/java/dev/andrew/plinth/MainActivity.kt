@@ -249,6 +249,7 @@ fun AppRoot(container: AppContainer) {
                     offline = ui.offline,
                     offlineReason = ui.offlineReason,
                     onRetry = vm::retry,
+                    onResync = vm::resyncLibrary,
                     onOpenAlbum = { id -> nav.navigate("album/$id") },
                     onOpenArtist = { name -> nav.navigate("artist/${android.net.Uri.encode(name)}") },
                     onOpenFolder = { name -> nav.navigate("folder/${android.net.Uri.encode(name)}") },

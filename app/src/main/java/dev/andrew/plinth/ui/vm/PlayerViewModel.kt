@@ -141,7 +141,7 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
         }
         viewModelScope.launch { engine.connection.collect(::onConnection) }
         viewModelScope.launch { engine.player.collect { state -> if (state != null) onStatus(state) } }
-        viewModelScope.launch { engine.track.collect { song -> if (song != null) onTrack(song) } }
+        viewModelScope.launch { engine.track.collect { song -> onTrack(song) } }
     }
 
     fun connect(host: String, port: Int) {
@@ -160,9 +160,9 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
                 delay(LEVEL_MS)
                 val index = loudness
                 val ui = _ui.value
-                if (index == null || ui.uri.isEmpty() || ui.offline) {
+                if (index == null || ui.uri.isEmpty() || ui.offline || !ui.connected) {
                     // No contact, no evidence: do not keep extrapolating a position
-                    // into the envelope while the streamer is unreachable.
+                    // into the envelope while the streamer is unreachable or dialling.
                     if (ui.level != null) _ui.value = ui.copy(level = null)
                     continue
                 }
@@ -233,17 +233,34 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
             _output.value = lastOutput
             libraryDbUpdate = runCatching { engine.withClient { it.dbUpdate() } }.getOrNull()
             refreshLevelStaleness()
-            if (!librarySynced) {
-                librarySynced = true
-                viewModelScope.launch {
-                    _syncingLibrary.value = true
-                    runCatching {
-                        val tracks = engine.withClient { it.listAllInfo() }
-                        if (tracks.isNotEmpty()) container.library.replaceAll(tracks)
-                    }
-                    _syncingLibrary.value = false
-                }
-            }
+            if (!librarySynced) syncLibrary()
+        }
+    }
+
+    /**
+     * Reads the whole library and only then calls the cache synced. The flag used to be
+     * set before the read, so one failed `listallinfo` meant "Library is empty" with a
+     * Retry that only redialled, and every later reconnect skipped the sync.
+     */
+    private suspend fun syncLibrary() {
+        if (_syncingLibrary.value) return
+        _syncingLibrary.value = true
+        val synced = runCatching {
+            val tracks = engine.withClient { it.listAllInfo() }
+            if (tracks.isEmpty()) return@runCatching false
+            container.library.replaceAll(tracks)
+            true
+        }.getOrDefault(false)
+        _syncingLibrary.value = false
+        librarySynced = synced
+    }
+
+    /** The empty library's action: re-read the share without redialling the socket. */
+    fun resyncLibrary() {
+        viewModelScope.launch {
+            libraryDbUpdate = runCatching { engine.withClient { it.dbUpdate() } }.getOrNull()
+            refreshLevelStaleness()
+            syncLibrary()
         }
     }
 
@@ -286,7 +303,25 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
         }
     }
 
-    private fun onTrack(song: dev.andrew.plinth.data.model.Track) {
+    private fun onTrack(song: dev.andrew.plinth.data.model.Track?) {
+        if (song == null) {
+            // The streamer has no current song; keep nothing that claims otherwise.
+            _ui.value = _ui.value.copy(
+                title = "",
+                artist = "",
+                album = "",
+                albumId = "",
+                uri = "",
+                elapsed = null,
+                duration = null,
+                songId = null,
+                formatLine = null,
+                isDsd = false,
+                strip = null,
+                level = null,
+            )
+            return
+        }
         _ui.value = _ui.value.copy(
             title = song.title.ifBlank { song.uri.substringAfterLast('/') },
             artist = song.artist.ifBlank { song.albumArtist },
@@ -372,8 +407,32 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
     }
 
     fun setServer(host: String, port: Int) {
+        val unchanged = settings.value.host == host && settings.value.port == port
         viewModelScope.launch {
             container.settings.update { it.copy(host = host, port = port) }
+            if (unchanged) {
+                // Connect on the Connection screen is also the redial after a failure.
+                engine.retry()
+                return@launch
+            }
+            // A different streamer must not inherit this one's queue, output or cache.
+            librarySynced = false
+            lastQueueVersion = Int.MIN_VALUE
+            _queue.value = emptyList()
+            _output.value = null
+            lastOutput = null
+            _ui.value = _ui.value.copy(
+                title = "",
+                artist = "",
+                album = "",
+                albumId = "",
+                uri = "",
+                elapsed = null,
+                duration = null,
+                songId = null,
+                level = null,
+                strip = null,
+            )
             engine.connect(host, port)
         }
     }
