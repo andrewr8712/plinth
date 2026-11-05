@@ -29,6 +29,10 @@ jobs:
     name: test, lint, assemble
     runs-on: ubuntu-24.04
     timeout-minutes: 25
+    env:
+      ANDROID_HOME: /usr/local/lib/android/sdk
+      ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
+      PATH: ${{ env.ANDROID_HOME }}/cmdline-tools/16.0/bin:${{ env.PATH }}
     steps:
       # Pinned to an immutable commit rather than a mutable tag. Bump it
       # deliberately; Dependabot can propose the update and rewrite the pin.
