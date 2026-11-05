@@ -1,6 +1,7 @@
 package dev.andrew.plinth.data.lib
 
 import androidx.room.Entity
+import androidx.room.Fts4
 import androidx.room.PrimaryKey
 import dev.andrew.plinth.data.model.Album
 import dev.andrew.plinth.data.model.AlbumIdentity
@@ -23,6 +24,21 @@ data class TrackEntity(
     val bits: Int?,
     val isDsd: Boolean,
     val path: String,
+)
+
+/**
+ * The inverted index behind search, over the three things a person types. It is an
+ * external-content FTS4 table: `track` stays the source of truth and the index is
+ * joined back on `rowid`. Room writes the insert/update/delete sync triggers when it
+ * creates this table itself; the migration writes the same ones, and `replaceAll`
+ * rebuilds the index regardless so a replaced library can never leave it stale.
+ */
+@Fts4(contentEntity = TrackEntity::class)
+@Entity(tableName = "track_fts")
+data class TrackFtsEntity(
+    val title: String,
+    val artist: String,
+    val album: String,
 )
 
 @Entity(tableName = "album")

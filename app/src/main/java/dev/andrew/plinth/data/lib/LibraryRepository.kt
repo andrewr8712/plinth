@@ -25,6 +25,9 @@ class LibraryRepository(private val db: LibraryDb) {
             dao.insertAlbums(
                 rows.groupBy { it.albumId }.map { (id, group) -> group.toAlbumEntity(id) },
             )
+            // Inside the transaction, so a reader never sees the new library against
+            // the old index. Rebuilding is exact even if no sync trigger fired.
+            dao.rebuildSearchIndex()
         }
     }
 
@@ -46,9 +49,32 @@ class LibraryRepository(private val db: LibraryDb) {
         dao.folderTracks(folder).map { rows -> rows.map { it.toTrack() } }
 
     fun search(query: String): Flow<List<Track>> {
-        val q = query.trim()
-        if (q.isEmpty()) return kotlinx.coroutines.flow.flowOf(emptyList())
-        return dao.search(q).map { rows -> rows.map { it.toTrack() } }
+        val match = ftsPrefixQuery(query)
+        if (match.isEmpty()) return kotlinx.coroutines.flow.flowOf(emptyList())
+        return dao.search(match).map { rows -> rows.map { it.toTrack() } }
+    }
+
+    /**
+     * FTS4 MATCH is a query language of its own: an unmatched quote, a trailing AND
+     * or `NEAR/2` is a syntax error, and passing the typed text straight through
+     * would also let it mean operators nobody typed. Reducing the text to runs of
+     * letters and digits and making each run a prefix keeps every expression
+     * well-formed and every hit at the start of a token rather than mid-word.
+     * Because the runs are ours, `-`, `*`, quotes and parentheses simply vanish.
+     */
+    private fun ftsPrefixQuery(raw: String): String {
+        val terms = ArrayList<String>(4)
+        val term = StringBuilder()
+        for (ch in raw) {
+            if (ch.isLetterOrDigit()) {
+                term.append(ch)
+            } else if (term.isNotEmpty()) {
+                terms.add(term.toString())
+                term.setLength(0)
+            }
+        }
+        if (term.isNotEmpty()) terms.add(term.toString())
+        return terms.joinToString(separator = " ") { "$it*" }
     }
 
     suspend fun trackCount(): Int = dao.trackCount()
