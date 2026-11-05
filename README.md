@@ -17,9 +17,10 @@ Early but usable. The MPD client, the library cache, cover art, the now-playing
 surface for phone and tablet, and the browsing screens (library tabs, album,
 search, queue, playlists, output) all work and are tested on a real tablet.
 
-Every planned milestone is built: the MPD client, the library cache and art, the
-phone and tablet surfaces, the VU meter and its envelope, the foreground playback
-service with its media notification, and the failure states. Offline keeps the
+Every planned milestone is built: the MPD client, the library cache and art, FTS4
+search, the phone and tablet surfaces with a top bar that fades while idle, the
+VU meter and its envelope, the foreground playback service with its media
+notification, and the failure states. Offline keeps the
 cached library browsable behind a retry chip and disables the transport in place;
 empty library, queue and search say what is missing and offer one action. The
 remaining polish is listed in `HANDOFF.md`, which is the precise status — read it

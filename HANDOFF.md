@@ -15,10 +15,10 @@ Volumio. `README.md` covers building, testing and installing.
 
 - **M1–M4 are complete: the loudness envelope and meter (tasks 16–17), the
   foreground playback service (task 18) and the failure/empty states (task 19).**
-- 103 unit tests pass, and 24 instrumented tests pass on a tablet
-  (`OfflineTest` 7, `PlaybackServiceTest` 2, `NowPlayingExpandedTest` 2,
-  `PhoneSurfacesTest` 3, `LibrarySurfacesTest` 7, `VuMeterTest` 3). Nine Python
-  tests cover the scanner.
+- 118 unit tests pass, and 28 instrumented tests pass on a tablet
+  (`OfflineTest` 7, `FirstRunTest` 3, `PlaybackServiceTest` 2,
+  `NowPlayingExpandedTest` 2, `PhoneSurfacesTest` 3, `LibrarySurfacesTest` 7,
+  `VuMeterTest` 4). Nine Python tests cover the scanner.
 - The meter is verified reading a real envelope on the tablet. The one thing not
   verified is the bars moving: that needs playback, which is started by ear, not by
   a test.
@@ -27,6 +27,15 @@ Volumio. `README.md` covers building, testing and installing.
   title, `artist · album`, cached art and four actions, and the one-minute grace
   after a pause stopped it and removed the notification. Pressing Play from the
   notification is the one action not exercised — it would start audio.
+- Search is FTS4 over title/artist/album now, with a v2→v3 migration that keeps
+  the cached library. Verified on the tablet: `teard` finds *Teardrop*, `eardrop`
+  does not (prefix, not substring), and `-teard` is treated as words, not FTS
+  syntax.
+- The tablet top bar fades to 0.22 after four seconds without a press or key and
+  snaps back on the next one; verified on the tablet. The phone shell is unchanged.
+- First run shows skeletons and names the host instead of claiming an empty
+  library, and a failed sync is retried by the empty state's action rather than
+  being recorded as success.
 - The failure surfaces are verified on the tablet by pointing the app at a closed
   port: the chip read "Streamer refused the connection" with Retry now, all 139
   cached albums stayed browsable, the transport was disabled in place, the meter
@@ -135,15 +144,18 @@ dedupe should paper over.
 
 ### Gaps in the shipped screens
 
-- The tablet's top bar is a static row; the design asks for one that fades with
-  inactivity (spec §5.7).
-- The first-run state is honest text ("Reading the library…") rather than the
-  designed skeletons, and there is no Arabic companion font, so the RTL study in
-  the mockup is not exercised.
-- The loudness stale-copy ("older than the library") is not implemented: the
-  envelope has no timestamp to compare against the library update.
-- Search is a prefix `LIKE` query, not FTS. At 1,866 rows the scan is instant;
-  albums are matched from the cached list.
+- There is no Arabic companion font, so the RTL study in the mockup is not
+  exercised.
+- Soft-keyboard typing does not reset the top bar's idle timer; pointer events and
+  hardware keys do, so the bar can fade while a field is being typed into.
+- A denied POST_NOTIFICATIONS is not surfaced: on Android 13+ the foreground
+  service can run with no notification in the drawer.
+- "Stay awake while charging" is best-effort when the app is backgrounded: Android
+  12+ refuses a foreground-service start from the background, so plugging in while
+  the app is closed does not light the tablet until the app is opened.
+- The service controller ignores a null player state (no poll has happened yet).
+  That is correct today; a future boot receiver would need it to treat null as
+  idle.
 
 ### M4 — meter, service, offline states (plan tasks 16–19)
 
@@ -221,6 +233,12 @@ dedupe should paper over.
 - **A test that passes before the fix exists proves nothing.** The two album tests
   were run against the pre-fix parser first and failed; only then did the fix go
   in.
+- **A `.gitignore` pattern without a leading slash matches at any depth.** `art/`
+  was meant for the top-level design folder, but it also hid
+  `app/src/main/java/dev/andrew/plinth/data/art/` and its test; both existed only
+  as ignored working-tree files, so a fresh clone or worktree could not compile.
+  Anchored patterns (`/art/`) and `git ls-files` after adding a source package are
+  the guard.
 
 ## Numbers worth keeping
 

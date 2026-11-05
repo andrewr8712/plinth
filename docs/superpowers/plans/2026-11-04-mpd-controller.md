@@ -2,12 +2,15 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-> **Status at 2026-11-05.** Tasks 1–19 are implemented and their tests pass: 103
-> unit tests, plus 24 instrumented tests on the tablet, including the meter's
-> three and the seven failure-state tests. This plan records how each task was built and which
+> **Status at 2026-11-05.** Tasks 1–19 are implemented and their tests pass: 118
+> unit tests, plus 28 instrumented tests on the tablet. Since the plan closed, FTS4
+> search replaced the prefix LIKE scan, the tablet top bar fades with inactivity,
+> first-run skeletons replaced the empty-library claim, and the meter says when the
+> loudness envelope predates the library. This plan records how each task was built and which
 > test it was written against; where the shipped code differs from a step below,
 > `HANDOFF.md` and §5.10 of the design are authoritative. The known differences:
-> search is a prefix `LIKE` query rather than the FTS4 table in Tasks 7 and 15;
+> search now uses the FTS4 table Tasks 7 and 15 described (it was a prefix `LIKE`
+> scan until 2026-11-05);
 > art is cached by `ArtRepository` with no Coil and no 512 px downscale (Task 9);
 > the Task 15 screens are stateless composables that take data and callbacks, not
 > the repository signatures listed there; and the scanner's tests run under
