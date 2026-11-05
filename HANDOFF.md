@@ -15,7 +15,8 @@ Volumio. `README.md` covers building, testing and installing.
 
 - **M1–M4 are complete: the loudness envelope and meter (tasks 16–17), the
   foreground playback service (task 18) and the failure/empty states (task 19).**
-- 118 unit tests pass, and 28 instrumented tests pass on a tablet
+- 119 unit tests pass, and 28 instrumented tests pass on the reference tablet
+  (27 on the WayDroid emulator; the notification test is flaky there)
   (`OfflineTest` 7, `FirstRunTest` 3, `PlaybackServiceTest` 2,
   `NowPlayingExpandedTest` 2, `PhoneSurfacesTest` 3, `LibrarySurfacesTest` 7,
   `VuMeterTest` 4). Nine Python tests cover the scanner.
@@ -43,9 +44,9 @@ Volumio. `README.md` covers building, testing and installing.
   cleared everything. The monogram plate is visible on the untagged albums
   ("No artwork").
 - The debug APK runs on both the reference tablet and phone.
-- **`feat/task-15-screens` is merged into `master`** (fast-forward, 2026-11-05).
-  Master now holds the library screens; the branch can be deleted.
-- No known bugs. Two album-handling defects were found and fixed; see
+- The `feat/task-15-screens` branch is merged into `master` (fast-forward,
+  2026-11-05); the branch is deleted.
+- No known bugs in the shipped behavior. Two album-handling defects were found and fixed; see
   "Closed bugs" below for the evidence, because both were subtle.
 
 ## Build and install
@@ -86,8 +87,9 @@ paths are gitignored.
 | Tablet | `10.0.0.220:41219` — TB520FU, 1840 px at 340 dpi, 866 dp wide, so the Expanded layout |
 | Phone | `10.0.0.213:44921` — 1220×2712 at 450 dpi, about 434 dp, so the Compact layout |
 
-SSH to the streamer is refused, so everything goes through MPD on port 6600. Both
-`adb` targets are wireless: run `adb connect` first if `adb devices` is empty.
+SSH to the streamer is available with the reference key; MPD is on port 6600.
+Both `adb` targets are wireless; the ports rotate, so run `adb devices` (and
+`adb connect` if needed) first.
 
 Transport has only ever been exercised against the fake MPD server in the test
 sources. Real playback is verified by ear, by whoever is listening — starting

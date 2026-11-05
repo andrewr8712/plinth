@@ -1,8 +1,8 @@
 # The Plinth icon
 
 A mint play disc on a three-step plinth: the steps are light enough to survive at 48 dp,
-and the disc is the playback the app drives. The plinth is the base the name promises.
-Flat, one accent, no text — it has to read at 48 dp before it reads as an illustration.
+and the disc is the playback the app drives. The plinth is the base the name refers to.
+Flat, one accent, no text: it has to read at 48 dp before it reads as an illustration.
 
 - Palette: `#0A0A0C` base, `#6E6E7C` / `#4C4C59` / `#2C2C36` plinth steps, `#7ED9C3` accent.
 - Source: `plinth-icon.svg` (square, for stores) and `plinth-icon-round.svg` (legacy round).
