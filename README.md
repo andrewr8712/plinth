@@ -26,6 +26,14 @@ empty library, queue and search say what is missing and offer one action. The
 remaining polish is listed in `HANDOFF.md`, which is the precise status — read it
 before changing anything.
 
+## Screenshots
+
+The tablet surface, at 10 inches:
+
+![Now playing on the tablet](docs/screenshots/tablet-now-playing.png)
+
+![The library on the tablet](docs/screenshots/tablet-library.png)
+
 ## Requirements
 
 - An MPD server reachable over the network. Plinth sends only MPD commands; it
