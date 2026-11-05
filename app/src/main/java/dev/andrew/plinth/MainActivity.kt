@@ -191,12 +191,16 @@ fun AppRoot(container: AppContainer) {
         bottomBar = {
             if (surface == SurfaceSize.Compact) {
                 androidx.compose.foundation.layout.Column {
-                    MiniPlayer(
-                        ui = ui,
-                        art = art,
-                        onOpen = { sheetOpen = true },
-                        onPlayPause = vm::playPause,
-                    )
+                    // The Now tab already shows the full surface; a mini player there
+                    // would be the same information twice. It belongs on the other tabs.
+                    if (currentRoute != "now") {
+                        MiniPlayer(
+                            ui = ui,
+                            art = art,
+                            onOpen = { sheetOpen = true },
+                            onPlayPause = vm::playPause,
+                        )
+                    }
                     PlinthBottomBar(nav)
                 }
             }

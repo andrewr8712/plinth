@@ -3,6 +3,7 @@ package dev.andrew.plinth.ui.screens
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -199,7 +200,10 @@ private fun CompactNowPlaying(
     onNext: () -> Unit,
     onSeek: (Double) -> Unit,
 ) {
-    Column(Modifier.fillMaxSize().padding(24.dp)) {
+    Column(
+        modifier = Modifier.fillMaxSize().padding(24.dp),
+        verticalArrangement = Arrangement.Center,
+    ) {
         Artwork(
             albumId = ui.albumId,
             firstTrackUri = ui.uri,
@@ -207,7 +211,7 @@ private fun CompactNowPlaying(
             label = ui.album.ifBlank { ui.title },
             modifier = Modifier
                 .fillMaxWidth()
-                .weight(1f)
+                .aspectRatio(1f)
                 .alpha(if (ui.offline) 0.55f else 1f),
         )
         Spacer(Modifier.height(24.dp))
