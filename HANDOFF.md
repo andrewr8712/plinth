@@ -19,14 +19,13 @@ Volumio. `README.md` covers building, testing and installing.
   failure states are not started (task 19).**
 - 93 unit tests pass, and 15 instrumented tests pass on a tablet
   (`NowPlayingExpandedTest` 2, `PhoneSurfacesTest` 3, `LibrarySurfacesTest` 7,
-  `VuMeterTest` 3). Eight Python tests cover the scanner.
+  `VuMeterTest` 3). Nine Python tests cover the scanner.
 - The meter is verified reading a real envelope on the tablet. The one thing not
   verified is the bars moving: that needs playback, which is started by ear, not by
   a test.
 - The debug APK runs on both the reference tablet and phone.
-- **M3's last work is on `feat/task-15-screens`, branched from
-  `build/phase-1`, and is not merged.** `master` holds the state before the
-  library screens landed.
+- **`feat/task-15-screens` is merged into `master`** (fast-forward, 2026-11-05).
+  Master now holds the library screens; the branch can be deleted.
 - No known bugs. Two album-handling defects were found and fixed; see
   "Closed bugs" below for the evidence, because both were subtle.
 
