@@ -7,12 +7,14 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -59,6 +61,9 @@ fun LibraryScreen(
     folders: List<String>,
     art: ArtRepository? = null,
     syncing: Boolean = false,
+    /** No answer yet: the streamer may be asleep, or this is a cold first run. */
+    connecting: Boolean = false,
+    host: String = "",
     offline: Boolean = false,
     offlineReason: String = "",
     onRetry: () -> Unit = {},
@@ -92,7 +97,11 @@ fun LibraryScreen(
                 modifier = Modifier.weight(1f),
             )
             Text(
-                text = if (syncing) "Syncing…" else "$count $noun",
+                text = when {
+                    syncing -> "Syncing…"
+                    connecting && count == 0 -> "Connecting…"
+                    else -> "$count $noun"
+                },
                 color = PlinthColors.Faint,
                 style = MaterialTheme.typography.bodySmall,
             )
@@ -109,16 +118,14 @@ fun LibraryScreen(
         }
 
         if (count == 0) {
-            if (syncing) {
-                Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    Text(
-                        text = "Reading the library…",
-                        color = PlinthColors.Faint,
-                        style = MaterialTheme.typography.bodyLarge,
-                    )
-                }
-            } else {
-                EmptyState(
+            when {
+                syncing -> LibrarySkeleton(size, "Reading the library…")
+                connecting -> LibrarySkeleton(
+                    size,
+                    "Connecting",
+                    "Reaching ${host.ifBlank { "the streamer" }}",
+                )
+                else -> EmptyState(
                     title = "Library is empty",
                     body = "The streamer can see MPD but not its music share. " +
                         "Its SMB mount is probably down.",
@@ -243,5 +250,74 @@ private fun AlbumTile(album: Album, art: ArtRepository?, onClick: () -> Unit) {
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
         )
+    }
+}
+
+/**
+ * First run and the first sync: skeletons rather than a spinner, so the shape of the
+ * library is already on screen and a wrong address is named while it waits.
+ */
+@Composable
+private fun LibrarySkeleton(
+    size: SurfaceSize,
+    title: String,
+    detail: String? = null,
+) {
+    val columns = when (size) {
+        SurfaceSize.Compact -> 2
+        SurfaceSize.Medium -> 3
+        SurfaceSize.Expanded -> 5
+    }
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(start = 24.dp, end = 24.dp, top = 8.dp)
+            .testTag("library-skeleton"),
+    ) {
+        Text(
+            text = title,
+            color = PlinthColors.Text,
+            style = MaterialTheme.typography.headlineMedium,
+        )
+        if (detail != null) {
+            Text(
+                text = detail,
+                color = PlinthColors.Faint,
+                style = MaterialTheme.typography.bodySmall,
+            )
+        }
+        Spacer(Modifier.height(24.dp))
+        repeat(2) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+            ) {
+                repeat(columns) {
+                    Column(Modifier.weight(1f)) {
+                        Box(
+                            Modifier
+                                .fillMaxWidth()
+                                .aspectRatio(1f)
+                                .background(PlinthColors.Plate, RoundedCornerShape(5.dp)),
+                        )
+                        Spacer(Modifier.height(8.dp))
+                        Box(
+                            Modifier
+                                .fillMaxWidth()
+                                .height(10.dp)
+                                .background(PlinthColors.Plate, RoundedCornerShape(2.dp)),
+                        )
+                        Spacer(Modifier.height(6.dp))
+                        Box(
+                            Modifier
+                                .fillMaxWidth(0.6f)
+                                .height(8.dp)
+                                .background(PlinthColors.Plate, RoundedCornerShape(2.dp)),
+                        )
+                    }
+                }
+            }
+            Spacer(Modifier.height(20.dp))
+        }
     }
 }

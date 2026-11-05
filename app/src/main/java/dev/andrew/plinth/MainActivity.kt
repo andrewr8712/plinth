@@ -155,6 +155,7 @@ fun AppRoot(container: AppContainer) {
     val ui by vm.ui.collectAsStateWithLifecycle()
     val queue by vm.queue.collectAsStateWithLifecycle()
     val art by vm.art.collectAsStateWithLifecycle()
+    val settings by vm.settings.collectAsStateWithLifecycle()
     val currentRoute = nav.currentBackStackEntryAsState().value?.destination?.route
     var sheetOpen by androidx.compose.runtime.remember { androidx.compose.runtime.mutableStateOf(false) }
 
@@ -222,6 +223,8 @@ fun AppRoot(container: AppContainer) {
                     folders = folders,
                     art = art,
                     syncing = syncing,
+                    connecting = !ui.connected && !ui.offline,
+                    host = settings.host,
                     offline = ui.offline,
                     offlineReason = ui.offlineReason,
                     onRetry = vm::retry,
