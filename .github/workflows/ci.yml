@@ -46,14 +46,16 @@ jobs:
           distribution: temurin
           java-version: "21"
 
-      # The ubuntu runner image already carries the Android SDK and sdkmanager.
-      # Install the two packages the app needs explicitly; setup-android's own
-      # legacy 'tools' step fails against the current SDK repository.
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@be39fa834029ff78f1a44aa3bb0819b8fc2bd8fd  # v4
+        with:
+          accept-android-sdk-licenses: true
+
+      # v4 installs cmdline-tools and puts sdkmanager on PATH; install the two
+      # packages explicitly so the input format does not depend on the action's
+      # package splitting.
       - name: Install Android SDK packages
-        run: |
-          export PATH="$ANDROID_HOME/cmdline-tools/16.0/bin:$PATH"
-          yes | sdkmanager --licenses > /dev/null
-          sdkmanager --install "platforms;android-35" "build-tools;35.0.0"
+        run: sdkmanager --install "platforms;android-35" "build-tools;35.0.0"
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@ed408507eac070d1f99cc633dbcf757c94c7933a  # v4
