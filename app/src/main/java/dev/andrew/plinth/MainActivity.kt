@@ -8,7 +8,18 @@ import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.size
+import androidx.compose.material3.NavigationBarItemDefaults
+import androidx.compose.ui.geometry.CornerRadius
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.drawscope.DrawScope
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
@@ -411,19 +422,122 @@ private fun PlinthBottomBar(nav: NavHostController) {
 
     NavigationBar(containerColor = PlinthColors.Plate) {
         destinations.forEach { destination ->
+            val selected = current == destination.route
             NavigationBarItem(
-                selected = current == destination.route,
+                selected = selected,
                 onClick = { nav.goTopLevel(destination.route) },
-                icon = {},
+                icon = { DestinationGlyph(destination.route, selected) },
                 label = {
                     Text(
                         destination.label,
                         style = androidx.compose.material3.MaterialTheme.typography.labelSmall,
                     )
                 },
+                colors = NavigationBarItemDefaults.colors(
+                    selectedIconColor = PlinthColors.Accent,
+                    selectedTextColor = PlinthColors.Text,
+                    indicatorColor = PlinthColors.Accent.copy(alpha = 0.16f),
+                    unselectedIconColor = PlinthColors.Faint,
+                    unselectedTextColor = PlinthColors.Faint,
+                ),
+                modifier = Modifier.testTag("bottom-${destination.route}"),
             )
         }
     }
+}
+
+/**
+ * The bar's icons are drawn, not borrowed. The disc and the three-step plinth
+ * are the launcher icon's own shapes; the other three share the same solid
+ * weight so the row reads as one set rather than five unrelated glyphs.
+ */
+@Composable
+private fun DestinationGlyph(route: String, selected: Boolean) {
+    val color = if (selected) PlinthColors.Accent else PlinthColors.Faint
+    Canvas(Modifier.size(24.dp)) {
+        val unit = size.minDimension / 24f
+        val stroke = 2.2f * unit
+        when (route) {
+            "now" -> {
+                // The launcher's play disc, with the bar showing through the mark.
+                drawCircle(
+                    color = color,
+                    radius = 7.2f * unit,
+                    center = Offset(12f * unit, 12f * unit),
+                )
+                val play = Path().apply {
+                    moveTo(10.4f * unit, 8.6f * unit)
+                    lineTo(10.4f * unit, 15.4f * unit)
+                    lineTo(15.5f * unit, 12f * unit)
+                    close()
+                }
+                drawPath(play, PlinthColors.Plate)
+            }
+            "library" -> {
+                // The plinth's three steps, narrowed to the top.
+                drawBar(color, 7.6f * unit, 12.2f * unit, 8.8f * unit, 2.4f * unit, unit)
+                drawBar(color, 7.0f * unit, 15.4f * unit, 10.0f * unit, 2.4f * unit, unit)
+                drawBar(color, 6.3f * unit, 18.6f * unit, 11.4f * unit, 2.4f * unit, unit)
+            }
+            "queue" -> {
+                for (i in 0..2) {
+                    val y = (8.4f + i * 3.6f) * unit
+                    drawCircle(
+                        color = color,
+                        radius = 1.1f * unit,
+                        center = Offset(5.4f * unit, y),
+                    )
+                    drawBar(color, 8.2f * unit, y - 1.1f * unit, 10.2f * unit, 2.2f * unit, unit)
+                }
+            }
+            "search" -> {
+                drawCircle(
+                    color = color,
+                    radius = 5.4f * unit,
+                    center = Offset(10.6f * unit, 10.6f * unit),
+                    style = Stroke(width = stroke),
+                )
+                drawLine(
+                    color = color,
+                    start = Offset(14.8f * unit, 14.8f * unit),
+                    end = Offset(18.6f * unit, 18.6f * unit),
+                    strokeWidth = stroke,
+                    cap = StrokeCap.Round,
+                )
+            }
+            "output" -> {
+                // The VU meter: three bars, bottom-aligned.
+                val heights = floatArrayOf(6.0f, 10.4f, 7.6f)
+                heights.forEachIndexed { i, height ->
+                    val x = (7.0f + i * 4.0f) * unit
+                    drawBar(
+                        color,
+                        x - 1.1f * unit,
+                        (19.2f - height) * unit,
+                        2.2f * unit,
+                        height * unit,
+                        unit,
+                    )
+                }
+            }
+        }
+    }
+}
+
+private fun DrawScope.drawBar(
+    color: Color,
+    left: Float,
+    top: Float,
+    width: Float,
+    height: Float,
+    unit: Float,
+) {
+    drawRoundRect(
+        color = color,
+        topLeft = Offset(left, top),
+        size = Size(width, height),
+        cornerRadius = CornerRadius(1.1f * unit),
+    )
 }
 
 /** The tablet's only chrome: where else you can go. It fades while idle. */
