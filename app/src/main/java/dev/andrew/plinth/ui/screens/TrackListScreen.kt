@@ -19,6 +19,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import dev.andrew.plinth.data.model.Track
 import dev.andrew.plinth.ui.components.TrackRow
+import dev.andrew.plinth.ui.components.songMenu
 import dev.andrew.plinth.ui.theme.PlinthColors
 
 /**
@@ -31,6 +32,8 @@ fun TrackListScreen(
     subtitle: String,
     tracks: List<Track>,
     onPlay: (Int) -> Unit = {},
+    onQueue: (Track) -> Unit = {},
+    onShowDetails: (Track) -> Unit = {},
     showAlbum: Boolean = false,
 ) {
     Column(Modifier.fillMaxSize().background(PlinthColors.Base)) {
@@ -59,6 +62,11 @@ fun TrackListScreen(
                     durationSec = track.durationSec,
                     onClick = { onPlay(index) },
                     testTag = "list-track-row",
+                    actions = songMenu(
+                        onPlay = { onPlay(index) },
+                        onQueue = { onQueue(track) },
+                        onDetails = { onShowDetails(track) },
+                    ),
                 )
             }
         }

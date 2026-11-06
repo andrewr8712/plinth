@@ -403,6 +403,32 @@ class PlayerViewModel(private val container: AppContainer) : ViewModel() {
         tracks.forEach { client.add(it.uri) }
     }
 
+    /**
+     * Replace the queue with [tracks] and start at the top — "Play Song" and "Play Album".
+     * An empty set is a no-op: clearing the queue on a stale row would stop the music
+     * for nothing.
+     */
+    fun playCollection(tracks: List<dev.andrew.plinth.data.model.Track>) = command { client ->
+        if (tracks.isEmpty()) return@command
+        client.clearQueue()
+        tracks.forEach { client.add(it.uri) }
+        client.play(0)
+    }
+
+    /** Swap the queue for [tracks] but leave it stopped — "Replace Queue". */
+    fun replaceQueue(tracks: List<dev.andrew.plinth.data.model.Track>) = command { client ->
+        if (tracks.isEmpty()) return@command
+        client.clearQueue()
+        tracks.forEach { client.add(it.uri) }
+    }
+
+    /** The whole tag set for one file, or null when the streamer cannot answer. */
+    fun fetchTrackDetails(uri: String, onResult: (List<Pair<String, String>>?) -> Unit) {
+        viewModelScope.launch {
+            onResult(runCatching { engine.withClient { it.lsinfo(uri) } }.getOrNull())
+        }
+    }
+
     fun queuePlay(pos: Int) = command { client -> client.play(pos) }
 
     fun queueRemove(id: Int) = command { client -> client.deleteId(id) }

@@ -31,6 +31,7 @@ import dev.andrew.plinth.data.model.Track
 import dev.andrew.plinth.ui.components.EmptyState
 import dev.andrew.plinth.ui.components.ListRow
 import dev.andrew.plinth.ui.components.TrackRow
+import dev.andrew.plinth.ui.components.songMenu
 import dev.andrew.plinth.ui.theme.PlinthColors
 
 /**
@@ -45,6 +46,8 @@ fun SearchScreen(
     onQueryChange: (String) -> Unit,
     onOpenAlbum: (String) -> Unit = {},
     onPlayTrack: (Track) -> Unit = {},
+    onQueueTrack: (Track) -> Unit = {},
+    onShowDetails: (Track) -> Unit = {},
 ) {
     val focusManager = LocalFocusManager.current
     val keyboard = LocalSoftwareKeyboardController.current
@@ -132,6 +135,11 @@ fun SearchScreen(
                         durationSec = track.durationSec,
                         onClick = { onPlayTrack(track) },
                         testTag = "search-track-row",
+                        actions = songMenu(
+                            onPlay = { onPlayTrack(track) },
+                            onQueue = { onQueueTrack(track) },
+                            onDetails = { onShowDetails(track) },
+                        ),
                     )
                 }
             }

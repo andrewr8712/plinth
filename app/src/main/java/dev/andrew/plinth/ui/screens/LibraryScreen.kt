@@ -1,7 +1,9 @@
 package dev.andrew.plinth.ui.screens
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -22,8 +24,14 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
+import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -32,9 +40,14 @@ import dev.andrew.plinth.data.model.Album
 import dev.andrew.plinth.data.model.Track
 import dev.andrew.plinth.ui.components.Artwork
 import dev.andrew.plinth.ui.components.EmptyState
+import dev.andrew.plinth.ui.components.ItemMenu
 import dev.andrew.plinth.ui.components.ListRow
+import dev.andrew.plinth.ui.components.MenuAction
 import dev.andrew.plinth.ui.components.TrackRow
 import dev.andrew.plinth.ui.components.UnavailableChip
+import dev.andrew.plinth.ui.components.albumMenu
+import dev.andrew.plinth.ui.components.folderMenu
+import dev.andrew.plinth.ui.components.songMenu
 import dev.andrew.plinth.ui.layout.SurfaceSize
 import dev.andrew.plinth.ui.theme.PlinthColors
 
@@ -73,6 +86,11 @@ fun LibraryScreen(
     onOpenArtist: (String) -> Unit = {},
     onOpenFolder: (String) -> Unit = {},
     onPlayTrack: (Track) -> Unit = {},
+    onQueueTrack: (Track) -> Unit = {},
+    onShowDetails: (Track) -> Unit = {},
+    onPlayTracks: (List<Track>) -> Unit = {},
+    onQueueTracks: (List<Track>) -> Unit = {},
+    onReplaceTracks: (List<Track>) -> Unit = {},
 ) {
     val count = when (tab) {
         LibraryTab.Albums -> albums.size
@@ -140,7 +158,16 @@ fun LibraryScreen(
         }
 
         when (tab) {
-            LibraryTab.Albums -> AlbumGrid(size, albums, art, onOpenAlbum)
+            LibraryTab.Albums -> AlbumGrid(
+                size = size,
+                albums = albums,
+                tracks = tracks,
+                art = art,
+                onOpenAlbum = onOpenAlbum,
+                onPlayTracks = onPlayTracks,
+                onQueueTracks = onQueueTracks,
+                onReplaceTracks = onReplaceTracks,
+            )
             LibraryTab.Artists -> LazyColumn(Modifier.fillMaxSize().testTag("artistList")) {
                 items(artists, key = { it }) { artist ->
                     ListRow(text = artist, onClick = { onOpenArtist(artist) }, testTag = "artist-row")
@@ -155,12 +182,30 @@ fun LibraryScreen(
                         durationSec = track.durationSec,
                         onClick = { onPlayTrack(track) },
                         testTag = "all-track-row",
+                        actions = songMenu(
+                            onPlay = { onPlayTrack(track) },
+                            onQueue = { onQueueTrack(track) },
+                            onDetails = { onShowDetails(track) },
+                        ),
                     )
                 }
             }
             LibraryTab.Folders -> LazyColumn(Modifier.fillMaxSize().testTag("folderList")) {
                 items(folders, key = { it }) { folder ->
-                    ListRow(text = folder, onClick = { onOpenFolder(folder) }, testTag = "folder-row")
+                    // The same rule as the folder DAO query: this path segment, and below it.
+                    val folderTracks = tracks.filter {
+                        it.path == folder || it.path.startsWith("$folder/")
+                    }
+                    ListRow(
+                        text = folder,
+                        onClick = { onOpenFolder(folder) },
+                        testTag = "folder-row",
+                        actions = folderMenu(
+                            onPlay = { onPlayTracks(folderTracks) },
+                            onQueue = { onQueueTracks(folderTracks) },
+                            onReplace = { onReplaceTracks(folderTracks) },
+                        ),
+                    )
                 }
             }
         }
@@ -205,8 +250,12 @@ private fun LibraryTabs(tab: LibraryTab, onTab: (LibraryTab) -> Unit) {
 private fun AlbumGrid(
     size: SurfaceSize,
     albums: List<Album>,
+    tracks: List<Track>,
     art: ArtRepository?,
     onOpenAlbum: (String) -> Unit,
+    onPlayTracks: (List<Track>) -> Unit,
+    onQueueTracks: (List<Track>) -> Unit,
+    onReplaceTracks: (List<Track>) -> Unit,
 ) {
     val columns = when (size) {
         SurfaceSize.Compact -> 2
@@ -222,35 +271,78 @@ private fun AlbumGrid(
     ) {
         items(albums.size, key = { albums[it].id }) { index ->
             val album = albums[index]
-            AlbumTile(album, art, onClick = { onOpenAlbum(album.id) })
+            // The grid only has album rows, so the set the menu acts on comes from the
+            // same library list the Tracks tab draws from.
+            val albumTracks = tracks.filter { it.albumId == album.id }
+            AlbumTile(
+                album = album,
+                art = art,
+                onClick = { onOpenAlbum(album.id) },
+                actions = albumMenu(
+                    onPlay = { onPlayTracks(albumTracks) },
+                    onQueue = { onQueueTracks(albumTracks) },
+                    onReplace = { onReplaceTracks(albumTracks) },
+                ),
+            )
         }
     }
 }
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
-private fun AlbumTile(album: Album, art: ArtRepository?, onClick: () -> Unit) {
-    Column(Modifier.clickable { onClick() }.testTag("album-tile")) {
-        Artwork(
-            albumId = album.id,
-            firstTrackUri = album.firstUri,
-            art = art,
-            label = album.title,
-            modifier = Modifier.fillMaxWidth().aspectRatio(1f),
-        )
-        Text(
-            text = album.title,
-            color = PlinthColors.Text,
-            style = MaterialTheme.typography.bodySmall,
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis,
-            modifier = Modifier.padding(top = 8.dp),
-        )
-        Text(
-            text = listOfNotNull(album.artist.ifBlank { null }, album.edition).joinToString(" · "),
-            color = PlinthColors.Faint,
-            style = MaterialTheme.typography.bodySmall,
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis,
+private fun AlbumTile(
+    album: Album,
+    art: ArtRepository?,
+    onClick: () -> Unit,
+    actions: List<MenuAction> = emptyList(),
+) {
+    var menuOpen by remember { mutableStateOf(false) }
+    val haptics = LocalHapticFeedback.current
+    Box(Modifier.fillMaxWidth()) {
+        Column(
+            Modifier
+                .fillMaxWidth()
+                .combinedClickable(
+                    onClick = onClick,
+                    onLongClickLabel = if (actions.isEmpty()) null else "More actions",
+                    onLongClick = if (actions.isEmpty()) {
+                        null
+                    } else {
+                        {
+                            haptics.performHapticFeedback(HapticFeedbackType.LongPress)
+                            menuOpen = true
+                        }
+                    },
+                )
+                .testTag("album-tile"),
+        ) {
+            Artwork(
+                albumId = album.id,
+                firstTrackUri = album.firstUri,
+                art = art,
+                label = album.title,
+                modifier = Modifier.fillMaxWidth().aspectRatio(1f),
+            )
+            Text(
+                text = album.title,
+                color = PlinthColors.Text,
+                style = MaterialTheme.typography.bodySmall,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier.padding(top = 8.dp),
+            )
+            Text(
+                text = listOfNotNull(album.artist.ifBlank { null }, album.edition).joinToString(" · "),
+                color = PlinthColors.Faint,
+                style = MaterialTheme.typography.bodySmall,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+        }
+        ItemMenu(
+            expanded = menuOpen,
+            actions = actions,
+            onDismissRequest = { menuOpen = false },
         )
     }
 }

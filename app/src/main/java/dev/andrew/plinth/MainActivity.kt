@@ -35,6 +35,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -55,6 +57,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import dev.andrew.plinth.data.model.BackgroundPolicy
 import dev.andrew.plinth.data.model.PlaybackState
+import dev.andrew.plinth.data.model.Track
 import dev.andrew.plinth.data.playback.PlaybackEngine
 import dev.andrew.plinth.ui.layout.SurfaceSize
 import dev.andrew.plinth.ui.layout.rememberSurfaceSize
@@ -72,6 +75,7 @@ import dev.andrew.plinth.ui.screens.NowPlayingScreen
 import dev.andrew.plinth.ui.screens.OutputScreen
 import dev.andrew.plinth.ui.screens.QueueScreen
 import dev.andrew.plinth.ui.screens.SearchScreen
+import dev.andrew.plinth.ui.screens.TrackDetailsSheet
 import dev.andrew.plinth.ui.screens.TrackListScreen
 import dev.andrew.plinth.ui.screens.albumsMatching
 import dev.andrew.plinth.ui.theme.PlinthTheme
@@ -191,6 +195,26 @@ fun AppRoot(container: AppContainer) {
         onStopOrDispose { vm.stopMeter() }
     }
     var sheetOpen by androidx.compose.runtime.remember { androidx.compose.runtime.mutableStateOf(false) }
+    // The details sheet owns its own fetch: the track opens the sheet at once and the
+    // tag list arrives underneath it, so a slow streamer never delays the press.
+    var detailsTrack by remember { mutableStateOf<Track?>(null) }
+    var detailsTags by remember { mutableStateOf<List<Pair<String, String>>?>(null) }
+    var detailsLoading by remember { mutableStateOf(false) }
+    var detailsFailed by remember { mutableStateOf(false) }
+    val showDetails: (Track) -> Unit = { track ->
+        detailsTrack = track
+        detailsTags = null
+        detailsFailed = false
+        detailsLoading = true
+        vm.fetchTrackDetails(track.uri) { tags ->
+            // A slow answer for the previously opened track must not land on this one.
+            if (detailsTrack?.uri == track.uri) {
+                detailsTags = tags
+                detailsFailed = tags == null
+                detailsLoading = false
+            }
+        }
+    }
     // Incremented on every interaction; the top bar keys its idle countdown on it, so
     // a touch anywhere in the Scaffold restarts the fade without the observer having to
     // know which control was touched.
@@ -284,6 +308,11 @@ fun AppRoot(container: AppContainer) {
                     onOpenArtist = { name -> nav.navigate("artist/${android.net.Uri.encode(name)}") },
                     onOpenFolder = { name -> nav.navigate("folder/${android.net.Uri.encode(name)}") },
                     onPlayTrack = { track -> vm.playNow(track.uri) },
+                    onQueueTrack = { track -> vm.queueTrack(track.uri) },
+                    onShowDetails = showDetails,
+                    onPlayTracks = { vm.playCollection(it) },
+                    onQueueTracks = { vm.queueAll(it) },
+                    onReplaceTracks = { vm.replaceQueue(it) },
                 )
             }
             composable("album/{id}") { entry ->
@@ -298,6 +327,8 @@ fun AppRoot(container: AppContainer) {
                     onPlayTrack = { index -> vm.playAlbum(tracks, index) },
                     onPlayAll = { vm.playAlbum(tracks, 0) },
                     onQueueAll = { vm.queueAll(tracks) },
+                    onQueueTrack = { track -> vm.queueTrack(track.uri) },
+                    onShowDetails = showDetails,
                 )
             }
             composable("artist/{name}") { entry ->
@@ -308,6 +339,8 @@ fun AppRoot(container: AppContainer) {
                     subtitle = "",
                     tracks = tracks,
                     onPlay = { index -> vm.playAlbum(tracks, index) },
+                    onQueue = { track -> vm.queueTrack(track.uri) },
+                    onShowDetails = showDetails,
                     showAlbum = true,
                 )
             }
@@ -319,6 +352,8 @@ fun AppRoot(container: AppContainer) {
                     subtitle = "Folder",
                     tracks = tracks,
                     onPlay = { index -> vm.playAlbum(tracks, index) },
+                    onQueue = { track -> vm.queueTrack(track.uri) },
+                    onShowDetails = showDetails,
                     showAlbum = true,
                 )
             }
@@ -353,6 +388,8 @@ fun AppRoot(container: AppContainer) {
                     onQueryChange = vm::setQuery,
                     onOpenAlbum = { id -> nav.navigate("album/$id") },
                     onPlayTrack = { track -> vm.playNow(track.uri) },
+                    onQueueTrack = { track -> vm.queueTrack(track.uri) },
+                    onShowDetails = showDetails,
                 )
             }
             composable("output") {
@@ -400,6 +437,15 @@ fun AppRoot(container: AppContainer) {
                 )
             }
         }
+    }
+    detailsTrack?.let { track ->
+        TrackDetailsSheet(
+            track = track,
+            tags = detailsTags,
+            loading = detailsLoading,
+            failed = detailsFailed,
+            onDismiss = { detailsTrack = null },
+        )
     }
     if (sheetOpen) {
         NowPlayingSheet(

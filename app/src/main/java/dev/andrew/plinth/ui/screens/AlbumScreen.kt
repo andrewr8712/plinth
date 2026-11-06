@@ -22,6 +22,7 @@ import dev.andrew.plinth.data.art.ArtRepository
 import dev.andrew.plinth.data.model.Track
 import dev.andrew.plinth.ui.components.Artwork
 import dev.andrew.plinth.ui.components.TrackRow
+import dev.andrew.plinth.ui.components.songMenu
 import dev.andrew.plinth.ui.theme.PlinthColors
 
 /**
@@ -38,6 +39,8 @@ fun AlbumScreen(
     onPlayTrack: (Int) -> Unit = {},
     onPlayAll: () -> Unit = {},
     onQueueAll: () -> Unit = {},
+    onQueueTrack: (Track) -> Unit = {},
+    onShowDetails: (Track) -> Unit = {},
 ) {
     Column(Modifier.fillMaxSize().background(PlinthColors.Base)) {
         Row(
@@ -88,6 +91,11 @@ fun AlbumScreen(
                     // fabricated number, so the column stays empty instead.
                     number = track.trackNo.takeIf { it > 0 },
                     testTag = "list-track-row",
+                    actions = songMenu(
+                        onPlay = { onPlayTrack(index) },
+                        onQueue = { onQueueTrack(track) },
+                        onDetails = { onShowDetails(track) },
+                    ),
                 )
             }
         }

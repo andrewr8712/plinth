@@ -51,6 +51,13 @@ class MpdClient(private val socket: MpdSocket) {
         return LibraryParser.parse(p)
     }
 
+    /**
+     * Every tag MPD knows for one file, exactly as the server spells it. The library
+     * cache keeps only the fields it models; the details sheet wants the rest.
+     */
+    suspend fun lsinfo(uri: String): List<Pair<String, String>> =
+        okPairs(socket.command("lsinfo ${quote(uri)}"))
+
     /** The queue, whole. Called on every version change rather than diffing. */
     suspend fun playlistInfo(): List<QueueItem> {
         val p = okPairs(socket.command("playlistinfo", timeoutMs = MpdSocket.LIST_TIMEOUT_MS))
